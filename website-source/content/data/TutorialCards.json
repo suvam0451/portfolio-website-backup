@@ -1,0 +1,134 @@
+[
+    {
+        "date" : "2019-05-18",
+        "label": "DLLs/LIBs in UE4",
+        "desc": "Using DLLs + LIBs in UE4. Both static and dynamic linking",
+        "RelativeLink": "ue4-refs/dllandlib/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "mechanics, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-03-18",
+        "label": "Git setup for Unreal",
+        "desc": "Solo-dev/collab with git/git-bash/cli. Extended tutorials for gitlab.",
+        "RelativeLink": "ue4-refs/gitlabsetup/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "tutorial, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-04-26",
+        "label": "UE4 AssetManager",
+        "desc": "Using the powerful asset manager from UE4 engine plug-ins",
+        "RelativeLink": "ue4-plugins/scriptables/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "mechanics, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-04-12",
+        "label": "UE4 String context",
+        "desc": "What are these anyways ? Let me help you :)",
+        "RelativeLink": "ue4-refs/sourcetreesetup/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "tutorial, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-04-12",
+        "label": "UE4 thisthat",
+        "desc": "I have no fucking idea what this does.",
+        "RelativeLink": "ue4-plugins/scriptables/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "tutorial, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date" : "2019-05-18",
+        "label": "DLLs/LIBs in UE4",
+        "desc": "How to get DLLs LIBs working in UE. Both static and dynamic linking",
+        "RelativeLink": "ue4-plugins/scriptables/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "mechanics, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-03-18",
+        "label": "Modular Actor Spawning",
+        "desc": "Spawning appropriate actor dynamically using table lookups.",
+        "RelativeLink": "ue4-plugins/scriptables/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "tutorial, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-04-26",
+        "label": "DevOps with UE4+ Gitlab",
+        "desc": "Setting up simple DevOps pipelines for efficient development.",
+        "RelativeLink": "ue4-plugins/scriptables/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "mechanics, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-04-12",
+        "label": "UE4 String context",
+        "desc": "What are these anyways ? Let me help you :)",
+        "RelativeLink": "ue4-plugins/scriptables/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "tutorial, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-04-12",
+        "label": "UE4 thisthat",
+        "desc": "I have no fucking idea what this does.",
+        "RelativeLink": "ue4-plugins/scriptables/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "tutorial, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-04-12",
+        "label": "UE4 String context",
+        "desc": "What are these anyways ? Let me help you :)",
+        "RelativeLink": "ue4-plugins/scriptables/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "tutorial, ",
+        "tags": "jump, double jump, dash"
+    },
+    {
+        "date": "2019-04-12",
+        "label": "UE4 thisthat",
+        "desc": "I have no fucking idea what this does.",
+        "RelativeLink": "ue4-plugins/scriptables/",
+        "frontimg": {
+            "name": "front image",
+            "img1": "../images/DLLsLIBs.jpg"},
+        "category": "tutorial, ",
+        "tags": "jump, double jump, dash"
+    }
+]

@@ -1,6 +1,25 @@
 /* eslint-disable @typescript-eslint/camelcase */
 const gatsbyRemarkPlugins = [
-
+  {
+    resolve: `gatsby-remark-prismjs`,
+    options: {
+      classPrefix: "language-",
+      inlineCodeMarker: '>',
+      aliases: {},
+      showLineNumbers: false,
+      noInlineHighlight: false,
+    },
+  },
+  {
+    resolve: `gatsby-remark-images`,
+    options: {
+      maxWidth: 512,
+      linkImagesToOriginal: false,
+      showCaptions: false,
+      backgroundColor: 111111,
+      tracedSVG: false,
+    },
+  }
 ]
 
 module.exports = {
@@ -12,6 +31,11 @@ module.exports = {
   plugins: [
     `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-sharp`,
+    'gatsby-transformer-typescript-css-modules',
+    `gatsby-transformer-json`,
+    `gatsby-transformer-sharp`,
+    'prismjs',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -20,8 +44,16 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/content/images`
+      }
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
+        commonmark: true,
         plugins: gatsbyRemarkPlugins
       }
     },

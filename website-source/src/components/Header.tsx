@@ -3,6 +3,23 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { LunrSearch } from './LunrSearch'
+// import styles from "../components/container.module.css"
+import Logo from "../../content/images/ue4.png"
+import { 
+  Alert, 
+  Breadcrumb, 
+  BreadcrumbItem, 
+  Nav, 
+  NavbarBrand,
+  NavItem,
+  NavLink,
+  Navbar,
+  UncontrolledCollapse,
+  UncontrolledDropdown,
+  DropdownMenu,
+  DropdownToggle,
+  DropdownItem } from 'reactstrap'
+
 
 const style = {
     container: css`
@@ -31,18 +48,52 @@ const style = {
       color: #fff;
     }
   `
+interface HeaderProps {
+    readonly title: string
+}
+// This line is giving me errors... 
+// <Navbar className={styles.NavBarCustom} dark expand="md"></Navbar>
+export const Header = ({title}: HeaderProps) => (
+    <div css={style.container}>
+        <div css={style.wrapper}>
+            <h1 css={style.title}>
+                <TitleLink to="/">{title}</TitleLink>
+            </h1>
+            <LunrSearch limit={10}/>
+        </div>
+        <Navbar dark expand="md">
+          <NavbarBrand href="/">WinterWildfire</NavbarBrand>
+          <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="https://gitlab.com/winterwildfire">Gitlab</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="https://gitlab.com/winterwildfire">Twitter</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="https://gitlab.com/winterwildfire">About</NavLink>
+              </NavItem>
+              
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Options
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    Option 1
+                  </DropdownItem>
+                  <DropdownItem>
+                    Option 2
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
+                    Reset
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Navbar>
+    </div>
+)
 
-  interface HeaderProps {
-      readonly title: string
-  }
-
-  export const Header= ({title}: HeaderProps ) => (
-      <div css={style.container}>
-          <div css={style.wrapper}>
-              <h1 css={style.title}>
-                  <TitleLink to="/">{title}</TitleLink>
-              </h1>
-              <LunrSearch limit={10}/>
-          </div>
-      </div>
-  )
+// export {Header};

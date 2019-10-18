@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert } from 'react-bootstrap'
 import styles from "../components/container.module.css"
@@ -27,6 +28,13 @@ import styles from "../components/container.module.css"
 //     box-shadow: 2px 2px 1px 1px rgba(32,32,32,0.5);
 // }`
 
+=======
+import 'bootstrap/dist/css/bootstrap.min.css' // Without this line, css breaks.
+import { Alert } from 'react-bootstrap'
+import styles from "../components/container.module.css"
+
+
+>>>>>>> development
 export const Footer = () => {
     return (
         <Alert className = {styles.DarkCard}  color="secondary">

@@ -7,12 +7,18 @@ import { Layout } from '../components/Layout'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const MDXRenderer = require('gatsby-plugin-mdx/mdx-renderer')
+// import { MDXProvider } from '@mdx-js/react'
 
 interface ContentTemplateProps {
     readonly data: SinglePageQuery
 }
 
-const ContentTemplate = ({data}: ContentTemplateProps) => {
+const components = {
+  pre: props => <div {...props}/>,
+  code: props => <pre style={{color: 'tomato'}}{...props}/>
+}
+
+const ContentTemplate = ({data}: ContentTemplateProps, props : any) => {
     const {
         mdx: {frontmatter, body}
     } = data
@@ -22,12 +28,20 @@ const ContentTemplate = ({data}: ContentTemplateProps) => {
             <Helmet title={`${frontmatter.title}`}/>
             <h3>{frontmatter.title}</h3>
             <h3>{frontmatter.date}</h3>
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXRenderer>{body}
+            </MDXRenderer>
         </Layout>
     )
 }
 
-export default ContentTemplate
+// export default props => (
+//   <MDXProvider components={components}>
+//     <main {...props}>
+//     </main>
+//   </MDXProvider>
+// )
+
+// export default ContentTemplate
 
 export const query = graphql`
   query SinglePage($path: String!) {

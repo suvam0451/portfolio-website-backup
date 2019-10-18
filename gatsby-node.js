@@ -41,8 +41,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   
     const IndexTemplate = path.resolve('src/templates/IndexTemplate.tsx')
     const TagTemplate = path.resolve('src/templates/TagTemplate.tsx')
-    const SingleTemplate = path.resolve('src/templates/SingleTemplate.tsx')
-  
+    // const SingleTemplate = path.resolve('src/templates/SingleTemplate.tsx')
+    const SingleTemplate = path.resolve('src/templates/mdxPosts.tsx')
+
     const { data, errors } = await graphql(`
       {
         allMdx(filter: { frontmatter: { draft: { ne: true } } }) {

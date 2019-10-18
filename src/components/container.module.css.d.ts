@@ -1,7 +1,4 @@
-// export interface styles {
-//     username : string,
-//     boxbody: string
-// }
+/** Exposing custom styling elements to TypeScript */
 
 export const username: string;
 export const CustomHorizontalRule: string;
@@ -12,6 +9,7 @@ export const BasePage: string;
 export const DarkCard: string;
 export const DarkCardHead: string;
 export const DarkCardBody: string;
+export const DarkCardTable: string;
 export const BasePage: string;
 export const ShowCodeButton: string;
 export const NavBarCustom: string;

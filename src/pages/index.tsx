@@ -4,7 +4,7 @@ import { Layout } from "../components/Layout"
 import { Link } from 'gatsby'
 import { Helmet } from "react-helmet"
 import { Footer } from "../components/Footer"
-import { Header } from "../components/Header"
+import Header from "../components/Header"
 import styles from "../components/container.module.css" 
 import classnames from 'classnames';
 import TutorialSection from "../components/TutorialSection"

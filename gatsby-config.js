@@ -61,6 +61,8 @@ module.exports = {
             options: {
               maxWidth: 1035,
               sizeByPixelDensity: true,
+              showCaptions: true,
+              linkImagesToOriginal: false
             },
           },
           {
@@ -72,6 +74,14 @@ module.exports = {
               aliases: {},
             },
           },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: null,
+              rel: "nofollow noopener noreferrer external",
+            },
+          },
+          `gatsby-remark-slug`
         ]
       }
     },

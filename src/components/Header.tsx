@@ -55,7 +55,8 @@ interface HeaderProps {
 }
 // This line is giving me errors... 
 // <Navbar className={styles.NavBarCustom} dark expand="md"></Navbar>
-const Header = ({title}: HeaderProps) => (
+function Header(title: string = "N/A") {
+  return (
     <div>
       <Navbar className={styles.NavBarCustom} dark expand="md">
         <img src={Logo} alt="logo" className={styles.SpecialLogo}/>
@@ -94,7 +95,8 @@ const Header = ({title}: HeaderProps) => (
             </Collapse>
           </Navbar>
     </div>
-)
+  )
+}
 
 export default Header;
 

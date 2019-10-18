@@ -1,0 +1,22 @@
+---
+path: "/ue4-tuts/setting-up-visual-studio-with-unreal-engine-01"
+title: "Setting up visual studio with UE4 - Part 1/3"
+date: "2019-05-04"
+tags: ['ue4', 'mdx', 'example']
+draft: false
+---
+
+
+In this page, we will discuss how to
+
+1. Configure our visual studio environment.
+2. Produce valid DLLs/LIBs.
+
+If you have not yet set-up visual studio, please **visit set-up VS for UE4**. You will need it, for the code least. Or optionally, you can check this page for **settings up with VS Code**.
+```cpp
++dllmain.cpp
+```
+
+- As per docs, UE4 needs DLL code genereted in **Release mode**.
+- Target platform should be **x64**. Just as a note, if you were to use features similar to DLLs for android/linux/mac, the process is similar but you will need different compilers. More about that in discussions.
+

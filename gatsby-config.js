@@ -13,7 +13,7 @@ const gatsbyRemarkPlugins = [
   {
     resolve: `gatsby-remark-images`,
     options: {
-      maxWidth: 512,
+      maxWidth: 256,
       linkImagesToOriginal: false,
       showCaptions: false,
       backgroundColor: 111111,
@@ -32,6 +32,7 @@ module.exports = {
     `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-offline`,
     'gatsby-transformer-typescript-css-modules',
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
@@ -51,17 +52,27 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        commonmark: true,
-        plugins: gatsbyRemarkPlugins
-      }
-    },
-    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.md', '.mdx'],
-        gatsbyRemarkPlugins
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1035,
+              sizeByPixelDensity: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              showLineNumbers: true,
+              aliases: {},
+            },
+          },
+        ]
       }
     },
     {

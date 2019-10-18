@@ -4,7 +4,7 @@ import { IndexPageQuery, TagPageQuery } from 'generated/types/gatsby'
 import { Link } from 'gatsby'
 
 interface ContentListProps {
-    readonly edges: IndexPageQury['allMdx']['edges'] | TagPageQuery['allMdx']['edges']
+    readonly edges: IndexPageQuery['allMdx']['edges'] | TagPageQuery['allMdx']['edges']
 }
 
 const list = css`

@@ -1,19 +1,21 @@
 import React from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+// import styled from '@emotion/styled'
+// import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { LunrSearch } from './LunrSearch'
-// import styles from "../components/container.module.css"
+import styles from "../components/container.module.css"
 import Logo from "../../content/images/ue4.png"
 import { 
   Alert, 
   Breadcrumb, 
-  BreadcrumbItem, 
+  BreadcrumbItem,
+  Collapse,
   Nav, 
   NavbarBrand,
   NavItem,
   NavLink,
   Navbar,
+  NavbarToggler,
   UncontrolledCollapse,
   UncontrolledDropdown,
   DropdownMenu,
@@ -21,48 +23,45 @@ import {
   DropdownItem } from 'reactstrap'
 
 
-const style = {
-    container: css`
-      background: #ff5700;
-      margin-bottom: 1.45rem;
-    `,
-    wrapper: css`
-      display: grid;
-      grid-template-columns: auto 10rem;
-      grid-template-rows: auto;
-      margin: 0 auto;
-      max-width: 960px;
-      padding: 1.45rem 1.0875rem;
-    `,
-    title: css`
-      margin: 0;
-      display: inline-block;
-    `
-  }
+// const style = {
+//     container: css`
+//       background: #ff5700;
+//       margin-bottom: 1.45rem;
+//     `,
+//     wrapper: css`
+//       display: grid;
+//       grid-template-columns: auto 10rem;
+//       grid-template-rows: auto;
+//       margin: 0 auto;
+//       max-width: 960px;
+//       padding: 1.45rem 1.0875rem;
+//     `,
+//     title: css`
+//       margin: 0;
+//       display: inline-block;
+//     `
+//   }
   
-  const TitleLink = styled(Link)`
-    color: #fff;
-  
-    &:active,
-    &:hover {
-      color: #fff;
-    }
-  `
+// const TitleLink = styled(Link)`
+//   color: #fff;
+// 
+//   &:active,
+//   &:hover {
+//     color: #fff;
+//   }
+// `
 interface HeaderProps {
     readonly title: string
 }
 // This line is giving me errors... 
 // <Navbar className={styles.NavBarCustom} dark expand="md"></Navbar>
-export const Header = ({title}: HeaderProps) => (
-    <div css={style.container}>
-        <div css={style.wrapper}>
-            <h1 css={style.title}>
-                <TitleLink to="/">{title}</TitleLink>
-            </h1>
-            <LunrSearch limit={10}/>
-        </div>
-        <Navbar dark expand="md">
+const Header = ({title}: HeaderProps) => (
+    <div>
+      <Navbar className={styles.NavBarCustom} dark expand="md">
+        <img src={Logo} alt="logo" className={styles.SpecialLogo}/>
           <NavbarBrand href="/">WinterWildfire</NavbarBrand>
+          <NavbarToggler/>
+          <Collapse navbar>
           <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="https://gitlab.com/winterwildfire">Gitlab</NavLink>
@@ -92,8 +91,16 @@ export const Header = ({title}: HeaderProps) => (
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
+            </Collapse>
           </Navbar>
     </div>
 )
 
-// export {Header};
+export default Header;
+
+// <div css={style.wrapper}>
+// <h1 css={style.title}>
+//     <TitleLink to="/">{title}</TitleLink>
+// </h1>
+// <LunrSearch limit={10}/>
+// </div>

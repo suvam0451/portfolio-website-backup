@@ -15,3 +15,4 @@ export const DarkCardBody: string;
 export const BasePage: string;
 export const ShowCodeButton: string;
 export const NavBarCustom: string;
+export const SpecialLogo: string;

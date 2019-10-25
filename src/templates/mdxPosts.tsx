@@ -81,9 +81,7 @@ export default function PageTemplate(data: mdxProps){
                 <Card className ={styles.DarkCard} body>
                   <CardHeader tag="h4">{data.data.mdx.frontmatter.title}</CardHeader>
                   <CardBody className={styles.DarkCardBody}>
-                    <MDXProvider components={comps}>
-                      <MDXRenderer>{data.data.mdx.body}</MDXRenderer>
-                    </MDXProvider>
+                    <MDXRenderer>{data.data.mdx.body}</MDXRenderer>
                   </CardBody>
                 </Card>
               </Col>

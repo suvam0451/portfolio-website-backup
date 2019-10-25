@@ -43,15 +43,15 @@ const ContentTemplate = ({data}: ContentTemplateProps, props : any) => {
 
 // export default ContentTemplate
 
-export const query = graphql`
-  query SinglePage($path: String!) {
-    mdx(frontmatter: { draft: { ne: true }, path: { eq: $path } }) {
-      body
-      frontmatter {
-        date(formatString: "MMMM D, YYYY")
-        path
-        title
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query SinglePage($path: String!) {
+//     mdx(frontmatter: { draft: { ne: true }, path: { eq: $path } }) {
+//       body
+//       frontmatter {
+//         date(formatString: "MMMM D, YYYY")
+//         path
+//         title
+//       }
+//     }
+//   }
+// `

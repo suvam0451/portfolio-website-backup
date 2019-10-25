@@ -10,7 +10,6 @@ export const DarkCard: string;
 export const DarkCardHead: string;
 export const DarkCardBody: string;
 export const DarkCardTable: string;
-export const BasePage: string;
 export const ShowCodeButton: string;
 export const NavBarCustom: string;
 export const SpecialLogo: string;

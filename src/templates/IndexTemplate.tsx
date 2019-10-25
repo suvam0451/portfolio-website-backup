@@ -31,23 +31,23 @@ const IndexTemplate = ({ data, pageContext}: IndexPageProps) => {
 
 export default IndexTemplate
 
-export const query = graphql`
-  query IndexPage($skip: Int!, $limit: Int!) {
-    allMdx(
-      filter: { frontmatter: { draft: { ne: true } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          frontmatter {
-            date(formatString: "MMMM D, YYYY")
-            path
-            title
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query IndexPage($skip: Int!, $limit: Int!) {
+//     allMdx(
+//       filter: { frontmatter: { draft: { ne: true } } }
+//       sort: { order: DESC, fields: [frontmatter___date] }
+//       limit: $limit
+//       skip: $skip
+//     ) {
+//       edges {
+//         node {
+//           frontmatter {
+//             date(formatString: "MMMM D, YYYY")
+//             path
+//             title
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

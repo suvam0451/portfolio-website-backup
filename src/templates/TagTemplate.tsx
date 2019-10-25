@@ -31,23 +31,23 @@ const TagTemplate = (props: TagTemplateProps) => {
 
 export default TagTemplate
 
-export const query = graphql`
-  query TagPage($tag: String!, $skip: Int!, $limit: Int!) {
-    allMdx(
-      filter: { frontmatter: { draft: { ne: true }, tags: { in: [$tag] } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          frontmatter {
-            date(formatString: "MMMM D, YYYY")
-            path
-            title
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query TagPage($tag: String!, $skip: Int!, $limit: Int!) {
+//     allMdx(
+//       filter: { frontmatter: { draft: { ne: true }, tags: { in: [$tag] } } }
+//       sort: { order: DESC, fields: [frontmatter___date] }
+//       limit: $limit
+//       skip: $skip
+//     ) {
+//       edges {
+//         node {
+//           frontmatter {
+//             date(formatString: "MMMM D, YYYY")
+//             path
+//             title
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

@@ -140,6 +140,7 @@
   border-color: #000;
   color: black;
   border-bottom: 0px;
+  max-height: 20px;
 }
 
 .box:last-child {
@@ -204,10 +205,11 @@
 
 .SpecialLogo{
     width: auto;
-    max-width: 30px;
-    max-height: 30px;
     height: auto;
+    max-width: 40px;
+    max-height: 40px;
     margin-right: 10px;
+    vertical-align: middle;
 }
 
 .HomeScreen-enter {

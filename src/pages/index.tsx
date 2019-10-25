@@ -27,6 +27,7 @@ import {
   Jumbotron,
   TabPane,
   TabContent } from 'reactstrap'
+import { Segment, Container } from "semantic-ui-react"
 
 
 interface LunarSearchProps {
@@ -108,7 +109,7 @@ function Index(props: IndexPageProps) {
           <BreadcrumbItem active>Home</BreadcrumbItem>
       </Breadcrumb>
     <div>
-        <Nav tabs>
+        <Nav tabs className={styles.ModifiedNav}>
           <NavItem>
             <NavLink className={classnames({ active: ActiveTab === ActivePage.Featured })} 
                       onClick={ () => { ChangeActiveTab(ActivePage.Featured); }} >
@@ -170,13 +171,16 @@ function Index(props: IndexPageProps) {
             <TutorialSection/>
           </TabPane>
           <TabPane tabId={ActivePage.About}>
-          <Layout>
+            <Segment vertical inverted textAlign="center" className="masthead">
+              <Container text>
+                Hello there
+              </Container>
+            </Segment>
               <h1>{hello} TypeScript world!</h1>
               <p>This site is named <strong>{author}</strong></p>
               <h1>Hello world, from {author}!!</h1>
               <button onClick={()=>CounterUpdate()}>Kiss Me</button>
               <p>Konichiwa desu and {Counter}, to {title}</p>
-            </Layout>
           </TabPane>
         </TabContent>
       <Footer/>

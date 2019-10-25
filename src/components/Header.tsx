@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, memo } from 'react'
 // import styled from '@emotion/styled'
 // import { css } from '@emotion/core'
 import { Link } from 'gatsby'
@@ -23,44 +23,18 @@ import {
   DropdownItem } from 'reactstrap'
 
 
-// const style = {
-//     container: css`
-//       background: #ff5700;
-//       margin-bottom: 1.45rem;
-//     `,
-//     wrapper: css`
-//       display: grid;
-//       grid-template-columns: auto 10rem;
-//       grid-template-rows: auto;
-//       margin: 0 auto;
-//       max-width: 960px;
-//       padding: 1.45rem 1.0875rem;
-//     `,
-//     title: css`
-//       margin: 0;
-//       display: inline-block;
-//     `
-//   }
-  
-// const TitleLink = styled(Link)`
-//   color: #fff;
-// 
-//   &:active,
-//   &:hover {
-//     color: #fff;
-//   }
-// `
 interface HeaderProps {
     readonly title: string
 }
 // This line is giving me errors... 
 // <Navbar className={styles.NavBarCustom} dark expand="md"></Navbar>
-function Header(title: string = "N/A") {
+// <img src={Logo} alt="logo" className={styles.SpecialLogo}/>
+// function Header(title: string = "N/A") {
+const Header = React.memo(function myHeader(title: string = "N/A") {
   return (
     <div>
       <Navbar className={styles.NavBarCustom} dark expand="md">
-        <img src={Logo} alt="logo" className={styles.SpecialLogo}/>
-          <NavbarBrand href="/">WinterWildfire</NavbarBrand>
+        <NavbarBrand href="/">WinterWildfire</NavbarBrand>
           <NavbarToggler/>
           <Collapse navbar>
           <Nav className="ml-auto" navbar>
@@ -93,16 +67,10 @@ function Header(title: string = "N/A") {
               </UncontrolledDropdown>
             </Nav>
             </Collapse>
-          </Navbar>
+      </Navbar>
     </div>
   )
-}
+// }
+})
 
 export default Header;
-
-// <div css={style.wrapper}>
-// <h1 css={style.title}>
-//     <TitleLink to="/">{title}</TitleLink>
-// </h1>
-// <LunrSearch limit={10}/>
-// </div>

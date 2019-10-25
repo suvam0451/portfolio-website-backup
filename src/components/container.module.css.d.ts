@@ -14,3 +14,4 @@ export const BasePage: string;
 export const ShowCodeButton: string;
 export const NavBarCustom: string;
 export const SpecialLogo: string;
+export const ModifiedNav: string;

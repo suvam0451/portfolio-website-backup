@@ -14,7 +14,7 @@ import { MDXProvider } from "@mdx-js/react"
 /** 
  * 
 */
-import Alert from "../components/Alert"
+import _Alert from "../components/Alert"
 import { 
   Row, Col,
   Card, CardTitle, CardText, CardBody, CardHeader,
@@ -40,10 +40,10 @@ import {
 const MyH1 = props => <h1 style={{color: "tomato"}} {...props}/>
 const MyParagraph = props => <p style={{ fontSize: "18px", lineHeight: 1.6 }} />
 
-const components = {
+const comps = {
   // h1: MyH1,
   // p: MyParagraph,
-  Alert,
+  Alert: _Alert,
 }
 
 // export const wrapRootElement = ({ element }) => (
@@ -81,7 +81,7 @@ export default function PageTemplate(data: mdxProps){
                 <Card className ={styles.DarkCard} body>
                   <CardHeader tag="h4">{data.data.mdx.frontmatter.title}</CardHeader>
                   <CardBody className={styles.DarkCardBody}>
-                    <MDXProvider components={components}>
+                    <MDXProvider components={comps}>
                       <MDXRenderer>{data.data.mdx.body}</MDXRenderer>
                     </MDXProvider>
                   </CardBody>

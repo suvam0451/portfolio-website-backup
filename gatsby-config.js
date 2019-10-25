@@ -73,15 +73,7 @@ module.exports = {
               showLineNumbers: true,
               aliases: {},
             },
-          },
-          {
-            resolve: "gatsby-remark-external-links",
-            options: {
-              target: null,
-              rel: "nofollow noopener noreferrer external",
-            },
-          },
-          `gatsby-remark-slug`
+          }
         ]
       }
     },
@@ -120,9 +112,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`,
-        omitGoogleFont: true
+        pathToConfigModule: `src/utils/typography`,
+        omitGoogleFont: false
       }
     },
+    `gatsby-plugin-less`
   ],
 }
+
+// My need to get cofee energy. Coffee energy to get my need.

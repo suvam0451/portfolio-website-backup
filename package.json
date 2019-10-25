@@ -54,10 +54,7 @@
     "react-typography": "^0.16.19",
     "reactstrap": "^8.0.1",
     "semantic-ui-less": "^2.4.1",
-    "semantic-ui-react": "^0.88.1",
-    "typography": "^0.16.19",
-    "typography-theme-bootstrap": "^0.16.19",
-    "typography-theme-ocean-beach": "^0.16.19"
+    "semantic-ui-react": "^0.88.1"
   },
   "devDependencies": {
     "@types/node": "^12.7.12",

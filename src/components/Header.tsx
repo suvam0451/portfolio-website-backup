@@ -33,7 +33,7 @@ interface HeaderProps {
 const Header = React.memo(function myHeader(title: string = "N/A") {
   return (
     <div>
-      <Navbar className={styles.NavBarCustom} dark expand="md">
+      <Navbar className={styles["NavBarCustom"]} dark expand="md">
         <NavbarBrand href="/">WinterWildfire</NavbarBrand>
           <NavbarToggler/>
           <Collapse navbar>

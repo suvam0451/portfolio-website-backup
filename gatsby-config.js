@@ -1,27 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
-const gatsbyRemarkPlugins = [
-  {
-    resolve: `gatsby-remark-prismjs`,
-    options: {
-      classPrefix: "language-",
-      inlineCodeMarker: '>',
-      aliases: {},
-      showLineNumbers: false,
-      noInlineHighlight: false,
-    },
-  },
-  {
-    resolve: `gatsby-remark-images`,
-    options: {
-      maxWidth: 256,
-      linkImagesToOriginal: false,
-      showCaptions: false,
-      backgroundColor: 111111,
-      tracedSVG: false,
-    },
-  }
-]
-
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -33,7 +9,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
-    'gatsby-transformer-typescript-css-modules',
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     'prismjs',
@@ -108,9 +83,6 @@ module.exports = {
           }
         }
       }
-    },
-    `gatsby-plugin-less`
+    }
   ]
 }
-
-// My need to get cofee energy. Coffee energy to get my need.

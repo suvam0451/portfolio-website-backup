@@ -1,3 +1,4 @@
+require('dotenv').config()
 import React, {useState} from 'react'
 import { graphql } from 'gatsby'
 import { Layout } from "../components/Layout"
@@ -8,6 +9,8 @@ import Header from "../components/Header"
 import styles from "../components/container.module.css" 
 import classnames from 'classnames';
 import TutorialSection from "../components/TutorialSection"
+import axios from "axios"
+import priceAPI from '../utils/priceAPI.js'
 import { 
   Alert, 
   Breadcrumb, 
@@ -77,20 +80,76 @@ class IndexPages extends React.Component<IndexPageProps> {
   }
 }
 
+async function prepare() {
+  console.log("sweet little lies")
+  axios.get('https://api.github.com/users/maecapozzi')
+  .then(response => console.log(response))
+}
+
 function Index(props: IndexPageProps) {
   // Bindings
   const hello = `doomo`
+  const [textInput, setTextInput] = useState("arigato");
   const [isVisible, setIsVisible] = useState(false);
   const [Counter, setCounter] = useState(1);
   const [ActiveTab, setActiveTab] = useState(ActivePage.Featured)
   const [MenuDropdownState, setMenuDropdownState] = useState(false);
+  const [currentID, setcurrentID] = useState(0);
+  const [currentBuyAt, setCurrentBuy] = useState(0);
+  const [currentSellAt, setCurrentSell] = useState(0);
+
   // Toggle functions
   const toggleVisibile = () => { setIsVisible(!isVisible); } 
-  const ToggleMainMenuDrop = () => { setMenuDropdownState(!MenuDropdownState); } 
+  const ToggleMainMenuDrop = () => { 
+    // console.log("reimuuuuuu");
+    setTextInput("reimuuuu");
+    setMenuDropdownState(!MenuDropdownState); } 
   const CounterUpdate = () => { setCounter(Counter + 1); } 
   const ChangeActiveTab = (_SelectedTab : ActivePage) => { setActiveTab(_SelectedTab); }
   // Fetching graphql data
   const { title, author } = props.data.site.siteMetadata
+
+  async function prepare() {
+    // console.log("sweet little lies")
+    const response = await axios.get('https://api.guildwars2.com/v2/commerce/prices/19684');
+    setTextInput(response.statusText);
+    setTextInput(response.data["id"]);
+    // .then(response => setTextInput(response.data))
+  }
+
+  function handleInputChange(event: any) {
+    const target = event.target;
+    const value = target.value;
+    // const name = target.name
+    console.log("value found to be: " + value);
+    setcurrentID(value);
+    setCurrentBuy(value);
+    setCurrentSell(value);
+  }
+
+  function handlePriceSubmit(event: any){
+    event.preventDefault();
+    // alert("Don't tell no lies, la la la");
+
+    const todoInfo = {
+      id: currentID,
+      buy_at: currentBuyAt,
+      sell_at: currentSellAt
+    }
+    // alert(todoInfo);
+
+    alert("API key is: " + process.env.FAUNADB_SERVER_SECRET);
+    priceAPI.netlifyFunc(todoInfo).then((response: any) => {
+      console.log(response);
+    }).catch((e: any) => {
+      console.log('An API error occurred', e);
+    });
+    // priceAPI.CreateTable(todoInfo).then((response: any) => {
+// 
+    // }).catch((e : any) =>{
+    //   // In case of error, fallback to cached previous values
+    // });
+  }
 
 
   return (
@@ -168,9 +227,25 @@ function Index(props: IndexPageProps) {
             </Jumbotron>
           </TabPane>
           <TabPane tabId={ActivePage.Tutorials}>
+            <Button onClick={prepare}>spifire: {textInput}</Button>
             <TutorialSection/>
           </TabPane>
           <TabPane tabId={ActivePage.About}>
+            <form onSubmit={handlePriceSubmit}>
+              <label>
+                Item ID
+                <input type="number" name="id" value={currentID} onChange={handleInputChange}/>
+              </label>
+              <label>
+                Buying at
+                <input type="number" name="buy_at" value={currentBuyAt}/>
+              </label>
+              <label>
+                Selling at
+                <input type="number" name="sell_at" value={currentSellAt}/>
+              </label>
+              <button type="submit">Submit</button>
+            </form>
             <Segment vertical inverted textAlign="center" className="masthead">
               <Container text>
                 Hello there

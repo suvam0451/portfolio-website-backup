@@ -39,8 +39,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     //   }
     // }
   
-    const IndexTemplate = path.resolve('src/templates/IndexTemplate.tsx')
-    const TagTemplate = path.resolve('src/templates/TagTemplate.tsx')
+    // const IndexTemplate = path.resolve('src/templates/IndexTemplate.tsx')
+    // const TagTemplate = path.resolve('src/templates/TagTemplate.tsx')
     const SingleTemplate = path.resolve('src/templates/mdxPosts.tsx')
 
     const result = await graphql(`

@@ -3,7 +3,7 @@
         "date" : "2019-05-18",
         "label": "DLLs/LIBs in UE4",
         "desc": "Using DLLs + LIBs in UE4. Both static and dynamic linking",
-        "RelativeLink": "ue4-refs/dllandlib/",
+        "RelativeLink": "ue4/tutorials/third-party-static-and-dynamic-libraries/",
         "frontimg": {
             "name": "front image",
             "img1": "../images/DLLsLIBs.jpg"},

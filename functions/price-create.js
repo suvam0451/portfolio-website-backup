@@ -6,7 +6,7 @@ const faunadb = require('faunadb');
 const q = faunadb.query;
 const client = new faunadb.Client({
   // secret: process.env.FAUNADB_SERVER_SECRET
-  secret: fnADb5ABiOACAtWG18IhHbeZdgekEkYY3euhHLVW
+  secret: "fnADb5ABiOACAtWG18IhHbeZdgekEkYY3euhHLVW"
 })
 
 /* export our lambda function as named "handler" export */

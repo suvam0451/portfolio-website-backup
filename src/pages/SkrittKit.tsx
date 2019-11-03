@@ -10,6 +10,8 @@ import classnames from 'classnames';
 import TutorialSection from "../components/TutorialSection"
 import axios from "axios"
 import priceAPI from '../utils/priceAPI.js'
+import GoldCoin from "../../content/images/gw2/GoldCoin"
+import Img from "gatsby-image"
 import { 
   Alert, 
   Breadcrumb, 
@@ -32,7 +34,69 @@ import {
 import { Segment, Container } from "semantic-ui-react"
 import { Table } from 'react-bootstrap'
 
-function SkrittKit() {
+
+interface GW2TP {
+  data: {
+    id: number,
+    name: string,
+    buy_at: number
+    sell_at: number,
+    tolerance: number
+  }
+}
+
+function SkrittKit(data: any) {
+  // const [Table, setTable] = useState(<></>);
+  const [myTable, setTable] = useState(<></>);
+  const { Copper, Silver, Gold } = data.data;
+  
+  // State setters and getters
+  const [PriceData, setPriceData] = useState(Object);
+
+function ConstructTable(event: any) {
+  // const target = event.target;
+  // const value = target.value;
+
+    // alert("raabta");
+    const retval : any = [];
+
+    priceAPI.readAll().then((response: any) => {
+      setPriceData(response);
+      // retval.push(
+      //   <>
+      //   <tbody>
+      //     <td>10</td>
+      //     <td>10</td>
+      //     <td>10<Img fixed={Gold.childImageSharp.fixed}/></td>
+      //     <td>20<Img fixed={Silver.childImageSharp.fixed}/></td>
+      //     <td>30</td>
+      //     <td><h5>30</h5><Img fixed={Copper.childImageSharp.fixed}/></td>
+      //   </tbody>
+      //   </>
+      // )
+      const updatedPrices = PriceData.map((price : GW2TP, i : number) => {
+        retval.push(
+          <>
+          <tbody>
+            <td>{price.data.id}</td>
+            <td>{price.data.name}<img src="https://render.guildwars2.com/file/943538394A94A491C8632FBEF6203C2013443555/102478.png"/></td>
+            <td>{Math.floor(price.data.buy_at/10000) % 100}<Img fixed={Gold.childImageSharp.fixed}/></td>
+            <td>{Math.floor(price.data.buy_at/100) % 100}<Img fixed={Silver.childImageSharp.fixed}/></td>
+            <td>{price.data.buy_at % 100}<Img fixed={Copper.childImageSharp.fixed}/></td>
+            <td>30</td>
+          </tbody>
+          </>
+        )
+        const id = priceAPI.getTodoId(price);
+        // alert("sell " + price.data.id + " at " + price.data.sell_at);
+        // alert(retval);        
+      }).then(setTable(retval));
+    });
+
+
+    // return retval;
+  }
+
   return (
     <div>
       <Table striped bordered hover>
@@ -45,16 +109,71 @@ function SkrittKit() {
           <th>Margin</th>
         </thead>
         <tbody>
-          <td>Lonely</td>
-          <td>Lonely</td>
-          <td>Lonely</td>
-          <td>Lonely</td>
-          <td>Lonely</td>
-          <td>Lonely</td>
+          <td>10</td>
+          <td>10<Img fixed={Gold.childImageSharp.fixed}/></td>
+          <td>20</td>
+          <td>20<Img fixed={Silver.childImageSharp.fixed}/></td>
+          <td>30</td>
+          <td><h5>30</h5><Img fixed={Copper.childImageSharp.fixed}/></td>
         </tbody>
+        {myTable}
       </Table>
+      <form>
+        <input
+          // placeholder= "Salesperson's name?"
+          // name: 'name'
+          // value = {this.state.name}
+          onChange={ConstructTable}
+        />
+        <button>Submit</button>
+      </form>
     </div>
   )
 }
 
+
 export default SkrittKit;
+
+// Gets copper, silver and gold coins
+export const query = graphql
+`
+{
+  Copper: file(relativeDirectory: {eq: "images/gw2"}, name: {eq: "Copper_coin"}) {
+    childImageSharp {
+      fixed(width: 15, height: 15) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+  Silver: file(relativeDirectory: {eq: "images/gw2"}, name: {eq: "Silver_coin"}) {
+    childImageSharp {
+      fixed(width: 15, height: 15) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+  Gold: file(relativeDirectory: {eq: "images/gw2"}, name: {eq: "Gold_coin"}) {
+    childImageSharp {
+      fixed(width: 15, height: 15) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+}
+`
+
+// export const query = graphql`
+//   query {
+//     file(relativePath: { eq: "gw2/Copper_coin.png" }) {
+//       childImageSharp {
+//         # Specify the image processing specifications right in the query.
+//         # Makes it trivial to update as your page's design changes.
+//         fixed(width: 125, height: 125) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+//   }
+// `
+
+// export default SkrittKit;

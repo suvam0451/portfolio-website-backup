@@ -4,16 +4,11 @@ import { graphql }  from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Footer } from "../components/Footer"
 import Header from "../components/Header"
-import styles from "../components/container.module.css" 
+// import styles from "../components/container.module.css" 
 import { Helmet } from "react-helmet"
 import { QuickLinks } from "../components/QuickLinks"
 import { NavCard } from "../components/NavCard"
 import { StatusCard } from "../components/StatusCard"
-import { MDXProvider } from "@mdx-js/react"
-// import { MDXRenderer}
-/** 
- * 
-*/
 import _Alert from "../components/Alert"
 import { 
   Row, Col,
@@ -36,9 +31,16 @@ import {
   TabPane,
   TabContent } from 'reactstrap'
 
+import styled from "@emotion/styled"
+import "./mdxPosts.css"
 
-const MyH1 = props => <h1 style={{color: "tomato"}} {...props}/>
-const MyParagraph = props => <p style={{ fontSize: "18px", lineHeight: 1.6 }} />
+// const MyH1 = props => <h1 style={{color: "tomato"}} {...props}/>
+// const MyParagraph = props => <p style={{ fontSize: "18px", lineHeight: 1.6 }} />
+
+const Content = styled.div`
+  margin: 0 auto;
+  padding: 0.1rem 0.1rem;
+`
 
 const comps = {
   // h1: MyH1,
@@ -53,20 +55,20 @@ const comps = {
 export default function PageTemplate(data: mdxProps){
 // export default function PageTemplate({data: {mdx}}){
     return (
-        <div className={styles.BasePage}>
+        <Content>
             <Helmet>
-              <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+              {/*<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>*/}
             </Helmet>
             <Header/>
-            <Breadcrumb bsPrefix={styles.DarkCard} listClassName={styles.DarkCard} dark>
+            <Breadcrumb dark>
                 <BreadcrumbItem><Link to = "/">Home</Link></BreadcrumbItem>
                 <BreadcrumbItem><Link to = "/">UE4</Link></BreadcrumbItem>
                 <BreadcrumbItem active>tutorials</BreadcrumbItem>
                 <BreadcrumbItem active>dllandlibs</BreadcrumbItem>
                 {//<BreadcrumbItem active>{ this.MakeTutorialBoxes(edges, 2) }</BreadcrumbItem>
                 }
-
             </Breadcrumb>
+            <MDXRenderer>{data.data.mdx.body}</MDXRenderer>
             <Row>
               {/** List of all available tutorials + Skip to section(optional) */}
               <Col xs ="12" sm="12" md="12" lg="12" xl="2">
@@ -77,18 +79,20 @@ export default function PageTemplate(data: mdxProps){
               </Col>
               {/** Main body of mdx post */ }
               <Col xs="12" sm="12" md="12" lg="12" xl="7">
-                <h1>{data.data.mdx.frontmatter.title}</h1>
-                <Card className ={styles.DarkCard} body>
+                {/*<h1>{data.data.mdx.frontmatter.title}</h1>*/}
+                <Card body>
                   <CardHeader tag="h4">{data.data.mdx.frontmatter.title}</CardHeader>
-                  <CardBody className={styles.DarkCardBody}>
-                    <MDXRenderer>{data.data.mdx.body}</MDXRenderer>
+                  <CardBody>
+                    
                   </CardBody>
+                  
                 </Card>
+                <MDXRenderer>{data.data.mdx.body}</MDXRenderer>
               </Col>
               <Col xs="12" sm="12" md="12" lg="6" xl="3">
                 <Row>
                 <Col xs="12" sm="6" md="12" lg="6" xl="12">
-                <Card className ={styles.DarkCard} body xs="auto" xl="100">
+                <Card body xs="auto" xl="100">
                     <CardHeader tag="h5">Related Contents</CardHeader>
                     <CardBody>
                     <CardText>User created content used in WW APIs completely free. If you develop something cool using the tools, you can send us to be showcased here.</CardText>
@@ -97,7 +101,7 @@ export default function PageTemplate(data: mdxProps){
                 </Card>
                 </Col>
                 <Col xs="12" sm="6" md="12" lg="6" xl="12">
-                <Card className ={styles.DarkCard} body xs="12" xl="12">
+                <Card body xs="12" xl="12">
                   {/* Used persistent quicklinks from components/persistent*/}
                   <QuickLinks/>
                 </Card>
@@ -107,7 +111,7 @@ export default function PageTemplate(data: mdxProps){
             </Row>
 
             <Footer/>
-        </div>
+        </Content>
     )
 }
 

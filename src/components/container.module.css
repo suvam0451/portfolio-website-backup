@@ -48,26 +48,17 @@
 }
 
 .BasePage {
-  background-color: #101010;
+  background-color: #000;
   border-color: #101010;
-  color: tan;
+  color: #e6e6e6;
   border-bottom: 0px;
   margin-bottom: 0px;
 }
-
-.BasePage2 {
-  background-color: #101010;
-  border-color: #5c4f08;
-  color: rgb(228, 202, 168);
-  border-bottom: 0px;
-  margin-bottom: 0px;
-}
-
 
 .DarkCard {
-  background-color: #202020;
+  background-color: #191c1f;
   border-color: #202020;
-  color: #969696;
+  color: #e6e6e6;
   border-bottom: 5px;
   margin-bottom: 5px;
   margin-top: 5px;
@@ -82,12 +73,13 @@
   background-color: #262626;
   box-shadow: 10px, 10px;
   border-color: #000;
-  color: #b1a296;
+  color: #e6e6e6;
   border-bottom: 0px;
   margin-right: -5px;
   margin-left: -5px;
   border-right: -5px;
   border-left: -5px;
+  font-size: 1.0rem;
 }
 
 /* --- Used in small tables across website --- */
@@ -106,7 +98,7 @@
   background-color: #303030;
   box-shadow: 10px, 10px;
   border-color: #000;
-  color: #b1a296;
+  color: #FFF;
   border-bottom: 0px;
   margin-right: -5px;
   margin-left: -5px;

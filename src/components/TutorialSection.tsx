@@ -30,31 +30,31 @@ export default function Index(data : JsonTS.Element) {
        data.allTutorialCardsJson.edges.forEach(
         function (it : JsonTS.Element) {  
          arr.push(
-         <Col xs="12" sm="12" md="6" lg="6" xl="4">
-            <div className={styles.boxbody}>
-                <Card className={styles.DarkCard}>
-                    <Row>
-                        <Col xs="6" sm="6" md="6" lg="6" xl="6">
-                            <Card className={styles.DarkCard}>
-                                <CardHeader className={styles.DarkCardHead}>
-                                <h2 className = {styles.username}>{it.node.label}</h2>
-                                </CardHeader>  
-                                <CardBody>
-                                <p className = {styles.excerpt}>{it.node.desc}</p>
-                                <hr className="my-2"/>
-                                <Link to = {it.node.RelativeLink}>Link</Link>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col xs="6" sm="6" md="6" lg="6" xl="6">
-                            <CardBody>
-                                <Image fluid = {it.node.frontimg.img1.childImageSharp.fluid} alt="GifGallery"/>
-                            </CardBody>
-                        </Col>
-                    </Row>
-                </Card>
-            </div>
-         </Col>
+          <Col xs="12" sm="12" md="6" lg="6" xl="4">
+              <div className={styles.boxbody}>
+                  <Card className={styles.DarkCard}>
+                      <Row>
+                          <Col xs="6" sm="6" md="6" lg="6" xl="6">
+                              <Card className={styles.DarkCard}>
+                                  <CardHeader className={styles.DarkCardHead}>
+                                  <h2 className = {styles.username}>{it.node.label}</h2>
+                                  </CardHeader>  
+                                  <CardBody>
+                                  <p className = {styles.excerpt}>{it.node.desc}</p>
+                                  <hr className="my-2"/>
+                                  <Link to = {it.node.RelativeLink}>Link</Link>
+                                  </CardBody>
+                              </Card>
+                          </Col>
+                          <Col xs="6" sm="6" md="6" lg="6" xl="6">
+                              <CardBody>
+                                  <Image fluid = {it.node.frontimg.img1.childImageSharp.fluid} alt="GifGallery"/>
+                              </CardBody>
+                          </Col>
+                      </Row>
+                  </Card>
+              </div>
+          </Col>
         )  
          });
        return arr;

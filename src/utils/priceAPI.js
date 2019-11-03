@@ -19,7 +19,24 @@ const netlifyCreate = (data) => {
   })
 }
 
+const readAll = () => {
+  return fetch('/.netlify/functions/price-read-all').then((response) => {
+    // alert(response);
+    // const myBody = response.body;
+    return response.json()
+  })
+}
+
+function getTodoId(todo) {
+  if (!todo.ref) {
+    return null
+  }
+  return todo.ref['@ref'].id
+}
+
 export default {
   CreateTable: create,
-  netlifyFunc: netlifyCreate
+  readAll: readAll,
+  netlifyFunc: netlifyCreate,
+  getTodoId: getTodoId
 }

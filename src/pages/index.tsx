@@ -1,4 +1,4 @@
-require('dotenv').config()
+// require('dotenv').config()
 import React, {useState} from 'react'
 import { graphql } from 'gatsby'
 import { Layout } from "../components/Layout"
@@ -32,6 +32,16 @@ import {
   TabContent } from 'reactstrap'
 import { Segment, Container } from "semantic-ui-react"
 
+
+interface GW2TP {
+  data: {
+    id: number,
+    name: string,
+    buy_at: number
+    sell_at: number,
+    tolerance: number
+  }
+}
 
 interface LunarSearchProps {
   readonly limit: number
@@ -97,7 +107,7 @@ function Index(props: IndexPageProps) {
   const [currentID, setcurrentID] = useState(0);
   const [currentBuyAt, setCurrentBuy] = useState(0);
   const [currentSellAt, setCurrentSell] = useState(0);
-
+  const [PriceData, setPriceData] = useState(Object);
   // Toggle functions
   const toggleVisibile = () => { setIsVisible(!isVisible); } 
   const ToggleMainMenuDrop = () => { 
@@ -136,19 +146,14 @@ function Index(props: IndexPageProps) {
       buy_at: currentBuyAt,
       sell_at: currentSellAt
     }
-    // alert(todoInfo);
 
-    alert("API key is: " + process.env.FAUNADB_SERVER_SECRET);
-    priceAPI.netlifyFunc(todoInfo).then((response: any) => {
-      console.log(response);
-    }).catch((e: any) => {
-      console.log('An API error occurred', e);
+    priceAPI.readAll().then((response: any) => {
+      setPriceData(response);
+      const updatedPrices = PriceData.map((price : GW2TP, i : number) => {
+        const id = priceAPI.getTodoId(price);
+        alert("sell " + price.data.id + " at " + price.data.sell_at);
+      });
     });
-    // priceAPI.CreateTable(todoInfo).then((response: any) => {
-// 
-    // }).catch((e : any) =>{
-    //   // In case of error, fallback to cached previous values
-    // });
   }
 
 

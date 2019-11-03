@@ -1,4 +1,5 @@
 const proxy = require("http-proxy-middleware")
+;const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
@@ -20,10 +21,12 @@ module.exports = {
     )
   },
   plugins: [
-    `gatsby-plugin-typescript`,
-    'gatsby-plugin-react-helmet',
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-typescript`,
+
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     'prismjs',
@@ -35,11 +38,16 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-transformer-remark`,
       options: {
-        name: 'images',
-        path: `${__dirname}/content/images`
-      }
+        plugins: [`gatsby-remark-reading-time`, {
+          resolve: `gatsby-remark-prismjs`,
+          options: {
+            aliases:{sh: "bash", js:"javascript"},
+            showLineNumbers: true,
+          }
+        }],
+      },
     },
     {
       resolve: 'gatsby-plugin-mdx',

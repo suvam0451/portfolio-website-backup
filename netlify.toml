@@ -1,0 +1,7 @@
+[build]
+    functions = "lambda"
+    Command = "gatsby build"
+    publish = "public"
+
+[template.environment]
+    FAUNADB_SERVER_SECRET = "fnADb5ABiOACAtWG18IhHbeZdgekEkYY3euhHLVW"

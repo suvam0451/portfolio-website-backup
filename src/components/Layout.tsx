@@ -3,7 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 // import { SiteMetadataQuery } from 'generated/types/gatsby'
 import { css } from '@emotion/core'
-import { Header } from './Header'
+import Header from './Header'
+import { QuickLinks } from "./QuickLinks"
 
  
 const wrapper = css`

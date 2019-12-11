@@ -7,7 +7,11 @@
 // And to shim assets, use (one file extension per `declare`):
 // declare module "*.png"
 
-declare module '*.css' {
-    const content: {[className: string]: string};
-    export = content;
+declare module "*.css" {
+	const content: { [className: string]: string };
+	export = content;
+}
+declare module "*.png" {
+	const value: any;
+	export = value;
 }

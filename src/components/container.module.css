@@ -1,256 +1,257 @@
 .container {
-    margin: 3rem auto;
-    max-width: 600px;
+	margin: 3rem auto;
+	max-width: 600px;
 }
 
 .boxbody {
-    min-width: 300px;
-    max-width: 800px;
-    min-height: 128px;
-    max-height: 512px;
-    padding: 0px;
-    padding-left:5px;
-    padding-right:6px;
-	  border: 3px solid #201616;
-    border-radius: 1%;
-    margin-left: 0px;
-    margin-bottom: 8px;
-    margin-top: 8px;
+	min-width: 300px;
+	max-width: 800px;
+	max-height: 256px;
+	padding: 5px;
+	border: 3px solid #201616;
+	border-radius: 1%;
+	margin-left: 0px;
+	margin-bottom: 8px;
+	margin-top: 8px;
 }
 
 .RowHolder {
-    margin-left:10px;
-    margin-right:10px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 .ShowCode {
-  background-color: #343434;
-  min-height: 70px;
-  margin: 0px, 0px, 0px, 0px;
-  border: 0px, 0px, 0px, 0px;
+	background-color: #343434;
+	min-height: 70px;
+	margin: 0px, 0px, 0px, 0px;
+	border: 0px, 0px, 0px, 0px;
 }
 .ShowCodeButton {
-  background-color: #5050507F;
-  text-emphasis-color: #606060;
-  outline-color: #303030;
-  box-shadow: 2px 2px 1px 1px rgba(42,42,42,1.0);
-  color: #D0D0D0;
-  margin-bottom: 0px;
-  border-bottom: 10px;
-  border-left: 0px;
-  border-right: 0px;
+	background-color: #5050507f;
+	text-emphasis-color: #606060;
+	outline-color: #303030;
+	box-shadow: 2px 2px 1px 1px rgba(42, 42, 42, 1);
+	color: #d0d0d0;
+	margin-bottom: 0px;
+	border-bottom: 10px;
+	border-left: 0px;
+	border-right: 0px;
 }
 
 .BrownAlert {
-  background-color: #191f31;
-  border-color: #000;
-  color: tan;
-  border-bottom: 0px;
+	background-color: #191f31;
+	border-color: #000;
+	color: tan;
+	border-bottom: 0px;
 }
 
+/* .BasePage {
+	background-color: #000;
+	border-color: #101010;
+	color: #e6e6e6;
+	border-bottom: 0px;
+	margin-bottom: 0px;
+} */
+
 .BasePage {
-  background-color: #000;
-  border-color: #101010;
-  color: #e6e6e6;
-  border-bottom: 0px;
-  margin-bottom: 0px;
+	background-color: #000;
 }
 
 .DarkCard {
-  background-color: #191c1f;
-  border-color: #202020;
-  color: #e6e6e6;
-  border-bottom: 5px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  margin-right: 0px;
-  margin-left: 0px;
-  border-right: 0px;
-  border-left: 0px;
-  box-shadow: 2px 2px 1px 1px rgba(32,32,32,0.5);
+	background-color: #191c1f;
+	border-color: #202020;
+	color: #e6e6e6;
+	border-bottom: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	margin-right: 0px;
+	margin-left: 0px;
+	border-right: 0px;
+	border-left: 0px;
+	box-shadow: 2px 2px 1px 1px rgba(32, 32, 32, 0.5);
 }
 
 .DarkCardBody {
-  background-color: #262626;
-  box-shadow: 10px, 10px;
-  border-color: #000;
-  color: #e6e6e6;
-  border-bottom: 0px;
-  margin-right: -5px;
-  margin-left: -5px;
-  border-right: -5px;
-  border-left: -5px;
-  font-size: 1.0rem;
+	background-color: #262626;
+	box-shadow: 10px, 10px;
+	border-color: #000;
+	color: #e6e6e6;
+	border-bottom: 0px;
+	margin-right: -5px;
+	margin-left: -5px;
+	border-right: -5px;
+	border-left: -5px;
+	font-size: 1rem;
 }
 
 /* --- Used in small tables across website --- */
 .DarkCardTable {
-  background-color: #262626;
-  box-shadow: 10px, 10px;
-  border-color: #000;
-  color: #b1a296;
-  border-bottom: 0px;
-  margin-right: 0px;
-  margin-left: 0px;
-  border-right: 0px;
-  border-left: 0px;
+	background-color: #262626;
+	box-shadow: 10px, 10px;
+	border-color: #000;
+	color: #b1a296;
+	border-bottom: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	border-right: 0px;
+	border-left: 0px;
 }
 .DarkCardHead {
-  background-color: #303030;
-  box-shadow: 10px, 10px;
-  border-color: #000;
-  color: #FFF;
-  border-bottom: 0px;
-  margin-right: -5px;
-  margin-left: -5px;
-  border-right: -5px;
-  border-left: -5px;
+	background-color: #303030;
+	box-shadow: 10px, 10px;
+	border-color: #000;
+	color: #fff;
+	border-bottom: 0px;
+	margin-right: -5px;
+	margin-left: -5px;
+	border-right: -5px;
+	border-left: -5px;
 }
 
 .AlertCustom {
-  background-color: #445450;
-  border-color: #000;
-  color: black;
-  border-bottom: 0px;
-  margin-bottom: 0px;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+	background-color: #445450;
+	border-color: #000;
+	color: black;
+	border-bottom: 0px;
+	margin-bottom: 0px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .BreadCrumbCustom {
-  background-color: #121212;
-  border-color: #000;
-  color: white;
-  border-bottom: 0px;
+	background-color: #121212;
+	border-color: #000;
+	color: white;
+	border-bottom: 0px;
 }
 
 .NavBarCustom li a {
-  background-color: #121212;
-  border-color: #000;
-  color: black;
-  border-bottom: 0px;
-  max-height: 20px;
+	background-color: #121212;
+	border-color: #000;
+	color: black;
+	border-bottom: 0px;
+	max-height: 20px;
 }
 
 .box:last-child {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .boximage {
-    width: 100%;
-    height: auto;
-    min-width: 128px;
-    max-width: 260px;
-    flex: 6;
-    margin: 0;
-    padding-right: 0px;
-    text-align: "left";
-    align-content: "flex-end";
+	width: 100%;
+	height: auto;
+	min-width: 128px;
+	max-width: 260px;
+	flex: 6;
+	margin: 0;
+	padding-right: 0px;
+	text-align: "left";
+	align-content: "flex-end";
 }
 
 .boximageinside {
-    width: 100%;
-    height: auto;
-    min-width: 250px;
-    max-width: 260px;
-    margin: 0;
+	width: 100%;
+	height: auto;
+	min-width: 250px;
+	max-width: 260px;
+	margin: 0;
 }
 
 .smolparagraph {
-  font-size: 16px;
-  line-height: 20%;
+	font-size: 16px;
+	line-height: 20%;
 }
 
 .boxdescription {
-    flex: 4;
-    margin-left: 12px;
-    min-width: 400;
-    padding: 14px;
+	flex: 4;
+	margin-left: 12px;
+	min-width: 400;
+	padding: 14px;
 }
 
 .username {
-    margin: 0 0 5px 0;
-    padding: 0;
-    font-size: 17px;
-    min-width: 50px;
-    max-width: 300px;
+	margin: 0 0 5px 0;
+	padding: 0;
+	font-size: 17px;
+	min-width: 50px;
+	max-width: 300px;
 }
-  
+
 .excerpt {
-    margin: 0;
-    width: auto;
-    font-size: 14px;
-    line-height: 0.5cm;
+	margin: 0;
+	width: auto;
+	font-size: 14px;
+	line-height: 0.5cm;
 }
 
-.CustomHorizontalRule{
-    height: 0px;
+.CustomHorizontalRule {
+	height: 0px;
 }
 
-.SpecialImage{
-    width: 100%;
-    height: auto;
+.SpecialImage {
+	width: 100%;
+	height: auto;
 }
 
-.SpecialLogo{
-    width: auto;
-    height: auto;
-    max-width: 40px;
-    max-height: 40px;
-    margin-right: 10px;
-    vertical-align: middle;
+.SpecialLogo {
+	width: auto;
+	height: auto;
+	max-width: 40px;
+	max-height: 40px;
+	margin-right: 10px;
+	vertical-align: middle;
 }
 
 .HomeScreen-enter {
-  opacity: 0.01;
-  transform: scale(1.1);
+	opacity: 0.01;
+	transform: scale(1.1);
 }
-  
+
 .HomeScreen-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: all 300ms;
+	opacity: 1;
+	transform: scale(1);
+	transition: all 300ms;
 }
 
 .HomeScreen-exit {
-  opacity: 1;
-  transform: scale(1);
+	opacity: 1;
+	transform: scale(1);
 }
 
 .HomeScreen-exit-active {
-  opacity: 0.01;
-  transform: scale(1.1);
-  transition: all 300ms;
+	opacity: 0.01;
+	transform: scale(1.1);
+	transition: all 300ms;
 }
 .ml11 {
-  font-weight: 900;
-  font-size: 3.5em;
+	font-weight: 900;
+	font-size: 3.5em;
 }
 
 .ml11textwrapper {
-  position: relative;
-  display: inline-block;
-  padding-top: 0.1em;
-  padding-right: 0.05em;
-  padding-bottom: 0.15em;
+	position: relative;
+	display: inline-block;
+	padding-top: 0.1em;
+	padding-right: 0.05em;
+	padding-bottom: 0.15em;
 }
 
 .ml11 .line {
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 3px;
-  background-color: #fff;
-  transform-origin: 0 50%;
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 3px;
+	background-color: #fff;
+	transform-origin: 0 50%;
 }
 
-.ml11line1 { 
-  top: 0; 
-  left: 0;
+.ml11line1 {
+	top: 0;
+	left: 0;
 }
 
 .ml11letter {
-  display: inline-block;
-  line-height: 1em;
+	display: inline-block;
+	line-height: 1em;
 }

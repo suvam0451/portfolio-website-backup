@@ -14,8 +14,8 @@ import GoldCoin from "../../content/images/gw2/GoldCoin"
 import Img from "gatsby-image"
 import { 
   Alert, 
-  Breadcrumb, 
-  Button,
+  // Breadcrumb, 
+  // Button,
   BreadcrumbItem, 
   Nav, 
   NavbarBrand,
@@ -33,7 +33,7 @@ import {
   TabContent } from 'reactstrap'
 import { Segment, Container } from "semantic-ui-react"
 import { Table } from 'react-bootstrap'
-
+import { Button, Intent, Breadcrumbs, IBreadcrumbProps, Icon, Card, Breadcrumb } from "@blueprintjs/core";
 
 interface GW2TP {
   data: {
@@ -45,60 +45,52 @@ interface GW2TP {
   }
 }
 
-function SkrittKit(data: any) {
+const BREADCRUMBS: IBreadcrumbProps[] = [
+  { href: "/users", icon: "folder-close", text: "Users" },
+  { href: "/users/janet", icon: "folder-close", text: "Janet" },
+  { icon: "document", text: "image.jpg" },
+]
+
+export class SkrittKit extends React.Component {
   // const [Table, setTable] = useState(<></>);
-  const [myTable, setTable] = useState(<></>);
-  const { Copper, Silver, Gold } = data.data;
+  // const [myTable, setTable] = useState(<></>);
+  // const { Copper, Silver, Gold } = data.data;
   
   // State setters and getters
-  const [PriceData, setPriceData] = useState(Object);
+  // const [PriceData, setPriceData] = useState(Object);
 
-function ConstructTable(event: any) {
-  // const target = event.target;
-  // const value = target.value;
+// function ConstructTable(event: any) {
+//   // const target = event.target;
+//   // const value = target.value;
+// 
+//     // alert("raabta");
+//     const retval : any = [];
+// 
+//     priceAPI.readAll().then((response: any) => {
+//       setPriceData(response);
+//       const updatedPrices = PriceData.map((price : GW2TP, i : number) => {
+//         retval.push(
+//           <>
+//           <tbody>
+//             <td>{price.data.id}</td>
+//             <td>{price.data.name}<img src="https://render.guildwars2.com/file/943538394A94A491C8632FBEF6203C2013443555/102478.png"/></td>
+//             <td>{Math.floor(price.data.buy_at/10000) % 100}<Img fixed={Gold.childImageSharp.fixed}/></td>
+//             <td>{Math.floor(price.data.buy_at/100) % 100}<Img fixed={Silver.childImageSharp.fixed}/></td>
+//             <td>{price.data.buy_at % 100}<Img fixed={Copper.childImageSharp.fixed}/></td>
+//             <td>30</td>
+//           </tbody>
+//           </>
+//         )
+//         const id = priceAPI.getTodoId(price);
+//         // alert("sell " + price.data.id + " at " + price.data.sell_at);
+//         // alert(retval);        
+//       }).then(setTable(retval));
+//     });
+//   }
 
-    // alert("raabta");
-    const retval : any = [];
-
-    priceAPI.readAll().then((response: any) => {
-      setPriceData(response);
-      // retval.push(
-      //   <>
-      //   <tbody>
-      //     <td>10</td>
-      //     <td>10</td>
-      //     <td>10<Img fixed={Gold.childImageSharp.fixed}/></td>
-      //     <td>20<Img fixed={Silver.childImageSharp.fixed}/></td>
-      //     <td>30</td>
-      //     <td><h5>30</h5><Img fixed={Copper.childImageSharp.fixed}/></td>
-      //   </tbody>
-      //   </>
-      // )
-      const updatedPrices = PriceData.map((price : GW2TP, i : number) => {
-        retval.push(
-          <>
-          <tbody>
-            <td>{price.data.id}</td>
-            <td>{price.data.name}<img src="https://render.guildwars2.com/file/943538394A94A491C8632FBEF6203C2013443555/102478.png"/></td>
-            <td>{Math.floor(price.data.buy_at/10000) % 100}<Img fixed={Gold.childImageSharp.fixed}/></td>
-            <td>{Math.floor(price.data.buy_at/100) % 100}<Img fixed={Silver.childImageSharp.fixed}/></td>
-            <td>{price.data.buy_at % 100}<Img fixed={Copper.childImageSharp.fixed}/></td>
-            <td>30</td>
-          </tbody>
-          </>
-        )
-        const id = priceAPI.getTodoId(price);
-        // alert("sell " + price.data.id + " at " + price.data.sell_at);
-        // alert(retval);        
-      }).then(setTable(retval));
-    });
-
-
-    // return retval;
-  }
-
-  return (
-    <div>
+  public render() {
+    return (
+    <>
       <Table striped bordered hover>
         <thead>
           <th>#</th>
@@ -110,29 +102,38 @@ function ConstructTable(event: any) {
         </thead>
         <tbody>
           <td>10</td>
-          <td>10<Img fixed={Gold.childImageSharp.fixed}/></td>
+          <td>{/*20<Img fixed={Gold.childImageSharp.fixed}/>*/}</td>
           <td>20</td>
-          <td>20<Img fixed={Silver.childImageSharp.fixed}/></td>
+          <td>{/*20<Img fixed={Silver.childImageSharp.fixed}/>*/}</td>
           <td>30</td>
-          <td><h5>30</h5><Img fixed={Copper.childImageSharp.fixed}/></td>
+          <td>{/*20<Img fixed={Copper.childImageSharp.fixed}/>*/}</td>
         </tbody>
-        {myTable}
+        {/*myTable*/}
       </Table>
-      <form>
+      <Card elevation={0} style={{ width: `100%` }}>
+        <Breadcrumbs
+          currentBreadcrumbRenderer={this.renderCurrentBreadcrumb}
+          items={BREADCRUMBS}
+        />
+      </Card>
+      {/*<form>
         <input
           // placeholder= "Salesperson's name?"
           // name: 'name'
           // value = {this.state.name}
-          onChange={ConstructTable}
+          // onChange={ConstructTable}
         />
         <button>Submit</button>
-      </form>
-    </div>
-  )
+      </form>*/}
+    </>
+    );
+  }
+
+  private renderCurrentBreadcrumb({ text, ...restProps }: IBreadcrumbProps) {
+    // customize rendering of last breadcrumb
+    return <Breadcrumb {...restProps}>{text} <Icon icon="star" /></Breadcrumb>;
+  };
 }
-
-
-export default SkrittKit;
 
 // Gets copper, silver and gold coins
 export const query = graphql
@@ -159,8 +160,7 @@ export const query = graphql
       }
     }
   }
-}
-`
+}`
 
 // export const query = graphql`
 //   query {

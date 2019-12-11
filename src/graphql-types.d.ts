@@ -1,10 +1,10 @@
 export interface Query {
-    allMarkdownRemark: MarkdownRemarkConnection | null;
+  allMarkdownRemark: MarkdownRemarkConnection | null;
 }
 
 export interface AllMarkdownRemarkQueryArgs {
-    skip: number | null;
-    limit: number | null;
-    sort: markdownRemarkConnectionSort | null;
-    filter: filterMarkdownRemark | null;
+  skip: number | null;
+  limit: number | null;
+  sort: markdownRemarkConnectionSort | null;
+  filter: filterMarkdownRemark | null;
 }

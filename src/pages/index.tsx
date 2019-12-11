@@ -11,7 +11,7 @@ import classnames from "classnames";
 import TutorialSection from "../components/TutorialSection";
 import axios from "axios";
 import priceAPI from "../utils/priceAPI.js";
-import { TypographyStyle, GoogleFont } from "react-typography";
+// import { TypographyStyle, GoogleFont } from "react-typography";
 import typography from "../utils/typography";
 import {
 	Alert,
@@ -253,8 +253,6 @@ function Index(props: IndexPageProps) {
 					name="google-site-verification"
 					content="UpQOVR-GDQR8BBe7XafsQYt2TeI7G_xP-3SrFoAy7L0"
 				/>
-				<TypographyStyle typography={typography} />
-				<GoogleFont typography={typography} />
 			</Helmet>
 
 			{/* <Header title={"WinterWildfire"} /> */}

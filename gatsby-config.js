@@ -27,13 +27,13 @@ module.exports = {
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-typescript`,
 		`gatsby-plugin-postcss`,
-		{
-			resolve: `gatsby-plugin-typography`,
-			options: {
-				pathToConfigModule: `src/utils/typography`,
-				omitGoogleFont: false,
-			},
-		},
+		// {
+		// 	resolve: `gatsby-plugin-typography`,
+		// 	options: {
+		// 		pathToConfigModule: `src/utils/typography`,
+		// 		omitGoogleFont: false,
+		// 	},
+		// },
 		`gatsby-transformer-json`,
 		`gatsby-transformer-sharp`,
 		"prismjs",

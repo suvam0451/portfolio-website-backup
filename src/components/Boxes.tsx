@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import styles from "./container.module.css";
 import ue4_icon from "../../content/images/ue4-icon.png";
 import Image from "gatsby-image";
 
@@ -18,23 +17,10 @@ interface TutorialCardProps {
 	readonly image: any;
 }
 
-function Boxes(props: BoxProps) {
-	return (
-		<div className={styles.boxbody}>
-			<div>
-				<h2 className={styles.username}>{props.label}</h2>
-				<hr className={styles.CustomHorizontalRule}></hr>
-				<p className={styles.excerpt}>{props.description}</p>
-			</div>
-			<div className={styles.boximage}></div>
-		</div>
-	);
-}
-
 function TutorialCard(props: TutorialCardProps) {
 	return (
-		<div className="border-gray-600 border-2 border-solid rounded-lg">
-			<div className="bg-gray-400 flex-1 bg-gray-200  p-3 rounded-lg overflow-hidden border flex h-48 mx-2 my-2 shadow-md">
+		<div className="border-gray-600 border-2 border-solid rounded-lg my-2">
+			<div className="bg-gray-500 hover:bg-gray-600 flex-1 p-2 rounded-lg overflow-hidden border flex h-40 mx-1 my-1 shadow-md">
 				<div className="flex-1 pl-2 pr-3 pt-2">
 					<h5 className="font-bold mb-3">{props.title}</h5>
 					<div className="bg-teal-600 h-1 rounded-lg mb-1" />
@@ -71,4 +57,4 @@ function TutorialCard(props: TutorialCardProps) {
 		</div>
 	);
 }
-export { Boxes, TutorialCard };
+export { TutorialCard };

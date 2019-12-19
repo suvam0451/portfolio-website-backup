@@ -1,27 +1,7 @@
 import { Link } from "gatsby";
 import React, { Component } from "react";
-import {
-	Col,
-	// Card,
-	CardBody,
-	CardHeader,
-} from "reactstrap";
-import styles from "./container.module.css";
-import {
-	Alignment,
-	Button,
-	Intent,
-	Breadcrumbs,
-	Breadcrumb,
-	IBreadcrumbProps,
-	Icon,
-	Card,
-	Navbar,
-	NavbarHeading,
-	NavbarDivider,
-	NavbarGroup,
-	Classes,
-} from "@blueprintjs/core";
+import { Col } from "reactstrap";
+import { Card } from "@blueprintjs/core";
 
 function StatusCard() {
 	return (

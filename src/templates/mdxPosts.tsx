@@ -2,14 +2,11 @@ import * as React from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Footer } from "../components/Footer";
+import { Footer, Alert, QuickLinks } from "../components/Decorations";
 import Header from "../components/Header";
-// import styles from "../components/container.module.css"
 import { Helmet } from "react-helmet";
-import { QuickLinks } from "../components/QuickLinks";
 import { NavCard } from "../components/NavCard";
 import { StatusCard } from "../components/StatusCard";
-import _Alert from "../components/Alert";
 import {
 	Row,
 	Col,
@@ -63,16 +60,6 @@ const Content = styled.div`
 	padding: 0.1rem 0.1rem;
 `;
 
-const comps = {
-	// h1: MyH1,
-	// p: MyParagraph,
-	Alert: _Alert,
-};
-
-// export const wrapRootElement = ({ element }) => (
-//   <MDXProvider components={components}>{element}</MDXProvider>
-// )
-
 export default function PageTemplate(data: mdxProps) {
 	// export default function PageTemplate({data: {mdx}}){
 	return (
@@ -81,21 +68,6 @@ export default function PageTemplate(data: mdxProps) {
 				{/*<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>*/}
 			</Helmet>
 			<NavSection />
-			{/* <div className="m-0 p-0">
-				<Breadcrumb dark>
-					<BreadcrumbItem>
-						<Link to="/">Home</Link>
-					</BreadcrumbItem>
-					<BreadcrumbItem>
-						<Link to="/">UE4</Link>
-					</BreadcrumbItem>
-					<BreadcrumbItem active>tutorials</BreadcrumbItem>
-					<BreadcrumbItem active>dllandlibs</BreadcrumbItem>
-					{
-						//<BreadcrumbItem active>{ this.MakeTutorialBoxes(edges, 2) }</BreadcrumbItem>
-					}
-				</Breadcrumb>
-			</div> */}
 			<div className="bg-gray-400 m-0 p-2">
 				<Row>
 					{/** List of all available tutorials + Skip to section(optional) */}

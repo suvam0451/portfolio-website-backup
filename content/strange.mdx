@@ -1,57 +1,53 @@
 ---
-path: 'development/strange'
-date: '2019-10-02'
-title: 'Getting over it'
-tags: ['markdown', 'occuring', 'strange']
+path: "development/strange"
+date: "2019-10-02"
+title: "Getting over it"
+tags: ["markdown", "occuring", "strange"]
 draft: false
 ---
 
-
-import { Counter } from '../src/components/Counter'
-import { Footer } from '../src/components/Footer'
-import { Counteract } from "../src/components/Counteract"
-
-
+import { Counter } from "../src/components/Counter";
+import { Footer } from "../src/components/Decorations";
 
 Give it up for... [MDX](https://mdxjs.com). MDX is a format that lets you
-<Counter/>
+
+<Counter />
 
 seamlessly use JSX in your Markdown documents. You can import components, like
 
 interactive charts or notifs, and export metadata.
 Find the above React component in `/src/components/Counter.tsx`.
-<Counteract/>
 
 ![](images/riverScene.jpg)
 
 ```jsx{1,4-6}
-import React from 'react';
+import React from "react";
 
 const Counter = initialCounter => {
-  const [counter, setCounter] = React.useState(initialCounter);
+	const [counter, setCounter] = React.useState(initialCounter);
 
-  const onIncrement = () => {
-    setCounter(c => c + 1);
-  };
+	const onIncrement = () => {
+		setCounter(c => c + 1);
+	};
 
-  const onIncrement = () => {
-    setCounter(c => c - 1);
-  };
+	const onIncrement = () => {
+		setCounter(c => c - 1);
+	};
 
-  return (
-    <div>
-      {counter}
+	return (
+		<div>
+			{counter}
 
-      <div>
-        <button onClick={onIncrement} type="button">
-          Increment
-        </button>
-        <button onClick={onDecrement} type="button">
-          Decrement
-        </button>
-      </div>
-    </div>
-  );
+			<div>
+				<button onClick={onIncrement} type="button">
+					Increment
+				</button>
+				<button onClick={onDecrement} type="button">
+					Decrement
+				</button>
+			</div>
+		</div>
+	);
 };
 
 export default Counter;

@@ -27,13 +27,6 @@ module.exports = {
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-typescript`,
 		`gatsby-plugin-postcss`,
-		// {
-		// 	resolve: `gatsby-plugin-typography`,
-		// 	options: {
-		// 		pathToConfigModule: `src/utils/typography`,
-		// 		omitGoogleFont: false,
-		// 	},
-		// },
 		`gatsby-transformer-json`,
 		`gatsby-transformer-sharp`,
 		"prismjs",
@@ -68,39 +61,6 @@ module.exports = {
 						},
 					},
 				],
-			},
-		},
-		{
-			resolve: "gatsby-plugin-lunr",
-			options: {
-				languages: [
-					{
-						name: "en",
-						filterNodes: node =>
-							!node.frontmatter || node.frontmatter.draft !== true,
-						customEntries: [
-							{
-								title: "Another Page",
-								content: "Welcome to page 2",
-								path: "/another-page/",
-							},
-						],
-					},
-				],
-				fields: [
-					{ name: "title", store: true, attributes: { boost: 20 } },
-					{ name: "path", store: true },
-					{ name: "content" },
-					{ name: "tags" },
-				],
-				resolver: {
-					Mdx: {
-						title: node => node.frontmatter.title,
-						path: node => node.frontmatter.path,
-						content: node => node.rawBody,
-						tags: node => node.frontmatter.tags,
-					},
-				},
 			},
 		},
 	],

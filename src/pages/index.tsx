@@ -1,23 +1,14 @@
-// require('dotenv').config()
 import React, { useState } from "react";
-import { graphql } from "gatsby";
-import { Layout } from "../components/Layout";
-import { Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
-import { Footer } from "../components/Footer";
+import { Alert, Footer } from "../components/Decorations";
 import Header from "../components/Header";
 import styles from "../components/container.module.css";
 import classnames from "classnames";
 import TutorialSection from "../components/TutorialSection";
 import axios from "axios";
 import priceAPI from "../utils/priceAPI.js";
-// import { TypographyStyle, GoogleFont } from "react-typography";
-import typography from "../utils/typography";
 import {
-	Alert,
-	// Breadcrumb,
-	// Button,
-	// BreadcrumbItem,
 	Nav,
 	NavbarBrand,
 	NavItem,
@@ -49,8 +40,6 @@ import {
 	NavbarGroup,
 	Classes,
 } from "@blueprintjs/core";
-import { Segment, Container } from "semantic-ui-react";
-import { alignmentClass } from "@blueprintjs/core/lib/esm/common/classes";
 import { NavSection } from "../components/NavBar";
 
 const BREADCRUMBS: IBreadcrumbProps[] = [
@@ -110,42 +99,6 @@ enum ActivePage {
 	"Softwares",
 	"About",
 	"Suggestions",
-}
-
-class IndexPages extends React.Component<IndexPageProps> {
-	public state: IButtonsExampleState = {
-		active: false,
-		disabled: false,
-		iconOnly: false,
-		intent: Intent.NONE,
-		large: false,
-		loading: false,
-		minimal: false,
-		wiggling: false,
-	};
-	readonly hello = `doomo`;
-	public render() {
-		const { title, author } = this.props.data.site.siteMetadata;
-		return (
-			<Layout>
-				<h1>{this.hello} TypeScript world!</h1>
-				<p>
-					This site is named <strong>{author}</strong>
-				</p>
-				<h1>Hello world, from {author}!!</h1>
-				<p>
-					Konichiwa desu and {this.hello}, to {title}
-				</p>
-			</Layout>
-		);
-	}
-}
-
-async function prepare() {
-	console.log("sweet little lies");
-	axios
-		.get("https://api.github.com/users/maecapozzi")
-		.then(response => console.log(response));
 }
 
 function Index(props: IndexPageProps) {
@@ -312,7 +265,7 @@ function Index(props: IndexPageProps) {
 									ChangeActiveTab(ActivePage.About);
 								}}
 							>
-								About Me
+								About
 							</NavLink>
 						</NavItem>
 						<NavItem>
@@ -418,7 +371,7 @@ function Index(props: IndexPageProps) {
 							</label>
 							<button type="submit">Submit</button>
 						</form>
-						<Segment
+						{/* <Segment
 							vertical
 							inverted
 							textAlign="center"
@@ -434,7 +387,7 @@ function Index(props: IndexPageProps) {
 						<button onClick={() => CounterUpdate()}>Kiss Me</button>
 						<p>
 							Konichiwa desu and {Counter}, to {title}
-						</p>
+						</p> */}
 					</TabPane>
 				</TabContent>
 				<Footer />

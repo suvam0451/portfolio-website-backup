@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import ue4_icon from "../../content/images/ue4-icon.png";
 import Image from "gatsby-image";
-// import { Alert } from "react-bootstrap";
 import styled from "@emotion/styled";
 import {
 	Button,

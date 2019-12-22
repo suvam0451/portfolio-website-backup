@@ -10,13 +10,11 @@ import { StatusCard } from "../components/StatusCard";
 import {
 	Row,
 	Col,
-	// Card,
 	CardTitle,
 	CardText,
 	CardBody,
 	CardHeader,
 	Breadcrumb,
-	// Button,
 	BreadcrumbItem,
 	Nav,
 	NavbarBrand,
@@ -38,11 +36,9 @@ import {
 	Button,
 	Intent,
 	Breadcrumbs,
-	// Breadcrumb,
 	IBreadcrumbProps,
 	Icon,
 	Card,
-	// Navbar,
 	NavbarHeading,
 	NavbarDivider,
 	NavbarGroup,
@@ -50,10 +46,7 @@ import {
 } from "@blueprintjs/core";
 import { NavSection } from "../components/NavBar";
 import styled from "@emotion/styled";
-// import "./mdxPosts.css";
-
-// const MyH1 = props => <h1 style={{color: "tomato"}} {...props}/>
-// const MyParagraph = props => <p style={{ fontSize: "18px", lineHeight: 1.6 }} />
+import { SideBar } from "../components/SideBars/ue4-tuts";
 
 const Content = styled.div`
 	margin: 0 auto;
@@ -61,7 +54,6 @@ const Content = styled.div`
 `;
 
 export default function PageTemplate(data: mdxProps) {
-	// export default function PageTemplate({data: {mdx}}){
 	return (
 		<div className="p-1">
 			<Helmet>
@@ -73,6 +65,7 @@ export default function PageTemplate(data: mdxProps) {
 					{/** List of all available tutorials + Skip to section(optional) */}
 					<Col xs="12" sm="12" md="12" lg="12" xl="2">
 						<Row>
+							<SideBar />
 							<StatusCard />
 							<NavCard />
 						</Row>

@@ -4,9 +4,6 @@ import {
 	Pagination,
 	PaginationItem,
 	PaginationLink,
-	// Alert,
-	// Card,
-	// Button,
 	CardTitle,
 	CardText,
 	CardBody,
@@ -18,7 +15,6 @@ import {
 import { StaticQuery, graphql } from "gatsby";
 import { Row, Col } from "reactstrap";
 import Image from "gatsby-image";
-// import styles from "../components/container.module.css";
 import styled from "@emotion/styled";
 import { Link, useStaticQuery } from "gatsby";
 import {

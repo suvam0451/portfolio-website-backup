@@ -1,0 +1,55 @@
+[
+	{
+		"category": "Programming",
+		"description": "Using DLLs + LIBs in UE4. Both static and dynamic linking",
+		"modules": [
+			{
+				"title": "plugin-in-rust",
+				"hasChildren": true,
+				"Link": "/",
+				"Children": [
+					{
+						"title": "Part 1",
+						"link": "/ue4-tuts/plugin-development-using-rust-1"
+					}
+				]
+			},
+			{
+				"title": "plugin-in-cpp",
+				"hasChildren": true,
+				"Link": null,
+				"Children": [
+					{
+						"title": "Part 1",
+						"link": "ue4-tuts/plugin-development-using-rust-1/"
+					},
+					{
+						"title": "Part 2",
+						"link": "ue4-tuts/plugin-development-using-rust-2/"
+					},
+					{
+						"title": "Part 3",
+						"link": "ue4-tuts/plugin-development-using-rust-3/"
+					}
+				]
+			}
+		]
+	},
+	{
+		"category": "DevOps",
+		"description": "Optimized development",
+		"modules": [
+			{
+				"title": "git-basics",
+				"hasChildren": true,
+				"Link": "/",
+				"Children": [
+					{
+						"title": "introduction",
+						"link": "/ue4-tuts/git-for-unreal-engine-projects-01/"
+					}
+				]
+			}
+		]
+	}
+]

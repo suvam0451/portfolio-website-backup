@@ -3,12 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ue4_icon from "../../content/images/ue4-icon.png";
 import Image from "gatsby-image";
 
-interface BoxProps {
-	readonly username: string;
-	readonly label: string;
-	readonly description: string;
-}
-
 interface TutorialCardProps {
 	readonly title: string;
 	readonly desc: string;
@@ -41,11 +35,6 @@ function TutorialCard(props: TutorialCardProps) {
 				<div className="flex-initial">
 					{/* Must modify pb later. The image is rendered relativeto the div at given absolute position. */}
 					<div className="relative pb-3/5 w-56">
-						{/* <img
-						className="absolute top=0 h-full w-full object-cover"
-						src="https://steamcdn-a.akamaihd.net/steam/apps/238010/header.jpg?t=1563796563"
-						alt=""
-					/> */}
 						<Image
 							className="shadow-lg"
 							fluid={props.image}

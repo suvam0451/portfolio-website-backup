@@ -1,33 +1,28 @@
-const create = data => {
-	console.log("data is: " + data);
+function create(data) {
 	return fetch("../../functions/price-create", {
 		body: JSON.stringify(data),
 		method: "POST",
 	}).then(response => {
 		return response.json();
 	});
-};
+}
 
-const netlifyCreate = data => {
-	// console.log("data input is: " + data);
-
+function netlifyCreate(data) {
 	return fetch("/.netlify/functions/price-create", {
 		body: JSON.stringify(data),
 		method: "POST",
 	}).then(response => {
 		return response.json();
 	});
-};
+}
 
-const readAll = () => {
+function readAll() {
 	return fetch("/.netlify/functions/price-read-all").then(
 		response => {
-			// alert(response);
-			// const myBody = response.body;
 			return response.json();
 		},
 	);
-};
+}
 
 function getTodoId(todo) {
 	if (!todo.ref) {

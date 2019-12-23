@@ -10,26 +10,6 @@ import { StatusCard } from "../components/StatusCard";
 import {
 	Row,
 	Col,
-	CardTitle,
-	CardText,
-	CardBody,
-	CardHeader,
-	Breadcrumb,
-	BreadcrumbItem,
-	Nav,
-	NavbarBrand,
-	NavItem,
-	NavLink,
-	Navbar,
-	UncontrolledCollapse,
-	UncontrolledDropdown,
-	DropdownMenu,
-	DropdownToggle,
-	DropdownItem,
-	Dropdown,
-	Jumbotron,
-	TabPane,
-	TabContent,
 } from "reactstrap";
 import {
 	Alignment,
@@ -47,6 +27,7 @@ import {
 import { NavSection } from "../components/NavBar";
 import styled from "@emotion/styled";
 import { SideBar } from "../components/SideBars/ue4-tuts";
+import { mdxProps } from "../type-definitions";
 
 const Content = styled.div`
 	margin: 0 auto;
@@ -55,70 +36,57 @@ const Content = styled.div`
 
 export default function PageTemplate(data: mdxProps) {
 	return (
-		<div className="p-1">
-			<Helmet>
-				{/*<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>*/}
-			</Helmet>
+		<>
 			<NavSection />
-			<div className="bg-gray-400 m-0 p-2">
-				<Row>
-					{/** List of all available tutorials + Skip to section(optional) */}
-					<Col xs="12" sm="12" md="12" lg="12" xl="2">
-						<Row>
-							<SideBar />
-							<StatusCard />
-							<NavCard />
-						</Row>
-					</Col>
-					{/** Main body of mdx post */}
-					<Col xs="12" sm="12" md="12" lg="12" xl="7">
-						{/*<h1>{data.data.mdx.frontmatter.title}</h1>*/}
-						<div className="bg-gray-100 px-4 py-4 border rounded-lg shadow-md">
-							<h4 className="text-teal-700 mb-4">
-								{data.data.mdx.frontmatter.title}
-							</h4>
-							<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
-						</div>
-					</Col>
-					<Col xs="12" sm="12" md="12" lg="6" xl="3">
-						<Row>
-							<Col xs="12" sm="6" md="12" lg="6" xl="12">
-								<Card>
-									<h4>Related Contents</h4>
-									<p>
-										User created content used in WW APIs completely
-										free. If you develop something cool using the
-										tools, you can send us to be showcased here.
+			<div className="bg-gray-400 p-1">
+				<div className="p-2">
+					<Row>
+						{/** List of all available tutorials + Skip to section(optional) */}
+						<Col xs="12" sm="12" md="12" lg="12" xl="2">
+							<Row>
+								<SideBar FrontMatter={data.data.mdx.frontmatter} />
+								<StatusCard />
+								<NavCard />
+							</Row>
+						</Col>
+						{/** Main body of mdx post */}
+						<Col xs="12" sm="12" md="12" lg="12" xl="7">
+							{/*<h1>{data.data.mdx.frontmatter.title}</h1>*/}
+							<div className="bg-gray-100 px-4 py-4 border rounded-lg shadow-md">
+								<h4 className="text-teal-700 mb-4">
+									{data.data.mdx.frontmatter.title}
+								</h4>
+								<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
+							</div>
+						</Col>
+						<Col xs="12" sm="12" md="12" lg="6" xl="3">
+							<Row>
+								<Col xs="12" sm="6" md="12" lg="6" xl="12">
+									<Card>
+										<h4>Related Contents</h4>
+										<p>
+											User created content used in WW APIs completely
+											free. If you develop something cool using the
+											tools, you can send us to be showcased here.
 									</p>
-									<Button>Visit Archives</Button>
-								</Card>
-							</Col>
-							<Col xs="12" sm="6" md="12" lg="6" xl="12">
-								<Card body xs="12" xl="12">
-									{/* Used persistent quicklinks from components/persistent*/}
-									<QuickLinks />
-								</Card>
-							</Col>
-						</Row>
-					</Col>
-				</Row>
+										<Button>Visit Archives</Button>
+									</Card>
+								</Col>
+								<Col xs="12" sm="6" md="12" lg="6" xl="12">
+									<Card xs="12" xl="12">
+										{/* Used persistent quicklinks from components/persistent*/}
+										<QuickLinks />
+									</Card>
+								</Col>
+							</Row>
+						</Col>
+					</Row>
+				</div>
+
+				<Footer />
 			</div>
-
-			<Footer />
-		</div>
+		</>
 	);
-}
-
-interface mdxProps {
-	data: {
-		mdx: {
-			id: number;
-			body: any;
-			frontmatter: {
-				title: string;
-			};
-		};
-	};
 }
 
 export const query = graphql`
@@ -128,6 +96,10 @@ export const query = graphql`
 			body
 			frontmatter {
 				title
+				moduleID
+				submoduleID
+				seriesID
+				seriesIndex
 			}
 		}
 	}

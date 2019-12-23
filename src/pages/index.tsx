@@ -7,7 +7,7 @@ import styles from "../components/container.module.css";
 import classnames from "classnames";
 import TutorialSection from "../components/TutorialSection";
 import axios from "axios";
-import priceAPI from "../utils/priceAPI.js";
+import priceAPI from "../utils/priceAPI";
 import {
 	Nav,
 	NavbarBrand,
@@ -207,15 +207,6 @@ function Index(props: IndexPageProps) {
 					content="UpQOVR-GDQR8BBe7XafsQYt2TeI7G_xP-3SrFoAy7L0"
 				/>
 			</Helmet>
-
-			{/* <Header title={"WinterWildfire"} /> */}
-			{/* <Card elevation={0} style={{ width: `100%` }}>
-				{/* <Breadcrumbs items={BREADCRUMBS} /> */}
-			{/*</Card> */}
-
-			{/*<Breadcrumb bsPrefix={styles.DarkCard} listClassName={styles.DarkCard} dark>
-          <BreadcrumbItem active>Home</BreadcrumbItem>
-      </Breadcrumb>*/}
 			<div>
 				<div className="shadow-md">
 					<NavSection />
@@ -371,23 +362,6 @@ function Index(props: IndexPageProps) {
 							</label>
 							<button type="submit">Submit</button>
 						</form>
-						{/* <Segment
-							vertical
-							inverted
-							textAlign="center"
-							className="masthead"
-						>
-							<Container text>Hello there</Container>
-						</Segment>
-						<h1>{hello} TypeScript world!</h1>
-						<p>
-							This site is named <strong>{author}</strong>
-						</p>
-						<h1>Hello world, from {author}!!</h1>
-						<button onClick={() => CounterUpdate()}>Kiss Me</button>
-						<p>
-							Konichiwa desu and {Counter}, to {title}
-						</p> */}
 					</TabPane>
 				</TabContent>
 				<Footer />

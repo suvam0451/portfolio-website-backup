@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import {
 	Alignment,
 	Button,
@@ -17,19 +17,39 @@ import {
 } from "@blueprintjs/core";
 import Image from "gatsby-image";
 import Hamburger from "../../content/images/hamburger-menu.png";
+import styled from "@emotion/styled";
+
+const MobileNavbar = styled("div")`
+	display: block;
+	@media (min-width: 540px) {
+		display: none;
+	}
+`
+
+const DesktopNavbarSection = styled("div")`
+	display: none;
+	@media (min-width: 540px) {
+		display: block;
+	}
+`
 
 // Navigation section always visible on top.
 function NavSection() {
+	function ButtonNavigation(e: Event) {
+		navigate("/");
+	}
+
 	return (
 		<div>
 			<Navbar>
 				<div className="bp3-navbar-group bp3-align-left">
 					<NavbarHeading>WinterWildfire</NavbarHeading>
-					<span className="bp3-navbar-divider" />
-					<button className="bp3-button bp3-minimal bp3-icon-home">
-						Home
-					</button>
-					<div className="sm:invisible md:visible lg:visible xl:visible">
+
+					<DesktopNavbarSection>
+						<span className="bp3-navbar-divider" />
+						<button className="bp3-button bp3-minimal bp3-icon-home" onClick={ButtonNavigation}>
+							Home
+						</button>
 						<button className="bp3-button bp3-minimal bp3-icon-document">
 							Tutorials
 						</button>
@@ -39,7 +59,7 @@ function NavSection() {
 						<button className="bp3-button bp3-minimal bp3-icon-git-branch">
 							Repositories
 						</button>
-					</div>
+					</DesktopNavbarSection>
 				</div>
 				<div className="sm:visible md:invisible lg:invisible xl:invisible">
 					<button className="p-2 bp3-navbar-group bp3-align-right bp3-button bp3-minimal">
@@ -47,7 +67,7 @@ function NavSection() {
 					</button>
 				</div>
 			</Navbar>
-			<div className="sm:visible md:invisible lg:invisible xl:invisible md:h-0 lg:h-0 xl:h-0">
+			<MobileNavbar>
 				<div>
 					<button className="bp3-fill bp3-button bp3-icon-home">
 						Home
@@ -63,7 +83,10 @@ function NavSection() {
 						Tools
 					</button>
 				</div>
-			</div>
+			</MobileNavbar>
+			{/* <div className="sm:visible md:invisible lg:invisible xl:invisible md:h-0 lg:h-0 xl:h-0">
+
+			</div> */}
 		</div>
 	);
 }

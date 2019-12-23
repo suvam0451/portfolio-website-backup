@@ -16,32 +16,11 @@ import {
 
 import {
 	Col,
-	Dropdown,
-	DropdownItem,
-	DropdownToggle,
-	DropdownMenu,
-	Pagination,
-	PaginationItem,
-	PaginationLink,
-	Collapse,
-	TabContent,
-	TabPane,
-	Nav,
-	NavItem,
-	NavLink,
 	Table,
-	CardTitle,
-	CardText,
-	Progress,
 	ListGroup,
 	ListGroupItem,
-	Badge,
-	Jumbotron,
-	CardLink,
 	CardBody,
-	CardHeader,
-	CardGroup,
-	UncontrolledCollapse,
+	CardHeader
 } from "reactstrap";
 
 interface BoxProps {
@@ -109,11 +88,6 @@ function Footer() {
 				at <b>Patreon</b> | <b>Paypal</b> | <b>Marketplace</b> |{" "}
 				<b>gumroad</b>.
 			</h6>
-			{/* <input
-				className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
-				type="email"
-				placeholder="jane@example.com"
-			></input> */}
 		</div>
 	);
 }
@@ -208,9 +182,6 @@ function QuickLinks() {
 						</tbody>
 					</Table>
 				</CardBody>
-				{
-					//<Button>Access Sitemap</Button>
-				}
 			</Card>
 		</>
 	);

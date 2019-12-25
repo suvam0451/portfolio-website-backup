@@ -3,13 +3,6 @@ import ue4_icon from "../../content/images/ue4-icon.png";
 import Image from "gatsby-image";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Icon } from "@blueprintjs/core";
-<<<<<<< HEAD
-import {
-	FrontMatterStruct,
-	SidebarProps,
-} from "../../type-definitions";
-=======
->>>>>>> fix-cant-resolve-decoration
 import styled from "@emotion/styled";
 
 interface allUe4TutsMapJsonType {
@@ -43,11 +36,7 @@ interface BranchComponentProps {
 	readonly hasChildren: boolean;
 	readonly ExternalLink?: string;
 	readonly CollapsedSection: any;
-<<<<<<< HEAD
-	readonly FrontMatter: FrontMatterStruct;
-=======
 	readonly IsCollapsed: boolean;
->>>>>>> fix-cant-resolve-decoration
 }
 
 interface CollapsibleModule {
@@ -70,38 +59,21 @@ interface SidebarProps {
 
 
 function CollapsibleModule(Props: CollapsibleModule) {
-<<<<<<< HEAD
-
-	const [Collapsed, setCollapsed] = useState(Props.IsCollapsed);
-=======
 	const [Collapsed, setCollapsed] = useState(true);
 	const [CollapsedSection, setCollapsedSection] = useState(<></>);
 	const CollapsibleDiv = styled("div")`
 		display: ${props => Collapsed ? `none` : 'block'};
 	`;
-	// const IconImage = `${props => Collapsed ? "bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1" : "bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1"}`;
->>>>>>> fix-cant-resolve-decoration
 	const [IconSection, setIconSection] = useState(
 		"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
 	);
-	const CollapsibleDiv = styled("div")`
-		display: ${props => Collapsed ? `none` : 'block'};
-	`;
 
 	function ToggleCollapse() {
 		if (Collapsed === true) {
-<<<<<<< HEAD
-			setCollapsed(false);
-=======
->>>>>>> fix-cant-resolve-decoration
 			setIconSection(
 				"bp3-icon-standard bp3-icon-chevron-down bp3-intent-success content-center mt-1",
 			);
 		} else {
-<<<<<<< HEAD
-			setCollapsed(true);
-=======
->>>>>>> fix-cant-resolve-decoration
 			setIconSection(
 				"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
 			);
@@ -119,42 +91,20 @@ function CollapsibleModule(Props: CollapsibleModule) {
 				<span className={IconSection} />
 				<div className="ml-2">{Props.HeaderSection}</div>
 			</div>
-<<<<<<< HEAD
-
-			<CollapsibleDiv>
-				{Props.CollapsedSection}
-			</CollapsibleDiv>
-=======
 			<CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
 
->>>>>>> fix-cant-resolve-decoration
 		</>
 	);
 }
 
 function BranchComponent(Props: BranchComponentProps) {
-<<<<<<< HEAD
-	const [Collapsed, setCollapsed] = useState(false);
-	// const [CollapsedSection, setCollapsedSection] = useState(<></>);
-=======
 	const [Collapsed, setCollapsed] = useState(Props.IsCollapsed);
->>>>>>> fix-cant-resolve-decoration
 	const CollapsibleDiv = styled("div")`
 		display: ${props => Collapsed ? `none` : 'block'};
 	`;
 
 	function ToggleCollapse() {
-<<<<<<< HEAD
-		if (Collapsed === true) {
-			// setCollapsedSection(Props.CollapsedSection);
-			setCollapsed(false);
-		} else {
-			// setCollapsedSection(<></>);
-			setCollapsed(true);
-		}
-=======
 		setCollapsed(!Collapsed);
->>>>>>> fix-cant-resolve-decoration
 	}
 	return (
 		<>
@@ -178,11 +128,7 @@ function BranchComponent(Props: BranchComponentProps) {
 								{Props.label}
 							</div>
 						</div>
-<<<<<<< HEAD
-						< CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
-=======
 						<CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
->>>>>>> fix-cant-resolve-decoration
 					</div>
 				</div>
 			</div>
@@ -190,36 +136,7 @@ function BranchComponent(Props: BranchComponentProps) {
 	);
 }
 
-<<<<<<< HEAD
-function SideBar(props: SidebarProps) {
-	// const RootQuery = useStaticQuery(graphql`
-	// 	query MyQuery {
-	// 		allUe4TutsMapJson {
-	// 			edges {
-	// 				node {
-	// 					id
-	// 					submoduleID
-	// 					category
-	// 					description
-	// 					modules {
-	// 						seriesID
-	// 						title
-	// 						hasChildren
-	// 						Link
-	// 						Children {
-	// 							seriesIndex
-	// 							title
-	// 							link
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// `);
-=======
 function SideBar(Props: SidebarProps) {
->>>>>>> fix-cant-resolve-decoration
 	const RootQuery = useStaticQuery(graphql`
 		query MyQuery {
 			allUe4TutsMapJson {
@@ -287,24 +204,6 @@ function SideBar(Props: SidebarProps) {
 		var retval: any = [];
 		allUe4TutsMapJson.edges.forEach(function (it) {
 			var module_render: any = Populate_Tier2(it.node.modules);
-<<<<<<< HEAD
-			let ShouldCollapse: boolean = false;
-			retval.push(
-				<div>matched{it.node.moduleID}with{props.moduleID}</div>,
-			);
-			if (it.node.moduleID === props.moduleID) {
-
-				ShouldCollapse = true;
-			}
-			retval.push(
-				<BranchComponent
-					label={it.node.category}
-					CollapsedSection={module_render}
-					hasChildren={ShouldCollapse}
-					FrontMatter={props}
-				/>,
-			);
-=======
 			// let ShouldCollapse: boolean = false;
 			if(it.node.submoduleID === Props.FrontMatter.submoduleID){
 				retval.push(
@@ -327,7 +226,6 @@ function SideBar(Props: SidebarProps) {
 				);
 			}
 
->>>>>>> fix-cant-resolve-decoration
 		});
 		return retval;
 	};
@@ -335,9 +233,9 @@ function SideBar(Props: SidebarProps) {
 	// Sidebar rendering
 	return (
 		<>
-			<div>{props.FrontMatter.moduleID}</div>
+			<div>{Props.FrontMatter.moduleID}</div>
 			<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 w-full p-2 ml-2 bg-white mb-2 h-full">
-				{Populate_Tier1(props.FrontMatter)}
+				{Populate_Tier1(Props.FrontMatter)}
 			</div>
 		</>
 	);

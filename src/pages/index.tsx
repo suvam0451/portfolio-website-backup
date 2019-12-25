@@ -202,10 +202,7 @@ function Index(props: IndexPageProps) {
 					rel="canonical"
 					href="https://winterwildfire.gitlab.io"
 				/>
-				<meta
-					name="google-site-verification"
-					content="UpQOVR-GDQR8BBe7XafsQYt2TeI7G_xP-3SrFoAy7L0"
-				/>
+				<meta name="google-site-verification" content="qHPn-iP9IEBZyHkA-06dYHzGCYAtUrsg2QINFSnFuVA" />
 			</Helmet>
 
 			{/* <Header title={"WinterWildfire"} /> */}

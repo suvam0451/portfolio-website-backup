@@ -1,33 +1,40 @@
 [
 	{
+		"submoduleID": 1,
 		"category": "Programming",
 		"description": "Using DLLs + LIBs in UE4. Both static and dynamic linking",
 		"modules": [
 			{
+				"seriesID": 1,
 				"title": "plugin-in-rust",
 				"hasChildren": true,
 				"Link": "/",
 				"Children": [
 					{
+						"seriesIndex": 1,
 						"title": "Part 1",
 						"link": "/ue4-tuts/plugin-development-using-rust-1"
 					}
 				]
 			},
 			{
+				"seriesID": 2,
 				"title": "plugin-in-cpp",
 				"hasChildren": true,
 				"Link": null,
 				"Children": [
 					{
+						"seriesIndex": 1,
 						"title": "Part 1",
 						"link": "ue4-tuts/plugin-development-using-rust-1/"
 					},
 					{
+						"seriesIndex": 2,
 						"title": "Part 2",
 						"link": "ue4-tuts/plugin-development-using-rust-2/"
 					},
 					{
+						"seriesIndex": 3,
 						"title": "Part 3",
 						"link": "ue4-tuts/plugin-development-using-rust-3/"
 					}
@@ -36,15 +43,18 @@
 		]
 	},
 	{
+		"submoduleID": 2,
 		"category": "DevOps",
 		"description": "Optimized development",
 		"modules": [
 			{
+				"seriesID": 1,
 				"title": "git-basics",
 				"hasChildren": true,
 				"Link": "/",
 				"Children": [
 					{
+						"seriesIndex": 1,
 						"title": "introduction",
 						"link": "/ue4-tuts/git-for-unreal-engine-projects-01/"
 					}

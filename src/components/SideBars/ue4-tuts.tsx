@@ -4,6 +4,7 @@ import ue4_icon from "../../content/images/ue4-icon.png";
 import Image from "gatsby-image";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Icon } from "@blueprintjs/core";
+import styled from "@emotion/styled";
 
 interface allUe4TutsMapJsonType {
 	readonly edges: Array<Tier0_Props>;
@@ -12,6 +13,7 @@ interface Tier0_Props {
 	readonly node: Tier1_Prop;
 }
 interface Tier1_Prop {
+	readonly submoduleID: number;
 	readonly category: string;
 	readonly description: string;
 	readonly modules: Array<Tier2_Props>;
@@ -34,6 +36,7 @@ interface BranchComponentProps {
 	readonly hasChildren: boolean;
 	readonly ExternalLink?: string;
 	readonly CollapsedSection: any;
+	readonly IsCollapsed: boolean;
 }
 
 interface CollapsibleModule {
@@ -41,28 +44,41 @@ interface CollapsibleModule {
 	readonly HeaderSection: string;
 }
 
+interface FrontMatterStruct {
+	title: string;
+	moduleID: number;
+	submoduleID: number;
+	seriesID: number;
+	seriesIndex: number;
+}
+
+interface SidebarProps {
+	FrontMatter: FrontMatterStruct;
+}
+
+
 function CollapsibleModule(Props: CollapsibleModule) {
 	const [Collapsed, setCollapsed] = useState(true);
-	const [TitleCSS, setTitleCSS] = useState("");
 	const [CollapsedSection, setCollapsedSection] = useState(<></>);
+	const CollapsibleDiv = styled("div")`
+		display: ${props => Collapsed ? `none` : 'block'};
+	`;
+	// const IconImage = `${props => Collapsed ? "bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1" : "bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1"}`;
 	const [IconSection, setIconSection] = useState(
 		"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
 	);
 
 	function ToggleCollapse() {
 		if (Collapsed === true) {
-			setCollapsedSection(Props.CollapsedSection);
-			setCollapsed(false);
 			setIconSection(
 				"bp3-icon-standard bp3-icon-chevron-down bp3-intent-success content-center mt-1",
 			);
 		} else {
-			setCollapsedSection(<></>);
-			setCollapsed(true);
 			setIconSection(
 				"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
 			);
 		}
+		setCollapsed(!Collapsed);
 	}
 
 	return (
@@ -71,27 +87,24 @@ function CollapsibleModule(Props: CollapsibleModule) {
 				className="flex hover:bg-teal-200 mt-1 ml-1 rounded-sm select-none"
 				onClick={ToggleCollapse}
 			>
+				{/* <span className={IconSection} /> */}
 				<span className={IconSection} />
 				<div className="ml-2">{Props.HeaderSection}</div>
 			</div>
-			{CollapsedSection}
+			<CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
+
 		</>
 	);
 }
 
 function BranchComponent(Props: BranchComponentProps) {
-	const [Collapsed, setCollapsed] = useState(false);
-	const [TitleCSS, setTitleCSS] = useState("");
-	const [CollapsedSection, setCollapsedSection] = useState(<></>);
+	const [Collapsed, setCollapsed] = useState(Props.IsCollapsed);
+	const CollapsibleDiv = styled("div")`
+		display: ${props => Collapsed ? `none` : 'block'};
+	`;
 
 	function ToggleCollapse() {
-		if (Collapsed === true) {
-			setCollapsedSection(Props.CollapsedSection);
-			setCollapsed(false);
-		} else {
-			setCollapsedSection(<></>);
-			setCollapsed(true);
-		}
+		setCollapsed(!Collapsed);
 	}
 	return (
 		<>
@@ -115,8 +128,7 @@ function BranchComponent(Props: BranchComponentProps) {
 								{Props.label}
 							</div>
 						</div>
-						<div>{CollapsedSection}</div>
-						{/* <div>{module_render}</div> */}
+						<CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
 					</div>
 				</div>
 			</div>
@@ -124,20 +136,23 @@ function BranchComponent(Props: BranchComponentProps) {
 	);
 }
 
-function SideBar() {
+function SideBar(Props: SidebarProps) {
 	const RootQuery = useStaticQuery(graphql`
 		query MyQuery {
 			allUe4TutsMapJson {
 				edges {
 					node {
 						id
+						submoduleID
 						category
 						description
 						modules {
+							seriesID
 							title
 							hasChildren
 							Link
 							Children {
+								seriesIndex
 								title
 								link
 							}
@@ -186,13 +201,28 @@ function SideBar() {
 		var retval: any = [];
 		allUe4TutsMapJson.edges.forEach(function(it) {
 			var module_render: any = Populate_Tier2(it.node.modules);
-			retval.push(
-				<BranchComponent
-					label={it.node.category}
-					CollapsedSection={module_render}
-					hasChildren={false}
-				/>,
-			);
+			// let ShouldCollapse: boolean = false;
+			if(it.node.submoduleID === Props.FrontMatter.submoduleID){
+				retval.push(
+					<BranchComponent
+						label={it.node.category}
+						CollapsedSection={module_render}
+						hasChildren={false}
+						IsCollapsed={false}
+					/>,
+				);
+			}
+			else{
+				retval.push(
+					<BranchComponent
+						label={it.node.category}
+						CollapsedSection={module_render}
+						hasChildren={false}
+						IsCollapsed={true}
+					/>,
+				);
+			}
+
 		});
 		return retval;
 	};

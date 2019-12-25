@@ -65,7 +65,7 @@ export default function PageTemplate(data: mdxProps) {
 					{/** List of all available tutorials + Skip to section(optional) */}
 					<Col xs="12" sm="12" md="12" lg="12" xl="2">
 						<Row>
-							<SideBar />
+							<SideBar FrontMatter={data.data.mdx.frontmatter}/>
 							<StatusCard />
 							<NavCard />
 						</Row>
@@ -128,6 +128,10 @@ export const query = graphql`
 			body
 			frontmatter {
 				title
+				moduleID
+				submoduleID
+				seriesID
+				seriesIndex
 			}
 		}
 	}

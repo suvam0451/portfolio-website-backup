@@ -61,5 +61,25 @@
 				]
 			}
 		]
+	},
+	{
+		"submoduleID": 3,
+		"category": "Shaders",
+		"description": "Writing advanced shaders",
+		"modules": [
+			{
+				"seriesID": 1,
+				"title": "introduction-to-shaders",
+				"hasChildren": true,
+				"Link": "/",
+				"Children": [
+					{
+						"seriesIndex": 1,
+						"title": "Non-technical Overview",
+						"link": "/ue4/tutorials/introduction-to-shaders-01/"
+					}
+				]
+			}
+		]
 	}
 ]

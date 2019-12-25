@@ -38,6 +38,7 @@ export default function PageTemplate(data: mdxProps) {
 	return (
 		<>
 			<NavSection />
+<<<<<<< HEAD
 			<div className="bg-gray-400 p-1">
 				<div className="p-2">
 					<Row>
@@ -68,6 +69,37 @@ export default function PageTemplate(data: mdxProps) {
 											User created content used in WW APIs completely
 											free. If you develop something cool using the
 											tools, you can send us to be showcased here.
+=======
+			<div className="bg-gray-400 m-0 p-2">
+				<Row>
+					{/** List of all available tutorials + Skip to section(optional) */}
+					<Col xs="12" sm="12" md="12" lg="12" xl="2">
+						<Row>
+							<SideBar FrontMatter={data.data.mdx.frontmatter}/>
+							<StatusCard />
+							<NavCard />
+						</Row>
+					</Col>
+					{/** Main body of mdx post */}
+					<Col xs="12" sm="12" md="12" lg="12" xl="7">
+						{/*<h1>{data.data.mdx.frontmatter.title}</h1>*/}
+						<div className="bg-gray-100 px-4 py-4 border rounded-lg shadow-md">
+							<h4 className="text-teal-700 mb-4">
+								{data.data.mdx.frontmatter.title}
+							</h4>
+							<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
+						</div>
+					</Col>
+					<Col xs="12" sm="12" md="12" lg="6" xl="3">
+						<Row>
+							<Col xs="12" sm="6" md="12" lg="6" xl="12">
+								<Card>
+									<h4>Related Contents</h4>
+									<p>
+										User created content used in WW APIs completely
+										free. If you develop something cool using the
+										tools, you can send us to be showcased here.
+>>>>>>> fix-cant-resolve-decoration
 									</p>
 										<Button>Visit Archives</Button>
 									</Card>

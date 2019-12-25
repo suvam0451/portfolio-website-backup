@@ -12,6 +12,7 @@
 		"build:tailwind": "tailwind build src/utils/style.css"
 	},
 	"dependencies": {
+		"@babel/core": "^7.7.7",
 		"@blueprintjs/core": "^3.17.2",
 		"@blueprintjs/docs-theme": "^3.4.0",
 		"@blueprintjs/icons": "^3.13.0",
@@ -27,9 +28,7 @@
 		"fs": "0.0.1-security",
 		"gatsby": "^2.15.34",
 		"gatsby-image": "^2.2.27",
-		"gatsby-mdx": "^1.0.0",
 		"gatsby-plugin-emotion": "^4.1.13",
-		"gatsby-plugin-less": "^3.0.12",
 		"gatsby-plugin-mdx": "^1.0.51",
 		"gatsby-plugin-nprogress": "^2.1.10",
 		"gatsby-plugin-offline": "^3.0.14",
@@ -46,7 +45,6 @@
 		"gatsby-transformer-json": "^2.2.13",
 		"gatsby-transformer-remark": "^2.6.32",
 		"gatsby-transformer-sharp": "^2.2.21",
-		"gatsby-transformer-typescript-css-modules": "^1.0.14",
 		"http-proxy-middleware": "^0.20.0",
 		"netlify-lambda": "^1.4.5",
 		"prism-themes": "^1.3.0",
@@ -70,7 +68,6 @@
 		"tslint": "^5.20.0",
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-react": "^4.1.0",
-		"typescript": "^3.6.4",
-		"typings-for-css-modules-loader": "^1.7.0"
+		"typescript": "^3.6.4"
 	}
 }

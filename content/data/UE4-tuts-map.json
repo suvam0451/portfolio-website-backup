@@ -59,6 +59,19 @@
 						"link": "/ue4-tuts/git-for-unreal-engine-projects-01/"
 					}
 				]
+			},
+			{
+				"seriesID": 2,
+				"title": "build-systems",
+				"hasChildren": true,
+				"Link": "/",
+				"Children": [
+					{
+						"seriesIndex": 1,
+						"title": "Introduction and Basics",
+						"link": "/ue4-tuts/unreal-engine-build-systems-01"
+					}
+				]
 			}
 		]
 	},

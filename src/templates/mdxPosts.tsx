@@ -2,6 +2,7 @@ import * as React from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 import { Footer, Alert, QuickLinks } from "../components/Decorations";
 import Header from "../components/Header";
 import { Helmet } from "react-helmet";
@@ -33,13 +34,27 @@ const Content = styled.div`
 	padding: 0.1rem 0.1rem;
 `;
 
+const MyH1 = (props: any) => <h1 style={{color: "tomato"}} {...props}/> 
+const MyH2 = (props: any) => <h2 style={{color: "tomato"}} {...props}/> 
+const MyH3 = (props: any) => <h3 style={{color: "tomato"}} {...props}/> 
+const MyH4 = (props: any) => <h4 style={{color: "tomato"}} {...props}/> 
+const MyH5 = (props: any) => <h5 style={{color: "tomato"}} {...props}/> 
+
+const components = {
+	h1: MyH1,
+	h2: MyH2,
+	h3: MyH3,
+	h4: MyH4,
+	h5: MyH5,
+}
 export default function PageTemplate(data: mdxProps) {
 	return (
-		<div className="p-1">
+		<div>
 			<Helmet>
 				{/*<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>*/}
 			</Helmet>
-			<NavSection />
+			<div>
+			<NavSection/></div>
 			<div className="bg-gray-400 m-0 p-2">
 				<Row>
 					{/** List of all available tutorials + Skip to section(optional) */}
@@ -57,7 +72,7 @@ export default function PageTemplate(data: mdxProps) {
 							<h4 className="text-teal-700 mb-4">
 								{data.data.mdx.frontmatter.title}
 							</h4>
-							<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
+							<MDXRenderer components={components}>{data.data.mdx.body}</MDXRenderer>
 						</div>
 					</Col>
 					<Col xs="12" sm="12" md="12" lg="6" xl="3">

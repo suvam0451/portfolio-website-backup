@@ -296,9 +296,9 @@ function Index(props: IndexPageProps) {
 				</div>
 				<TabContent activeTab={ActiveTab}>
 					<TabPane tabId={ActivePage.Featured}>
-						<Jumbotron className={styles.DarkCardBody}>
+						<Jumbotron>
 							<h1 className="display-5">
-								Hey, I am Debashish Patra!
+								Welcome to WinterWildfire
 							</h1>
 							<p>
 								<b>App</b>(C++/VBA) | <b>Game</b>(UE4/CryEngine) |{" "}
@@ -306,8 +306,7 @@ function Index(props: IndexPageProps) {
 							</p>
 							<hr className="my-2" />
 							<p className="lead">
-								This is where I share my{" "}
-								<b>tutorials, APIs and plugins.</b>
+								Home to gamedev <b>tutorials, APIs and plugins.</b>
 							</p>
 							{
 								<p className="lead">

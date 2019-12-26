@@ -65,5 +65,12 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-sitemap`,
+		{
+			resolve: `gatsby-remark-rehype-images`,
+			options: 'rehype-images',
+			sharpFunction: `fixed`,
+			width: 480,
+			height: 360
+		}
 	],
 };

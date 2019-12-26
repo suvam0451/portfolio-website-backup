@@ -7,7 +7,7 @@ import styles from "../components/container.module.css";
 import classnames from "classnames";
 import TutorialSection from "../components/TutorialSection";
 import axios from "axios";
-import priceAPI from "../utils/priceAPI.js";
+import priceAPI from "../utils/priceAPI";
 import {
 	Nav,
 	NavbarBrand,
@@ -195,12 +195,12 @@ function Index(props: IndexPageProps) {
 				</title>
 				<meta
 					name="description"
-					content="Learn Unreal Engine 4 programming with free tutorials and sample projects. Explore productive extension and scripting solutions brought to you by @suvam0451."
+					content="Learn Unreal Engine 4 programming with free tutorials and sample projects."
 				/>
 				<meta name="robots" content="index, follow" />
 				<link
 					rel="canonical"
-					href="https://winterwildfire.gitlab.io"
+					href="https://winterwildfire.netlify.com"
 				/>
 				<meta name="google-site-verification" content="qHPn-iP9IEBZyHkA-06dYHzGCYAtUrsg2QINFSnFuVA" />
 			</Helmet>

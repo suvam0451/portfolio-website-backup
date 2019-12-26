@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import ue4_icon from "../../content/images/ue4-icon.png";
 import Image from "gatsby-image";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Icon } from "@blueprintjs/core";
 import styled from "@emotion/styled";
+import {TweenMax, Power3} from "gsap";
+
 
 interface allUe4TutsMapJsonType {
 	readonly edges: Array<Tier0_Props>;
@@ -16,17 +18,19 @@ interface Tier1_Prop {
 	readonly submoduleID: number;
 	readonly category: string;
 	readonly description: string;
-	readonly modules: Array<Tier2_Props>;
+	readonly modules: Array<SeriesProps>;
 }
 
-interface Tier2_Props {
+interface SeriesProps {
+	readonly seriesID: number;
 	readonly title: string;
 	readonly hasChildren: boolean;
 	readonly Link: string;
 	readonly Children: Array<LeafNode>;
 }
 
-interface LeafNode {
+interface LeafNode {	
+	readonly seriesIndex: number;
 	readonly title: string;
 	readonly link: string;
 }
@@ -57,9 +61,9 @@ interface SidebarProps {
 }
 
 
-function CollapsibleModule(Props: CollapsibleModule) {
+function CollapsibleModule(Props: CollapsibleModule)
+{
 	const [Collapsed, setCollapsed] = useState(true);
-	const [CollapsedSection, setCollapsedSection] = useState(<></>);
 	const CollapsibleDiv = styled("div")`
 		display: ${props => Collapsed ? `none` : 'block'};
 	`;
@@ -67,6 +71,13 @@ function CollapsibleModule(Props: CollapsibleModule) {
 	const [IconSection, setIconSection] = useState(
 		"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
 	);
+	let logoItem : any = useRef(null);
+
+	// Show in effect
+	useEffect(() => {
+		// TweenMax.from(logoItem, 0.8, {opacity: 0});
+		TweenMax.to(logoItem, 0.8, {opacity:1, ease: Power3.easeOut});
+	});
 
 	function ToggleCollapse() {
 		if (Collapsed === true) {
@@ -84,14 +95,17 @@ function CollapsibleModule(Props: CollapsibleModule) {
 	return (
 		<>
 			<div
-				className="flex hover:bg-teal-200 mt-1 ml-1 rounded-sm select-none"
+				ref={el => {logoItem = el}}
+				className="flex hover:bg-teal-200 mt-1 ml-1 rounded-sm select-none opacity-0"
 				onClick={ToggleCollapse}
 			>
 				{/* <span className={IconSection} /> */}
 				<span className={IconSection} />
 				<div className="ml-2">{Props.HeaderSection}</div>
 			</div>
-			<CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
+			<CollapsibleDiv>
+					{Props.CollapsedSection}
+			</CollapsibleDiv>
 
 		</>
 	);
@@ -165,7 +179,7 @@ function SideBar(Props: SidebarProps) {
 	const allUe4TutsMapJson: allUe4TutsMapJsonType =
 		RootQuery.allUe4TutsMapJson;
 
-	const Populate_Tier2 = (Props: Array<Tier2_Props>) => {
+	const Populate_Series = (Props: Array<SeriesProps>) => {
 		let retval: any = [];
 		for (let i = 0; i < Props.length; i++) {
 			let CollapsibleSection: any = [];
@@ -197,10 +211,10 @@ function SideBar(Props: SidebarProps) {
 		}
 		return retval;
 	};
-	const Populate_Tier1 = () => {
+	const Populate_Submodule = () => {
 		var retval: any = [];
 		allUe4TutsMapJson.edges.forEach(function(it) {
-			var module_render: any = Populate_Tier2(it.node.modules);
+			var module_render: any = Populate_Series(it.node.modules);
 			// let ShouldCollapse: boolean = false;
 			if(it.node.submoduleID === Props.FrontMatter.submoduleID){
 				retval.push(
@@ -230,7 +244,7 @@ function SideBar(Props: SidebarProps) {
 	// Sidebar rendering
 	return (
 		<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 w-full p-2 ml-2 bg-white mb-2 h-full">
-			{Populate_Tier1()}
+			{Populate_Submodule()}
 		</div>
 	);
 }

@@ -1,5 +1,4 @@
-const create = data => {
-	console.log("data is: " + data);
+const create = (data :any) => {
 	return fetch("../../functions/price-create", {
 		body: JSON.stringify(data),
 		method: "POST",
@@ -8,9 +7,7 @@ const create = data => {
 	});
 };
 
-const netlifyCreate = data => {
-	// console.log("data input is: " + data);
-
+const netlifyCreate = (data : any) => {
 	return fetch("/.netlify/functions/price-create", {
 		body: JSON.stringify(data),
 		method: "POST",
@@ -22,14 +19,12 @@ const netlifyCreate = data => {
 const readAll = () => {
 	return fetch("/.netlify/functions/price-read-all").then(
 		response => {
-			// alert(response);
-			// const myBody = response.body;
 			return response.json();
 		},
 	);
 };
 
-function getTodoId(todo) {
+function getTodoId(todo : any) {
 	if (!todo.ref) {
 		return null;
 	}

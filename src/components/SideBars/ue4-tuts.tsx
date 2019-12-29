@@ -5,8 +5,8 @@ import Image from "gatsby-image";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Icon } from "@blueprintjs/core";
 import styled from "@emotion/styled";
-import {TweenMax, Power3} from "gsap";
-
+import { TweenMax, Power3 } from "gsap";
+import TransitionLink from "gatsby-plugin-transition-link";
 
 interface allUe4TutsMapJsonType {
 	readonly edges: Array<Tier0_Props>;
@@ -29,7 +29,7 @@ interface SeriesProps {
 	readonly Children: Array<LeafNode>;
 }
 
-interface LeafNode {	
+interface LeafNode {
 	readonly seriesIndex: number;
 	readonly title: string;
 	readonly link: string;
@@ -60,23 +60,21 @@ interface SidebarProps {
 	FrontMatter: FrontMatterStruct;
 }
 
-
-function CollapsibleModule(Props: CollapsibleModule)
-{
+function CollapsibleModule(Props: CollapsibleModule) {
 	const [Collapsed, setCollapsed] = useState(true);
 	const CollapsibleDiv = styled("div")`
-		display: ${props => Collapsed ? `none` : 'block'};
+		display: ${props => (Collapsed ? `none` : "block")};
 	`;
-	// const IconImage = `${props => Collapsed ? "bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1" : "bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1"}`;
 	const [IconSection, setIconSection] = useState(
 		"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
 	);
-	let logoItem : any = useRef(null);
+	let logoItem: any = useRef(null);
 
 	// Show in effect
 	useEffect(() => {
-		TweenMax.from(logoItem, 0, {opacity:0, ease: Power3.easeOut});
-		TweenMax.to(logoItem, 0.8, {opacity:1, ease: Power3.easeOut});
+		logoItem.opacity = 0;
+		TweenMax.from(logoItem, 0, { opacity: 0, ease: Power3.easeOut });
+		TweenMax.to(logoItem, 0.8, { opacity: 1, ease: Power3.easeOut });
 	});
 
 	function ToggleCollapse() {
@@ -95,18 +93,17 @@ function CollapsibleModule(Props: CollapsibleModule)
 	return (
 		<>
 			<div
-				ref={el => {logoItem = el}}
-				className="flex hover:bg-teal-200 mt-1 ml-1 rounded-sm select-none opacity-0"
+				ref={el => {
+					logoItem = el;
+				}}
+				className="flex hover:bg-teal-200 mt-1 ml-1 rounded-sm select-none"
 				onClick={ToggleCollapse}
 			>
 				{/* <span className={IconSection} /> */}
 				<span className={IconSection} />
 				<div className="ml-2">{Props.HeaderSection}</div>
 			</div>
-			<CollapsibleDiv>
-					{Props.CollapsedSection}
-			</CollapsibleDiv>
-
+			<CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
 		</>
 	);
 }
@@ -114,7 +111,7 @@ function CollapsibleModule(Props: CollapsibleModule)
 function BranchComponent(Props: BranchComponentProps) {
 	const [Collapsed, setCollapsed] = useState(Props.IsCollapsed);
 	const CollapsibleDiv = styled("div")`
-		display: ${props => Collapsed ? `none` : 'block'};
+		display: ${props => (Collapsed ? `none` : "block")};
 	`;
 
 	function ToggleCollapse() {
@@ -192,7 +189,7 @@ function SideBar(Props: SidebarProps) {
 								<span className="bp3-icon-large bp3-icon-small-plus bp3-intent-success content-center mr-1" />
 								{leafpost.title}
 							</Link>
-						</div>,
+							</div>
 					);
 				});
 				retval.push(
@@ -216,14 +213,18 @@ function SideBar(Props: SidebarProps) {
 		allUe4TutsMapJson.edges.forEach(function(it) {
 			var module_render: any = Populate_Series(it.node.modules);
 			// Checing if submoduleID is a match
-			let CollapseSwitch: boolean = (it.node.submoduleID === Props.FrontMatter.submoduleID) ? false : true;
+			let CollapseSwitch: boolean =
+				it.node.submoduleID === Props.FrontMatter.submoduleID
+					? false
+					: true;
 			retval.push(
 				<BranchComponent
 					label={it.node.category}
 					CollapsedSection={module_render}
 					hasChildren={false}
 					IsCollapsed={CollapseSwitch}
-				/>);
+				/>,
+			);
 		});
 		return retval;
 	};

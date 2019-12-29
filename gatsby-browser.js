@@ -1,15 +1,17 @@
+// require("./src/utils/tailwindstyles.css");
+require("./src/utils/tailwind-base.css")
+require("./src/utils/bites.css")
+require("./src/utils/tailwind-components.css")
+
 require("@blueprintjs/core/lib/css/blueprint.css");
 require("@blueprintjs/icons/lib/css/blueprint-icons.css");
 exports.onInitialClientRender = () => {
 	// require("typeface-nunito");
 };
 
-require("./src/utils/tailwindstyles.css");
 
 require(`prismjs/prism.js`)
 
-
-// require("prismjs/themes/prism-twilight.css");
 require("prism-themes/themes/prism-darcula.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
 

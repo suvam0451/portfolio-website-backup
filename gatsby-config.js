@@ -71,6 +71,7 @@ module.exports = {
 			sharpFunction: `fixed`,
 			width: 480,
 			height: 360
-		}
+		},
+		`gatsby-plugin-transition-link`
 	],
 };

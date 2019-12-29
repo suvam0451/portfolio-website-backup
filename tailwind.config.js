@@ -1,5 +1,12 @@
 module.exports = {
-	theme: {
+	theme: {    
+		fontFamily: {
+			display: ['Gilroy', 'sans-serif'],
+			body: ['Graphik', 'sans-serif'],
+	  	},
+		listStyleType: {
+			disc: 'disc',
+		},
 		extend: {
 			spacing: {
 				"1/2": "50%",
@@ -34,4 +41,9 @@ module.exports = {
 		visibility: ["focus", "group-hover"],
 	},
 	plugins: [],
+	corePlugins: {
+		// ...
+		lists: false,
+		listStyleType: true,
+	}
 };

@@ -34,11 +34,11 @@ const Content = styled.div`
 	padding: 0.1rem 0.1rem;
 `;
 
-const MyH1 = (props: any) => <h1 style={{color: "tomato"}} {...props}/> 
-const MyH2 = (props: any) => <h2 style={{color: "tomato"}} {...props}/> 
-const MyH3 = (props: any) => <h3 style={{color: "tomato"}} {...props}/> 
-const MyH4 = (props: any) => <h4 style={{color: "tomato"}} {...props}/> 
-const MyH5 = (props: any) => <h5 style={{color: "tomato"}} {...props}/> 
+const MyH1 = (props: any) => <h1 className="p-20" {...props}/> 
+const MyH2 = (props: any) => <h2 className="p-20" {...props}/> 
+const MyH3 = (props: any) => <h3 className="p-20" {...props}/> 
+const MyH4 = (props: any) => <h4 className="p-20" {...props}/> 
+const MyH5 = (props: any) => <h5 className="p-20" {...props}/> 
 
 const components = {
 	h1: MyH1,
@@ -73,7 +73,7 @@ export default function PageTemplate(data: mdxProps) {
 					{/** Main body of mdx post */}
 					<Col xs="12" sm="12" md="12" lg="12" xl="7">
 						{/*<h1>{data.data.mdx.frontmatter.title}</h1>*/}
-						<div className="bg-gray-100 px-4 py-4 border rounded-lg shadow-md">
+						<div className="bg-gray-100 px-4 py-4 border rounded-lg shadow-md list-disc">
 							<h4 className="text-teal-700 mb-4">
 								{data.data.mdx.frontmatter.title}
 							</h4>

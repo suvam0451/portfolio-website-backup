@@ -39,6 +39,24 @@
 						"link": "ue4-tuts/plugin-development-using-rust-3/"
 					}
 				]
+			},
+			{
+				"seriesID": 3,
+				"title": "gameplay-ability-system",
+				"hasChildren": true,
+				"Link": "/",
+				"Children": [
+					{
+						"seriesIndex": 1,
+						"title": "Introduction and basics",
+						"link": "/tutorials/ue4/gameplay-ability-system-01/"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Our first abilities",
+						"link": "/tutorials/ue4/gameplay-ability-system-02/"
+					}
+				]
 			}
 		]
 	},
@@ -94,6 +112,25 @@
 				]
 			}
 		]
+	},
+	{
+		"submoduleID": 4,
+		"category": "Gameplay Ability System",
+		"description": "Okay",
+		"modules": [
+			{
+				"seriesID": 1,
+				"title": "gameplay-ability-system",
+				"hasChildren": true,
+				"Link": "/",
+				"Children": [
+					{
+						"seriesIndex": 1,
+						"title": "Introduction and basics",
+						"link": "/tutorials/ue4/gameplay-ability-system-01/"
+					}
+				]
+			}
+		]
 	}
-
 ]

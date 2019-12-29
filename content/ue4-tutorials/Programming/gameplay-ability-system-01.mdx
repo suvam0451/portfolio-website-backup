@@ -41,7 +41,7 @@ This class **declares parameters**. The signature can be summed up to
 What the signature of the 
 
 
-=== Step 1. Create an AttributeSet
+##### Step 1. Create an AttributeSet
 Since this class has #no cross dependencies#, we start with this. It was very difficulty to comprehend at first. The trick is in the macro definition and let me #do the homework for C++ devs# who just want to get up and ready .
 
 ```cpp
@@ -81,27 +81,13 @@ UPROPERTY(BlueprintReadOnly, Category = "Health", ReplicatedUsing = OnRep_Health
 ATTRIBUTE_ACCESSORS(UWW_Attributes, Health)
 ```
 We get the following functions added automatically
-[%header,cols=3*]
-|===
-| Function
-| What it does
-| Important to note
 
-| FGameplayAttribute *GetHealthAttribute()*;
-| #Gets# the data for given attribute.
-|- Used in attribute evaluation as in pre-processing and post-processing data.
-
-| float *GetHealth()*;
-| #Gets# `current` health.
-| N/A
-
-| void **SetHealth(**float NewVal**)**;
-| #Sets# `base` attribute
-| N/A
-
-| void **InitHealth(**float NewVal**)**;
-| Used to #initialize# to full hp with #no modifiers#.
-| Both `Base` and `Current` values are set. 
+| Function | What it does | Important to note|
+|----------|--------------|------------------|
+| FGameplayAttribute *GetHealthAttribute()*; | Gets value of attribute.| Used in attribute evaluation as in pre-processing and post-processing data.|
+| float *GetHealth()*; | Gets *current* health.| N/A|
+| void *SetHealth(float NewVal)*; | Sets *base* attribute | N/A |
+| void *InitHealth(float NewVal)*;| Used to initialize.| It sets both **Base** and **Current** value. |
 
 |===
 
@@ -116,7 +102,7 @@ virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Dat
 * Preattribute was used in ARPG to rescale the health and stamina bars.
 * PostGameplayEffectExecute was used to passed handling onto the Character class. Although, any persistent UObjects will also get the job done, if you want more code isolation. Possible candidates are #GIS#, #GM#, #PlayerController# etc.
 
-=== Step 2: FGameplayModifierEvaluatedData
+##### Step 2: FGameplayModifierEvaluatedData
 
 The next thing we #should# deal with is the data we can get from `FGameplayEffectModCallbackData` in #PostGameplayEffectExecute# since that's where effects are applied.
 
@@ -148,9 +134,11 @@ FString ToSimpleString() const // Will give FName, ModifiedOp mode, Delta in tha
 Beyond this, for simplest single player games, we do #minor tweaking# and #pass data# onto whoever handles the methods we created in that Step 1 complex macro. +
 #Take the code lightly#, if you are starting out. try casting to your custom Actor, Controller, Character and running test scripts in their body. The next section will clear up what needs to be done on your #character side#.
 
-=== Step 3. 
+#### Step 3. Adding an attribute
 
-On player side, we have to implement the `IAbilitySystemInterface` . Lets say that we had #one attribute(health)# in our AttributeSet derived class, ARPG implements the following two functions
+On player side, we have to implement the `IAbilitySystemInterface` . For now lets assume a single attribute, **health**.
+We add the folowing lines to 
+
 ```cpp
 // This has to be implemented in BP
 UFUNCTION(BlueprintImplementableEvent)
@@ -163,8 +151,9 @@ virtual void HandleHealthChanged(float DeltaValue, const struct FGameplayTagCont
 friend URPGAttributeSet;
 ```
 
-This is where we skip the Blueprint part and reduce our code for some scalability later. +
-So for us, the section will look like
+So we are keeping the blueprint macros for later.
+For now, this is what it would look like in pure C++.
+
 ```cpp
 // Called from OurAttributeSet, these are handled by us natively in C++
 virtual void HandleDamage(float DamageAmount, const FHitResult& HitInfo, const structFGameplayTagContainer& DamageTags, ARPGCharacterBase* InstigatorCharacter, AActor*DamageCauser);
@@ -190,14 +179,12 @@ void ARPGCharacterBase::HandleHealthChanged(float DeltaValue, const struct FGame
 }
 ```
 
-I had a very hard time getting `FGameplaySpecHandle` and few other structs in BP, so I would definitely #recommend handling GAS logic in C++#. +
-Next, I would like you to add __a public variable__ and __a function__. These will be used to assign effects directly from BP. 
+I had a very hard time getting `FGameplaySpecHandle` and few other structs in BP, so I would definitely recommend handling GAS logic in C++.
+Next, I would like you to add **a public variable** and **a function**. These will be used to assign effects directly from BP. 
 
 ##### The public variable
 
-First, the **public variable**. (Later, we might create our own parent class.)
-But if you give it incorrect input then the cast will fail.
-Since we start from scratch, we are safe with the folowing.
+In the code below, there are 3 examples of how we could define a single/list of effects.
 
 ```cpp
 // Basic demo for a single ability (Using class reference)
@@ -236,17 +223,19 @@ And next create a triggerbox/sphere BP and have it do this. #GiveAbility# was th
 
 ![GiveAbilityOnCollide](../../images/gameplay-ability-systems/GiveAbilityOnCollide.png)
 
-#Does it work# ? Great!!! #Does it not# ? DEBUG(Ill add later promise)!!! But, if you recall, we hard coded the level and input etc. That's why we have the GameplayEffect blueprints. It gives us the flexibility and scaling system using curves. More on that later. +
+I hope everything should work up until noe. 
+But, if you recall, we hard coded the level and input etc. That's why we have the GameplayEffect blueprints. 
+It gives us the flexibility and scaling system using curves. More on that later. +
 We have a working `GameplayEffect` system and its time to build a working `GameplayAbility` system.
 
-== Gameplay Ability System
+#### Gameplay Ability System
 
-There is broad use cases of the ability System. +
-At a basic level it can make your ability buttons do different things. +
-This means we can let a #bunny hop#, a #bird flap its wings#, an #alligator chomp# pressing the same button depending on which charcter is available to us. +
-Also, it seems the way to do this is surprisingly simple. +
+There is broad use cases of the ability System.
+At a basic level it can make your ability buttons do different things.
+This means we can select froma pool of skills and make available depending on selected character.
+Also, it seems the way to do this is surprisingly simple.
 
-Create a class derived from UGameplayAbility. we will understand the dash ability that comes with the plug-in as sample. #Hands off keyboards and eyes on screen#, please.
+Create a class derived from UGameplayAbility. we will understand the dash ability that comes with the plug-in as sample.
 
 ![GiveAbilityOnCollide](../../images/gameplay-ability-systems/DashAbilityHeader.png)
 

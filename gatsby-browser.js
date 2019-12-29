@@ -1,7 +1,7 @@
 // require("./src/utils/tailwindstyles.css");
 require("./src/utils/tailwind-base.css")
-require("./src/utils/bites.css")
 require("./src/utils/tailwind-components.css")
+require("./src/utils/tailwind-utilities.css")
 
 require("@blueprintjs/core/lib/css/blueprint.css");
 require("@blueprintjs/icons/lib/css/blueprint-icons.css");

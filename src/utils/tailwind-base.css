@@ -505,6 +505,7 @@
   
   table {
     border-collapse: collapse;
+    table-layout: auto;
   }
   
   h1,

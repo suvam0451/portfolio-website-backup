@@ -75,7 +75,6 @@ function CollapsibleModule(Props: CollapsibleModule)
 
 	// Show in effect
 	useEffect(() => {
-		// TweenMax.from(logoItem, 0.8, {opacity: 0});
 		TweenMax.to(logoItem, 0.8, {opacity:1, ease: Power3.easeOut});
 	});
 
@@ -215,28 +214,15 @@ function SideBar(Props: SidebarProps) {
 		var retval: any = [];
 		allUe4TutsMapJson.edges.forEach(function(it) {
 			var module_render: any = Populate_Series(it.node.modules);
-			// let ShouldCollapse: boolean = false;
-			if(it.node.submoduleID === Props.FrontMatter.submoduleID){
-				retval.push(
-					<BranchComponent
-						label={it.node.category}
-						CollapsedSection={module_render}
-						hasChildren={false}
-						IsCollapsed={false}
-					/>,
-				);
-			}
-			else{
-				retval.push(
-					<BranchComponent
-						label={it.node.category}
-						CollapsedSection={module_render}
-						hasChildren={false}
-						IsCollapsed={true}
-					/>,
-				);
-			}
-
+			// Checing if submoduleID is a match
+			let CollapseSwitch: boolean = (it.node.submoduleID === Props.FrontMatter.submoduleID) ? false : true;
+			retval.push(
+				<BranchComponent
+					label={it.node.category}
+					CollapsedSection={module_render}
+					hasChildren={false}
+					IsCollapsed={CollapseSwitch}
+				/>);
 		});
 		return retval;
 	};

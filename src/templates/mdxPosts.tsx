@@ -51,10 +51,15 @@ export default function PageTemplate(data: mdxProps) {
 	return (
 		<div>
 			<Helmet>
+				<title>{data.data.mdx.frontmatter.seotitle}</title>
+				<meta name="description" content={data.data.mdx.frontmatter.description}></meta>
 				{/*<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>*/}
+				<meta name="og:title" property="og:title" content={data.data.mdx.frontmatter.seotitle}/>
+				<meta name="twitter:card" content={data.data.mdx.frontmatter.description}/>
+				<link rel="canonical" href="https://winterwildfire.netlify.com/"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			</Helmet>
-			<div>
-			<NavSection/></div>
+			<NavSection/>
 			<div className="bg-gray-400 m-0 p-2">
 				<Row>
 					{/** List of all available tutorials + Skip to section(optional) */}
@@ -98,7 +103,6 @@ export default function PageTemplate(data: mdxProps) {
 					</Col>
 				</Row>
 			</div>
-
 			<Footer />
 		</div>
 	);
@@ -111,6 +115,8 @@ interface mdxProps {
 			body: any;
 			frontmatter: {
 				title: string;
+				description: string;
+				seotitle: string;
 			};
 		};
 	};
@@ -123,6 +129,8 @@ export const query = graphql`
 			body
 			frontmatter {
 				title
+				description
+				seotitle
 				moduleID
 				submoduleID
 				seriesID

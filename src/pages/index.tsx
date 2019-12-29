@@ -288,8 +288,8 @@ function Index(props: IndexPageProps) {
 							<DropdownMenu>
 								<DropdownItem disabled>Advanced sitemap</DropdownItem>
 								<DropdownItem divider />
-								<DropdownItem disabled>Free Content</DropdownItem>
-								<DropdownItem disabled>Paid Content</DropdownItem>
+								<DropdownItem disabled>UE4 Projects</DropdownItem>
+								<DropdownItem disabled>Blender Scripts</DropdownItem>
 							</DropdownMenu>
 						</Dropdown>
 					</Nav>

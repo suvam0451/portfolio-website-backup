@@ -67,9 +67,11 @@ function NavSection() {
 							<button className="bp3-button bp3-minimal bp3-icon-build">
 								Tools
 							</button>
-							<button className="bp3-button bp3-minimal bp3-icon-git-branch">
-								Repositories
-							</button>
+							<a href="https://gitlab.com/winterwildfire">
+								<button className="bp3-button bp3-minimal bp3-icon-git-branch">
+									Repositories
+								</button>
+							</a>
 					</DesktopNavbarSection>
 				</div>
 				<MobileNavbar>

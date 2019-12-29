@@ -75,6 +75,7 @@ function CollapsibleModule(Props: CollapsibleModule)
 
 	// Show in effect
 	useEffect(() => {
+		TweenMax.from(logoItem, 0, {opacity:0, ease: Power3.easeOut});
 		TweenMax.to(logoItem, 0.8, {opacity:1, ease: Power3.easeOut});
 	});
 

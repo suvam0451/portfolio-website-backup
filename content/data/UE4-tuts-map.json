@@ -7,8 +7,6 @@
 			{
 				"seriesID": 1,
 				"title": "plugin-in-rust",
-				"hasChildren": true,
-				"Link": "/",
 				"Children": [
 					{
 						"seriesIndex": 1,
@@ -20,8 +18,6 @@
 			{
 				"seriesID": 2,
 				"title": "plugin-in-cpp",
-				"hasChildren": true,
-				"Link": null,
 				"Children": [
 					{
 						"seriesIndex": 1,
@@ -43,8 +39,6 @@
 			{
 				"seriesID": 3,
 				"title": "gameplay-ability-system",
-				"hasChildren": true,
-				"Link": "/",
 				"Children": [
 					{
 						"seriesIndex": 1,
@@ -68,8 +62,6 @@
 			{
 				"seriesID": 1,
 				"title": "git-basics",
-				"hasChildren": true,
-				"Link": "/",
 				"Children": [
 					{
 						"seriesIndex": 1,
@@ -81,8 +73,6 @@
 			{
 				"seriesID": 2,
 				"title": "build-systems",
-				"hasChildren": true,
-				"Link": "/",
 				"Children": [
 					{
 						"seriesIndex": 1,
@@ -115,19 +105,35 @@
 	},
 	{
 		"submoduleID": 4,
-		"category": "Gameplay Ability System",
+		"category": "Miscellaneous",
 		"description": "Okay",
 		"modules": [
 			{
 				"seriesID": 1,
 				"title": "gameplay-ability-system",
-				"hasChildren": true,
-				"Link": "/",
 				"Children": [
 					{
 						"seriesIndex": 1,
 						"title": "Introduction and basics",
 						"link": "/tutorials/ue4/gameplay-ability-system-01/"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submodule": 5,
+		"category": "Debugging",
+		"description": "Fixing most commonly encountered error messages.",
+		"modules": [
+			{
+				"seriesID": 1,
+				"title": "non-engine-errors",
+				"Children": [
+					{
+						"seriesIndex": 1,
+						"title": "Common git errors",
+						"link": "/tutorials/ue4/fixing-common-git-errors"
 					}
 				]
 			}

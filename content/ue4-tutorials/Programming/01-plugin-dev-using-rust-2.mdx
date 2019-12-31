@@ -1,12 +1,12 @@
 ---
-path: "/ue4-tuts/plugin-development-using-rust-1"
-title: "Making a rust plug-in (Part 1/3)"
+path: "/tutorials/ue4/plugin-development-using-rust-2"
+title: "Making a rust plug-in (Part 2/3)"
 date: "2019-19-12"
 tags: ["ue4", "mdx", "example"]
 moduleID: 1
 submoduleID: 1
 seriesID: 1
-seriesIndex: 1
+seriesIndex: 2
 draft: false
 ---
 
@@ -25,7 +25,39 @@ In this series, we will write a plugin for Unreal Engine 4 in rust programming l
 
 ---
 
-#### Introduction
+#### First time set-up
+
+Firstly, setting up rust toolchain. Skip this if you already have everything configured.
+Below is a checklist of things you should already have.
+
+1. rustup
+2. vscode with **rust-rls** plug-in by rust-lang
+
+<Alert
+	head="Helpful tip !"
+	body="Consider using package managers to install stuff. They get the job done quick and clean !"
+/>
+
+---
+
+#### Code
+
+```rust
+// Here is a list of structs we need and a basic empty function
+
+struct SVector { x: f32, y: f32, z: f32 }
+
+struct SQuat { w: f32, x: f32, y: f32, z: f32 }
+
+struct STransform {
+    position : SVector,
+    location: SVector,
+    rotaion: SQuat
+}
+
+pub extern fn RotateRightAngle(_transform : STransform) -> STransform {
+}
+```
 
 The main takeaway is that C++ and rust allow static linking. This means we won't have to ship our library(DLL) along-side the game i.e- It will be built into the executable. This is important for procedurally generating world during runtime in shipped game.
 If you only need world building in editor itself, perhaps this would be a better read for you.
@@ -79,6 +111,8 @@ Learning rust in itself and working with interoperatibility might hamper profess
 I am by no means a veteran dev. Throughout this series, we would mostly use static functions. I am hoping to by sharing my experience while developing my procedural plug-in.
 
 Hopefully this will give you a head start in learning rust / plugin development. Good luck.
+
+[part two](/ue4-tuts/plugin-development-using-rust-2)
 
 <Alert
 	head="Remember more productive options !!!"

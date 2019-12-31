@@ -84,23 +84,26 @@ We get the following functions added automatically
 
 | Function | What it does | Important to note|
 |----------|--------------|------------------|
-| FGameplayAttribute *GetHealthAttribute()*; | Gets value of attribute.| Used in attribute evaluation as in pre-processing and post-processing data.|
-| float *GetHealth()*; | Gets *current* health.| N/A|
-| void *SetHealth(float NewVal)*; | Sets *base* attribute | N/A |
-| void *InitHealth(float NewVal)*;| Used to initialize.| It sets both **Base** and **Current** value. |
+| FGameplayAttribute **GetHealthAttribute()**; | Gets value of attribute.| Used in attribute evaluation as in pre-processing and post-processing data.|
+| float **GetHealth()**; | Gets *current* health.| N/A|
+| void **SetHealth(float NewVal)**; | Sets *base* attribute | N/A |
+| void **InitHealth(float NewVal)**;| Used to initialize.| It sets both **Base** and **Current** value. |
 
-|===
+<Alert
+    head="What is GET_MEMBER_NAME_CHECKED"
+    body="Returns the FName. Its part of assertion macro (error checking)."
+/>
 
-TIP: `GET_MEMBER_NAME_CHECKED` Returns FName. Its part of assertion macros.
-
-There are two overrides that do pre and post processing on data
+Below, there are two functions that get fired when we rquest a change in out AttributeSet.
+Using these we can precondition our data and make any required changes using the new data.
 	
 ```cpp
 virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
 virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 ```
-* Preattribute was used in ARPG to rescale the health and stamina bars.
-* PostGameplayEffectExecute was used to passed handling onto the Character class. Although, any persistent UObjects will also get the job done, if you want more code isolation. Possible candidates are #GIS#, #GM#, #PlayerController# etc.
+* **PreattributeChange:** used in ARPG to rescale the health and stamina bars.
+* **PostGameplayEffectExecute:** used to handle post-update changes. Any persistent UObject can hold onto a reference to this. 
+Best place to put them would be *GIS, GM, PlayerController* etc.
 
 ##### Step 2: FGameplayModifierEvaluatedData
 

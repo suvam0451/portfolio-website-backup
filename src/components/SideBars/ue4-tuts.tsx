@@ -24,8 +24,6 @@ interface Tier1_Prop {
 interface SeriesProps {
 	readonly seriesID: number;
 	readonly title: string;
-	readonly hasChildren: boolean;
-	readonly Link: string;
 	readonly Children: Array<LeafNode>;
 }
 
@@ -160,8 +158,6 @@ function SideBar(Props: SidebarProps) {
 						modules {
 							seriesID
 							title
-							hasChildren
-							Link
 							Children {
 								seriesIndex
 								title
@@ -181,7 +177,6 @@ function SideBar(Props: SidebarProps) {
 		for (let i = 0; i < Props.length; i++) {
 			let CollapsibleSection: any = [];
 			let Children = Props[i];
-			if (Children.hasChildren) {
 				Children.Children.forEach(function(leafpost: LeafNode) {
 					CollapsibleSection.push(
 						<div>
@@ -198,13 +193,6 @@ function SideBar(Props: SidebarProps) {
 						HeaderSection={Children.title}
 					/>,
 				);
-			} else {
-				retval.push(
-					<div className="block ml-3 hover:invisible hover:bg-teal-400">
-						&#9658; Not a series
-					</div>,
-				);
-			}
 		}
 		return retval;
 	};

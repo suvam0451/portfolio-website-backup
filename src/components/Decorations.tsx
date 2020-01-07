@@ -216,4 +216,25 @@ function QuickLinks() {
 	);
 }
 
-export { Alert, Footer, QuickLinks, NavCard };
+interface AlertProps {
+	readonly head: string;
+	readonly body: string;
+	type?: EAlert;
+}
+
+interface GW2_PriceTag {
+	readonly gold: string;
+	readonly silver: string;
+	readonly copper: string;
+}
+const Copper = styled.div`
+	background-image: url(https://render.guildwars2.com/file/94DCAE59215C0096449906A81F202B0201FBA85B/631486.png)
+	height=100
+`
+
+function GW2_PriceTag() {
+	return(<div>
+		<Copper>3</Copper>
+	</div>)
+}
+export { Alert, Footer, QuickLinks, NavCard, GW2_PriceTag };

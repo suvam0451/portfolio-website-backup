@@ -47,9 +47,13 @@ const components = {
 	h4: MyH4,
 	h5: MyH5,
 }
+const ScrollArea = styled.div`
+	height: 88vh;
+`
+
 export default function PageTemplate(data: mdxProps) {
 	return (
-		<div>
+		<div className="mt-16 z-20">
 			<Helmet>
 				<title>{data.data.mdx.frontmatter.seotitle}</title>
 				<meta name="description" content={data.data.mdx.frontmatter.description}></meta>
@@ -59,51 +63,76 @@ export default function PageTemplate(data: mdxProps) {
 				<link rel="canonical" href="https://winterwildfire.netlify.com/"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			</Helmet>
-			<NavSection/>
-			<div className="bg-gray-400 m-0 p-2">
+			<div className="relative xl:fixed w-full -mt-16">
+				<div className="z-20">
+					<NavSection/>
+				</div>
+				<div className="bg-gray-400 p-2 pt-8 z-0 mb-24">
+					<Row>
+						<Col xs="12" sm="12" md="12" lg="12" xl="2">
+							<Row>
+								<SideBar FrontMatter={data.data.mdx.frontmatter}/>
+								<StatusCard />
+								<NavCard />
+							</Row>
+						</Col>
+						<Col xs="12" sm="12" md="12" lg="12" xl="7">
+						<div className="bg-gray-100 px-4 py-4 border rounded-lg shadow-md list-disc overflow-auto object-contain mb-24">
+							<ScrollArea>
+
+									<h4 className="text-teal-700 mb-4">
+										{data.data.mdx.frontmatter.title}
+									</h4>
+									<MDXRenderer components={components}>{data.data.mdx.body}</MDXRenderer>
+									<Footer />
+
+							</ScrollArea>
+							</div>
+						</Col>
+						<Col xs="12" sm="12" md="12" lg="6" xl="3">
+							<Row>
+								<Col xs="12" sm="6" md="12" lg="6" xl="12">
+									<Card>
+										<h4>Related Contents</h4>
+										<p>
+											User created content used in WW APIs completely
+											free. If you develop something cool using the
+											tools, you can send us to be showcased here.
+										</p>
+										<Button>Visit Archives</Button>
+									</Card>
+								</Col>
+								<Col xs="12" sm="6" md="12" lg="6" xl="12">
+									<Card body xs="12" xl="12">
+										{/* Used persistent quicklinks from components/persistent*/}
+										<QuickLinks />
+									</Card>
+								</Col>
+							</Row>
+						</Col>
+					</Row>
+				</div>
+			</div>
+			<div className="bg-gray-400 p-2 pt-8">
 				<Row>
 					{/** List of all available tutorials + Skip to section(optional) */}
 					<Col xs="12" sm="12" md="12" lg="12" xl="2">
 						<Row>
-							<SideBar FrontMatter={data.data.mdx.frontmatter}/>
-							<StatusCard />
-							<NavCard />
 						</Row>
 					</Col>
 					{/** Main body of mdx post */}
 					<Col xs="12" sm="12" md="12" lg="12" xl="7">
-						{/*<h1>{data.data.mdx.frontmatter.title}</h1>*/}
-						<div className="bg-gray-100 px-4 py-4 border rounded-lg shadow-md list-disc">
+						{/* <div className="bg-gray-100 px-4 py-4 border rounded-lg shadow-md list-disc">
 							<h4 className="text-teal-700 mb-4">
 								{data.data.mdx.frontmatter.title}
 							</h4>
 							<MDXRenderer components={components}>{data.data.mdx.body}</MDXRenderer>
-						</div>
+						</div> */}
 					</Col>
 					<Col xs="12" sm="12" md="12" lg="6" xl="3">
-						<Row>
-							<Col xs="12" sm="6" md="12" lg="6" xl="12">
-								<Card>
-									<h4>Related Contents</h4>
-									<p>
-										User created content used in WW APIs completely
-										free. If you develop something cool using the
-										tools, you can send us to be showcased here.
-									</p>
-									<Button>Visit Archives</Button>
-								</Card>
-							</Col>
-							<Col xs="12" sm="6" md="12" lg="6" xl="12">
-								<Card body xs="12" xl="12">
-									{/* Used persistent quicklinks from components/persistent*/}
-									<QuickLinks />
-								</Card>
-							</Col>
-						</Row>
 					</Col>
 				</Row>
 			</div>
-			<Footer />
 		</div>
 	);
 }

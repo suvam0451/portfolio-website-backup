@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import ue4_icon from "../../content/images/ue4-icon.png";
 import Image from "gatsby-image";
 import styled from "@emotion/styled";
@@ -43,6 +43,7 @@ import {
 	CardGroup,
 	UncontrolledCollapse,
 } from "reactstrap";
+import BackgroundImage from "gatsby-background-image";
 
 interface BoxProps {
 	readonly username: string;
@@ -228,13 +229,101 @@ interface GW2_PriceTag {
 	readonly copper: string;
 }
 const Copper = styled.div`
-	background-image: url(https://render.guildwars2.com/file/94DCAE59215C0096449906A81F202B0201FBA85B/631486.png)
-	height=100
+	background-image: url(https://render.guildwars2.com/file/94DCAE59215C0096449906A81F202B0201FBA85B/631486.png);
+	background-repeat: no-repeat;
+	height: 24px;
+	width: 24px;
+	padding-left: 16px;
+	display: inline-block;
+	margin-bottom: -6px;
 `
 
-function GW2_PriceTag() {
+/*CopperCoin: any*/
+interface PriceTagProps {
+	GoldValue ?: number;
+	SilverValue ?: number;
+	CopperValue ?: number;
+}
+function GW2_PriceTag(Val : PriceTagProps) {
+	// query hook
+	const { GoldCoin, SilverCoin, CopperCoin } = useStaticQuery(graphql`{
+		CopperCoin: file(
+			relativeDirectory: { eq: "images/gw2" }
+			name: { eq: "Copper_coin" }
+		) {
+			childImageSharp {
+				fixed(width: 18, height: 18) {
+					...GatsbyImageSharpFixed
+				}
+			}
+		}
+		SilverCoin: file(
+			relativeDirectory: { eq: "images/gw2" }
+			name: { eq: "Silver_coin" }
+		) {
+			childImageSharp {
+				fixed(width: 18, height: 18) {
+					...GatsbyImageSharpFixed
+				}
+			}
+		}
+		GoldCoin: file(
+			relativeDirectory: { eq: "images/gw2" }
+			name: { eq: "Gold_coin" }
+		) {
+			childImageSharp {
+				fixed(width: 18, height: 18) {
+					...GatsbyImageSharpFixed
+				}
+			}
+		}
+	}
+	`)
+
 	return(<div>
-		<Copper>3</Copper>
+		<div className="inline-block">{Val.GoldValue}</div>
+		<BackgroundImage className="-mb-1 mr-1" fixed={GoldCoin.childImageSharp.fixed}/>
+		<div className="inline-block">{Val.SilverValue}</div>
+		<BackgroundImage className="-mb-1 mr-1" fixed={SilverCoin.childImageSharp.fixed}/>
+		<div className="inline-block">{Val.CopperValue}</div>
+		<BackgroundImage className="-mb-1 mr-1" fixed={CopperCoin.childImageSharp.fixed}/>
+		{/* <Copper></Copper>3  className="w-8 h-8 bg-no-repeat pl-16 inline-block"*/}
 	</div>)
 }
 export { Alert, Footer, QuickLinks, NavCard, GW2_PriceTag };
+
+// Gets copper, silver and gold coins
+// export const query = graphql`
+// 	{
+// 		Copper: file(
+// 			relativeDirectory: { eq: "images/gw2" }
+// 			name: { eq: "Copper_coin" }
+// 		) {
+// 			childImageSharp {
+// 				fixed(width: 15, height: 15) {
+// 					...GatsbyImageSharpFixed
+// 				}
+// 			}
+// 		}
+// 		Silver: file(
+// 			relativeDirectory: { eq: "images/gw2" }
+// 			name: { eq: "Silver_coin" }
+// 		) {
+// 			childImageSharp {
+// 				fixed(width: 15, height: 15) {
+// 					...GatsbyImageSharpFixed
+// 				}
+// 			}
+// 		}
+// 		Gold: file(
+// 			relativeDirectory: { eq: "images/gw2" }
+// 			name: { eq: "Gold_coin" }
+// 		) {
+// 			childImageSharp {
+// 				fixed(width: 15, height: 15) {
+// 					...GatsbyImageSharpFixed
+// 				}
+// 			}
+// 		}
+// 	}
+// `;

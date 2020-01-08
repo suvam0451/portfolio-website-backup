@@ -109,7 +109,9 @@ export default function SkrittKit(props: any) {
 						<td className="border">{price.data.id} </td>
 						<td><img className="w-8 h-8 inline" src={price.data.icon}></img>{price.data.name}</td>
 						<td>
-							<GW2_PriceTag></GW2_PriceTag>
+							<GW2_PriceTag GoldValue={Math.floor(buyprice/10000) % 100}
+								SilverValue={Math.floor(buyprice/100) % 100}
+								CopperValue={Math.floor(buyprice/100) % 100}></GW2_PriceTag>
 							{Math.floor(buyprice/10000) % 100}
 							<Img fixed={Gold.childImageSharp.fixed}/>
 							{Math.floor(buyprice/100) % 100}

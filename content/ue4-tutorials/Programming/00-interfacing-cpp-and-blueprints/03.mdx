@@ -1,0 +1,102 @@
+---
+path: "/tutorials/ue4/interfacing-cpp-and-blueprints/3"
+title: "Interfacing C++ and Blueprints (Part 3/3)"
+date: "2020-01-10"
+tags: ["ue4", "mdx", "example"]
+moduleID: 1
+submoduleID: 1
+seriesID: 0
+seriesIndex: 3
+draft: false
+---
+
+import { Footer, Alert } from "../../../src/components/Decorations";
+
+Welcome to third part of this series. We are creating a **reusable health system using interfaces** in C++ and use that on many actors.
+It will be an ActorComponent.
+If you haven't read the first part yet, do so. Second part is not required.
+
+For a health system, we would need,
+- CurrentHealth (preferrable with getters and setters)
+- Damage and Heal functions
+
+### Health system interface
+---
+
+Following what we discussed before, We start with the following code. (Removing the obvious #include sections)
+
+```cpp
+//////////////////////////////////////////////////////////////////////
+// UWW_HealthInterface.h
+
+UCLASS()
+class XYZ_API UWW_HealthInterface : public UInterface {
+	GENERATED_BODY()
+};
+
+class XYZ_API IWW_IBaseSceneComponent {
+	GENERATED_BODY()
+public:
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Overrides")
+	int ReduceHealth(int Value); // will reduce HP, returns 1 if HP below zero
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Overrides")
+	int AddHealth(int Value); // will increase HP, returnas 1 if HP overflows
+};
+```
+
+We implement this in an ActorComponent. This time we *don't need to spawn it in world*, so a ActorComponent suffices.
+
+```cpp
+//////////////////////////////////////////////////////////////////////
+// Appended to UActorComponent_HP.h
+
+public:
+	// Called when any component property is modified in inspector
+	virtual void PostEditChangeProperty(FPropertyChangedEvent &PropertyChangedEvent) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int Health = 0;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Override")
+	int ReduceHealth(int Value);
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Override")
+	int AddHealth(int Value);
+	virtual void ReduceHealth_Implementation() override;
+	virtual void AddHealth_Implementation() override;
+
+//////////////////////////////////////////////////////////////////////
+// Appended to UActorComponent_HP.cpp
+
+void UActorComponent_H::PostEditChangeProperty(FPropertyChangedEvent &PropertyChangedEvent) {
+	Execute_AddHealth(this, 30);
+	Execute_ReduceHealth(this, 20);
+}
+
+int UActorComponent_H::ReduceHealth_Implementation(int Value) {
+	UE_LOG(LogTemp, Warning, TEXT("Interface ReduceHealth is not implemented."));
+}
+int UActorComponent_H::AddHealth_Implementation(int Value) {
+	UE_LOG(LogTemp, Warning, TEXT("Interface AddHealth is not implemented."));
+}
+```
+
+- **My Create blueprint class from XYZ is greyed out. Where did I go wrong ?**
+- We covered this. change `UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))` or whatever is there to `UCLASS(Blueprintable)` in `UActorComponent_HP.h`
+
+#### observations:
+- Note that we added a health property in header.
+- If we don't implement anything and compile it anyways, & then go and create a blueprint and assign it to an actor, it seems we are still able to override the functions.
+- This is pretty cool because usually one would expect C++ top kick you out if you don't implement every single function.
+- I will test and update if this has any side effects.
+
+After this is done, compile and jump to blueprint. Override the 2 interfaces, drag and attach the property and increment/decrement by value. It is a very simple exercise.
+It will add 2 functions. If you have difficulty, just fire up the included example. C++ guys can just write out the code in XYZ_Execute functions.
+To kill the actor, use (From ActorCompoennt code)
+
+``
+
+That was all the basics covered. I hope you consider including abstract C++ interfaces in your future projects.
+Anything new added to this series will feature integrating other important features (like GameplayAbilitySystem, ThirdPartyPlugins).
+You can always check for additional posts from the [module page](/tutorials/ue4/interfacing-cpp-and-blueprints) or [homepage](/).
+
+If you would like some important feature covered and added to this module, please [drop me a mail](mailto:suvam0451@outlook.com)

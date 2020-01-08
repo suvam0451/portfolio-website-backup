@@ -11,7 +11,7 @@
 					{
 						"seriesIndex": 1,
 						"title": "Part 1",
-						"link": "/ue4-tuts/plugin-development-using-rust-1"
+						"link": "/tutorials/ue4/plugin-development-using-rust/1"
 					}
 				]
 			},
@@ -49,6 +49,48 @@
 						"seriesIndex": 2,
 						"title": "Our first abilities",
 						"link": "/tutorials/ue4/gameplay-ability-system-02/"
+					}
+				]
+			},
+			{
+				"seriesID": 4,
+				"title": "interfacing-cpp-and-blueprints",
+				"Children": [
+					{
+						"seriesIndex": 1,
+						"title": "Native C++ interface",
+						"link": "/tutorials/ue4/interfaces-in-cpp-and-blueprints/1"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "Health system interface",
+						"link": "/tutorials/ue4/interfaces-in-cpp-and-blueprints/3"
+					}
+				]
+			},
+			{
+				"seriesID": 5,
+				"title": "setting-up-dev-env",
+				"Children": [
+					{
+						"seriesIndex": 1,
+						"title": "Visual Studio 2019",
+						"link": "/tutorials/ue4/setting-up-development-environment/1"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Visual Studio Code",
+						"link": "/tutorials/ue4/setting-up-development-environment/2"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "IncrediBuild Basics",
+						"link": "/tutorials/ue4/setting-up-development-environment/3"
+					},
+					{
+						"seriesIndex": 4,
+						"title": "MSBuild on server",
+						"link": "/tutorials/ue4/setting-up-development-environment/4"
 					}
 				]
 			}
@@ -97,7 +139,7 @@
 					{
 						"seriesIndex": 1,
 						"title": "Non-technical Overview",
-						"link": "/ue4/tutorials/introduction-to-shaders-01/"
+						"link": "/tutorials/ue4/introduction-to-shaders/1"
 					}
 				]
 			}

@@ -1,0 +1,41 @@
+---
+path: "/tutorials/ue4/setting-up-development-environment/1"
+title: "Setting up development environment (Part 1/3)"
+date: "2020-01-10"
+tags: ["ue4", "mdx", "example"]
+moduleID: 1
+submoduleID: 1
+seriesID: 5
+seriesIndex: 1
+draft: false
+---
+
+In this module, we will be setting up the development environment for Unreal Engine 4. Thjat means everything except the engine and editor itself.
+If you have a fast running PC with lightning fast compile times, then that is great.
+But a large segment of users use slower PCs/laptops and thus the engine gets a bad name for heavily resource demaning.
+
+#### Visual Studio 2019 for C++
+---
+If you have difficulty setting up UE4 with VS2019, make sure you have followed these steps.
+
+1. You have downloaded the engine from Epic launcher.
+2. You have downloaded [Visual studio Installer](https://visualstudio.microsoft.com/downloads/) and Community edition.
+
+[Requirements](../../../images/setting-up-dev-env/VSInstallerBucketList.png)
+
+If you are running low on storage/want to do a minimal installation, here is all you need to run UE4.
+Game Dev module is not needed. .NET desktop development is ticked for me because I use it. You won't need it.
+
+While Desktop development with C++ is ticked, you would need the 
+- MSVC v142
+- Win10 SDK
+- JIT Debugger
+- You'll need Profiling/CMake/ATL at some point, not for UE4 but for writing third party plugin codes.
+- You won't need Test adapters. 
+
+That should throw a chuck of undesired files off your system. Now, 
+
+Throughout this series, I want to point out a few good practices and softwares through which your speed of development can improve.
+
+**We will only be covering Windows** because I don't own a mac. Keybindings for vscode for example may be different.
+

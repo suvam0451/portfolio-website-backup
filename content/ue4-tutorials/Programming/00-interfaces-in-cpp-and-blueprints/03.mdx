@@ -89,6 +89,10 @@ int UActorComponent_H::AddHealth_Implementation(int Value) {
 - This is pretty cool because usually one would expect C++ top kick you out if you don't implement every single function.
 - I will test and update if this has any side effects.
 
+**Update: Okay, I figured that if we don't define the functions in C++, they come up as regular functions in blueprint (with purple noides).**
+**This means, it is as if the function was never implemented in C++.**
+**Regardless, we will continue putting dummy functions in C++ as we did, because the message will throw NotImplemented warning rather than break the code.**
+
 After this is done, compile and jump to blueprint. Override the 2 interfaces, drag and attach the property and increment/decrement by value. It is a very simple exercise.
 It will add 2 functions. If you have difficulty, just fire up the included example. C++ guys can just write out the code in XYZ_Execute functions.
 To kill the actor, use (From ActorCompoennt code)

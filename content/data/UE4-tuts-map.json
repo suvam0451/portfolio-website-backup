@@ -102,6 +102,16 @@
 						"seriesIndex": 1,
 						"title": "Introduction/Hello ISM",
 						"link": "/tutorials/ue4/instanced-static-meshes/1"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Combining multiple ISMC",
+						"link": "/tutorials/ue4/instanced-static-meshes/2"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "PRNG and Refactoring",
+						"link": "/tutorials/ue4/instanced-static-meshes/3"
 					}
 				]
 			}

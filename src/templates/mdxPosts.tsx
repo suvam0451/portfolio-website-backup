@@ -50,7 +50,7 @@ const components = {
 
 // Visible: {}, Hidden: {}
 const ScrollArea = styled.div`
-	height: 88vh;
+	height: 92vh;
 	@media (max-width: 1200px) {
 		height: auto;
 	}
@@ -100,17 +100,20 @@ export default function PageTemplate(data: mdxProps) {
 							</Row>
 						</Col>
 						<Col xs="12" sm="12" md="12" lg="12" xl="7">
-						<div className="bg-gray-400 px-4 py-4 border rounded-lg shadow-md list-disc overflow-auto object-contain mb-24">
-							<ScrollArea>
-									<h4 className="text-gray-600 mb-4">
-										<TitleText>
-											{data.data.mdx.frontmatter.title}
-										</TitleText>
-									</h4>
-									<MDXRenderer components={components}>{data.data.mdx.body}</MDXRenderer>
-									<Footer />
-							</ScrollArea>
-						</div>
+							<div className="bg-gray-400 px-4 py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain mb-24">
+								<ScrollArea>
+										<h4 className="text-gray-600 mb-4">
+											<TitleText>
+												{data.data.mdx.frontmatter.title}
+											</TitleText>
+										</h4>
+										<div className="sticky top-0 ...">
+											Sticky Heading 1
+										</div>
+										<MDXRenderer components={components}>{data.data.mdx.body}</MDXRenderer>
+										<Footer />
+								</ScrollArea>
+							</div>
 						</Col>
 						<Col xs="12" sm="12" md="12" lg="6" xl="3">
 							<Row>

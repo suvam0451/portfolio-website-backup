@@ -70,27 +70,38 @@
 			},
 			{
 				"seriesID": 5,
-				"title": "setting-up-dev-env",
+				"title": "Setting up our development environment.",
 				"Children": [
 					{
 						"seriesIndex": 1,
-						"title": "Visual Studio 2019",
+						"title": "With Visual Studio 2019",
 						"link": "/tutorials/ue4/setting-up-development-environment/1"
 					},
 					{
 						"seriesIndex": 2,
-						"title": "Visual Studio Code",
+						"title": "With Visual Studio Code",
 						"link": "/tutorials/ue4/setting-up-development-environment/2"
 					},
 					{
 						"seriesIndex": 3,
-						"title": "IncrediBuild Basics",
+						"title": "Introducing IncrediBuild",
 						"link": "/tutorials/ue4/setting-up-development-environment/3"
 					},
 					{
 						"seriesIndex": 4,
-						"title": "MSBuild on server",
+						"title": "Using MSBuild on microsoft servers to build",
 						"link": "/tutorials/ue4/setting-up-development-environment/4"
+					}
+				]
+			},
+			{
+				"seriesID": 6,
+				"title": "instanced-static-meshes",
+				"Children": [
+					{
+						"seriesIndex": 1,
+						"title": "Introduction/Hello ISM",
+						"link": "/tutorials/ue4/instanced-static-meshes/1"
 					}
 				]
 			}

@@ -8,3 +8,15 @@ export interface AllMarkdownRemarkQueryArgs {
   sort: markdownRemarkConnectionSort | null;
   filter: filterMarkdownRemark | null;
 }
+
+export interface FrontMatterProps {
+  FrontMatter : FrontMatterStruct;
+}
+
+export interface FrontMatterStruct {
+    title: string;
+    moduleID: number;
+    submoduleID: number;
+    seriesID: number;
+    seriesIndex: number;
+}

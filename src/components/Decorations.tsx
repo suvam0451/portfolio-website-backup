@@ -152,67 +152,34 @@ function NavCard() {
 function QuickLinks() {
 	return (
 		<>
+		<div className="bg-gray-400">
 			<Card>
-				<h4>Quick links</h4>
-				<p>
-					User created content used in WW APIs completely free. If you
-					develop something cool using the tools, you can send us to
-					be showcased here.
-				</p>
-				<Button>Visit Archives</Button>
+				<div className="bg-gray-400 p-4 border-2 border-gray-600 rounded-lg">
+					<h4>Community</h4>
+					<div className="border-orange-300 border-4 rounded-sm">
+						<img src="https://discordapp.com/assets/f8389ca1a741a115313bede9ac02e2c0.svg"
+							className="h-16 w-16 inline">
+						</img>
+						<img src="https://www.stickpng.com/assets/images/5847f997cef1014c0b5e48c1.png"
+							className="h-12 w-12 inline border-orange-300 border-b-4">
+						</img>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Microsoft_Office_OneNote_%282018%E2%80%93present%29.svg"
+							className="h-12 w-12 inline ml-2">
+						</img>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png"
+							className="h-12 w-12 inline ml-1">
+						</img>
+						<img src="https://image.flaticon.com/icons/svg/25/25231.svg"
+							className="h-12 w-12 inline ml-1">
+						</img>
+					</div>
+					<div className="border-orange-300 border-b-4 border-l-4 border-r-4 rounded-sm">
+						The content in this section should change with selection of logo above.
+						Currently gitlab is selected.
+					</div>
+				</div>
 			</Card>
-			<Card>
-				<CardHeader tag="h5">Quick Links</CardHeader>
-				<CardBody>
-					<Table responsive size="sm" hover bordered dark>
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>To</th>
-								<th>Link</th>
-								<th>Link Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">1</th>
-								<td>Discord</td>
-								<td>
-									<a href="https://discord.gg/6KKX99g">Server</a>
-								</td>
-								<td>For extended discussions.</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Sitemap</td>
-								<td>N/A</td>
-								<td>Not implemented yet</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>gitlab</td>
-								<td>
-									<a href="https://gitlab.com/winterwildfire">
-										Group
-									</a>
-								</td>
-								<td>source for select projects</td>
-							</tr>
-							<tr>
-								<th scope="row">4</th>
-								<td>Admin</td>
-								<td>
-									<a href="https://gitlab.com/suvam0451">Debashish</a>
-								</td>
-								<td>Direct contact for issues/bugs.</td>
-							</tr>
-						</tbody>
-					</Table>
-				</CardBody>
-				{
-					//<Button>Access Sitemap</Button>
-				}
-			</Card>
+		</div>
 		</>
 	);
 }
@@ -236,61 +203,102 @@ const Copper = styled.div`
 	padding-left: 16px;
 	display: inline-block;
 	margin-bottom: -6px;
-`
+`;
 
 /*CopperCoin: any*/
 interface PriceTagProps {
-	GoldValue ?: number;
-	SilverValue ?: number;
-	CopperValue ?: number;
+	GoldValue?: number;
+	SilverValue?: number;
+	CopperValue?: number;
 }
-function GW2_PriceTag(Val : PriceTagProps) {
+function GW2_PriceTag(Val: PriceTagProps) {
 	// query hook
-	const { GoldCoin, SilverCoin, CopperCoin } = useStaticQuery(graphql`{
-		CopperCoin: file(
-			relativeDirectory: { eq: "images/gw2" }
-			name: { eq: "Copper_coin" }
-		) {
-			childImageSharp {
-				fixed(width: 18, height: 18) {
-					...GatsbyImageSharpFixed
+	const { GoldCoin, SilverCoin, CopperCoin } = useStaticQuery(graphql`
+		{
+			CopperCoin: file(
+				relativeDirectory: { eq: "images/gw2" }
+				name: { eq: "Copper_coin" }
+			) {
+				childImageSharp {
+					fixed(width: 18, height: 18) {
+						...GatsbyImageSharpFixed
+					}
+				}
+			}
+			SilverCoin: file(
+				relativeDirectory: { eq: "images/gw2" }
+				name: { eq: "Silver_coin" }
+			) {
+				childImageSharp {
+					fixed(width: 18, height: 18) {
+						...GatsbyImageSharpFixed
+					}
+				}
+			}
+			GoldCoin: file(
+				relativeDirectory: { eq: "images/gw2" }
+				name: { eq: "Gold_coin" }
+			) {
+				childImageSharp {
+					fixed(width: 18, height: 18) {
+						...GatsbyImageSharpFixed
+					}
 				}
 			}
 		}
-		SilverCoin: file(
-			relativeDirectory: { eq: "images/gw2" }
-			name: { eq: "Silver_coin" }
-		) {
-			childImageSharp {
-				fixed(width: 18, height: 18) {
-					...GatsbyImageSharpFixed
-				}
-			}
-		}
-		GoldCoin: file(
-			relativeDirectory: { eq: "images/gw2" }
-			name: { eq: "Gold_coin" }
-		) {
-			childImageSharp {
-				fixed(width: 18, height: 18) {
-					...GatsbyImageSharpFixed
-				}
-			}
-		}
-	}
-	`)
+	`);
 
-	return(<div>
-		<div className="inline-block">{Val.GoldValue}</div>
-		<BackgroundImage className="-mb-1 mr-1" fixed={GoldCoin.childImageSharp.fixed}/>
-		<div className="inline-block">{Val.SilverValue}</div>
-		<BackgroundImage className="-mb-1 mr-1" fixed={SilverCoin.childImageSharp.fixed}/>
-		<div className="inline-block">{Val.CopperValue}</div>
-		<BackgroundImage className="-mb-1 mr-1" fixed={CopperCoin.childImageSharp.fixed}/>
-		{/* <Copper></Copper>3  className="w-8 h-8 bg-no-repeat pl-16 inline-block"*/}
-	</div>)
+	return (
+		<div>
+			<div className="inline-block">{Val.GoldValue}</div>
+			<BackgroundImage
+				className="-mb-1 mr-1"
+				fixed={GoldCoin.childImageSharp.fixed}
+			/>
+			<div className="inline-block">{Val.SilverValue}</div>
+			<BackgroundImage
+				className="-mb-1 mr-1"
+				fixed={SilverCoin.childImageSharp.fixed}
+			/>
+			<div className="inline-block">{Val.CopperValue}</div>
+			<BackgroundImage
+				className="-mb-1 mr-1"
+				fixed={CopperCoin.childImageSharp.fixed}
+			/>
+			{/* <Copper></Copper>3  className="w-8 h-8 bg-no-repeat pl-16 inline-block"*/}
+		</div>
+	);
 }
-export { Alert, Footer, QuickLinks, NavCard, GW2_PriceTag };
+
+/*CopperCoin: any*/
+interface CollapsibleDefinitionProps {
+	GoldValue?: number;
+	SilverValue?: number;
+	CopperValue?: number;
+}
+function CollapsibleDefinition() {
+
+	return(<div></div>);
+}
+
+function GifOverlay(props: any) {
+	const fucker: any = [];
+	const onii = React.Children.map(props.children, function() {
+		fucker.push(props.children);
+		return "yamete";
+	});
+
+	return <div>{fucker}</div>;
+}
+export {
+	Alert,
+	Footer,
+	QuickLinks,
+	NavCard,
+	GW2_PriceTag,
+	GifOverlay,
+	CollapsibleDefinition,
+};
 
 // Gets copper, silver and gold coins
 // export const query = graphql`

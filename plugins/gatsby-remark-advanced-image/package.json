@@ -1,0 +1,16 @@
+{
+  "name": "gatsby-remark-advanced-image",
+  "version": "1.0.0",
+  "description": "Custom rendering plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "suvam0451",
+  "license": "ISC",
+  "dependencies": {
+    "mdast-util-to-string": "^1.0.7",
+    "remark": "^11.0.2",
+    "unist-util-visit": "^2.0.1"
+  }
+}

@@ -60,17 +60,23 @@ module.exports = {
 							aliases: {},
 						},
 					},
+					{
+						resolve: "gatsby-remark-copy-linked-files",
+						options: {
+							ignoreFileExtension: [`png`, `jpg`, `jpeg`],
+						},
+					},
 				],
 			},
 		},
 		`gatsby-plugin-sitemap`,
 		{
 			resolve: `gatsby-remark-rehype-images`,
-			options: 'rehype-images',
+			options: "rehype-images",
 			sharpFunction: `fixed`,
 			width: 480,
-			height: 360
+			height: 360,
 		},
-		`gatsby-plugin-transition-link`
+		`gatsby-plugin-transition-link`,
 	],
 };

@@ -46,9 +46,9 @@ module.exports = {
 					{
 						resolve: "gatsby-remark-images",
 						options: {
-							maxWidth: 760,
+							maxWidth: 840,
 							sizeByPixelDensity: true,
-							linkImagesToOriginal: false,
+							linkImagesToOriginal: true,
 						},
 					},
 					{
@@ -66,6 +66,20 @@ module.exports = {
 							ignoreFileExtension: [`png`, `jpg`, `jpeg`],
 						},
 					},
+					{
+						resolve: "gatsby-remark-mermaid",
+						options: {
+							language: "mermaid",
+							theme: "default",
+							viewport: {
+								width: 200,
+								height: 200
+							},
+							mermaidOptions: {
+								themeCSS: ".node rect { fill: cornflowerblue; }"
+							}
+						}
+					}
 				],
 			},
 		},

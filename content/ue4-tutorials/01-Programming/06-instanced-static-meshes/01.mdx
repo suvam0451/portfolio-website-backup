@@ -15,6 +15,8 @@ import {
 	GifOverlay,
 } from "../../../../src/components/Decorations";
 
+#### Introduction
+
 Instanced static meshes can be used in place of normal static meshes to save drawcalls significantly. Most importantly, please note the following:
 
 - `ISMC` is Instanced Static Mesh component. It is a component to which a mesh can be allocated. 
@@ -36,26 +38,22 @@ Also, to note that there is **_Hierarchial Instance Static Mesh component_** als
 This is for another series, but the key takeaway is that they have culling built-in and they are only slightly more expensive than ISM.
 Rest is pretty much the same.
 
-Where to **_not use_** ISMC:
+![First milestone](../../../images/instanced-static-meshes/WhereAndWhereNotToUse.png)
 
-- Where we need _organic fade-in/fade-out_ (e.g.- pebbles, water ripples, particles)
-- Destructible areas (Although it can be implemented(switched with destructible in runtime), the player might notice the glitchy switch)
-- If performance cost is not major issue(non-mobile), _houdini assets_ actually can give us better variation for same effort. regardless, it is always useful to know both.
+In this series, I will cover the following, indices marked with red will be added later.
+I might add specific content if demand rises.
+Keep an eye for sidebar widget to get notified
 
-Where to **_use_** ISMC:
+![First milestone](../../../images/instanced-static-meshes/ContentGraph01.png)
 
-- Static/non-destructible environments: (House interior, cave systems, fences, walls)
-- Procedural objects: (Simulaing huge towns, procedural dungeons)
-- Learning Experience: The series covers some interesting ways to design your level. Always a plus to know and share more.
-
-In this first part of the series, we will make a hall with pillars and a floor grid.
-
-##### (~~Promo~~) Before we start
-
-I am working on a **_vscode extension_** that provides code snippets, terminal tools(_such as shader compile_) and some GUI goodness.
-If you use vscode, please check the last section. It is free and community driven. Thanks !!!
+The downloads for this series can be found here. 
+I decided to combine the content for each part and have a separate class for each one.
+You may refer the source code directly or downloaad the build project in the link above.
 
 ---
+
+#### Getting started
+In this first part of the series, we will make a hall with pillars and a floor grid.
 
 We need 3 variables(_2 mesh references. One ISMC_). Also we need the header for ISMC.
 we also need the `OnConstruction` function so that we can update the ISM on value change.

@@ -15,8 +15,91 @@ import {
 	GifOverlay,
 } from "../../../../src/components/Decorations";
 
-In the previous part, we were introduced to Instanced Static Meshs Components (ISMC) and how to makeone spawn in C++ without issues.
-In this part, we will use a map of ISMC to randomly populate a wall/fence.
+---
+
+#### Continued...
+
+In the previous part, **_alternately spawn Instanced meshes_** using a map of ISMC.
+In this part, we are going to add a **_pseudo-random number provider_** and set the meshes to use their original length.
+For that, we would have to use a struct instead of StaticMesh reference. Also, we need to deal with that hard reference problem.
+
+We will be doing it in this order: 
+1. Refactoring our utility functions.
+2. Introduce soft asset pointers *(lazy loading for aother day)*
+3. Getting the new overlay ready for designer.
+4. Adding Pseudo-Random provider.
+5. Playing around with Semi-procedural wall we made.
+
+---
+
+The utility function in question is
+```cpp
+// cleanup
+while (this->GetComponentByClass(UInstancedStaticMeshComponent::StaticClass()) != NULL)
+{
+	UActorComponent *cls = this->GetComponentByClass(UInstancedStaticMeshComponent::StaticClass());
+	cls->UnregisterComponent();
+	cls->DestroyComponent();
+	cls->SetActive(false);
+}
+```
+
+I actually found a much better way to implement this. Please copy over the following code to any library file you want to have it in.
+It is useful in multiple situations. It is completely fine if you don't understand about templates.
+Just keep in mind the second following snippets to see how to implement it.
+
+```cpp
+// Lets say it is in Library.h. The following functions are for Attached Components, Reference Arrays, Reference maps...
+
+	/** Searches all Components "type" for given Actor "any" and destroys them */
+	template <class any, typename type>
+	static void cleanComponentsByType(any* reference) {
+		while (reference->GetComponentByClass(type::StaticClass()) != NULL) {
+			class UActorComponent* cls = reference->GetComponentByClass(type::StaticClass());
+			cls->DestroyComponent();
+			cls->SetActive(false);
+		}
+		return;
+	}
+
+	/** Takes an array reference and destroys it's components safely. Returns empty array. */
+	template <class any>
+	static void cleanArray(TArray<any*> &reference) {
+		for (int i = 0; i < reference.Num(); i++) {
+			if (IsValid(reference[i]) && reference[i] != NULL) {
+				reference[i]->Destroy();
+			}
+		}
+		reference.Empty();
+	}
+
+	/** Takes a map reference and destroys it's components safely. Returns emprty map. */
+	template <class any>
+	static void cleanMap(TMap<int, any*> &reference) {
+		for (int i = 0; i < reference.Num(); i++) {
+			if (IsValid(reference[i]) && reference[i] != NULL) {
+				reference[i]->Destroy();
+			}
+		}
+		reference.Empty();
+	}
+```
+
+Assuming our actor class is **_AActor_** and we want to remove **_SplineComponent and InstancedStaticMeshComponent_**, we can use it like this:
+
+```cpp
+// To complete our task
+WW_Library::cleanByType<AActor, USplineComponent>(this);
+WW_Library::cleanByType<AActor, UInstancedStaticMeshComponent>(this);
+
+// Examplw with different actor class
+WW_Library::cleanByType<AWW_Brick_Out_01, UPointLightComponent>(this);
+```
+
+From now, I am going to assume that you have this function in classes you create(Or you can store it in your library and include it).
+If you have any trouble, open up te sample project I sent and refer. This is important.
+
+
 
 To build a fence, we would need (I would provide for this tutorial):
 - At least 2 models.

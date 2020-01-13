@@ -79,11 +79,10 @@ export default function PageTemplate(data: mdxProps) {
 		<div className="mt-16 z-20">
 			<Helmet>
 				<title>{data.data.mdx.frontmatter.seotitle}</title>
-				<meta name="description" content={data.data.mdx.frontmatter.description}></meta>
-				{/*<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>*/}
+				<meta name="description" content={data.data.mdx.frontmatter.description}/>
 				<meta name="og:title" property="og:title" content={data.data.mdx.frontmatter.seotitle}/>
 				<meta name="twitter:card" content={data.data.mdx.frontmatter.description}/>
-				<link rel="canonical" href="https://winterwildfire.netlify.com/"/>
+				<link rel="canonical" href={data.data.mdx.frontmatter.path}/>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			</Helmet>
 			<div className="relative xl:fixed w-full -mt-16">
@@ -137,7 +136,7 @@ export default function PageTemplate(data: mdxProps) {
 				</MainPage>
 			</div>	
 			<GoodbyeSection>
-				<Footer></Footer>
+				<Footer/>
 			</GoodbyeSection>
 		</div>
 		</MainPage>
@@ -150,6 +149,7 @@ interface mdxProps {
 			id: number;
 			body: any;
 			frontmatter: {
+				path: string;
 				title: string;
 				description: string;
 				seotitle: string;
@@ -164,6 +164,7 @@ export const query = graphql`
 			id
 			body
 			frontmatter {
+				path
 				title
 				description
 				seotitle

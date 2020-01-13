@@ -202,7 +202,10 @@ function Index(props: IndexPageProps) {
 					rel="canonical"
 					href="https://winterwildfire.netlify.com"
 				/>
-				<meta name="google-site-verification" content="qHPn-iP9IEBZyHkA-06dYHzGCYAtUrsg2QINFSnFuVA" />
+				<meta
+					name="google-site-verification"
+					content="qHPn-iP9IEBZyHkA-06dYHzGCYAtUrsg2QINFSnFuVA"
+				/>
 			</Helmet>
 
 			{/* <Header title={"WinterWildfire"} /> */}
@@ -297,9 +300,7 @@ function Index(props: IndexPageProps) {
 				<TabContent activeTab={ActiveTab}>
 					<TabPane tabId={ActivePage.Featured}>
 						<Jumbotron>
-							<h1 className="display-5">
-								Welcome to WinterWildfire
-							</h1>
+							<h1 className="display-5">Welcome to WinterWildfire</h1>
 							<p>
 								<b>App</b>(C++/VBA) | <b>Game</b>(UE4/CryEngine) |{" "}
 								<b>Web</b>(React) | <b>DevOps</b>

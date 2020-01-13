@@ -1,16 +1,16 @@
 {
-    "files.exclude": {
-        "node_modules/": true,
-        "public/": true,
-        "lambda/": true,
-        ".cache": true,
-        ".gitignore": true,
-        "LICENSE": true,
-        "netlify.toml": true,
-        "tsconfig.json": true,
-        "tslint.json": true,
-        "README.md": true,
-        "yarn-error.log": true,
-        "yarn.lock": true
-    }
+	"files.exclude": {
+		"node_modules/": true,
+		"public/": true,
+		"lambda/": true,
+		".cache": true,
+		".gitignore": true,
+		"LICENSE": true,
+		"netlify.toml": true,
+		"tsconfig.json": false,
+		"tslint.json": false,
+		"README.md": true,
+		"yarn-error.log": true,
+		"yarn.lock": true
+	}
 }

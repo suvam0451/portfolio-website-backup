@@ -54,7 +54,7 @@
 			},
 			{
 				"seriesID": 4,
-				"title": "interfacing-cpp-and-blueprints",
+				"title": "interfaces",
 				"Children": [
 					{
 						"seriesIndex": 1,
@@ -70,7 +70,7 @@
 			},
 			{
 				"seriesID": 5,
-				"title": "Setting up our development environment.",
+				"title": "tools-setup",
 				"Children": [
 					{
 						"seriesIndex": 1,

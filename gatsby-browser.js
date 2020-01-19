@@ -2,6 +2,8 @@
 require("./src/utils/tailwind-base.css")
 require("./src/utils/tailwind-components.css")
 require("./src/utils/tailwind-utilities.css")
+require("./src/utils/custom-injected.css")
+require("./src/utils/internal-use.css")
 
 require("@blueprintjs/core/lib/css/blueprint.css");
 require("@blueprintjs/icons/lib/css/blueprint-icons.css");

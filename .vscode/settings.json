@@ -1,6 +1,6 @@
 {
 	"files.exclude": {
-		"node_modules/": true,
+		"node_modules/": false,
 		"public/": true,
 		"lambda/": true,
 		".cache": true,

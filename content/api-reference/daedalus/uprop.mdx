@@ -1,0 +1,153 @@
+---
+path: "/api/daedalus/uproperty"
+title: "Instanced Static Meshes in UE4 (Part 1/3)"
+date: "2020-01-10"
+submoduleID: 1
+seriesID: 1
+seriesIndex: 1
+draft: false
+---
+
+import {
+	Footer,
+	Alert,
+	GifOverlay,
+} from "../../../src/components/Decorations";
+
+## UProp Snippet/Commandlet namespace
+
+This namespace automates generation of variable declaration requiring UPROPERTY() macros.
+You may fall back to respective **_Comamndlets_** if your intellisense suddenly stops responding.
+
+It is recommended to remove any conflicting snippet provider and follow my preferences guide for more responsiveness.
+
+<Alert
+	head="Invocation Tradeoff"
+	body="Unlike snippets, If you use Commandlets, missing headers are automatically injected."
+/>
+
+**_The cursor position at end (\$0) automatically positions you to fire up your next snippet/commandlet._**
+
+---
+
+### Fundamentals
+
+Although not the most useful, uprop and uprop_ro are exposed when you need complete control on type.
+
+#### uprop
+
+This lets you dictate the type and name of the function. Do note that a UPROPERTY with BlueprintReadWrite will throw error if not a **public:** field.
+
+- **\$1**: mention type and name of property.
+- **\$2**: Helpful comment
+
+```cpp
+	// ${2:Description not provided}
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Parameters")
+		$1;
+```
+
+#### uprop_ro
+
+Same as uprop but not editable by user
+
+```cpp
+	// ${2:Description not provided}
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Parameters")
+		$1;
+```
+
+---
+
+### Specific declarations
+
+These are more specific. Respective commandlets will inject headers, if missing.
+
+#### uprop_mesh
+
+---
+
+```cpp
+	// ${2:Description not provided}
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
+		UStaticMesh *$1;
+```
+
+#### uprop_switch (uimpl_switch)
+
+A boolean parameter defaulting to false, intended to be used like a button by designer.
+See XYZ for implementation of the trick. Category is changed to _Triggers_.
+
+- **\$1**: mention name of property.
+- **\$2**: Your comment
+
+```cpp
+	// ${2:Toggle back to false(when user presses) in OnConstruction to use as a trigger}
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Triggers")
+		bool $1 = false;
+```
+
+It can be quickly associated in source(.cpp) file using `uinit_switch` from `uinit` namespace.
+
+```cpp
+// This function may be private
+void ARandomizedWallActor::OnConstruction(const FTransform &Transform)
+{
+	// ${2:CallbackFunction is a public function}
+	($1 == true) ? {$2:CallbackFunction()} : ($1 = false);
+
+	// For example, (Switch == true) ? CallbackFunction() : (Switch = false);
+	// CallbackFunction can update your actor/component on demand.
+}
+```
+
+#### uprop_ismc
+
+Adds a property of type UInstancedStaticMeshComponent.
+All about how ISMC can be used for preuso-procedural generation can be found in [this](/tutorials/ue4/instanced-static-meshes/1) tutorial series
+A boolean parameter defaulting to false, intended to be used like a button by designer. See XYZ for implementation of the trick.
+
+- **\$1**: mention name of property.
+- **\$2**: Your comment
+
+```cpp
+	// ${2:Description not provided}
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
+		UInstancedStaticMeshComponent *$1;
+```
+
+#### uprop_mesh
+
+Adds a StaticMesh property (Not recommended, see AssetRef and Asynchronous Asset loading for better resource management tutorials)
+
+```cpp
+    // ${2:Description not provided}
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
+    	TMap<int, UStaticMesh*> $1;
+```
+
+**_Use-cases_**: You can see SM map usage here. You will also see potential issues that might come up.
+
+---
+
+### Rich declarations
+
+Specific case declaration of maps, arrays, significant types which are difficult to type straight.
+This is where the module shines
+
+#### uprop_ismc_map
+
+Adds a property mapping
+
+```cpp
+    // Description not provided
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
+    	TMap<int, UInstancedStaticMeshComponent*> ;
+```
+
+**_Use-cases_**: Used in procedural workflows to instantiate ISMC.
+
+<Alert
+	head="Why not use TArray ?"
+	body="If 1/5 reference was missing, an array would miss the last element regardless. Can't map two maps without map."
+/>

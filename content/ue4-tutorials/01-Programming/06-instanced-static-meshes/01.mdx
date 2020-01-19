@@ -1,6 +1,6 @@
 ---
 path: "/tutorials/ue4/instanced-static-meshes/1"
-title: "Instanced Static Meshes in UE4 (Part 1/3)"
+title: "Instanced Static Meshes in UE4 (Part 1/4)"
 date: "2020-01-10"
 moduleID: 1
 submoduleID: 1
@@ -19,8 +19,8 @@ import {
 
 Instanced static meshes can be used in place of normal static meshes to save drawcalls significantly. Most importantly, please note the following:
 
-- `ISMC` is Instanced Static Mesh component. It is a component to which a mesh can be allocated. 
-	Now, this mesh can be duplicated with carying transforms(rotations and locations) with no extra rendering cost.
+- `ISMC` is Instanced Static Mesh component. It is a component to which a mesh can be allocated.
+  Now, this mesh can be duplicated with carying transforms(rotations and locations) with no extra rendering cost.
 - `ISM` will stand for Instanced Static Mesh. It is a single instance produced by the component.
 
 Wikipedia : In real-time computer graphics, **_geometry instancing_** is the practice of rendering multiple copies of the same mesh in a scene at once. For our purposes:
@@ -46,13 +46,14 @@ Keep an eye for sidebar widget to get notified
 
 ![First milestone](../../../images/instanced-static-meshes/ContentGraph01.png)
 
-The downloads for this series can be found here. 
+The downloads for this series can be found here.
 I decided to combine the content for each part and have a separate class for each one.
 You may refer the source code directly or downloaad the build project in the link above.
 
 ---
 
 #### Getting started
+
 In this first part of the series, we will make a hall with pillars and a floor grid.
 
 We need 3 variables(_2 mesh references. One ISMC_). Also we need the header for ISMC.
@@ -192,7 +193,6 @@ void APillarHallActor::OnConstruction(const FTransform &Transform)
 	// ISM->AddInstance(FTransform());
 	UE_LOG(LogTemp, Warning, TEXT("You have just changed something from inspector."));
 }
-
 ```
 
 ---

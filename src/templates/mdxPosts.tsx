@@ -61,8 +61,9 @@ const GoodbyeSection = styled.div`
 	}
 `;
 // background-color: #2B2B2B
+// background-color: #b1a296;
 const MainPage = styled.div`
-	background-color: #b1a296;
+	background-color: #3e3e3e;
 `;
 
 const TitleText = styled.div`
@@ -122,9 +123,6 @@ export default function PageTemplate(data: MdxProps) {
 													{data.data.mdx.frontmatter.title}
 												</TitleText>
 											</h4>
-											<div className="sticky top-0 ...">
-												Sticky Heading 1
-											</div>
 											<MDXRenderer components={components}>
 												{data.data.mdx.body}
 											</MDXRenderer>

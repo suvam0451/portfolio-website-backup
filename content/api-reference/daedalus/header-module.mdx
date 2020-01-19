@@ -1,0 +1,53 @@
+---
+path: "/api/daedalus/header-manager"
+title: "Instanced Static Meshes in UE4 (Part 1/3)"
+date: "2020-01-10"
+submoduleID: 1
+seriesID: 1
+seriesIndex: 1
+draft: false
+---
+
+## Module : Header manager
+
+The plug-in comes with an internal header manager.
+The purpose is to help frquent engine users quickly resolve their dependencies.
+
+- Run `Daedalus: Include Headers` commandlet and select a package to include headers.
+- All headers are scanned first. So, no duplicates.
+- Many commandlets will use this internally.
+- This means dependencies are auto-resolved if you use commandlets primarily.
+
+**_This commandlet throws warning unless run from a valid header(.h) file_**
+
+In reality, this being a niche project, you can't find literally every subset of headers you might use.
+If you want to modify packages, you can join the community and suggest improvements and features.
+
+Following are the headers includes for each option as of **v0.8beta**.
+
+#### Gameplay Systems
+
+```cpp
+#include "Kismet/GameplayStatics.h"
+#include "Engine/DataTable.h"
+```
+
+#### Splines
+
+```cpp
+#include "Components/SplineMeshComponent.h"
+#include "Components/SplineComponent.h"
+```
+
+#### ISMC
+
+```cpp
+#include "Components/InstancedStaticMeshComponent.h"
+```
+
+---
+
+### Issues / Future Upgrades / Proposals
+
+- Headers in source file are currently not considered. This is against practice of forward declaration.
+- PCH files(for those who still use them) are not considered.

@@ -75,10 +75,10 @@ interface AlertProps {
 function Alert(props: AlertProps) {
 	return (
 		<div
-			className="bg-teal-200 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-1 shadow-md"
+			className="bg-teal-200 border-teal-500 rounded-b text-teal-900 shadow-md ww-alert"
 			role="alert"
 		>
-			<div className="flex">
+			<div className="flex py-1">
 				<div className="py-1">
 					<svg
 						className="fill-current h-6 w-6 text-teal-500 mr-4 mt-3"
@@ -88,9 +88,11 @@ function Alert(props: AlertProps) {
 						<path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
 					</svg>
 				</div>
-				<div>
-					<p className="font-bold mb-2">{props.head}</p>
-					<p className="text-md p-0 mb-1">{props.body}</p>
+				<div className="ww-alert-core">
+					<p className="font-bold mb-2 ww-alert-head">{props.head}</p>
+					<p className="text-md p-0 mb-1 ww-alert-body">
+						{props.body}
+					</p>
 				</div>
 			</div>
 		</div>
@@ -152,34 +154,39 @@ function NavCard() {
 function QuickLinks() {
 	return (
 		<>
-		<div className="bg-gray-400">
-			<Card>
-				<div className="bg-gray-400 p-4 border-2 border-gray-600 rounded-lg">
-					<h4>Community</h4>
-					<div className="border-orange-300 border-4 rounded-sm">
-						<img src="https://discordapp.com/assets/f8389ca1a741a115313bede9ac02e2c0.svg"
-							className="h-16 w-16 inline">
-						</img>
-						<img src="https://www.stickpng.com/assets/images/5847f997cef1014c0b5e48c1.png"
-							className="h-12 w-12 inline border-orange-300 border-b-4">
-						</img>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Microsoft_Office_OneNote_%282018%E2%80%93present%29.svg"
-							className="h-12 w-12 inline ml-2">
-						</img>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png"
-							className="h-12 w-12 inline ml-1">
-						</img>
-						<img src="https://image.flaticon.com/icons/svg/25/25231.svg"
-							className="h-12 w-12 inline ml-1">
-						</img>
+			<div className="bg-gray-400">
+				<Card>
+					<div className="bg-gray-400 p-4 border-2 border-gray-600 rounded-lg">
+						<h4>Community</h4>
+						<div className="border-orange-300 border-4 rounded-sm">
+							<img
+								src="https://discordapp.com/assets/f8389ca1a741a115313bede9ac02e2c0.svg"
+								className="h-16 w-16 inline"
+							></img>
+							<img
+								src="https://www.stickpng.com/assets/images/5847f997cef1014c0b5e48c1.png"
+								className="h-12 w-12 inline border-orange-300 border-b-4"
+							></img>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Microsoft_Office_OneNote_%282018%E2%80%93present%29.svg"
+								className="h-12 w-12 inline ml-2"
+							></img>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png"
+								className="h-12 w-12 inline ml-1"
+							></img>
+							<img
+								src="https://image.flaticon.com/icons/svg/25/25231.svg"
+								className="h-12 w-12 inline ml-1"
+							></img>
+						</div>
+						<div className="border-orange-300 border-b-4 border-l-4 border-r-4 rounded-sm">
+							The content in this section should change with selection
+							of logo above. Currently gitlab is selected.
+						</div>
 					</div>
-					<div className="border-orange-300 border-b-4 border-l-4 border-r-4 rounded-sm">
-						The content in this section should change with selection of logo above.
-						Currently gitlab is selected.
-					</div>
-				</div>
-			</Card>
-		</div>
+				</Card>
+			</div>
 		</>
 	);
 }
@@ -277,8 +284,7 @@ interface CollapsibleDefinitionProps {
 	CopperValue?: number;
 }
 function CollapsibleDefinition() {
-
-	return(<div></div>);
+	return <div></div>;
 }
 
 function GifOverlay(props: any) {

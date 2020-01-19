@@ -1,6 +1,6 @@
 ---
 path: "/tutorials/ue4/instanced-static-meshes/2"
-title: "Instanced Static Meshes in UE4 (Part 2/3)"
+title: "Instanced Static Meshes in UE4 (Part 2/4)"
 date: "2020-01-10"
 moduleID: 1
 submoduleID: 1
@@ -19,8 +19,9 @@ In the previous part, we were introduced to Instanced Static Meshs Components (I
 In this part, we will use a map of ISMC to randomly populate a wall/fence.
 
 To build a fence, we would need (I would provide for this tutorial):
+
 - At least 2 models.
-- The models must span along +ve X direction, starting at one corner-edge. *(Refer image below for modelling)*
+- The models must span along +ve X direction, starting at one corner-edge. _(Refer image below for modelling)_
 - Planning ahead, the length of subunits.
 
 ![First milestone](../../../images/instanced-static-meshes/MeshOriginInstructions.png)
@@ -30,11 +31,11 @@ We already have the code for one ISMC, we just need a map here.
 ```cpp
 // RandomizedWallActor.h (Better remove Tick/BeginPlay if not using.)
 public:
-	// Map of ISMC 
+	// Map of ISMC
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
 		TMap<int, UInstancedStaticMeshComponent*> ISMC_Map;
 
-	// This is our map of meshes which would be used in ISMC Map 
+	// This is our map of meshes which would be used in ISMC Map
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
 		TMap<int, UStaticMesh*> MeshMap;
 
@@ -52,8 +53,8 @@ ARandomizedWallActor::ARandomizedWallActor()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	
-	// The reason we need this was covered in last part. 
+
+	// The reason we need this was covered in last part.
 	SceneRoot = CreateDefaultSubobject<USceneComponent>("SceneRoot");
 	RootComponent = SceneRoot;
 }
@@ -80,14 +81,16 @@ void ARandomizedWallActor::OnConstruction(const FTransform &Transform)
 ```
 
 Okay, few things to note:
-- We have to populate **_ISMC_Map_** according to  **_MeshMap_** before.
+
+- We have to populate **_ISMC_Map_** according to **_MeshMap_** before.
 - If we have more boxes than we have balls, we will get a OutOfIndex exception. You get the idea.
 - We covered **_cleanup_** last time. Next time, we will put that into its own function.
 
 ---
 
 ### Making the system designer friendly
-Okay, you are in the editor. Everything *should* work, but it doesn't. You can see the problem below.
+
+Okay, you are in the editor. Everything _should_ work, but it doesn't. You can see the problem below.
 
 ![First milestone](../../../images/instanced-static-meshes/CannotAddNewKey.png)
 
@@ -102,14 +105,15 @@ We should actually not mess with adding/removing items directly. Lets make a fun
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
 		int NumberOfMesh = 2;
 
-	// This acts like a button to change map size  
+	// This acts like a button to change map size
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
 		bool Switch = false;
 
-	// Updates the map size. TRIES to recover the previous values 
+	// Updates the map size. TRIES to recover the previous values
 	UFUNCTION(BlueprintCallable, Category="C++")
 		void UpdateMapSize();
 ```
+
 ```cpp
 // function declared in RandomizedWallActor.cpp
 	void ARandomizedWallActor::OnConstruction(const FTransform &Transform) {
@@ -148,12 +152,13 @@ void ARandomizedWallActor::UpdateMapSize()
 ```
 
 Few things to note here. Lets say your designer initially has 5 meshes set. If he changes the value to 3 and hits the button, 2 references will have to be readded.
+
 - Its an easy fix but probably not worth it. You should know how many mesh you need.
 - Pressing the boolean switch refreshes the maps. Moving the object fires OnConstruction. pretty neat, right ? I always use this workflow.
 - Next important thing, you don't want that ISMC_Map to be editable in the first place. It should be completely covered in C++/Blueprints
 
 ```cpp
-	// Completely hidden (Macros also optional. 
+	// Completely hidden (Macros also optional.
 	// If its an UObject not allocated via NewObject, you are good to go with ignoring macros and going vanilla C++)
 	UPROPERTY()
 		TMap<int, UInstancedStaticMeshComponent*> ISMC_Map;
@@ -170,6 +175,7 @@ That was very long for getting the basic system in place. Trust me, it obliterat
 #### Organizing groups of ISMC
 
 Already covered spwaning ISMC last time. Add this to make them alternate.
+
 ```cpp
 // Added to RandomizedWallActor.h (OnConstruction)
 	if(MeshMap.Num() >=2){
@@ -184,7 +190,7 @@ Already covered spwaning ISMC last time. Add this to make them alternate.
 	}
 ```
 
-Next up we want the spawning to be procedural and **_respect the lengths_** we give per mesh object. That, we shall cover in the next part. 
+Next up we want the spawning to be procedural and **_respect the lengths_** we give per mesh object. That, we shall cover in the next part.
 It's been a lot of exercise and I am sure some bug might pop up from older engines at this point. Also, we will be moving some repeating code to their own functions.
 
 ---

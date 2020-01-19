@@ -1,0 +1,20 @@
+[
+	{
+		"submoduleID": 1,
+		"label": "Snippets",
+		"desc": "Generic snippets for intellisense autocompletion.",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "uinit",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Part 1",
+						"link": "/tutorials/ue4/plugin-development-using-rust/1"
+					}
+				]
+			}
+		]
+	}
+]

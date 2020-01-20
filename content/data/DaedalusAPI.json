@@ -15,8 +15,13 @@
 					},
 					{
 						"seriesIndex": 2,
+						"title": "ugs_objectfind",
+						"link": "/api/daedalus/gameplay-systems/ugs-objectfind"
+					},
+					{
+						"seriesIndex": 2,
 						"title": "ugs_classfind",
-						"link": "/api/daedalus/gameplay-systems/ugs_objectfind"
+						"link": "/api/daedalus/gameplay-systems/ugs-classfind"
 					}
 				]
 			},

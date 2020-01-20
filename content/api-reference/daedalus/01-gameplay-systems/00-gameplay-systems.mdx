@@ -13,13 +13,10 @@ draft: false
 	body="Unlike snippets, If you use Commandlets, missing headers are automatically injected."
 />
 
-## ugs : Snippet/Commandlet namespace
+## gameplay systems namespace
 
-This namespace(gameplay systems) contains snippets and commandlets to let us interact with following
-
-- UGameplayStatics class
-- Dealing with DataTable
-- Dealing with AssetRegistry
+This namespace(**_ugs_**) contains snippets and commandlets to let us interact with
+the **_UGameplayStatics_** class, **_DataTables_**, **_AssetRegistry_**, **_Asynchronous asset loading_**.
 
 <Alert
 	head="Why the fancy shorthand names ?"
@@ -37,11 +34,7 @@ If you feel a useful method was left-out, please let me know.
 #### ugs_objectfind
 
 Used to load assets by path in C++ code. Try not to load assets directly in C++ like this(except data assets). There are better options available.
-
-- **\$1**: Pick a decent(disposable) name for object.
-- **\$2**: Location of asset (See extra info).
-- **\$3**: Object type
-- **\$4**: Where to cast after null-check (If you skip null-check and don't get reference, a warning will be thrown).
+[More...](/api/daedalus/gameplay-systems/ugs-objectfind)
 
 ```cpp
 static ConstructorHelpers::FObjectFinder<${3:UStaticMesh}> ${1:UniqueName}(TEXT("/Game/$2"));
@@ -50,16 +43,10 @@ if(${1:UniqueName} != null) {
 }
 ```
 
-[More...](/api/daedalus/gameplay-systems/ugs_objectfind)
-
 #### ugs_classfind
 
-Used to load classes. **_Importantly, this is one of few ways to load BP classes into C++._**
-
-- **\$1**: Name for object _(temporary)_.
-- **\$2**: Location of asset _(See notes)_.
-- **\$3**: TargetClass _(or its ParentClass)_
-- **\$4**: Target _(See notes)_.
+Used to load classes**_(One of few ways to load BP classes into C++)_**.
+[More...](/api/daedalus/gameplay-systems/ugs-classfind)
 
 ```cpp
 static ConstructorHelpers::FClassFinder<${3:ParentClass}> ${1:UniqueName}(TEXT("/Game/$2"));
@@ -67,8 +54,3 @@ if(${1:UniqueName} != null) {
     ${4:TargetSubClassOf} = ${1:UniqueName}.Class;
 }
 ```
-
-- We need both a null check and a cast check.
-- **\$4** may be defined in header as `TSubClassOf<ACharacter>`
-- You can cast the output to a child class of ParentClass _(once again, don't neglect the checks)_.
-- (If you skip null-check and don't get reference, a warning will be thrown)

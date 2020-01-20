@@ -1,0 +1,30 @@
+---
+path: "/api/daedalus/gameplay-systems/ugs-classfind"
+title: "Instanced Static Meshes in UE4 (Part 1/3)"
+date: "2020-01-10"
+submoduleID: 1
+seriesID: 2
+seriesIndex: 1
+draft: false
+---
+
+### ugs_classfind
+
+Used to load classes**_(One of few ways to load BP classes into C++)_**.
+
+- **\$1**: Name for object _(temporary)_.
+- **\$2**: Location of asset _(See notes)_.
+- **\$3**: TargetClass _(or its ParentClass)_
+- **\$4**: Target _(See notes)_.
+
+```cpp
+static ConstructorHelpers::FClassFinder<${3:ParentClass}> ${1:UniqueName}(TEXT("/Game/$2"));
+if(${1:UniqueName} != null) {
+    ${4:TargetSubClassOf} = ${1:UniqueName}.Class;
+}
+```
+
+- We need both a null check and a cast check.
+- **\$4** may be defined in header as `TSubClassOf<ACharacter>`
+- You can cast the output to a child class of ParentClass _(once again, don't neglect the checks)_.
+- (If you skip null-check and don't get reference, a warning will be thrown)

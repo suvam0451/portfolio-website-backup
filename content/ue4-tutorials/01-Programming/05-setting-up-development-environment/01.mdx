@@ -10,42 +10,58 @@ seriesIndex: 1
 draft: false
 ---
 
-In this module, we will be setting up the development environment for Unreal Engine 4. Thjat means everything except the engine and editor itself.
+### Vanilla Engine Installation
+
+After downloading tand installing the Epic games launcher, the menu navigation to installing the latest engine is pretty straight forward.
+
+I would just have a few suggestions regarding the components to install.
+The basic idea is to avoid installing packages that you are never planning to ship to.
+
+Also, the **_Editor Symbols for debugging_** can also be skipped. This component is required to debug the source code.
+We would need it only while working with heavy optimizations.
+For normal use, this is required only when the engine crashes and you have to figure out which variable is causing the crash.
+
+For my personal use, I prefer multiple lightweight versions of engines installed.
+
+It also helps that after dealing with a lot of errors, you can pretty much tell what went wrong from the error log without stepping through the code.
+In fact, my API `kurisu` indexed a huge list of errors you might encounter and suggestions to fix them.
+
+In this module, we will be setting up the development environment for Unreal Engine 4. That means everything except the engine and editor itself.
 If you have a fast running PC with lightning fast compile times, then that is great.
 But a large segment of users use slower PCs/laptops and thus the engine gets a bad name for heavily resource demaning.
 
-#### Visual Studio 2019 for C++
 ---
-If you have difficulty setting up UE4 with VS2019, make sure you have followed these steps.
 
-1. You have downloaded the engine from Epic launcher.
-2. You have downloaded [Visual studio Installer](https://visualstudio.microsoft.com/downloads/) and Community edition.
+#### SSD/HDD/NVMe
 
-[Requirements](../../../images/setting-up-dev-env/VSInstallerBucketList.png)
+When working with a project, we would have to read from the following three locations
 
-If you are running low on storage/want to do a minimal installation, here is all you need to run UE4.
-Game Dev module is not needed. .NET desktop development is ticked for me because I use it. You won't need it.
+- Visual Studio Installations
+- Engine Folder
+- Project folder
 
-While Desktop development with C++ is ticked, you would need the 
-- MSVC v142
-- Win10 SDK
-- JIT Debugger
-- You'll need Profiling/CMake/ATL at some point, not for UE4 but for writing third party plugin codes.
-- You won't need Test adapters. 
+The bottleneck while various loading phases is going to be
 
-That should throw a chunk of undesired files off your system. Now, additionally we would need **_.NET framework__** and **_directx_**.
-If you game a lot, you should have these by default. If you don't, 
-1. you can download them here and here.
-2. Use chocolatey package manager and 
-3. Install dev tools(some extra stuff) as shown below.
+- Coding/Compiling --> Visual studio folder
+- Packaging --> Project folder
+- Loading project --> Engine Folder
 
-[Requirements](../../../images/setting-up-dev-env/DotnetFromVSInstaller.png)
+Loading project is the fastest step(except for when you are compiling the 5000+ shaders while changing settings/first-time use)
 
-Known errors:
-- **Cannot open include file: 'crtdbg.h': No such file or directory**
-- You are lacking the 
+#### Install locations
 
-Throughout this series, I want to point out a few good practices and softwares through which your speed of development can improve.
+TL;DR :
 
-**We will only be covering Windows** because I don't own a mac. Keybindings for vscode for example may be different.
+- Engine Installation --> SATA SSD/HDD
+- VS Installation --> NVMe (Not needed if using VSCode)
+- Project Workspace --> NVMe
 
+If you have ample space on your NVMe, feel free to install everything there for maximum speed.
+
+I install my engines in a hard disk(HDD) and compile the shaders through command line on-demand while I am away.
+I house my project folder in my NVMe for faster asset loading/cooking.
+
+Back when I used VS primarily, I would definitely install it in an SSD for faster code iterations.
+Now with my switch to VSCode, I have moved my VS installation to a slower SATA SSD and have both my Engine and Project workspace in NVMe for fast raw asset loading.
+
+I will show you how to compile shaders from command-line in VSCode set-up section.

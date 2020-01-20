@@ -1,9 +1,9 @@
 [
 	{
 		"date": "2019-05-18",
-		"label": "DLLs/LIBs in UE4",
-		"desc": "Custom C++ libraries in UE4 plug-ins.(Both DLLs and LIBs)",
-		"RelativeLink": "ue4/tutorials/third-party-static-and-dynamic-libraries/",
+		"label": "Getting Started",
+		"desc": "Setting up your development environment and tooling.",
+		"RelativeLink": "/tutorials/ue4/setting-up-development-environment",
 		"frontimg": {
 			"name": "front image",
 			"img1": "../images/DLLsLIBs.jpg"

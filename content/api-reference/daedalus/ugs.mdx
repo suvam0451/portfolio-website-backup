@@ -3,7 +3,7 @@ path: "/api/daedalus/gameplay-systems"
 title: "Instanced Static Meshes in UE4 (Part 1/3)"
 date: "2020-01-10"
 submoduleID: 1
-seriesID: 1
+seriesID: 2
 seriesIndex: 1
 draft: false
 ---
@@ -36,7 +36,7 @@ If you feel a useful method was left-out, please let me know.
 
 #### ugs_objectfind
 
-Used to load assets. Try not to load assets directly in C++ like this(except data assets). There are better options available
+Used to load assets by path in C++ code. Try not to load assets directly in C++ like this(except data assets). There are better options available.
 
 - **\$1**: Pick a decent(disposable) name for object.
 - **\$2**: Location of asset (See extra info).
@@ -50,10 +50,7 @@ if(${1:UniqueName} != null) {
 }
 ```
 
-- Include "ConstructorHelpers.h". Done automatically if usingcommandlet
-- If you don't have any plug-ins, assets can be listed at **_"/Game/YourFolder/YourItem"_**.
-- For plug-in content, Path = **_"/PluginName/YourFolder/YourItem"_**
-- Don't add "\_C"(This is only for BP classes) or "StaticMesh.YourMesh_C"(This is legacy))
+[More...](/api/daedalus/gameplay-systems/ugs_objectfind)
 
 #### ugs_classfind
 

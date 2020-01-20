@@ -3,7 +3,7 @@ path: "/api/daedalus/uproperty"
 title: "Instanced Static Meshes in UE4 (Part 1/3)"
 date: "2020-01-10"
 submoduleID: 1
-seriesID: 1
+seriesID: 2
 seriesIndex: 1
 draft: false
 ---
@@ -16,64 +16,66 @@ import {
 
 ## UProp Snippet/Commandlet namespace
 
-This namespace automates generation of variable declaration requiring UPROPERTY() macros.
-You may fall back to respective **_Comamndlets_** if your intellisense suddenly stops responding.
+Snippets in this namespace automate generation of UPROPERTY() declarations.
 
-It is recommended to remove any conflicting snippet provider and follow my preferences guide for more responsiveness.
+You can fall back to respective Commandlets if your intellisense suddenly stops responding.
 
 <Alert
 	head="Invocation Tradeoff"
-	body="Unlike snippets, If you use Commandlets, missing headers are automatically injected."
+	body="If you choose to use Commandlets, missing headers are automatically injected. Snippets are more accessible."
 />
 
 **_The cursor position at end (\$0) automatically positions you to fire up your next snippet/commandlet._**
 
----
-
-### Fundamentals
-
-Although not the most useful, uprop and uprop_ro are exposed when you need complete control on type.
-
-#### uprop
-
-This lets you dictate the type and name of the function. Do note that a UPROPERTY with BlueprintReadWrite will throw error if not a **public:** field.
-
-- **\$1**: mention type and name of property.
-- **\$2**: Helpful comment
-
-```cpp
-	// ${2:Description not provided}
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Parameters")
-		$1;
-```
-
-#### uprop_ro
-
-Same as uprop but not editable by user
-
-```cpp
-	// ${2:Description not provided}
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Parameters")
-		$1;
-```
+<Alert
+	head="Quick reminder about scope warnings"
+	body="BlueprintReadWrite may only be assigned to public field variables. This means these snippets should be called in public field."
+/>
 
 ---
 
-### Specific declarations
+#### Fundamental Set
 
-These are more specific. Respective commandlets will inject headers, if missing.
+Simple templates, in case your required class is not covered by the plug-in.
 
-#### uprop_mesh
+##### uprop
+
+This lets you dictate the type and name of the function.
+
+- **_\$1_**: mention type and name of property.
+- **_\$2_**: Helpful comment
+
+```cpp
+// ${2:Description not provided}
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Parameters")
+	$1;
+```
+
+##### uprop_ro
+
+Same as uprop but not editable by user in inspector.
+
+```cpp
+// ${2:Description not provided}
+UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Parameters")
+	$1;
+```
 
 ---
 
+#### Specific Declarations
+
+Snippets/Commandlets for individual classes.
+
+##### uprop_mesh
+
 ```cpp
-	// ${2:Description not provided}
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
-		UStaticMesh *$1;
+// ${2:Description not provided}
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
+	UStaticMesh *$1;
 ```
 
-#### uprop_switch (uimpl_switch)
+##### uprop_switch
 
 A boolean parameter defaulting to false, intended to be used like a button by designer.
 See XYZ for implementation of the trick. Category is changed to _Triggers_.
@@ -82,12 +84,12 @@ See XYZ for implementation of the trick. Category is changed to _Triggers_.
 - **\$2**: Your comment
 
 ```cpp
-	// ${2:Toggle back to false(when user presses) in OnConstruction to use as a trigger}
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Triggers")
-		bool $1 = false;
+// ${2:Toggle back to false(when user presses) in OnConstruction to use as a trigger}
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Triggers")
+	bool $1 = false;
 ```
 
-It can be quickly associated in source(.cpp) file using `uinit_switch` from `uinit` namespace.
+**_uprop_switch_** is followed up by **_uinit_switch_** in the source file as follows.
 
 ```cpp
 // This function may be private
@@ -101,11 +103,10 @@ void ARandomizedWallActor::OnConstruction(const FTransform &Transform)
 }
 ```
 
-#### uprop_ismc
+##### uprop_ismc
 
 Adds a property of type UInstancedStaticMeshComponent.
-All about how ISMC can be used for preuso-procedural generation can be found in [this](/tutorials/ue4/instanced-static-meshes/1) tutorial series
-A boolean parameter defaulting to false, intended to be used like a button by designer. See XYZ for implementation of the trick.
+Explore more about this useful class [here](/tutorials/ue4/instanced-static-meshes/1)
 
 - **\$1**: mention name of property.
 - **\$2**: Your comment
@@ -116,9 +117,9 @@ A boolean parameter defaulting to false, intended to be used like a button by de
 		UInstancedStaticMeshComponent *$1;
 ```
 
-#### uprop_mesh
+##### uprop_mesh
 
-Adds a StaticMesh property (Not recommended, see AssetRef and Asynchronous Asset loading for better resource management tutorials)
+Adds a StaticMesh property. You may want to use Asset References instead. Read more about asynchronous asset loading [here(coming soon)]().
 
 ```cpp
     // ${2:Description not provided}
@@ -130,14 +131,13 @@ Adds a StaticMesh property (Not recommended, see AssetRef and Asynchronous Asset
 
 ---
 
-### Rich declarations
+#### Rich declarations
 
-Specific case declaration of maps, arrays, significant types which are difficult to type straight.
-This is where the module shines
+Helps in declaration of maps, arrays, most of which are difficult to type straight.
 
-#### uprop_ismc_map
+##### uprop_ismc_map
 
-Adds a property mapping
+Used in procedural workflows to map meshes to components dynamically. Implementation can be seen [here]()
 
 ```cpp
     // Description not provided
@@ -145,9 +145,12 @@ Adds a property mapping
     	TMap<int, UInstancedStaticMeshComponent*> ;
 ```
 
-**_Use-cases_**: Used in procedural workflows to instantiate ISMC.
+##### uprop_mesh_map
 
-<Alert
-	head="Why not use TArray ?"
-	body="If 1/5 reference was missing, an array would miss the last element regardless. Can't map two maps without map."
-/>
+Adds a map of StaticMesh. You may want to use Asset References instead. Read more about asynchronous asset loading [here(coming soon)]().
+
+```cpp
+    // ${2:Description not provided}
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Parameters")
+    	TMap<int, UStaticMesh*> $1;
+```

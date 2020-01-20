@@ -8,14 +8,13 @@ seriesIndex: 1
 draft: false
 ---
 
-## Module : Header manager
+## Header manager module
 
-The plug-in comes with an internal header manager.
-The purpose is to help frquent engine users quickly resolve their dependencies.
+The header manager is there to help in quickly resolving include dependencies.
 
 - Run `Daedalus: Include Headers` commandlet and select a package to include headers.
-- All headers are scanned first. So, no duplicates.
-- Many commandlets will use this internally.
+- No duplicates are produced. Feel free to spam.
+- Many of our commandlets will use this internally.
 - This means dependencies are auto-resolved if you use commandlets primarily.
 
 **_This commandlet throws warning unless run from a valid header(.h) file_**
@@ -25,21 +24,21 @@ If you want to modify packages, you can join the community and suggest improveme
 
 Following are the headers includes for each option as of **v0.8beta**.
 
-#### Gameplay Systems
+##### Gameplay Systems
 
 ```cpp
 #include "Kismet/GameplayStatics.h"
 #include "Engine/DataTable.h"
 ```
 
-#### Splines
+##### Splines
 
 ```cpp
 #include "Components/SplineMeshComponent.h"
 #include "Components/SplineComponent.h"
 ```
 
-#### ISMC
+##### ISMC
 
 ```cpp
 #include "Components/InstancedStaticMeshComponent.h"
@@ -47,7 +46,7 @@ Following are the headers includes for each option as of **v0.8beta**.
 
 ---
 
-### Issues / Future Upgrades / Proposals
+#### Issues / Future Upgrades / Proposals
 
-- Headers in source file are currently not considered. This is against practice of forward declaration.
+- Headers in source file is not considered. This is preventing forward declaration.
 - PCH files(for those who still use them) are not considered.

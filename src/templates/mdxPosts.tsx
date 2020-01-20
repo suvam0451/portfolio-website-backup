@@ -24,7 +24,7 @@ import {
 } from "@blueprintjs/core";
 import { NavSection } from "../components/NavBar";
 import styled from "@emotion/styled";
-import { SideBar } from "../components/SideBars/ue4-tuts";
+import { SideBar } from "../components/SideBars/UE4TutorialSidebar";
 
 const Content = styled.div`
 	margin: 0 auto;

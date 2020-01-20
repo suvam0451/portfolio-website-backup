@@ -107,11 +107,11 @@ function Footer() {
 			<h6>
 				Hope you got the resources you needed. Come visit again :)
 			</h6>
-			<h6>
+			<p>
 				I upload weekly and revamp bi-monthly. You can support my work
 				at <b>Patreon</b> | <b>Paypal</b> | <b>Marketplace</b> |{" "}
-				<b>gumroad</b>.
-			</h6>
+				<b>Gumroad</b>
+			</p>
 			{/* <input
 				className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
 				type="email"

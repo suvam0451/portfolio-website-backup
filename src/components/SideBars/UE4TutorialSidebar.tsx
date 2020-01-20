@@ -1,7 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
-import ue4_icon from "../../content/images/ue4-icon.png";
-import Image from "gatsby-image";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Icon } from "@blueprintjs/core";
 import styled from "@emotion/styled";
@@ -9,7 +6,7 @@ import { TweenMax, Power3 } from "gsap";
 import TransitionLink from "gatsby-plugin-transition-link";
 
 interface allUe4TutsMapJsonType {
-	readonly edges: Array<Tier0_Props>;
+	readonly edges: Tier0_Props[];
 }
 interface Tier0_Props {
 	readonly node: Tier1_Prop;
@@ -106,7 +103,7 @@ function CollapsibleModule(Props: CollapsibleModule) {
 	);
 }
 
-function BranchComponent(Props: BranchComponentProps) {
+export function BranchComponent(Props: BranchComponentProps) {
 	const [Collapsed, setCollapsed] = useState(Props.IsCollapsed);
 	const CollapsibleDiv = styled("div")`
 		display: ${props => (Collapsed ? `none` : "block")};
@@ -177,29 +174,29 @@ function SideBar(Props: SidebarProps) {
 		for (let i = 0; i < Props.length; i++) {
 			let CollapsibleSection: any = [];
 			let Children = Props[i];
-				Children.Children.forEach(function(leafpost: LeafNode) {
-					CollapsibleSection.push(
-						<div>
-							<Link to={leafpost.link} className="ml-3">
-								<span className="bp3-icon-large bp3-icon-small-plus bp3-intent-success content-center mr-1" />
-								{leafpost.title}
-							</Link>
-							</div>
-					);
-				});
-				retval.push(
-					<CollapsibleModule
-						CollapsedSection={CollapsibleSection}
-						HeaderSection={Children.title}
-					/>,
+			Children.Children.forEach(function(leafpost: LeafNode) {
+				CollapsibleSection.push(
+					<div>
+						<Link to={leafpost.link} className="ml-3">
+							<span className="bp3-icon-large bp3-icon-small-plus bp3-intent-success content-center mr-1" />
+							{leafpost.title}
+						</Link>
+					</div>,
 				);
+			});
+			retval.push(
+				<CollapsibleModule
+					CollapsedSection={CollapsibleSection}
+					HeaderSection={Children.title}
+				/>,
+			);
 		}
 		return retval;
 	};
 	const Populate_Submodule = () => {
-		var retval: any = [];
-		allUe4TutsMapJson.edges.forEach(function(it) {
-			var module_render: any = Populate_Series(it.node.modules);
+		const retval: any = [];
+		allUe4TutsMapJson.edges.forEach(it => {
+			const module_render: any = Populate_Series(it.node.modules);
 			// Checing if submoduleID is a match
 			let CollapseSwitch: boolean =
 				it.node.submoduleID === Props.FrontMatter.submoduleID

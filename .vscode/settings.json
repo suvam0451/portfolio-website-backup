@@ -12,5 +12,6 @@
 		"README.md": true,
 		"yarn-error.log": true,
 		"yarn.lock": true
-	}
+	},
+	"cquery.cacheDirectory": "${workspaceFolder}/.vscode/cquery_cached_index/"
 }

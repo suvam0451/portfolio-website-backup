@@ -48,7 +48,6 @@ const MainPage = styled.div`
 export default function PageTemplate(data: MdxProps) {
 	return (
 		<MainPage>
-			<Helmet></Helmet>
 			<div className="relative xl:fixed w-full mt-16 z-30">
 				<div className="-mt-16 z-20">
 					<NavSection />
@@ -61,7 +60,6 @@ export default function PageTemplate(data: MdxProps) {
 						<Col xs="12" sm="12" md="12" lg="12" xl="7">
 							<div className="bg-gray-400 px-4 py-2 border rounded-lg shadow-md list-disc mb-24 overflow-auto object-contain">
 								<ScrollArea>
-									<div>{data.data.mdx.frontmatter.path}</div>
 									<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
 									<Footer />
 								</ScrollArea>
@@ -105,6 +103,10 @@ interface MdxProps {
 				title: string;
 				description: string;
 				seotitle: string;
+				moduleID: number;
+				submoduleID: number;
+				seriesID: number;
+				seriesIndex: number;
 			};
 		};
 	};

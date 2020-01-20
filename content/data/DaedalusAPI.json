@@ -1,0 +1,80 @@
+[
+	{
+		"submoduleID": 1,
+		"label": "Snippets",
+		"desc": "Generic snippets for intellisense autocompletion.",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "gameplay-module",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Index",
+						"link": "/api/daedalus/gameplay-systems"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "ugs_classfind",
+						"link": "/api/daedalus/gameplay-systems/ugs_objectfind"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "Gameplay module",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Little Girl",
+						"link": "/tutorials/ue4/plugin-development-using-rust/1"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Cannot Carry",
+						"link": "/tutorials/ue4/plugin-development-using-rust/2"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 2,
+		"label": "Snippets",
+		"desc": "Generic snippets for intellisense autocompletion.",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "Cannot Carry",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Part 1",
+						"link": "/tutorials/ue4/plugin-development-using-rust/1"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Part 2",
+						"link": "/tutorials/ue4/plugin-development-using-rust/2"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "Gameplay module",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Part 1",
+						"link": "/tutorials/ue4/plugin-development-using-rust/1"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Part 2",
+						"link": "/tutorials/ue4/plugin-development-using-rust/2"
+					}
+				]
+			}
+		]
+	}
+]

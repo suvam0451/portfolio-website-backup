@@ -2,7 +2,7 @@
 	{
 		"date": "2019-05-18",
 		"label": "DLLs/LIBs in UE4",
-		"desc": "Using DLLs + LIBs in UE4. Both static and dynamic linking",
+		"desc": "Custom C++ libraries in UE4 plug-ins.(Both DLLs and LIBs)",
 		"RelativeLink": "ue4/tutorials/third-party-static-and-dynamic-libraries/",
 		"frontimg": {
 			"name": "front image",
@@ -14,7 +14,7 @@
 	{
 		"date": "2019-03-18",
 		"label": "Making a rust plug-in",
-		"desc": "Cross-engine codebase plugin, using rust instead of C++.",
+		"desc": "Third-party code plugin, using rust instead of C++.",
 		"RelativeLink": "/ue4-tuts/plugin-development-using-rust-1",
 		"frontimg": {
 			"name": "front image",
@@ -25,9 +25,9 @@
 	},
 	{
 		"date": "2019-04-26",
-		"label": "UE4 AssetManager",
-		"desc": "Using the powerful asset manager from UE4 engine plug-ins",
-		"RelativeLink": "ue4-plugins/scriptables/",
+		"label": "Instanced Static Mesh",
+		"desc": "Instanced Static Mesh(ISMC) for procedural mesh assembly.",
+		"RelativeLink": "/tutorials/ue4/instanced-static-meshes/1",
 		"frontimg": {
 			"name": "front image",
 			"img1": "../images/DLLsLIBs.jpg"

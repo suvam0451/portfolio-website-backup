@@ -162,23 +162,23 @@ function QuickLinks() {
 							<img
 								src="https://discordapp.com/assets/f8389ca1a741a115313bede9ac02e2c0.svg"
 								className="h-16 w-16 inline"
-							></img>
+							/>
 							<img
 								src="https://www.stickpng.com/assets/images/5847f997cef1014c0b5e48c1.png"
 								className="h-12 w-12 inline border-orange-300 border-b-4"
-							></img>
+							/>
 							<img
 								src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Microsoft_Office_OneNote_%282018%E2%80%93present%29.svg"
 								className="h-12 w-12 inline ml-2"
-							></img>
+							/>
 							<img
 								src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png"
 								className="h-12 w-12 inline ml-1"
-							></img>
+							/>
 							<img
 								src="https://image.flaticon.com/icons/svg/25/25231.svg"
 								className="h-12 w-12 inline ml-1"
-							></img>
+							/>
 						</div>
 						<div className="border-orange-300 border-b-4 border-l-4 border-r-4 rounded-sm">
 							The content in this section should change with selection

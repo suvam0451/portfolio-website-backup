@@ -43,3 +43,22 @@
 .ww-alert-core + p {
 	color: black;
 }
+
+.ww-hide-in-mobile {
+	display: none;
+	@media (max-width: 540px) {
+		display: block;
+	}
+}
+
+.ww-hide-in-pc {
+	display: block;
+	@media (min-width: 360px) {
+		display: none;
+	}
+}
+
+.ol,
+.ul {
+	margin: 0px;
+}

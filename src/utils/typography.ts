@@ -7,8 +7,8 @@ import gray from "gray-percentage"
 const typography = new Typography(Theme);
 
 const mytype = new Typography({
-    baseFontSize: "19px",
-    baseLineHeight: 1.58,
+    baseFontSize: "16px",
+    baseLineHeight: 0.2,
     bodyFontFamily: ["Roboto", "serif"],
     googleFonts: [
         {
@@ -29,8 +29,8 @@ const mytype = new Typography({
     overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => {
         const linkColor = "#950451"
         const vr = VerticalRhythm({
-            baseFontSize: "12px",
-            baseLineHeight: "20px", // 28px
+            baseFontSize: "10px",
+            baseLineHeight: "10px", // 28px
         })
         return {
             a: {
@@ -60,7 +60,8 @@ const mytype = new Typography({
             // children ol, ul
             "li>ol,li>ul": {
                 marginBottom: 0,
-                marginLeft: "20px",
+                marginLeft: "60px",
+                marginTop: 0,
             },
 
             "blockquote > :last-child": {
@@ -93,7 +94,7 @@ const mytype = new Typography({
 });
 
 export default mytype;
-
+// export default typography;
 // const mytype = new Typography({
 //     title: "Ocean Beach",
 //     baseFontSize: "19px",

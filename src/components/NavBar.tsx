@@ -25,15 +25,14 @@ const MobileNavbar = styled("div")`
 	@media (min-width: 540px) {
 		display: none;
 	}
-`
+`;
 
 const DesktopNavbarSection = styled("div")`
 	display: none;
 	@media (min-width: 540px) {
 		display: block;
 	}
-`
-
+`;
 
 // Navigation section always visible on top.
 function NavSection() {
@@ -42,10 +41,10 @@ function NavSection() {
 
 	// switched css
 	const CollapsibleDiv = styled("div")`
-		display: ${props => Collapsed ? `none` : 'block'};
+		display: ${props => (Collapsed ? `none` : "block")};
 	`;
 
-	function MobileMenuToggle(){
+	function MobileMenuToggle() {
 		setCollapsed(!Collapsed);
 	}
 	return (
@@ -60,23 +59,26 @@ function NavSection() {
 								Home
 							</button>
 						</Link>
-							<button className="bp3-button bp3-minimal bp3-icon-document">
-								Tutorials
-							</button>
+						<button className="bp3-button bp3-minimal bp3-icon-document">
+							Tutorials
+						</button>
 
-							<button className="bp3-button bp3-minimal bp3-icon-build">
-								Tools
+						<button className="bp3-button bp3-minimal bp3-icon-build">
+							Tools
+						</button>
+						<a href="https://gitlab.com/winterwildfire">
+							<button className="bp3-button bp3-minimal bp3-icon-git-branch">
+								Repositories
 							</button>
-							<a href="https://gitlab.com/winterwildfire">
-								<button className="bp3-button bp3-minimal bp3-icon-git-branch">
-									Repositories
-								</button>
-							</a>
+						</a>
 					</DesktopNavbarSection>
 				</div>
 				<MobileNavbar>
-					<button className="p-2 bp3-navbar-group bp3-align-right bp3-button bp3-minimal" onClick={MobileMenuToggle}>
-						<img className="h-6 content-center" src={Hamburger}></img>
+					<button
+						className="p-2 bp3-navbar-group bp3-align-right bp3-button bp3-minimal"
+						onClick={MobileMenuToggle}
+					>
+						<img className="h-6 content-center" src={Hamburger} />
 					</button>
 				</MobileNavbar>
 			</Navbar>
@@ -84,9 +86,9 @@ function NavSection() {
 				<CollapsibleDiv>
 					<div>
 						<Link to="/">
-						<button className="bp3-fill bp3-button bp3-icon-home">
-							Home
-						</button>
+							<button className="bp3-fill bp3-button bp3-icon-home">
+								Home
+							</button>
 						</Link>
 					</div>
 					<div>

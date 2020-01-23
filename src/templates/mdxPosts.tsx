@@ -66,6 +66,13 @@ const MainPage = styled.div`
 	background-color: #3e3e3e;
 `;
 
+const MobileNavbar = styled("div")`
+	display: block;
+	@media (max-width: 540px) {
+		display: none;
+	}
+`;
+
 const TitleText = styled.div`
 	color: #bc986a;
 `;
@@ -126,7 +133,9 @@ export default function PageTemplate(data: MdxProps) {
 											<MDXRenderer components={components}>
 												{data.data.mdx.body}
 											</MDXRenderer>
-											<Footer />
+											<div className="ww-hide-in-mobile">
+												<Footer />
+											</div>
 										</ScrollArea>
 									</div>
 								</Col>

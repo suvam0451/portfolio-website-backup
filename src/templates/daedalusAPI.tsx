@@ -2,29 +2,11 @@ import * as React from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { MDXProvider } from "@mdx-js/react";
 import { Footer, Alert, QuickLinks } from "../components/Decorations";
 import Header from "../components/Header";
-import { Helmet } from "react-helmet";
-import { NavCard } from "../components/NavCard";
-import { StatusCard } from "../components/StatusCard";
 import { Row, Col } from "reactstrap";
-import {
-	Alignment,
-	Button,
-	Intent,
-	Breadcrumbs,
-	IBreadcrumbProps,
-	Icon,
-	Card,
-	NavbarHeading,
-	NavbarDivider,
-	NavbarGroup,
-	Classes,
-} from "@blueprintjs/core";
 import { NavSection } from "../components/NavBar";
 import styled from "@emotion/styled";
-// import { SideBar } from "../components/SideBars/ue4-tuts";
 import Sidebar from "../components/SideBars/DaedalusSidebar";
 
 const Content = styled.div`
@@ -45,6 +27,13 @@ const MainPage = styled.div`
 	background-color: #3e3e3e;
 `;
 
+const MobileNavbar = styled("div")`
+	display: block;
+	@media (max-width: 540px) {
+		display: none;
+	}
+`;
+
 export default function PageTemplate(data: MdxProps) {
 	return (
 		<MainPage>
@@ -61,7 +50,11 @@ export default function PageTemplate(data: MdxProps) {
 							<div className="bg-gray-400 px-4 py-2 border rounded-lg shadow-md list-disc mb-24 overflow-auto object-contain">
 								<ScrollArea>
 									<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
-									<Footer />
+									{/* <div className="ww-hide-in-mobile"> */}
+									<MobileNavbar>
+										<Footer />
+									</MobileNavbar>
+									{/* </div> */}
 								</ScrollArea>
 							</div>
 						</Col>

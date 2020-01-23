@@ -100,18 +100,23 @@
 				"Children": [
 					{
 						"seriesIndex": 1,
-						"title": "Introduction/Hello ISM",
+						"title": "Introduction to ISM",
 						"link": "/tutorials/ue4/instanced-static-meshes/1"
 					},
 					{
 						"seriesIndex": 2,
-						"title": "Combining multiple ISMC",
+						"title": "Mapping multiple ISMC",
 						"link": "/tutorials/ue4/instanced-static-meshes/2"
 					},
 					{
 						"seriesIndex": 3,
-						"title": "PRNG and Refactoring",
+						"title": "Code Refactoring",
 						"link": "/tutorials/ue4/instanced-static-meshes/3"
+					},
+					{
+						"seriesIndex": 4,
+						"title": "FRandomStream",
+						"link": "/tutorials/ue4/instanced-static-meshes/4"
 					}
 				]
 			}

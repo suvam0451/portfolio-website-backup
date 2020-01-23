@@ -1,11 +1,11 @@
 ---
-path: "/tutorials/ue4/instanced-static-meshes/3"
-title: "Instanced Static Meshes in UE4 (Part 3/4)"
+path: "/tutorials/ue4/instanced-static-meshes/4"
+title: "Instanced Static Meshes in UE4 (Part 4/4)"
 date: "2020-01-12"
 moduleID: 1
 submoduleID: 1
 seriesID: 6
-seriesIndex: 3
+seriesIndex: 4
 draft: false
 ---
 
@@ -17,26 +17,23 @@ import {
 
 ---
 
-#### Continued...
+#### Recap...
 
-In part 2, we **_spawned multiple Instanced components in alternating locations_** using a map of ISMC.
+In part 3, we moved our code to a separate file and setup the fundamentals for the RandomStream.
+In this part, we will make the functions actually make something useful.
 
-In this part, we are going to add a **_FRandomStream_**.
-Also, we will mitigate the issues we faced in last section.
+The function in question is `IndependentFunction()`, which was called from _OnConstruction()_ on switch toggle.
 
-**_NOTE: Also, there were some unresolved errors in last part. I had to revisit my archived projects to fix them._**
-**_I have discussed them later._**
-
-This is the content list for this part:
-
-1. Moving the utility functions to `Library.h`.
-2. Adding FRandomStream.
-3. Getting the new overlay ready for designer.
-4. Playing around with Semi-procedural wall we made.
+Lets spawn cubes of various colors based on assigned weights.
+Since the introductory part is over, I would be more conservative in the explanation.
+Please refer the example project for details.
 
 ---
 
-### Moving utility functions
+#### Using a reference struct
+
+We add definitions for a struct of mesh and an integer to specify its length.
+We also replace mesh with a more powerful AssetPtr
 
 We have to make a new C++ class*(empty class)* and add these functions.
 We only need a header file. You may delete the source(.cpp) file.

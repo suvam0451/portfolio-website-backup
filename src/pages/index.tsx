@@ -8,6 +8,7 @@ import classnames from "classnames";
 import TutorialSection from "../components/TutorialSection";
 import axios from "axios";
 import priceAPI from "../utils/priceAPI";
+import SoftwareSection from "../components/SoftwareSection";
 import {
 	Nav,
 	NavbarBrand,
@@ -338,6 +339,9 @@ function Index(props: IndexPageProps) {
 					</TabPane>
 					<TabPane tabId={ActivePage.Tutorials}>
 						<TutorialSection />
+					</TabPane>
+					<TabPane tabId={ActivePage.Softwares}>
+						<SoftwareSection />
 					</TabPane>
 					<TabPane tabId={ActivePage.About}>
 						<form onSubmit={handlePriceSubmit}>

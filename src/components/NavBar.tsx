@@ -67,6 +67,7 @@ function NavSection() {
 							Tools
 						</button>
 						<a href="https://gitlab.com/winterwildfire">
+							{/* git-repo */}
 							<button className="bp3-button bp3-minimal bp3-icon-git-branch">
 								Repositories
 							</button>

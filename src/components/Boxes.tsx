@@ -24,9 +24,9 @@ function TutorialCard(props: TutorialCardProps) {
 				<div className="flex-1 pl-2 pr-3 pt-2">
 					<h5 className="font-bold mb-3">{props.title}</h5>
 					<div className="bg-teal-600 h-1 rounded-lg mb-1" />
-					<h6 className="text-sm font-normal leading-snug">
+					<p className="text-sm font-semibold leading-snug">
 						{props.desc}
-					</h6>
+					</p>
 					<div className="flex align-bottom mt-6">
 						<img
 							src={ue4_icon}

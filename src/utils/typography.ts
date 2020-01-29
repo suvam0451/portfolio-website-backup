@@ -7,8 +7,8 @@ import gray from "gray-percentage"
 const typography = new Typography(Theme);
 
 const mytype = new Typography({
-    baseFontSize: "16px",
-    baseLineHeight: 0.2,
+    baseFontSize: "17px",
+    baseLineHeight: 0,
     bodyFontFamily: ["Roboto", "serif"],
     googleFonts: [
         {

@@ -76,7 +76,11 @@ function StatusCard(Props: FrontMatterProps) {
 				if (moduleList.seriesID === Props.FrontMatter.seriesID) {
 					StatusCardTitle = moduleList.title;
 					moduleList.Children.forEach(child => {
-						SidebarRender.push(<li>{child.title}</li>);
+						SidebarRender.push(
+							<li>
+								<Link to={child.link}>{child.title}</Link>
+							</li>,
+						);
 					});
 				}
 				// SidebarRender.push(<h4>{moduleList.}</h4>);
@@ -87,7 +91,24 @@ function StatusCard(Props: FrontMatterProps) {
 		<Card className="ml-2 w-full border-t-4 border-orange-700 shadow-md">
 			<h5 className="mb-1">{StatusCardTitle}</h5>
 			<div className="border-orange-700 border-b-2 mb-2"></div>
-			<ul>{SidebarRender}</ul>
+			<ul className="ml-8 mb-0">{SidebarRender}</ul>
+
+			<div className="flex mt-3">
+				<button className="flex-1 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center mr-1 -ml-1">
+					<svg
+						className="fill-current w-4 h-4 mr-2"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 20 20"
+					>
+						<path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+					</svg>
+					<span>Download</span>
+				</button>
+				<button className="flex-1 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center ml-1 -mr-1">
+					<span className="bp3-icon-large bp3-icon-git-repo content-center mr-2 mt-1" />
+					<span>Repository</span>
+				</button>
+			</div>
 		</Card>
 	);
 }

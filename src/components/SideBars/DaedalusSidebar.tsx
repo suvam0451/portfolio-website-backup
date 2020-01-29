@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import ue4_icon from "../../content/images/ue4-icon.png";
-import Image from "gatsby-image";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Icon } from "@blueprintjs/core";
 import styled from "@emotion/styled";
 import { TweenMax, Power3 } from "gsap";
-import TransitionLink from "gatsby-plugin-transition-link";
 import {
 	SidebarDataTree,
 	SidebarProps,

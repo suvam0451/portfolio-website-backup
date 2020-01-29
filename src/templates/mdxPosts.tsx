@@ -62,8 +62,9 @@ const GoodbyeSection = styled.div`
 `;
 // background-color: #2B2B2B
 // background-color: #b1a296;
+// previous background-color: #3e3e3e;
 const MainPage = styled.div`
-	background-color: #3e3e3e;
+	background-color: #2b2b2b;
 `;
 
 const MobileNavbar = styled("div")`
@@ -72,9 +73,10 @@ const MobileNavbar = styled("div")`
 		display: none;
 	}
 `;
-
+// color: #bc986a;
+// color: #cc7832;
 const TitleText = styled.div`
-	color: #bc986a;
+	color: #c05621;
 `;
 
 export default function PageTemplate(data: MdxProps) {
@@ -123,16 +125,14 @@ export default function PageTemplate(data: MdxProps) {
 									</Row>
 								</Col>
 								<Col xs="12" sm="12" md="12" lg="12" xl="7">
-									<div className="bg-gray-400 px-4 py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain mb-24">
+									<div className="bg-gray-500 px-4 py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain mb-24">
 										<ScrollArea>
-											<h4 className="text-gray-600 mb-4">
+											<h4 className="text-gray-600 mb-4 mt-3">
 												<TitleText>
 													{data.data.mdx.frontmatter.title}
 												</TitleText>
 											</h4>
-											<MDXRenderer components={components}>
-												{data.data.mdx.body}
-											</MDXRenderer>
+											<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
 											<div className="ww-hide-in-mobile">
 												<Footer />
 											</div>
@@ -142,17 +142,20 @@ export default function PageTemplate(data: MdxProps) {
 								<Col xs="12" sm="12" md="12" lg="6" xl="3">
 									<Row>
 										<Col xs="12" sm="6" md="12" lg="6" xl="12">
-											<Card>
-												<h4>Related Contents</h4>
-												<p>
-													User created content used in WW APIs
-													completely free. If you develop something
-													cool using the tools, you can send us to be
-													showcased here.
-												</p>
-												<Button>Visit Archives</Button>
-											</Card>
-											<QuickLinks />
+											<div className="bg-gray-500 rounded-t-lg">
+												<div className="bg-gray-500 p-4">
+													<h4>Related Contents</h4>
+													<p>
+														User created content used in WW APIs
+														completely free. If you develop something
+														cool using the tools, you can send us to
+														be showcased here.
+													</p>
+
+													<Button>Visit Archives</Button>
+												</div>
+												<QuickLinks />
+											</div>
 										</Col>
 									</Row>
 								</Col>

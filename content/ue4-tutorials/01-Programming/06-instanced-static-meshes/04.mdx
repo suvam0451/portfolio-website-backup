@@ -41,6 +41,8 @@ The two functions in question are...
 
 #### 1. Cleaning leftover references by type
 
+---
+
 We used this function to get rid of components that were leftover every time we updated
 
 **_Note: When we create something with NewObject and register it, they don't get removed automatically._**
@@ -85,9 +87,9 @@ static void cleanComponentsByType(any* reference) {
 - **_any_**: Child class of AActor.
 - **_type_**: `Component` class/subclass to remove _(e.g.- UStaticMeshComponent)_
 
----
-
 #### 2. Initializing ISMC and map of ISMC
+
+---
 
 This function would initialize the component. Consider removing lines you would not require based on notes below.
 

@@ -4,6 +4,7 @@ import { Icon } from "@blueprintjs/core";
 import styled from "@emotion/styled";
 import { TweenMax, Power3 } from "gsap";
 import TransitionLink from "gatsby-plugin-transition-link";
+import { CollapsibleModule } from "./SidebarCommon";
 
 interface allUe4TutsMapJsonType {
 	readonly edges: Tier0_Props[];
@@ -39,8 +40,8 @@ interface BranchComponentProps {
 }
 
 interface CollapsibleModule {
-	readonly CollapsedSection: any;
-	readonly HeaderSection: string;
+	readonly collapsible: any;
+	readonly label: string;
 }
 
 interface FrontMatterStruct {
@@ -53,54 +54,6 @@ interface FrontMatterStruct {
 
 interface SidebarProps {
 	FrontMatter: FrontMatterStruct;
-}
-
-function CollapsibleModule(Props: CollapsibleModule) {
-	const [Collapsed, setCollapsed] = useState(true);
-	const CollapsibleDiv = styled("div")`
-		display: ${props => (Collapsed ? `none` : "block")};
-	`;
-	const [IconSection, setIconSection] = useState(
-		"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
-	);
-	let logoItem: any = useRef(null);
-
-	// Show in effect
-	useEffect(() => {
-		logoItem.opacity = 0;
-		TweenMax.from(logoItem, 0, { opacity: 0, ease: Power3.easeOut });
-		TweenMax.to(logoItem, 0.8, { opacity: 1, ease: Power3.easeOut });
-	});
-
-	function ToggleCollapse() {
-		if (Collapsed === true) {
-			setIconSection(
-				"bp3-icon-standard bp3-icon-chevron-down bp3-intent-success content-center mt-1",
-			);
-		} else {
-			setIconSection(
-				"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
-			);
-		}
-		setCollapsed(!Collapsed);
-	}
-
-	return (
-		<>
-			<div
-				ref={el => {
-					logoItem = el;
-				}}
-				className="flex hover:bg-teal-200 mt-1 ml-1 rounded-sm select-none"
-				onClick={ToggleCollapse}
-			>
-				{/* <span className={IconSection} /> */}
-				<span className={IconSection} />
-				<div className="ml-2">{Props.HeaderSection}</div>
-			</div>
-			<CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
-		</>
-	);
 }
 
 export function BranchComponent(Props: BranchComponentProps) {
@@ -169,12 +122,12 @@ function SideBar(Props: SidebarProps) {
 	const allUe4TutsMapJson: allUe4TutsMapJsonType =
 		RootQuery.allUe4TutsMapJson;
 
-	const Populate_Series = (Props: Array<SeriesProps>) => {
-		let retval: any = [];
-		for (let i = 0; i < Props.length; i++) {
-			let CollapsibleSection: any = [];
-			let Children = Props[i];
-			Children.Children.forEach(function(leafpost: LeafNode) {
+	const PopulateSeries = (Props: SeriesProps[]) => {
+		const retval: any = [];
+		Props.forEach(seriesList => {
+			const CollapsibleSection: any = [];
+			const Children = seriesList;
+			Children.Children.forEach(leafpost => {
 				CollapsibleSection.push(
 					<div>
 						<Link to={leafpost.link} className="ml-3">
@@ -186,26 +139,26 @@ function SideBar(Props: SidebarProps) {
 			});
 			retval.push(
 				<CollapsibleModule
-					CollapsedSection={CollapsibleSection}
-					HeaderSection={Children.title}
+					collapsible={CollapsibleSection}
+					label={Children.title}
 				/>,
 			);
-		}
+		});
 		return retval;
 	};
-	const Populate_Submodule = () => {
+	const PopulateSubmodule = () => {
 		const retval: any = [];
 		allUe4TutsMapJson.edges.forEach(it => {
-			const module_render: any = Populate_Series(it.node.modules);
+			const ModuleRender: any = PopulateSeries(it.node.modules);
 			// Checing if submoduleID is a match
-			let CollapseSwitch: boolean =
+			const CollapseSwitch: boolean =
 				it.node.submoduleID === Props.FrontMatter.submoduleID
 					? false
 					: true;
 			retval.push(
 				<BranchComponent
 					label={it.node.category}
-					CollapsedSection={module_render}
+					CollapsedSection={ModuleRender}
 					hasChildren={false}
 					IsCollapsed={CollapseSwitch}
 				/>,
@@ -216,8 +169,8 @@ function SideBar(Props: SidebarProps) {
 
 	// Sidebar rendering
 	return (
-		<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 w-full p-2 ml-2 bg-white mb-2 h-full">
-			{Populate_Submodule()}
+		<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 w-full p-2 ml-2 bg-white mb-2">
+			{PopulateSubmodule()}
 		</div>
 	);
 }

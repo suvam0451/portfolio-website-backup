@@ -15,49 +15,15 @@ import {
 	GifOverlay,
 } from "../../../../src/components/Decorations";
 
-#### Introduction
+#### Hello, Instance Meshes
 
-Instanced static meshes can be used in place of normal static meshes to save drawcalls significantly. Most importantly, please note the following:
+For the very first part of this series, we will make a **_row of pillars_** and a **_floor grid_** using Instance Mesh Component.
 
-- `ISMC` is Instanced Static Mesh component. It is a component to which a mesh can be allocated.
-  Now, this mesh can be duplicated with carying transforms(rotations and locations) with no extra rendering cost.
-- `ISM` will stand for Instanced Static Mesh. It is a single instance produced by the component.
+In the following code, I have created an Actor and included the heade for ISMC.
+Then I have added 3 properties, two for mesh references, one for our component.
 
-Wikipedia : In real-time computer graphics, **_geometry instancing_** is the practice of rendering multiple copies of the same mesh in a scene at once. For our purposes:
-
-- We can have as many mesh instances as we want.
-- Every mesh instanced by an ISMC must have same material.
-- The ISM can't have -ve scale. _It will hit a breakpoint._
-
-So, how do we circumvent around these drawbacks ?
-
-- Lack of multiple materials is covered by shader animations and switch nodes in the material itself.
-- We can have maps of ISMC(we'll get to that). This allows us to mix and match multiple meshes to construct an actor.
-
-Also, to note that there is **_Hierarchial Instance Static Mesh component_** also(most notably foliages use this).
-This is for another series, but the key takeaway is that they have culling built-in and they are only slightly more expensive than ISM.
-Rest is pretty much the same.
-
-![First milestone](../../../images/instanced-static-meshes/WhereAndWhereNotToUse.png)
-
-In this series, I will cover the following, indices marked with red will be added later.
-I might add specific content if demand rises.
-Keep an eye for sidebar widget to get notified
-
-![First milestone](../../../images/instanced-static-meshes/ContentGraph01.png)
-
-The downloads for this series can be found here.
-I decided to combine the content for each part and have a separate class for each one.
-You may refer the source code directly or downloaad the build project in the link above.
-
----
-
-#### Getting started
-
-In this first part of the series, we will make a hall with pillars and a floor grid.
-
-We need 3 variables(_2 mesh references. One ISMC_). Also we need the header for ISMC.
-we also need the `OnConstruction` function so that we can update the ISM on value change.
+Also if you have never heard of `OnConstruction`, it essentially gets called whenever you move and drop an actor in the world, or change a property.
+Useful for programmers, because whenever designer makes changes, this gets fired and we can make our changes here.
 
 ```cpp
 // PillarHallActor.h
@@ -85,9 +51,10 @@ private:
     virtual void OnConstruction(const FTransform &Transform) override;
 ```
 
-We have the option to initialize the ISMC in constructor/anywhere else.
-We will have difficulty to update it if we initialize it in actor constructor.
-The commented code portion shows how to do the above(auto registered).
+We can initialize the ISMC in wither constructor/anywhere else.
+Recall that CDO is used for Constructors and NewObejct is used anywhere else(post-initialization)
+
+The following code has hints for both. We are going to use NewObject for now.
 
 ```cpp
 // PillarHallActor.cpp
@@ -115,14 +82,14 @@ void APillarHallActor::OnConstruction(const FTransform &Transform)
 }
 ```
 
-If you want to know what will happen if you incorrectly initialize components in the constructor, relevent information can be found in second last section.
-
 Compile the project. jump into ue4. Drag the actor. Add some meshes. This is what you should see in the inspector.
 
 ![First milestone](../../../images/instanced-static-meshes/First_Milestone.png)
 
-As you play around with this, you will notice that the previous meshes are not disappearing. Infact, this was a headache to deal with when I had to learn ISMs.
-This is because we need to clean any references we crreated(In this case, we **_registered_** the ISMC and attached it.). It is out responsibility.
+As you play around with this, you will notice that the meshes from last interaction are not disappearing. In fact, this was a headache to deal with when I had to learn ISMs.
+This is because we need to clean any references we crreated(In this case, we **_registered_** the ISMC and attached it.). It is out responsibility to unregister and clean all references.
+
+The following code does that for all attached ISMC. In later parts, we will add an advanced version of this macro function in a library. For now, this should go before NewObject.
 
 ```cpp
 while (this->GetComponentByClass(UInstancedStaticMeshComponent::StaticClass()) != NULL) {
@@ -133,18 +100,19 @@ while (this->GetComponentByClass(UInstancedStaticMeshComponent::StaticClass()) !
 }
 ```
 
-Okay, we probably don't need three types of removal. But I have experienced dangling pointers if I use only one.
-That said, don't worry about the code, you can find **_a templated version_** in my **_list of library.h must haves_**.
+⚠️**_Warning :_**
 
-HOWEVER, your actor might not move around in the scene anymore.
-Reason: because ue4 drags the first SceneComponent we add and makes it the root. And now we removed the RootComponent, so it can't move.
+- Your actor might not move around in the scene anymore.
+- We did a mistake. Since we don't have a default RootComponent, it automatically picked the first component(our case, the ISMC) and made it root.
+- Which means when we deleted that reference, we have our Actor's RootComponent pointing to null.
+- Without a valid SceneComponent as root, the actor won't move. We need to fix that.
 
-#### Cleaning references
+#### Fixing RootComponent issue
 
-- **_Obvious Solution: Explicitly attach the components to Root in constructor. Same goes for NewObject too._**
-- **_My Solution/Recommendation: Always define your SceneComponent. Try to avoid using RootComponent which is inherited by default._**
+- **_Obvious Solution: Explicitly attach components to RootComponent in constructor. Same goes for components made with NewObject too._**
+- **_My Recommendation: Always define your SceneComponent as a dummy. Try to avoid using RootComponent which is inherited by default._**
 
-Here's the new(and final) code accounting my proposed solution. I am going to add a simple loop that increments the X distance and adds instances.
+Here's the new(and final) code accounting for this change. I am going to add a simple loop that increments the X distance and adds the instances.
 
 ```cpp
 // Lines added to PillarHallActor.h
@@ -197,16 +165,16 @@ void APillarHallActor::OnConstruction(const FTransform &Transform)
 
 ---
 
-#### Check-In
+#### Check-In 📋
 
 - You should have a line of Instanced pillars. Try the grid part yourself. Try some parameters.
-- You can see the `SceneRoot` component. Do consider the idea.
-- Repo for this part is here. Onedrive link is here.
+- The extra `SceneRoot` component is a neat little trick to avoid silly mistakes. Do consider adding it when creating Actors.
 
 ![Results](../../../images/instanced-static-meshes/Segment1_Results.png)
 
-In the next part, we will mix and match multiple ISMC to populate a straight wall with variations.
-we will also have some randomization going. See you then !!!
+In the next part, we will use multiple ISMC _(each with separate mesh)_ to populate a straight wall with variations.
+
+See you later... 🖐
 
 ---
 

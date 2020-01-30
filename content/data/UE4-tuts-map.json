@@ -99,6 +99,11 @@
 				"title": "instanced-static-meshes",
 				"Children": [
 					{
+						"seriesIndex": 0,
+						"title": "Introduction to ISM",
+						"link": "/tutorials/ue4/instanced-static-meshes"
+					},
+					{
 						"seriesIndex": 1,
 						"title": "Introduction to ISM",
 						"link": "/tutorials/ue4/instanced-static-meshes/1"

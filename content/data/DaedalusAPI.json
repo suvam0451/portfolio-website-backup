@@ -45,38 +45,38 @@
 	},
 	{
 		"submoduleID": 2,
-		"label": "Snippets",
+		"label": "Modules",
 		"desc": "Generic snippets for intellisense autocompletion.",
 		"modules": [
 			{
 				"seriesID": 1,
-				"label": "Cannot Carry",
+				"label": "class-generator",
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "Part 1",
-						"link": "/tutorials/ue4/plugin-development-using-rust/1"
+						"title": "Module overview",
+						"link": "/api/daedalus/class-generator"
 					},
 					{
 						"seriesIndex": 2,
-						"title": "Part 2",
-						"link": "/tutorials/ue4/plugin-development-using-rust/2"
+						"title": "Implementation Details",
+						"link": "/api/daedalus/class-generator/1"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "Extending the module",
+						"link": "/api/daedalus/class-generator/2"
 					}
 				]
 			},
 			{
 				"seriesID": 2,
-				"label": "Gameplay module",
+				"label": "header-manager",
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "Part 1",
-						"link": "/tutorials/ue4/plugin-development-using-rust/1"
-					},
-					{
-						"seriesIndex": 2,
-						"title": "Part 2",
-						"link": "/tutorials/ue4/plugin-development-using-rust/2"
+						"title": "Module overview",
+						"link": "/api/daedalus/header-manager"
 					}
 				]
 			}

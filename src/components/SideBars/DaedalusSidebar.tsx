@@ -91,12 +91,12 @@ export default function SideBar(Props: SidebarProps) {
 		const retval: any = [];
 		data.forEach(seriesList => {
 			const CollapsibleSection: any = [];
-			seriesList.children.forEach(post => {
+			seriesList.children.forEach(leafpost => {
 				CollapsibleSection.push(
 					<div>
-						<Link to={post.link} className="ml-3">
+						<Link to={leafpost.link} className="ml-3">
 							<span className="bp3-icon-large bp3-icon-small-plus bp3-intent-success content-center mr-1" />
-							{post.title}
+							{leafpost.title}
 						</Link>
 					</div>,
 				);
@@ -138,7 +138,7 @@ export default function SideBar(Props: SidebarProps) {
 	};
 	return (
 		<>
-			<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 w-full p-2 ml-2 bg-white mb-2 h-full">
+			<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 p-2 bg-white mb-2 w-full">
 				{PopulateSidebar()}
 			</div>
 		</>

@@ -254,7 +254,7 @@ function Index(props: IndexPageProps) {
 									ChangeActiveTab(ActivePage.Softwares);
 								}}
 							>
-								Softwares/APIs
+								Trailblazer
 							</NavLink>
 						</NavItem>
 						<NavItem>

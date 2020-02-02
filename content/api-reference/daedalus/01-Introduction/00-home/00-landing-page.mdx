@@ -1,0 +1,104 @@
+---
+path: "/api/trailblazer/"
+title: "Welcome to documentation for Trailblazer"
+date: "2020-01-10"
+submoduleID: 1
+seriesID: 2
+seriesIndex: 1
+draft: false
+---
+
+#### Background
+
+Unreal engine 4 always has been a macro-heavy engine.
+Moreover, due to the sheer number of classes in the engine, the intellisense fails to keep up.
+
+Another issue around accessibility to the engine _was_ the lengthy parsing times of Visual Studio 2017.
+I remember tinkering with build files just to squeeze a bit of performance back when I had an old laptop.
+Since then, a lot of improvements have been made to reduce wait times, but _(at least to many)_ the most exciting
+quality of life improvement was the addition of support for VSCode as an IDE which shipped with 4.18.
+
+However, it never saw mainstream adoption. It was probably due to stigma around Electron being RAM heavy or intellisense failing to parse files reliably for UE4.
+All that is true due to obvious reasons, BUT... what is also true is VSCode has been THE go-to editor for scripting languages(lua, typescript), extension devs(chrome, firefox)
+due to **the debugger** and **community support**.
+
+With many engines incorporating C# and python support in last decade and Epic rumored to be on its way to add a new scripting language and import tools for Blender,
+I thought it would be pretty cool to have a single swiss-army-knife kind of platform and VSCode fit the bill.
+
+I started development of this plugin late January 2020. It still lacks many classes _(that I am not experienced enough to tackle)_. It does not have replication.
+
+But if you are starting out, learning unreal, or don't mind a few missing auto-completion classes, I urge you to give this extension a try, tell your friends about it,
+maybe support me as a developer, or just hang out at my Discord.
+I look forward to hearing your feedback...
+
+**More technical Q & A here**
+
+#### Module List
+
+##### **Snippets**
+
+There are 10+ snippet files provided in the extension covering various which are designed to work in various contexts.
+
+1.  **uprop** : Used in header files to add properties and functions (along-with macros). Alternative macros for editor visible/invisible, function BPImplementable/Native/UFUnction/No-Macro
+2.  **uinit** : Code portions to initialize components. Useful if you often find yourself looking on docs why your component is invisible/not destroyed/causing leaks
+3.  **udebug** : Draw debug shapes. (with FPS variations to get smooth debug experience)
+4.  **ugs** : ObjectFinder, ClassFinder, AssetRegistry and all that blueprint-c++ interop stuff. ( Module separate because reading BP/.uasset directly in C++ is tricky/risky )
+5.  **custom** : So, how may times have you retyped NewObject, CreateDefaultSubobject UE_LOG() ?
+6.  **Add your own** : No replication, no worries. Give me snippets and I'll add them. That way everybody wins.
+
+---
+
+##### AssetStreams
+
+A framework to have the same file structure across multiple projects. If you store your assets in cloud drive and start a new projects from scratch every new moon, this, my friend, is the tool for you.
+It basically lets you create special folders with an "Assets" folder in them. On demand, the folder is read and data about all the assets in extracted to a json file. It also creates a python import script.
+
+Now, with one line of code in UE4, you get your assets from multiple folders with multiple configs.
+
+Note: Original motive was to skip manually setting ue4 to NOT generate materials when I import FBX. More often than not, material instances should be the way to go.
+
+1. Creating sset AssetStreams
+2. Maintaining folder references in VSCode
+3. Requesting updates after new batch of assets are added
+4. Importing assets to UE4
+5. Implementation details (Extra)
+
+---
+
+##### Coding Commandlets
+
+This subsection of commandlets allow you to add functions, manage headers etc. while in VSCode. This means it is all about text editor manipulations.
+
+---
+
+##### UE4 Commandlets
+
+This subsection of commandlets allow you to run unreal engine specific tasks vis command line
+
+1. Compiling shaders !!!
+2. Compiling code
+3. Compiling game (No custom config yet)
+
+---
+
+##### Error Wiki [WIP]
+
+Allows you to search your C++ errors right from the output logs. C++ errors are usually incomprehensible but after debugging it for the nth time, you get used to it.
+I am planning to **tie a search engine API** alongwith a compiled list of **_incomprehensible errors and how to fix them_** from my side to be of help to other devs.
+
+This is a feature in consideration. I will get it to it after fulfilling other modules upto release standards.
+
+---
+
+##### Better Intellisense
+
+There are a few commandlets which write instructions to your .code-workspace file when called. If you want more control, settings are exposes to your needs. Following are the changes that are made by default :
+
+- Saved, Intermediate are excluded from workspace
+- FeaturePacks, Samples, Templates are removed from workspace
+- Engine/{Binaries, Build, Contents, DDC, Docs, Extras} are removed from workspace
+- .exe, .dll, .so files are excluded
+- Entire Engine folder is excluded from watch (they are readonly, but you might want this off for source builds)
+
+Intellisense in VSCode is inferior to VS2019. No doubt. But with a few config adjustment and responsible use of extensions,
+it's pretty damn good. More on that here.

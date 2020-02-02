@@ -77,6 +77,11 @@
 						"seriesIndex": 1,
 						"title": "Module overview",
 						"link": "/api/daedalus/header-manager"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Extending the module",
+						"link": "/api/daedalus/header-manager/1"
 					}
 				]
 			}

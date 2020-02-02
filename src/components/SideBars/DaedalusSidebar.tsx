@@ -63,6 +63,13 @@ export function CollapsibleModule(Props: CollapsibleModule) {
 	);
 }
 
+/** Style definitions for the component page */
+const ContainerStyle = styled("div")`
+	max-width: 1080px;
+	margin: 0 auto;
+	margin-top: 32px;
+`;
+
 export default function SideBar(Props: SidebarProps) {
 	const RootQuery = useStaticQuery(graphql`
 		query DaedalusSidebarQuery {

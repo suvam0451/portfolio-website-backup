@@ -34,6 +34,11 @@ const DesktopNavbarSection = styled("div")`
 	}
 `;
 
+const ComponentStyle = styled("div")`
+	max-width: 1920px;
+	margin: 0 auto;
+`;
+
 // Navigation section always visible on top.
 function NavSection() {
 	// State variables
@@ -48,7 +53,7 @@ function NavSection() {
 		setCollapsed(!Collapsed);
 	}
 	return (
-		<div>
+		<ComponentStyle>
 			<Navbar>
 				<div className="bp3-navbar-group bp3-align-left">
 					<NavbarHeading>WinterWildfire</NavbarHeading>
@@ -104,7 +109,7 @@ function NavSection() {
 					</div>
 				</CollapsibleDiv>
 			</MobileNavbar>
-		</div>
+		</ComponentStyle>
 	);
 }
 

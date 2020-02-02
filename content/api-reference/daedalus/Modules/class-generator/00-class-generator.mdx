@@ -56,4 +56,15 @@ The data related to generated to generation is stored in JSON format and you can
 
 The next page covers how the module is implemented. The page after that covers how to add your own class definitions/functions.
 
+#### FAQ
+
+1. **Do I need to regenerate the project for my new classes to be indexed ?**
+   No. When you start debug(F5), It's done automatically.
+2. **_Do I have to close editor if I create a class ?_** No. Creating a class compiles fine.
+   But you would need to exit to add parameters in header.
+3. **Does hot reload work with this system ?** Of course not. What we are doing is creating entire new classes. Hot reload only works on changes to source files.
+   That said, hot reload on VSCode is hit/miss. However, the 15 second max compile times combined with compiling shaders from command line is blazing fast. You won't be missing hot reload at all.
+4. **How can I avoid creating duplicate classes ?** Try to have one pair(.cpp/.h) per class and name the class same as the file. With a little bit of foresight, no double classes will exist. Even if you accidentally make one, the build system wont compile and let you know.
+5. **I am getting build errors ?** Surely can't be the fault of this extension. Regardless, may I present to you the ability to search for errors right from your VSCode !!!
+
 See you later... 🖐

@@ -154,35 +154,33 @@ function NavCard() {
 function QuickLinks() {
 	return (
 		<>
-			<div className="bg-gray-500">
-				<Card>
-					<div className="bg-gray-500 p-4 border-2 border-gray-600 rounded-lg">
-						<h4>Community</h4>
-						<div className="rounded-sm">
-							<img
-								src="https://discordapp.com/assets/f8389ca1a741a115313bede9ac02e2c0.svg"
-								className="h-8 w-8 inline"
-							/>
-							<img
-								src="https://www.stickpng.com/assets/images/5847f997cef1014c0b5e48c1.png"
-								className="h-8 w-8 inline ml-2"
-							/>
-							<img
-								src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Microsoft_Office_OneNote_%282018%E2%80%93present%29.svg"
-								className="h-8 w-8 inline ml-2"
-							/>
-							<img
-								src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png"
-								className="h-8 w-8 inline ml-2"
-							/>
-							<img
-								src="https://image.flaticon.com/icons/svg/25/25231.svg"
-								className="h-8 w-8 inline ml-2"
-							/>
-						</div>
+			<Card>
+				<div className="bg-gray-500 p-4 border-2 border-gray-600 rounded-lg">
+					<h4>Community</h4>
+					<div className="rounded-sm">
+						<img
+							src="https://discordapp.com/assets/f8389ca1a741a115313bede9ac02e2c0.svg"
+							className="h-8 w-8 inline"
+						/>
+						<img
+							src="https://www.stickpng.com/assets/images/5847f997cef1014c0b5e48c1.png"
+							className="h-8 w-8 inline ml-2"
+						/>
+						<img
+							src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Microsoft_Office_OneNote_%282018%E2%80%93present%29.svg"
+							className="h-8 w-8 inline ml-2"
+						/>
+						<img
+							src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png"
+							className="h-8 w-8 inline ml-2"
+						/>
+						<img
+							src="https://image.flaticon.com/icons/svg/25/25231.svg"
+							className="h-8 w-8 inline ml-2"
+						/>
 					</div>
-				</Card>
-			</div>
+				</div>
+			</Card>
 		</>
 	);
 }

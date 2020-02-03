@@ -45,14 +45,39 @@ const components = {
 	h5: MyH5,
 };
 
-// Visible: {}, Hidden: {}
-const ScrollArea = styled.div`
-	height: 92vh;
+const ReadContainer = styled("div")`
+	/* height: 92vh; */
+	padding-left: 0rem;
+	padding-right: 0rem;
+	margin-bottom: 6rem;
+	/* width: 58.333333%; */
+	margin-left: 1rem;
+	z-index: 10;
+	background-color: #a0aec0;
+	border-width: 1px;
+	border-radius: 0.5rem;
+	/* overflow: auto; */
+	object-fit: contain;
 	@media (max-width: 1200px) {
-		height: auto;
+		/* height: auto; */
+		padding-left: 0rem;
+		padding-right: 0rem;
+		margin-bottom: 1rem;
+		width: 100%;
+		margin-left: 0rem;
 	}
 `;
 
+const ReadArea = styled.div`
+	@media (max-width: 1200px) {
+		/* height: auto; */
+		padding-left: 0rem;
+		padding-right: 0rem;
+		margin-bottom: 1rem;
+		width: 100%;
+		margin-left: 0rem;
+	}
+`;
 // Visible: {}, Hidden: {}
 const GoodbyeSection = styled.div`
 	height: 0;
@@ -63,7 +88,7 @@ const GoodbyeSection = styled.div`
 // background-color: #2B2B2B
 // background-color: #b1a296;
 // previous background-color: #3e3e3e;
-const MainPage = styled.div`
+const MainPage = styled("div")`
 	background-color: #2b2b2b;
 `;
 
@@ -79,95 +104,133 @@ const TitleText = styled.div`
 	color: #c05621;
 `;
 
+const DesktopSidebars = styled.div`
+	display: flex;
+	margin-top: 1rem;
+	@media (max-width: 1080px) {
+		display: block;
+	}
+`;
+
+const Section1Back = styled.div`
+	width: 15%;
+	z-index: 0;
+`;
+
+const Section1 = styled.div`
+	width: 16%;
+	z-index: 30;
+	position: fixed;
+	height: 100%;
+	@media (max-width: 1080px) {
+		position: relative;
+		width: 100%;
+		display: block;
+	}
+`;
+
+const Section2 = styled.div`
+	position: relative;
+	width: 60%;
+	z-index: 0;
+	pointer-events: none;
+	left: 16%;
+	overflow-x: hidden;
+	@media (max-width: 1080px) {
+		position: relative;
+		width: 100%;
+		display: block;
+		margin-top: 1rem;
+		left: 0%;
+	}
+`;
+
+const Section3 = styled.div`
+	position: fixed;
+	width: 24%;
+	z-index: 30;
+	left: 76%;
+	margin-left: 1rem;
+	padding-right: 10px;
+	@media (max-width: 1080px) {
+		position: relative;
+		width: 100%;
+		display: block;
+		margin-top: 1rem;
+		left: 0%;
+	}
+`;
+
 export default function PageTemplate(data: MdxProps) {
 	return (
-		<MainPage>
-			<div className="mt-16 z-20">
-				<Helmet>
-					<title>{data.data.mdx.frontmatter.seotitle}</title>
-					<meta
-						name="description"
-						content={data.data.mdx.frontmatter.description}
-					/>
-					<meta
-						name="og:title"
-						property="og:title"
-						content={data.data.mdx.frontmatter.seotitle}
-					/>
-					<meta
-						name="twitter:card"
-						content={data.data.mdx.frontmatter.description}
-					/>
-					<link
-						rel="canonical"
-						href={data.data.mdx.frontmatter.path}
-					/>
-					<meta
-						name="viewport"
-						content="width=device-width, initial-scale=1"
-					/>
-				</Helmet>
-				<div className="relative xl:fixed w-full -mt-16">
-					<MainPage>
-						<div className="z-20">
-							<NavSection />
-						</div>
-						<div className="p-2 pt-8 z-0 mb-24">
-							<Row>
-								<Col xs="12" sm="12" md="12" lg="12" xl="2">
-									<Row>
-										<SideBar
-											FrontMatter={data.data.mdx.frontmatter}
-										/>
-										<StatusCard
-											FrontMatter={data.data.mdx.frontmatter}
-										/>
-									</Row>
-								</Col>
-								<Col xs="12" sm="12" md="12" lg="12" xl="7">
-									<div className="bg-gray-500 px-4 py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain mb-24">
-										<ScrollArea>
-											<h4 className="text-gray-600 mb-4 mt-3">
-												<TitleText>
-													{data.data.mdx.frontmatter.title}
-												</TitleText>
-											</h4>
-											<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
-											<div className="ww-hide-in-mobile">
-												<Footer />
-											</div>
-										</ScrollArea>
-									</div>
-								</Col>
-								<Col xs="12" sm="12" md="12" lg="6" xl="3">
-									<Row>
-										<Col xs="12" sm="6" md="12" lg="6" xl="12">
-											<div className="bg-gray-500 rounded-t-lg">
-												<div className="bg-gray-500 p-4">
-													<h4>Related Contents</h4>
-													<p>
-														User created content used in WW APIs
-														completely free. If you develop something
-														cool using the tools, you can send us to
-														be showcased here.
-													</p>
+		<>
+			<Helmet>
+				<title>{data.data.mdx.frontmatter.seotitle}</title>
+				<meta
+					name="description"
+					content={data.data.mdx.frontmatter.description}
+				/>
+				<meta
+					name="og:title"
+					property="og:title"
+					content={data.data.mdx.frontmatter.seotitle}
+				/>
+				<meta
+					name="twitter:card"
+					content={data.data.mdx.frontmatter.description}
+				/>
+				<link rel="canonical" href={data.data.mdx.frontmatter.path} />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1"
+				/>
+			</Helmet>
 
-													<Button>Visit Archives</Button>
-												</div>
-												<QuickLinks />
-											</div>
-										</Col>
-									</Row>
-								</Col>
-							</Row>
-						</div>
-					</MainPage>
+			<div className="mt-10 overflow-hidden">
+				{/* Main menu area... */}
+				<div className="fixed w-full -mt-10 z-40">
+					<NavSection />
 				</div>
+				<DesktopSidebars>
+					<Section1 className="shadow-2xl">
+						<SideBar FrontMatter={data.data.mdx.frontmatter} />
+						<StatusCard FrontMatter={data.data.mdx.frontmatter} />
+					</Section1>
+					<Section2>
+						<ReadContainer className="shadow-md">
+							<div className="py-2 px-4 list-disc">
+								<h4 className="text-gray-600 mb-4 mt-3">
+									<TitleText>
+										{data.data.mdx.frontmatter.title}
+									</TitleText>
+								</h4>
+								<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
+								<div className="ww-hide-in-mobile">
+									<Footer />
+								</div>{" "}
+							</div>
+						</ReadContainer>
+					</Section2>
+					<Section3>
+						<div className="bg-gray-500 rounded-t-lg">
+							<div className="bg-gray-500 p-4">
+								<h4>Related Contents</h4>
+								<p>
+									User created content used in WW APIs completely
+									free. If you develop something cool using the tools,
+									you can send us to be showcased here.
+								</p>
+								<Button>Visit Archives</Button>
+							</div>
+							<QuickLinks />
+						</div>
+					</Section3>
+				</DesktopSidebars>
 				<GoodbyeSection>
 					<Footer />
 				</GoodbyeSection>
 			</div>
-		</MainPage>
+		</>
 	);
 }
 

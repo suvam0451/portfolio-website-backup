@@ -88,13 +88,13 @@ function StatusCard(Props: FrontMatterProps) {
 		}
 	});
 	return (
-		<Card className="ml-2 w-full border-t-4 border-orange-700 shadow-md">
+		<Card className="border-t-4 border-orange-700 shadow-md">
 			<h5 className="mb-1">{StatusCardTitle}</h5>
-			<div className="border-orange-700 border-b-2 mb-2"></div>
+			<div className="border-orange-700 border-b-2 mb-2" />
 			<ul className="ml-8 mb-0">{SidebarRender}</ul>
 
 			<div className="flex mt-3">
-				<button className="flex-1 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center mr-1 -ml-1">
+				<button className="w-6/12 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center mr-1 -ml-1">
 					<svg
 						className="fill-current w-4 h-4 mr-2"
 						xmlns="http://www.w3.org/2000/svg"
@@ -104,9 +104,9 @@ function StatusCard(Props: FrontMatterProps) {
 					</svg>
 					<span>Download</span>
 				</button>
-				<button className="flex-1 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center ml-1 -mr-1">
+				<button className="w-6/12 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center ml-1 -mr-1">
 					<span className="bp3-icon-large bp3-icon-git-repo content-center mr-2 mt-1" />
-					<span>Repository</span>
+					<span>Reference</span>
 				</button>
 			</div>
 		</Card>

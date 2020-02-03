@@ -169,7 +169,7 @@ function SideBar(Props: SidebarProps) {
 
 	// Sidebar rendering
 	return (
-		<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 w-full p-2 ml-2 bg-white mb-2">
+		<div className="shadow border-t-4 rounded-t border-red-500 p-2 bg-white mb-2">
 			{PopulateSubmodule()}
 		</div>
 	);

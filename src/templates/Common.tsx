@@ -32,6 +32,7 @@ const Section1 = styled.div`
 		position: relative;
 		width: 100%;
 		display: block;
+		margin-top: 26px;
 	}
 `;
 
@@ -56,12 +57,15 @@ const Section3 = styled.div`
 	z-index: 30;
 	left: 76%;
 	margin-left: 1rem;
-	padding-right: 10px;
+	padding-right: 1rem;
 	@media (max-width: 1080px) {
 		position: relative;
 		width: 100%;
 		display: block;
 		margin-top: 1rem;
+		margin-left: 0rem;
+		margin-right: 0rem;
+		padding-right: 0rem;
 		left: 0%;
 	}
 `;
@@ -105,6 +109,15 @@ const DesktopSidebars = styled.div`
 	}
 `;
 
+const ReadArea = styled.div`
+	padding-left: 1rem;
+	padding-right: 1rem;
+	@media (max-width: 1080px) {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+`;
+
 interface MdxProps {
 	data: {
 		mdx: {
@@ -132,4 +145,5 @@ export {
 	ReadContainer,
 	DesktopSidebars,
 	MdxProps,
+	ReadArea,
 };

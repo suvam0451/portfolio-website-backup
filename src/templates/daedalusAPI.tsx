@@ -16,6 +16,7 @@ import {
 	ReadContainer,
 	DesktopSidebars,
 	MdxProps,
+	ReadArea,
 } from "./Common";
 require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`,
@@ -60,14 +61,16 @@ export default function PageTemplate(data: MdxProps) {
 					</Section1>
 					<Section2>
 						<ReadContainer className="shadow-md">
-							<div className="px-4 py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain">
-								<h4 className="text-gray-600 mb-4 mt-3">
-									<TitleText>
-										{data.data.mdx.frontmatter.title}
-									</TitleText>
-								</h4>
-								<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
-								<Footer />
+							<div className="py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain">
+								<ReadArea>
+									<h4 className="text-gray-600 mb-4 mt-3">
+										<TitleText>
+											{data.data.mdx.frontmatter.title}
+										</TitleText>
+									</h4>
+									<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
+									<Footer />
+								</ReadArea>
 							</div>
 						</ReadContainer>
 					</Section2>

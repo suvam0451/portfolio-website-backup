@@ -35,7 +35,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 						}
 						frontmatter {
 							path
-							tags
+							title
+							date
+							moduleID
+							submoduleID
+							seriesID
+							seriesIndex
 						}
 					}
 				}
@@ -57,7 +62,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 						}
 						frontmatter {
 							path
-							tags
+							title
+							date
+							moduleID
+							submoduleID
+							seriesID
+							seriesIndex
 						}
 					}
 				}

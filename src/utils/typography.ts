@@ -28,8 +28,8 @@ const mytype = new Typography({
 	overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => {
 		const linkColor = "#950451";
 		const vr = VerticalRhythm({
-			baseFontSize: "10px",
-			baseLineHeight: "10px", // 28px
+			baseFontSize: "18px",
+			baseLineHeight: "1rem", // 28px
 		});
 		return {
 			a: {
@@ -50,15 +50,6 @@ const mytype = new Typography({
 			"a:hover,a:active": {
 				backgroundImage: "none",
 				textShadow: "none",
-			},
-			"h1,h2,h3,h4,h5,h6": {
-				marginTop: rhythm(10), // 2
-			},
-			// children ol, ul
-			"li>ol,li>ul": {
-				marginBottom: 0,
-				marginLeft: "4rem",
-				marginTop: 0,
 			},
 
 			"blockquote > :last-child": {
@@ -90,22 +81,24 @@ const mytype = new Typography({
 	},
 });
 
-mytype.options.baseLineHeight = 1;
-mytype.options.scaleRatio = 100;
-mytype.options.headerFontFamily = ["Work Sans"];
-mytype.options.bodyFontFamily = ["Fira Sans", "Work Sans"];
+mytype.options.baseLineHeight = 10; // 1
+mytype.options.scaleRatio = 2;
+mytype.options.headerFontFamily = ["Lato", "serif"];
+mytype.options.bodyFontFamily = ["Fira Sans", "sans-serif"];
 mytype.options.headerWeight = 700;
 mytype.options.bodyWeight = 1000;
 mytype.options.googleFonts = [
 	{
-		name: "Work Sans",
-		styles: ["600"],
+		name: "Lato",
+		styles: ["800", "800", "800"],
 	},
 	{
 		name: "Fira Sans",
 		styles: ["600", "700", "800"],
 	},
 ];
+
+mytype.injectStyles(); // Directly to header
 // typography.options.scaleRatio = 10;
 export default mytype;
 // export default typography;

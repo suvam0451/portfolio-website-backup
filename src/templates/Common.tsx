@@ -113,8 +113,8 @@ const ReadArea = styled.div`
 	padding-left: 1rem;
 	padding-right: 1rem;
 	@media (max-width: 1080px) {
-		padding-left: 0.5rem;
-		padding-right: 0.5rem;
+		padding-left: 0.25rem;
+		padding-right: 0.25rem;
 	}
 `;
 

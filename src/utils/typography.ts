@@ -91,8 +91,8 @@ const mytype = new Typography({
 	},
 });
 
-// export default mytype;
-export default typography;
+export default mytype;
+// export default typography;
 
 // export default typography;
 // const mytype = new Typography({

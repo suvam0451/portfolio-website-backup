@@ -31,6 +31,7 @@ const mytype = new Typography({
 			baseFontSize: "18px",
 			baseLineHeight: "28px", // 28px
 		});
+
 		return {
 			a: {
 				// backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, ${linkColor} 1px, ${linkColor} 2px, rgba(0, 0, 0, 0) 2px)`, // eslint-disable-line

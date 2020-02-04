@@ -90,6 +90,23 @@ const mytype = new Typography({
 	},
 });
 
+mytype.options.baseLineHeight = 1;
+mytype.options.scaleRatio = 100;
+mytype.options.headerFontFamily = ["Work Sans"];
+mytype.options.bodyFontFamily = ["Fira Sans", "Work Sans"];
+mytype.options.headerWeight = 700;
+mytype.options.bodyWeight = 1000;
+mytype.options.googleFonts = [
+	{
+		name: "Work Sans",
+		styles: ["600"],
+	},
+	{
+		name: "Fira Sans",
+		styles: ["600", "700", "800"],
+	},
+];
+// typography.options.scaleRatio = 10;
 export default mytype;
 // export default typography;
 

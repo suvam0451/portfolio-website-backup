@@ -29,7 +29,7 @@ const mytype = new Typography({
 		const linkColor = "#950451";
 		const vr = VerticalRhythm({
 			baseFontSize: "18px",
-			baseLineHeight: "1rem", // 28px
+			baseLineHeight: "28px", // 28px
 		});
 		return {
 			a: {
@@ -98,7 +98,7 @@ mytype.options.googleFonts = [
 	},
 ];
 
-mytype.injectStyles(); // Directly to header
+// mytype.injectStyles(); // Directly to header
 // typography.options.scaleRatio = 10;
 export default mytype;
 // export default typography;

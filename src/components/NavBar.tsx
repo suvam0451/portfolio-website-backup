@@ -18,7 +18,6 @@ import {
 import Image from "gatsby-image";
 import Hamburger from "../../content/images/hamburger-menu.png";
 import styled from "@emotion/styled";
-import { Collapse } from "reactstrap";
 
 const MobileNavbar = styled("div")`
 	display: block;

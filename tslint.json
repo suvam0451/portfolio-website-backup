@@ -10,7 +10,7 @@
 		"interface-name": false,
 		"semicolon": [false, "never"],
 		"member-access": [false],
-		"ordered-imports": [true],
+		"ordered-imports": [false],
 		"no-console": [false],
 		"no-var-requires": true,
 		"quotemark": [true, "double", "jsx-double"]

@@ -1,6 +1,30 @@
 [
 	{
 		"submoduleID": 1,
+		"label": "Introduction",
+		"desc": "Some background and brief overview of features",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "Introduction",
+				"desc": "A lot of damage",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Background",
+						"link": "/api/trailblazer"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Feature List",
+						"link": "/api/trailblazer/features"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 2,
 		"label": "Snippets",
 		"desc": "Generic snippets for intellisense autocompletion.",
 		"modules": [
@@ -44,7 +68,7 @@
 		]
 	},
 	{
-		"submoduleID": 2,
+		"submoduleID": 3,
 		"label": "Modules",
 		"desc": "Generic snippets for intellisense autocompletion.",
 		"modules": [
@@ -54,7 +78,7 @@
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "Module overview",
+						"title": "Overview",
 						"link": "/api/daedalus/class-generator"
 					},
 					{
@@ -80,8 +104,13 @@
 					},
 					{
 						"seriesIndex": 2,
-						"title": "Extending the module",
+						"title": "Default List",
 						"link": "/api/daedalus/header-manager/1"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "Extending the module",
+						"link": "/api/daedalus/header-manager/2"
 					}
 				]
 			}

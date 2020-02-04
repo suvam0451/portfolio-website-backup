@@ -1,6 +1,6 @@
 ---
 path: "/api/daedalus/header-manager/1"
-title: "Header manager module"
+title: "List of headers"
 date: "2020-01-10"
 submoduleID: 2
 seriesID: 2
@@ -8,16 +8,113 @@ seriesIndex: 2
 draft: false
 ---
 
-#### Module structure
+Following are the headers includes for each option as of **v0.8beta**.
 
-This module simply has two json files it gets its data from (**_IncludeTemplates.json_** and **_IncludeExtension.json_**)
+##### AIPerception
 
-- The **_id_** is by what name it will appear in the selection list.
-- The list of headers is what will get added.
+```cpp
+#include "Perception/AIPerceptionComponent.h"
+#include "Perception/AISense_Damage.h"
+#include "Perception/AISense_Hearing.h"
+#include "Perception/AISense_Sight.h"
+#include "Perception/AISense_Team.h"
+#include "Perception/AISenseConfig_Damage.h"
+#include "Perception/AISenseConfig_Hearing.h"
+#include "Perception/AISenseConfig_Sight.h"
+#include "Perception/AISenseConfig_Team.h"
+```
 
-Extend the second json file and you are done. Next time, your options should appear.
-Try to avoid modifying the IncludeExtension.json. It contains the most essential defaults.
+Following are the headers includes for each option as of **v0.8beta**.
 
-![uprop](../../../../images/DaedalusAPI/class-generator/IncludeTemplates.png)
+---
+
+##### Math
+
+```cpp
+#include "Kismet/KismetMathLibrary.h"
+```
+
+---
+
+##### PrimitiveShapes
+
+```cpp
+#include "Components/SphereComponent.h"
+#include "Components/BoxComponent.h"
+#include "Components/CapsuleComponent.h"
+```
+
+---
+
+##### Procedural
+
+```cpp
+#include "Components/InstancedStaticMeshComponent.h"
+```
+
+---
+
+##### Splines
+
+```cpp
+#include "Components/SplineMeshComponent.h"
+#include "Components/SplineComponent.h"
+```
+
+---
+
+##### Subsystems
+
+```cpp
+#include "Subsystems/WorldSubsystem.h"
+#include "Subsystems/GameInstanceSubsystem.h"
+#include "Subsystems/LocalPlayerSubsystem.h"
+```
+
+---
+
+##### Visualization
+
+```cpp
+#include "Components/BillboardComponent.h"
+#include "Components/ArrowComponent.h"
+```
+
+---
+
+##### Gameplay Systems
+
+```cpp
+#include "Kismet/GameplayStatics.h"
+#include "Engine/DataTable.h"
+```
+
+---
+
+##### ISMC
+
+```cpp
+#include "Components/InstancedStaticMeshComponent.h"
+```
+
+---
+
+##### Data
+
+```cpp
+#include "Engine/DataTable.h"
+```
+
+---
+
+##### MaterialNode
+
+```cpp
+
+```
+
+##### Material
+
+You can also extend this module with your own lists. Read more about it in the next page.
 
 See you later... 🖐

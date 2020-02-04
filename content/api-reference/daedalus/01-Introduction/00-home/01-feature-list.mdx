@@ -1,0 +1,94 @@
+---
+path: "/api/trailblazer/features"
+title: "List of Features for Trailblazer"
+date: "2020-01-10"
+submoduleID: 1
+seriesID: 1
+seriesIndex: 2
+draft: false
+---
+
+## Feature List
+
+---
+
+##### **Snippets**
+
+There are plenty of snippet files which cover various parts of Programming with with Unreal Engine 4.
+
+1.  **uprop** : Adding properties in header
+2.  **uinit** : initializing components/props
+3.  **udebug** : Drawing spheres, lines with improvements.
+4.  **ugs** : ObjectFinder, ClassFinder, AssetRegistry etc.
+5.  **utrace** : Multi/Single Trace/Sweep
+6.  **custom** : NewObject, CreateDefaultSubobject, UE_LOG() anyone ?
+7.  **Add your own** : Give me snippets and I'll add them. That way everybody wins.
+
+Note: The `context menu A` can be used after generating code by some of these snippets. This allows you to do stuff like following :
+
+---
+
+##### AssetStreams
+
+A framework to have the same file structure across multiple projects.
+It basically lets you create special folders with an "Assets" folder in them. On demand, the folder is read and data about all the assets in extracted to a json file. It also creates a python import script.
+
+Now, with one line of code in UE4, you get your assets from multiple folders with multiple configs.
+
+Note: Original motive was to skip manually setting ue4 to NOT generate materials when I import FBX. More often than not, material instances should be the way to go.
+
+1. Creating sset AssetStreams
+2. Maintaining folder references in VSCode
+3. Requesting updates after new batch of assets are added
+4. Importing assets to UE4
+5. Uses vanilla Python API. Always imports in silent mode.
+6. Implementation details (Extra)
+
+**Use Case** : If you store your assets in cloud drives and start a new projects from scratch every few weeks, this tool will make sure your imports are in order and your source files are safe.
+
+---
+
+##### Commandlets
+
+This extension has bunch of commands for various tasks. You can access command palette using `Ctrl + Shift + P` in Windows.
+However, for efficiency, you would want to make exclusive use of the `right click context menu` and bind the commands you use most.
+
+This subsection of commandlets allow you to add functions, manage headers etc. while in VSCode. This means it is all about text editor manipulations.
+
+---
+
+##### UE4 Commandlets
+
+This subsection of commandlets allow you to **_run engine tasks_** via command line. For example :
+
+1. Compiling shaders !!!
+2. Compiling code
+3. Compiling game (No custom config yet) _[Planned]_
+
+---
+
+##### Error Wiki [Planned]
+
+Allows you to search your C++ errors right from the output logs.
+
+This is a feature in consideration. I will get it to it after fulfilling other modules upto release standards.
+
+---
+
+##### Better Intellisense
+
+`Command Palette` --> `UE4 : Inject Exclude definitions in workspace file`
+
+This commandlets writes to your .code-workspace config file. You have a level of control over what gets changed.
+This is very important for better search results and significantly improved intellisense.
+
+Following changes are made by default :
+
+- **Saved, Intermediate, Build** are excluded from workspace _(project and engine)_
+- **FeaturePacks, Samples, Templates** are removed from workspace _(engine)_
+- Engine/{Binaries, Build, Contents, DDC, Docs, Extras} are removed from workspace _(engine)_
+- .exe, .dll, .so files are excluded _(everywhere)_
+- Entire Engine folder is excluded from watchlist
+
+**Use Case** : Intellisense in VSCode is worse than VS, but it's not useless. If we shut down the 6 competing web-dev extensions and pass proper settings,
+it gets pretty damn fast.

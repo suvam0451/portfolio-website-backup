@@ -3,37 +3,45 @@ path: "/api/trailblazer/"
 title: "Welcome to documentation for Trailblazer"
 date: "2020-01-10"
 submoduleID: 1
-seriesID: 2
+seriesID: 1
 seriesIndex: 1
 draft: false
 ---
 
 #### Background
 
-Unreal engine 4 always has been a macro-heavy engine.
-Moreover, due to the sheer number of classes in the engine, the intellisense fails to keep up.
+Programming with Unreal engine 4 always has been macro-heavy.
+Moreover, due to the sheer number of classes in the engine, the vanilla intellisense fails to keep up.
 
 Another issue around accessibility to the engine _was_ the lengthy parsing times of Visual Studio 2017.
 I remember tinkering with build files just to squeeze a bit of performance back when I had an old laptop.
 Since then, a lot of improvements have been made to reduce wait times, but _(at least to many)_ the most exciting
 quality of life improvement was the addition of support for VSCode as an IDE which shipped with 4.18.
 
-However, it never saw mainstream adoption. It was probably due to stigma around Electron being RAM heavy or intellisense failing to parse files reliably for UE4.
-All that is true due to obvious reasons, BUT... what is also true is VSCode has been THE go-to editor for scripting languages(lua, typescript), extension devs(chrome, firefox)
-due to **the debugger** and **community support**.
+However, it never saw mainstream adoption. It was probably due to stigma around [Electron being RAM heavy](https://stackoverflow.com/questions/53658769/why-vscode-require-so-much-memory-how-to-make-it-more-clean)
+or [inconsistency of intellisense](https://forums.unrealengine.com/development-discussion/c-gameplay-programming/1431775-visual-studio-code-is-not-working-at-all-with-unreal-engine).
+All that is somewhat true due to obvious reasons, BUT... what is also true is VSCode has been THE go-to editor for scripting languages(lua, typescript), extension devs(chrome, firefox)
+due to **the debugger**, **community support** and the **extensibility** and **accessbility**.
 
-With many engines incorporating C# and python support in last decade and Epic rumored to be on its way to add a new scripting language and import tools for Blender,
-I thought it would be pretty cool to have a single swiss-army-knife kind of platform and VSCode fit the bill.
+You can download like 50MB of files and get quite a lot done super efficiently with the right plug-ins.
 
-I started development of this plugin late January 2020. It still lacks many classes _(that I am not experienced enough to tackle)_. It does not have replication.
+With many [engines incorporating C#](https://www.gamedev.net/forums/topic/681454-cryengine-v-scripting-in-c-really/)
+and [python support](https://www.reddit.com/r/unrealengine/comments/c0n26o/wait_python_in_unreal/) in last decade
+and Epic rumored to be on its way to [add a new scripting language](https://forums.unrealengine.com/unreal-engine/feedback-for-epic/1573275-ue4-scripting-language)
+and [import tools for Blender](https://forums.unrealengine.com/unreal-engine/events/1715661-blender-to-unreal-tools-part-1-february-6-live-from-hq),
+I thought it would be pretty cool to have a single swiss-army-knife kind of platform to write code on and VSCode fit the bill.
 
-But if you are starting out, learning unreal, or don't mind a few missing auto-completion classes, I urge you to give this extension a try, tell your friends about it,
-maybe support me as a developer, or just hang out at my Discord.
-I look forward to hearing your feedback...
+I started development of this plugin late January 2020. It still lacks many classes here and there because UE4 codebase is huge.
 
-**More technical Q & A here**
+But if you are starting out with UE4 C++, learning about engine classes, or don't mind missing auto-completion for a few classes,
+give this extension a try, tell your friends about it if you like it,
+maybe support me as a developer, or just hang out at my [Discord](https://discord.gg/C28y27n).
 
-#### Module List
+I look forward to hearing your feedback and improving the plug-in...
+
+**More technical Q & A can be found here**
+
+#### Feature List
 
 ##### **Snippets**
 
@@ -50,7 +58,7 @@ There are 10+ snippet files provided in the extension covering various which are
 
 ##### AssetStreams
 
-A framework to have the same file structure across multiple projects. If you store your assets in cloud drive and start a new projects from scratch every new moon, this, my friend, is the tool for you.
+A framework to have the same file structure across multiple projects.
 It basically lets you create special folders with an "Assets" folder in them. On demand, the folder is read and data about all the assets in extracted to a json file. It also creates a python import script.
 
 Now, with one line of code in UE4, you get your assets from multiple folders with multiple configs.
@@ -61,11 +69,15 @@ Note: Original motive was to skip manually setting ue4 to NOT generate materials
 2. Maintaining folder references in VSCode
 3. Requesting updates after new batch of assets are added
 4. Importing assets to UE4
-5. Implementation details (Extra)
+5. Uses vanilla Python API. Always imports in silent mode.
+6. Implementation details (Extra)
 
----
+**Use Case** : If you store your assets in cloud drives and start a new projects from scratch every few weeks, this tool will make sure your imports are in order and your source files are safe.
 
-##### Coding Commandlets
+##### Commandlets
+
+This extension has bunch of commands for various tasks. You can access command palette using `Ctrl + Shift + P` in Windows.
+However, for efficiency, you would want to make exclusive use of the `right click context menu` and bind the commands you use most.
 
 This subsection of commandlets allow you to add functions, manage headers etc. while in VSCode. This means it is all about text editor manipulations.
 
@@ -73,18 +85,17 @@ This subsection of commandlets allow you to add functions, manage headers etc. w
 
 ##### UE4 Commandlets
 
-This subsection of commandlets allow you to run unreal engine specific tasks vis command line
+This subsection of commandlets allow you to **_run engine tasks_** via command line. For example :
 
 1. Compiling shaders !!!
 2. Compiling code
-3. Compiling game (No custom config yet)
+3. Compiling game (No custom config yet) _[Planned]_
 
 ---
 
-##### Error Wiki [WIP]
+##### Error Wiki [Planned]
 
-Allows you to search your C++ errors right from the output logs. C++ errors are usually incomprehensible but after debugging it for the nth time, you get used to it.
-I am planning to **tie a search engine API** alongwith a compiled list of **_incomprehensible errors and how to fix them_** from my side to be of help to other devs.
+Allows you to search your C++ errors right from the output logs.
 
 This is a feature in consideration. I will get it to it after fulfilling other modules upto release standards.
 
@@ -92,13 +103,18 @@ This is a feature in consideration. I will get it to it after fulfilling other m
 
 ##### Better Intellisense
 
-There are a few commandlets which write instructions to your .code-workspace file when called. If you want more control, settings are exposes to your needs. Following are the changes that are made by default :
+`Command Palette` --> `UE4 : Inject Exclude definitions in workspace file`
 
-- Saved, Intermediate are excluded from workspace
-- FeaturePacks, Samples, Templates are removed from workspace
-- Engine/{Binaries, Build, Contents, DDC, Docs, Extras} are removed from workspace
-- .exe, .dll, .so files are excluded
-- Entire Engine folder is excluded from watch (they are readonly, but you might want this off for source builds)
+This commandlets writes to your .code-workspace config file. You have a level of control over what gets changed.
+This is very important for better search results and significantly improved intellisense.
 
-Intellisense in VSCode is inferior to VS2019. No doubt. But with a few config adjustment and responsible use of extensions,
-it's pretty damn good. More on that here.
+Following changes are made by default :
+
+- **Saved, Intermediate, Build** are excluded from workspace _(project and engine)_
+- **FeaturePacks, Samples, Templates** are removed from workspace _(engine)_
+- Engine/{Binaries, Build, Contents, DDC, Docs, Extras} are removed from workspace _(engine)_
+- .exe, .dll, .so files are excluded _(everywhere)_
+- Entire Engine folder is excluded from watchlist
+
+**Use Case** : Intellisense in VSCode is worse than VS, but it's not useless. If we shut down the 6 competing web-dev extensions and pass proper settings,
+it gets pretty damn fast.

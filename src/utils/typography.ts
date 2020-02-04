@@ -5,7 +5,6 @@ import { MOBILE_MEDIA_QUERY } from "typography-breakpoint-constants";
 import gray from "gray-percentage";
 
 const typography = new Typography(Theme);
-
 const mytype = new Typography({
 	baseFontSize: "18px",
 	baseLineHeight: 1.0,

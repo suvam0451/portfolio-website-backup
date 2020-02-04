@@ -9,7 +9,10 @@ const typography = new Typography(Theme);
 const mytype = new Typography({
 	baseFontSize: "18px",
 	baseLineHeight: 1.0,
+	bodyColor: "hsla(0,0%,0%,0.73)",
 	bodyFontFamily: ["Roboto", "serif"],
+	bodyWeight: 400,
+	boldWeight: 700,
 	googleFonts: [
 		{
 			name: "Roboto Slab",
@@ -20,12 +23,9 @@ const mytype = new Typography({
 			styles: ["400", "400i", "700"],
 		},
 	],
-	headerFontFamily: ["Roboto Slab", "sans-serif"],
 	headerColor: "hsla(0,0%,0%,0.9)",
-	bodyColor: "hsla(0,0%,0%,0.73)",
+	headerFontFamily: ["Roboto Slab", "sans-serif"],
 	headerWeight: 700,
-	bodyWeight: 400,
-	boldWeight: 700,
 	overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => {
 		const linkColor = "#950451";
 		const vr = VerticalRhythm({
@@ -37,8 +37,6 @@ const mytype = new Typography({
 				// backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, ${linkColor} 1px, ${linkColor} 2px, rgba(0, 0, 0, 0) 2px)`, // eslint-disable-line
 				color: linkColor,
 				textDecoration: "none",
-				// textShadow:
-				//    ".03em 0 #fff,-.03em 0 #fff,0 .03em #fff,0 -.03em #fff,.06em 0 #fff,-.06em 0 #fff,.09em 0 #fff,-.09em 0 #fff,.12em 0 #fff,-.12em 0 #fff,.15em 0 #fff,-.15em 0 #fff", // eslint-disable-line
 			},
 			// Blockquote styles.
 			blockquote: {
@@ -55,7 +53,7 @@ const mytype = new Typography({
 				textShadow: "none",
 			},
 			"h1,h2,h3,h4,h5,h6": {
-				marginTop: rhythm(2),
+				marginTop: rhythm(10), // 2
 			},
 			// children ol, ul
 			"li>ol,li>ul": {
@@ -93,8 +91,8 @@ const mytype = new Typography({
 	},
 });
 
-export default mytype;
-// export default typography;
+// export default mytype;
+export default typography;
 
 // export default typography;
 // const mytype = new Typography({

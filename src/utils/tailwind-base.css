@@ -32,16 +32,6 @@ main {
 	display: block;
 }
 
-/**
-   * Correct the font size and margin on `h1` elements within `section` and
-   * `article` contexts in Chrome, Firefox, and Safari.
-   */
-
-h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
-}
-
 /* Grouping content
      ========================================================================== */
 
@@ -381,17 +371,12 @@ html {
 blockquote,
 dl,
 dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 hr,
 figure,
 p,
 pre {
 	margin: 0;
+	margin-top: 10rem;
 }
 
 button {
@@ -510,16 +495,6 @@ button,
 table {
 	border-collapse: collapse;
 	table-layout: auto;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-size: inherit;
-	font-weight: inherit;
 }
 
 /**

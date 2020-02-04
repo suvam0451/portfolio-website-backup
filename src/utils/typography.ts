@@ -8,7 +8,7 @@ const typography = new Typography(Theme);
 
 const mytype = new Typography({
 	baseFontSize: "18px",
-	baseLineHeight: 0,
+	baseLineHeight: 1.0,
 	bodyFontFamily: ["Roboto", "serif"],
 	googleFonts: [
 		{
@@ -60,7 +60,7 @@ const mytype = new Typography({
 			// children ol, ul
 			"li>ol,li>ul": {
 				marginBottom: 0,
-				marginLeft: "60px",
+				marginLeft: "4rem",
 				marginTop: 0,
 			},
 
@@ -94,6 +94,8 @@ const mytype = new Typography({
 });
 
 export default mytype;
+// export default typography;
+
 // export default typography;
 // const mytype = new Typography({
 //     title: "Ocean Beach",

@@ -78,7 +78,7 @@ const ReadContainer = styled("div")`
 	/* height: 92vh; */
 	padding-left: 0rem;
 	padding-right: 0rem;
-	margin-bottom: 6rem;
+	margin-bottom: 0rem;
 	/* width: 58.333333%; */
 	margin-left: 1rem;
 	z-index: 10;

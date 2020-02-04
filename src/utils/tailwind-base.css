@@ -416,12 +416,7 @@ fieldset {
 
 ol,
 ul {
-	/* list-style: disc; */
-	/* margin: 0; */
-	/* margin-left: 32px; */
-	/* padding: 0; */
-	/* list-style-position: inside; */
-	margin-left: 48px;
+	margin-left: 2.5rem;
 }
 
 /**

@@ -1,20 +1,6 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import {
-	Alignment,
-	Button,
-	Intent,
-	Breadcrumbs,
-	Breadcrumb,
-	IBreadcrumbProps,
-	Icon,
-	Card,
-	Navbar,
-	NavbarHeading,
-	NavbarDivider,
-	NavbarGroup,
-	Classes,
-} from "@blueprintjs/core";
+import { Navbar, NavbarHeading } from "@blueprintjs/core";
 import Image from "gatsby-image";
 import Hamburger from "../../content/images/hamburger-menu.png";
 
@@ -43,7 +29,7 @@ function TitleBar() {
 				</div>
 				<div className="sm:visible md:invisible lg:invisible xl:invisible">
 					<button className="p-2 bp3-navbar-group bp3-align-right bp3-button bp3-minimal">
-						<img className="h-6 content-center" src={Hamburger}></img>
+						<img className="h-6 content-center" src={Hamburger} />
 					</button>
 				</div>
 			</Navbar>

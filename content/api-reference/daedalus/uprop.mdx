@@ -1,24 +1,65 @@
 ---
-path: "/api/daedalus/uproperty"
+path: "/docs/trailblazer/uprop-snippets"
 title: "Instanced Static Meshes in UE4 (Part 1/3)"
 date: "2020-01-10"
-submoduleID: 1
+submoduleID: 2
 seriesID: 2
-seriesIndex: 1
+seriesIndex: 0
 draft: false
 ---
 
 import {
 	Footer,
 	Alert,
-	GifOverlay,
 } from "../../../src/components/Decorations";
 
-## UProp Snippet/Commandlet namespace
+## uprop snippets
 
-Snippets in this namespace automate generation of UPROPERTY() declarations.
+---
 
-You can fall back to respective Commandlets if your intellisense suddenly stops responding.
+Snippets in this namespace are used to reduce macro usage for UPROPERTY() declarations.
+There are three subclasses allowing the designer varying degrees of freedom at the editor.
+
+### base uprop snippets
+
+---
+
+The base line of macros are called using `uprop_xyz`.
+They carry the { **VisibleAnywhere**, **BlueprintReaDWrite** } macros.
+Below example shows two such snippets being inserted. Notice the 3-4 seconds delay while intellisense parses the new variable.
+
+I have a throttled i7 8th gen laptop and had 80 mozilla tabs open. You would obviously get faster responses.
+
+![base uprop](../../../../../images/DaedalusAPI/introduction-module/007.gif)
+
+### uprop_adv snippets
+
+---
+
+The `uprop_adv_xyz` line of macros replace **EditAnywhere** with  **VisibleAnywhere**, 
+making them hidden from designer view without dropdown.
+
+### uprop_ro snippets
+
+---
+
+The `uprop_ro_xyz` line of snippets have { **VisibleAnywhere**, **AdvancedDisplay**, **BlueprintReadWrite**}
+macros. This makes them accessible through a dropdown in editor. It also prevents edit through left editor panel.
+Hoever, modification in blueprints is still allowed
+
+
+### uprop array/map snippets
+
+---
+
+In some cases, a map of components is required to dynamically add/remove them at runtime/designtime.
+For this, the `uprop_xyz_map` or `uprop_xyz_arr` is used.
+
+
+
+---
+
+# Clean this
 
 <Alert
 	head="Invocation Tradeoff"

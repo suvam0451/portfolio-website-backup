@@ -1,18 +1,18 @@
 [
 	{
 		"submoduleID": 1,
-		"label": "Installation",
+		"label": "Getting Started",
 		"desc": "Some background and brief overview of features",
 		"modules": [
 			{
 				"seriesID": 1,
-				"label": "Downloads",
+				"label": "Installation",
 				"desc": "A lot of damage",
 				"children": [
 					{
-						"seriesIndex": 2,
-						"title": "Background",
-						"link": "/api/trailblazer"
+						"seriesIndex": 0,
+						"title": "Installation",
+						"link": "/docs/trailblazer/getting-started/"
 					},
 					{
 						"seriesIndex": 3,
@@ -30,17 +30,17 @@
 		"modules": [
 			{
 				"seriesID": 1,
-				"label": "gameplay-module",
+				"label": "uprop",
 				"children": [
 					{
-						"seriesIndex": 1,
-						"title": "Index",
-						"link": "/api/daedalus/gameplay-systems"
+						"seriesIndex": 0,
+						"title": "overview",
+						"link": "/docs/trailblazer/uprop-snippets"
 					},
 					{
-						"seriesIndex": 2,
-						"title": "ugs_objectfind",
-						"link": "/api/daedalus/gameplay-systems/ugs-objectfind"
+						"seriesIndex": 1,
+						"title": "uprop-base",
+						"link": "/docs/trailblazer/uprop-snippets/1"
 					},
 					{
 						"seriesIndex": 2,

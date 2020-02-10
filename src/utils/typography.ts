@@ -8,7 +8,7 @@ import gray from "gray-percentage";
 const mytype = new Typography({
 	// title: "Ocean Beach",
 	baseFontSize: "19px",
-	baseLineHeight: 1.58,
+	baseLineHeight: 1.33,
 	googleFonts: [
 		{
 			name: "Roboto Slab",

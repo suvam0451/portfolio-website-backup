@@ -1,21 +1,21 @@
 [
 	{
 		"submoduleID": 1,
-		"label": "Introduction",
+		"label": "Installation",
 		"desc": "Some background and brief overview of features",
 		"modules": [
 			{
 				"seriesID": 1,
-				"label": "Introduction",
+				"label": "Downloads",
 				"desc": "A lot of damage",
 				"children": [
 					{
-						"seriesIndex": 1,
+						"seriesIndex": 2,
 						"title": "Background",
 						"link": "/api/trailblazer"
 					},
 					{
-						"seriesIndex": 2,
+						"seriesIndex": 3,
 						"title": "Feature List",
 						"link": "/api/trailblazer/features"
 					}
@@ -55,7 +55,7 @@
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "Little Girl",
+						"title": "Not defined",
 						"link": "/tutorials/ue4/plugin-development-using-rust/1"
 					},
 					{

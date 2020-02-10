@@ -227,16 +227,21 @@ interface DownloadProps {
 	readonly label: string;
 }
 function DownloadButton(Props: DownloadProps) {
+	const NavTo = () => {
+
+	}
 	let newClassName =
 		"bp3-icon-large bp3-icon-" +
 		Props.icon +
 		" content-center mr-2 mt-1";
 	return (
 		<>
-			<button className="flex-1 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center mx-1">
-				<span className={newClassName} />
-				<span>{Props.label}</span>
-			</button>
+			<Link to={Props.link}>
+				<button className="flex-1 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center mx-1">
+					<span className={newClassName} />
+					<span>{Props.label}</span>
+				</button>
+			</Link>
 		</>
 	);
 }

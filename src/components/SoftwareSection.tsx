@@ -75,7 +75,7 @@ export default function SoftwareSection() {
 							<DownloadButton
 								icon="git-repo"
 								label="Documentation"
-								link=""
+								link="/api/trailblazer"
 							/>
 						</div>
 						<img

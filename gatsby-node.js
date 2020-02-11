@@ -103,7 +103,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 			`/${parent.sourceInstanceName}/${parent.name}`;
 		createPage({
 			path: node.frontmatter.path,
-			component: path.resolve("src/templates/daedalusAPI.tsx"),
+			component: path.resolve("src/templates/Trailblazer.tsx"),
 			/* Use context values in  page layout component*/
 
 			context: { id: node.id },

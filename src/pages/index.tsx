@@ -11,12 +11,8 @@ import priceAPI from "../utils/priceAPI";
 import SoftwareSection from "../components/SoftwareSection";
 import {
 	Nav,
-	NavbarBrand,
 	NavItem,
 	NavLink,
-	// Navbar,
-	UncontrolledCollapse,
-	UncontrolledDropdown,
 	DropdownMenu,
 	DropdownToggle,
 	DropdownItem,

@@ -69,6 +69,34 @@
 	},
 	{
 		"submoduleID": 3,
+		"label": "Context Key",
+		"desc": "Generic snippets for intellisense autocompletion.",
+		"modules": [
+			{
+				"seriesId": 1,
+				"label": "overview",
+				"children": [
+					{
+						"seriesIndex": 0,
+						"title": "introduction",
+						"link": "/docs/trailblazer/context-keys/"
+					},
+					{
+						"seriesIndex": 1,
+						"title": "key-bindings",
+						"link": "/docs/trailblazer/context-keys/1"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "activation-context",
+						"link": "/docs/trailblazer/context-keys/2"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 4,
 		"label": "Modules",
 		"desc": "Generic snippets for intellisense autocompletion.",
 		"modules": [
@@ -79,7 +107,7 @@
 					{
 						"seriesIndex": 1,
 						"title": "Overview",
-						"link": "/api/daedalus/class-generator"
+						"link": "/api/trailblazer/class-generator"
 					},
 					{
 						"seriesIndex": 2,

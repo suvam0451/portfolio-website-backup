@@ -78,6 +78,7 @@ const PageStyle = styled("div")`
 `;
 
 // Container in which our blog posts lie
+// Chocolate : #ECCFA2
 const ReadContainer = styled("div")`
 	/* height: 92vh; */
 	padding-left: 0rem;
@@ -86,7 +87,7 @@ const ReadContainer = styled("div")`
 	/* width: 58.333333%; */
 	margin-left: 1rem;
 	z-index: 10;
-	background-color: #a0aec0;
+	background-color: #ffdead;
 	border-width: 1px;
 	border-radius: 0.5rem;
 	/* overflow: auto; */
@@ -118,6 +119,9 @@ const ReadArea = styled.div`
 	}
 `;
 
+const Background = styled.div`
+	background-color: #222222
+`
 interface MdxProps {
 	data: {
 		mdx: {
@@ -146,4 +150,5 @@ export {
 	DesktopSidebars,
 	MdxProps,
 	ReadArea,
+	Background
 };

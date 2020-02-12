@@ -8,7 +8,7 @@ import styled from "@emotion/styled";
 import Sidebar from "../components/SideBars/DaedalusSidebar";
 import { Helmet } from "react-helmet";
 import { Button } from "@blueprintjs/core";
-import { StatusCard } from "../components/StatusCard";
+import { StatusCard } from "../components/SideBars/Trailblazer_StatusCard";
 import {
 	Section1,
 	Section2,

@@ -13,10 +13,12 @@ import { BranchComponent } from "./UE4TutorialSidebar";
 interface CollapsibleModule {
 	readonly CollapsedSection: any;
 	readonly HeaderSection: string;
+	readonly InitiallyCollapsed: boolean;
 }
 
+/** For the serieses */
 export function CollapsibleModule(Props: CollapsibleModule) {
-	const [Collapsed, setCollapsed] = useState(true);
+	const [Collapsed, setCollapsed] = useState(Props.InitiallyCollapsed);
 	const CollapsibleDiv = styled("div")`
 		display: ${props => (Collapsed ? `none` : "block")};
 	`;
@@ -70,11 +72,16 @@ const ContainerStyle = styled("div")`
 	margin-top: 32px;
 `;
 
+/** Main export */
 export default function SideBar(Props: SidebarProps) {
 	const RootQuery = useStaticQuery(graphql`
 		query DaedalusSidebarQuery {
 			allDaedalusApiJson {
 				nodes {
+					id
+					submoduleID
+					label
+					description
 					modules {
 						label
 						seriesID
@@ -84,9 +91,6 @@ export default function SideBar(Props: SidebarProps) {
 							title
 						}
 					}
-					submoduleID
-					label
-					desc
 				}
 			}
 		}
@@ -112,15 +116,13 @@ export default function SideBar(Props: SidebarProps) {
 				<CollapsibleModule
 					CollapsedSection={CollapsibleSection}
 					HeaderSection={seriesList.label}
+					InitiallyCollapsed={true}
 				/>,
 			);
 		});
-		// for (let i = 0; i < data.length; i++) {
-		// 	const SeriesList: Tier1 = data[i];
-		// }
 		return retval;
 	};
-	/** CAlled from template with a request to populate sidebar. */
+	/** Called for every module */
 	const PopulateSidebar = () => {
 		const retval: any = [];
 		queryData.nodes.forEach(node => {
@@ -128,15 +130,15 @@ export default function SideBar(Props: SidebarProps) {
 			// Checing if submoduleID is a match
 			const CollapseSwitch: boolean =
 				node.submoduleID === Props.FrontMatter.submoduleID
-					? false
-					: true;
+					? false // false 
+					: true; // true
 			// This should push one entire section...
 			retval.push(
 				<BranchComponent
 					label={node.label}
 					CollapsedSection={ModuleRender}
 					hasChildren={false}
-					IsCollapsed={CollapseSwitch}
+					IsCollapsed={CollapseSwitch} // CollapseSwitch
 				/>,
 			);
 		});
@@ -146,7 +148,7 @@ export default function SideBar(Props: SidebarProps) {
 	return (
 		<>
 			<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 p-2 bg-white mb-2 w-full">
-				{PopulateSidebar()}
+				{ PopulateSidebar() }
 			</div>
 		</>
 	);

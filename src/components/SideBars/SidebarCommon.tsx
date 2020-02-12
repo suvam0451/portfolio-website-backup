@@ -11,7 +11,7 @@ export interface SidebarDataTree {
 export interface Tier0 {
 	readonly submoduleID: number;
 	readonly category: string;
-	readonly desc: string;
+	readonly description: string;
 	readonly modules: Tier1[];
 	readonly label: string;
 }
@@ -55,22 +55,16 @@ interface CollapsibleModule {
 
 //#endregion
 
-export function CollapsibleModule(Props: CollapsibleModule) {
+/**  */
+export function CollapsibleModule(section: any, label: string) {
 	const [Collapsed, setCollapsed] = useState(true);
-	const CollapsibleDiv = Styled("div")`
+	// display: ${props => (Collapsed ? `none` : "block")};
+	const CollapsibleDiv = Styled("div")`		
 		display: ${props => (Collapsed ? `none` : "block")};
 	`;
 	const [IconSection, setIconSection] = useState(
 		"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
 	);
-	let logoItem: any = useRef(null);
-
-	// Show in effect
-	useEffect(() => {
-		logoItem.opacity = 0;
-		TweenMax.from(logoItem, 0, { opacity: 0, ease: Power3.easeOut });
-		TweenMax.to(logoItem, 0.8, { opacity: 1, ease: Power3.easeOut });
-	});
 
 	function ToggleCollapse() {
 		if (Collapsed === true) {
@@ -88,16 +82,13 @@ export function CollapsibleModule(Props: CollapsibleModule) {
 	return (
 		<>
 			<div
-				ref={el => {
-					logoItem = el;
-				}}
 				className="flex hover:bg-teal-200 mt-1 ml-1 rounded-sm select-none"
 				onClick={ToggleCollapse}
 			>
 				<span className={IconSection} />
-				<div className="ml-2">{Props.label}</div>
+				<div className="ml-2">{label}</div>
 			</div>
-			<CollapsibleDiv>{Props.collapsible}</CollapsibleDiv>
+			<CollapsibleDiv>{section}</CollapsibleDiv>
 		</>
 	);
 }

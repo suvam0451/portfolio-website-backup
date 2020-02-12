@@ -25,7 +25,7 @@ interface Tier0_Props {
 }
 interface Tier1_Prop {
 	readonly submoduleID: number;
-	readonly category: string;
+	readonly label: string;
 	readonly description: string;
 	readonly modules: Array<SeriesProps>;
 }
@@ -50,7 +50,7 @@ function StatusCard(Props: FrontMatterProps) {
 					node {
 						id
 						submoduleID
-						category
+						label
 						description
 						modules {
 							seriesID

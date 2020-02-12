@@ -1,7 +1,7 @@
 [
 	{
 		"submoduleID": 1,
-		"category": "Programming",
+		"label": "Programming",
 		"description": "Using DLLs + LIBs in UE4. Both static and dynamic linking",
 		"modules": [
 			{
@@ -129,7 +129,7 @@
 	},
 	{
 		"submoduleID": 2,
-		"category": "DevOps",
+		"label": "DevOps",
 		"description": "Optimized development",
 		"modules": [
 			{
@@ -158,7 +158,7 @@
 	},
 	{
 		"submoduleID": 3,
-		"category": "Shaders",
+		"label": "Shaders",
 		"description": "Writing advanced shaders",
 		"modules": [
 			{
@@ -178,7 +178,7 @@
 	},
 	{
 		"submoduleID": 4,
-		"category": "Miscellaneous",
+		"label": "Miscellaneous",
 		"description": "Okay",
 		"modules": [
 			{
@@ -196,7 +196,7 @@
 	},
 	{
 		"submodule": 5,
-		"category": "Debugging",
+		"label": "Debugging",
 		"description": "Fixing most commonly encountered error messages.",
 		"modules": [
 			{

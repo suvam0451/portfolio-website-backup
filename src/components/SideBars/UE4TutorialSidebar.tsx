@@ -103,7 +103,7 @@ function SideBar(Props: SidebarProps) {
 					node {
 						id
 						submoduleID
-						category
+						label
 						description
 						modules {
 							seriesID

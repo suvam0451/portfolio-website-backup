@@ -164,5 +164,28 @@
 				]
 			}
 		]
+	},
+	{
+		"submoduleID": 99,
+		"label": "References",
+		"description": "Extra stuff",
+		"modules": [
+			{
+				"seriesId": 1,
+				"label": "workspace-guide",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "core-workspace",
+						"link": "/docs/trailblazer/code-workspace"
+					}
+				]
+			},
+			{
+				"seriesId": 2,
+				"label": "tools-setup",
+				"children": []
+			}
+		]
 	}
 ]

@@ -1,17 +1,8 @@
 import { Link, useStaticQuery, graphql } from "gatsby";
 import React, { Component } from "react";
-<<<<<<< HEAD
-import {
-	Card,
-	Classes,
-} from "@blueprintjs/core";
-import { FrontMatterProps } from "../graphql-types";
-import { SidebarDataTree} from "../SideBars/SidebarCommon"
-=======
 import { Card, Classes } from "@blueprintjs/core";
 import { FrontMatterProps } from "../graphql-types";
 import { SidebarDataTree } from "../SideBars/SidebarCommon";
->>>>>>> merge-sidebars
 
 interface allUe4TutsMapJsonType {
 	readonly edges: Array<Tier0_Props>;

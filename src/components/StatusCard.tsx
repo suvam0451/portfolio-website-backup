@@ -1,45 +1,10 @@
 import { Link, useStaticQuery, graphql } from "gatsby";
 import React, { Component } from "react";
-import { Col } from "reactstrap";
-import {
-	Alignment,
-	Button,
-	Intent,
-	Breadcrumbs,
-	IBreadcrumbProps,
-	Icon,
-	Card,
-	NavbarHeading,
-	NavbarDivider,
-	NavbarGroup,
-	Classes,
-} from "@blueprintjs/core";
+import { Card, Classes } from "@blueprintjs/core";
 import { FrontMatterProps } from "../graphql-types";
-import { CardTitle } from "react-bootstrap/Card";
 import { SidebarDataTree } from "./SideBars/SidebarCommon";
 
-interface allUe4TutsMapJsonType {
-	readonly nodes: Tier1_Prop[];
-}
-interface Tier1_Prop {
-	readonly submoduleID: number;
-	readonly label: string;
-	readonly description: string;
-	readonly modules: Array<SeriesProps>;
-}
-
-interface SeriesProps {
-	readonly seriesID: number;
-	readonly title: string;
-	readonly Children: Array<LeafNode>;
-}
-
-interface LeafNode {
-	readonly seriesIndex: number;
-	readonly title: string;
-	readonly link: string;
-}
-
+/** Default export */
 function StatusCard(Props: FrontMatterProps) {
 	const RootQuery = useStaticQuery(graphql`
 		query MyStatusCardQuery {

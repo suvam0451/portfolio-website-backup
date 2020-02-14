@@ -39,6 +39,7 @@ module.exports = {
 			options: {
 				name: "content",
 				path: `${__dirname}/content`,
+				ignore: [process.env.IGNORE_POST_FOLDER],
 			},
 		},
 		{

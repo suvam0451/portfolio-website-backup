@@ -3,8 +3,8 @@ path: "/docs/trailblazer/snippets-overview"
 title: "The snippet Library"
 date: "2020-01-10"
 submoduleID: 2
-seriesID: 0
-seriesIndex: 0
+seriesID: 1
+seriesIndex: 1
 draft: false
 ---
 
@@ -12,7 +12,6 @@ import {
 	Footer,
 	Alert,
 } from "../../../../../src/components/Decorations";
-
 
 Snippets are the bread and butter of any editor extension. The snippets shipped with this extension all start with `u` to avoid conflicts.
 This is except a few macros like loops and switch statements which go along with any extension.
@@ -24,10 +23,28 @@ The snippets follow the epic style C++ for the most part except the
 
 I will **try to ship multiple editions** with combinations of the above, but the beta releases will always follow the below-indicated code style
 
-This is because the only linters available in VSCode are `Clang-format` and `C++ tools`. And they will revert the tabs anyways. 
+This is because the only linters available in VSCode are `Clang-format` and `C++ tools`. And they will revert the tabs anyways.
 **In short**, you will have options for your coding styles in the **stable releases only**.
 
 Snippets are listed into the following categories with their own namespaces and can be called by `unamespace_xyz`.
+
+### Snippet namespaces
+
+| Starts With   | Link | Function                                       |
+| ------------- | ---- | ---------------------------------------------- |
+| uprop         |      | Adding UPROPERTY()                             |
+| ugs           |      | Gameplay/Asset calls like AssetFinder          |
+| uinit         |      | Initializing anything                          |
+| utrace        |      | Line/Shape traces                              |
+| udebug        |      | Debug lines/spheres                            |
+| udel          |      | Delegate binding                               |
+| ulog          |      | Logging to console                             |
+| udata         |      | DataTables and such                            |
+| uabbr         |      | Abbreviations for long classes for bad mondays |
+| uabbr         |      | Gameplay Ability Systems **WIP**               |
+| umat          |      | Material handling through code                 |
+| umatnode      |      | Creation of advanced material nodes **WIP**    |
+| ue4_suvam0451 |      | Some unique... uhh for loops ?                 |
 
 ### uprop
 
@@ -37,35 +54,21 @@ Useful for property declaration. Modified syntax for **readonly props**,
 props meant to appear only in **AdvancedDisplay**, **Arrays and maps** props
 Components
 
-### udebug
-
----
-
-Utilities for drawing lines, spheres, arrows etc.
-Multiple versions of same snippet is available with pre-calculated FPS values.
-You would get that to get results like folowing.
-
 The base line of macros are called using `uprop_xyz`.
 They carry the { **VisibleAnywhere**, **BlueprintReaDWrite** } macros.
 Below example shows two such snippets being inserted. Notice the 3-4 seconds delay while intellisense parses the new variable.
 
-![base uprop](../../../../../images/DaedalusAPI/snippet-module/perfecttrace.gif)
-
-
-
-
-
-
+![base uprop](../../../../images/DaedalusAPI/snippet-module/perfecttrace.gif)
 
 I have a throttled i7 8th gen laptop and had 80 mozilla tabs open. You would obviously get faster responses.
 
-![base uprop](../../../../../images/DaedalusAPI/introduction-module/007.gif)
+![base uprop](../../../../images/DaedalusAPI/introduction-module/007.gif)
 
 ### uprop_adv snippets
 
 ---
 
-The `uprop_adv_xyz` line of macros replace **EditAnywhere** with  **VisibleAnywhere**, 
+The `uprop_adv_xyz` line of macros replace **EditAnywhere** with **VisibleAnywhere**,
 making them hidden from designer view without dropdown.
 
 ### uprop_ro snippets
@@ -76,15 +79,12 @@ The `uprop_ro_xyz` line of snippets have { **VisibleAnywhere**, **AdvancedDispla
 macros. This makes them accessible through a dropdown in editor. It also prevents edit through left editor panel.
 Hoever, modification in blueprints is still allowed
 
-
 ### uprop array/map snippets
 
 ---
 
 In some cases, a map of components is required to dynamically add/remove them at runtime/designtime.
 For this, the `uprop_xyz_map` or `uprop_xyz_arr` is used.
-
-
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 path: "/docs/trailblazer/extension-files"
-title: "Where to find files ?"
+title: "Where to find the files ?"
 date: "2020-01-10"
 submoduleID: 98
 seriesID: 3
@@ -8,8 +8,8 @@ seriesIndex: 1
 draft: false
 ---
 
-In this page, I will tell you a bit about where Visual Studio Code extensions are stored
-and which files you need for extending the extension
+This guide is about **location** of Visual Studio Code extensions files.
+This guide will also tell you about which files you need for adding your templates.
 This should help you find the JSON files used to add your mods.
 
 However, **this guide will be for windows only**. I have no idea where they are stored in MacOS/Linux.
@@ -50,5 +50,37 @@ For a comprehensive guide on the various modules available for modding and how-t
 
 - [adding header pack](/docs/trailblazer/adding-header-packs)
 - [add/make buildspaces](/docs/trailblazer/extending-the-buildspace)
+
+### List of files
+
+---
+
+These files in first column are shipped by default with extension.
+**Try not to mess these up**.
+The corresponding mod files are listed in second column
+(all inside the extension folder)
+
+| Shipped Defaults               | Extension File                           |
+| ------------------------------ | ---------------------------------------- |
+| out/data/BuildTemplates.json   | out/data/extensions/Buildspace.json      |
+| out/data/ContextAutofill.json  | out/data/extensions/ContextFill_Ext.json |
+| out/data/headerFunctions.json  | out/data/extensions/Functions_Ext.json   |
+| out/data/includeTemplates.json | out/data/extensions/Include_Ext.json     |
+
+Tour is over and you are ready to start modding. Jump into any of the following guides to get started
+
+- [Extending header packs](/docs/trailblazer/adding-header-packs)
+- [Extending buildspaces](/docs/trailblazer/extending-the-buildspace)
+- [Customizing exclusions](/docs/trailblazer/workspace-configurations)
+
+#### Other files
+
+---
+
+A little but about what the other files are doing, if you curious
+
+- The files in **templates folder** are used to generate the folder structure for AssetStreams.
+- **search-engine** folder has files thast I will use later to provide error wiki features (hopefully).
+- **generators** has class generation data* (Used by Class generator module)*
 
 See you later... 🖐

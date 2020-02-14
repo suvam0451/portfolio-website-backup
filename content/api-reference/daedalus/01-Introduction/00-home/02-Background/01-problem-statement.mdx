@@ -1,0 +1,42 @@
+---
+path: "/docs/trailblazer/background/"
+title: "Why build an extension ?"
+date: "2020-01-10"
+submoduleID: 1
+seriesID: 2
+seriesIndex: 1
+draft: false
+---
+
+Programming with Unreal engine 4 always has been **macro-heavy**.
+Moreover, due to the sheer number of classes in the engine, the **vanilla intellisense fails to keep up**.
+
+Another issue around accessibility to the engine _was_ the **lengthy parsing/loading times** of Visual Studio 2017.
+I remember tinkering with build files just to squeeze a bit of performance back when I had an old laptop.
+Since then, a lot of improvements have been made to reduce wait times, but _(at least to many)_ the most exciting
+quality of life improvement was the **addition of support for VSCode** as an IDE which shipped with 4.18.
+
+However, it **never saw mainstream adoption**. It was probably due to stigma around [Electron being RAM heavy](https://stackoverflow.com/questions/53658769/why-vscode-require-so-much-memory-how-to-make-it-more-clean)
+or [inconsistency of intellisense](https://forums.unrealengine.com/development-discussion/c-gameplay-programming/1431775-visual-studio-code-is-not-working-at-all-with-unreal-engine).
+All that is somewhat true due to obvious reasons, BUT... what is also true is VSCode has been THE go-to editor for scripting languages(lua, typescript), extension devs(chrome, firefox)
+due to **the debugger**, **community support** and the **extensibility** and **accessbility**.
+
+You can download like 50MB of files and get quite a lot done super efficiently with the right plug-ins.
+
+With many [engines incorporating C#](https://www.gamedev.net/forums/topic/681454-cryengine-v-scripting-in-c-really/)
+and [python support](https://www.reddit.com/r/unrealengine/comments/c0n26o/wait_python_in_unreal/) in last decade
+and Epic rumored to be on its way to [add a new scripting language](https://forums.unrealengine.com/unreal-engine/feedback-for-epic/1573275-ue4-scripting-language)
+and [import tools for Blender](https://forums.unrealengine.com/unreal-engine/events/1715661-blender-to-unreal-tools-part-1-february-6-live-from-hq),
+I thought it would be pretty cool to have a **single swiss-army-knife kind of platform** to write code on and VSCode fit the bill.
+
+I started development of this plugin late January 2020. It still lacks many classes here and there because UE4 codebase is huge.
+
+But if you are starting out with UE4 C++, learning about engine classes, or don't mind missing auto-completion for a few classes,
+**give this extension a try**, tell your friends about it if you like it,
+maybe support me as a developer, or just hang out at my [Discord](https://discord.gg/C28y27n).
+
+I look forward to hearing your feedback and improving the plug-in...
+
+**A large list of FAQ can be found here**
+
+For a complete list of features, go gere...

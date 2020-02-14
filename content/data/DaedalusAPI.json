@@ -10,14 +10,31 @@
 				"description": "A lot of damage",
 				"children": [
 					{
-						"seriesIndex": 0,
+						"seriesIndex": 1,
 						"title": "Installation",
 						"link": "/docs/trailblazer/getting-started/"
 					},
 					{
-						"seriesIndex": 3,
+						"seriesIndex": 2,
 						"title": "Feature List",
 						"link": "/docs/trailblazer/features"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "Background",
+				"description": "A lot of damage",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "problem-statement",
+						"link": "/docs/trailblazer/background/"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "faq",
+						"link": "/docs/trailblazer/faq/"
 					}
 				]
 			}
@@ -29,44 +46,44 @@
 		"description": "Generic snippets for intellisense autocompletion.",
 		"modules": [
 			{
-				"seriesID": 0,
+				"seriesID": 1,
 				"label": "introduction",
 				"children": [
 					{
-						"seriesIndex": 0,
+						"seriesIndex": 1,
 						"title": "overview",
-						"link": "/docs/trailblazer/uprop-snippets"
+						"link": "/docs/trailblazer/snippets-overview"
 					},
 					{
-						"seriesIndex": 1,
+						"seriesIndex": 2,
 						"title": "categories",
 						"link": "/docs/trailblazer/uprop-snippets/1"
 					}
 				]
 			},
 			{
-				"seriesID": 1,
+				"seriesID": 2,
 				"label": "uprop",
 				"children": [
 					{
-						"seriesIndex": 0,
+						"seriesIndex": 1,
 						"title": "overview",
 						"link": "/docs/trailblazer/uprop-snippets"
 					},
 					{
-						"seriesIndex": 1,
+						"seriesIndex": 2,
 						"title": "uprop-base",
 						"link": "/docs/trailblazer/uprop-snippets/1"
 					},
 					{
-						"seriesIndex": 2,
-						"title": "ugs_classfind",
-						"link": "/api/daedalus/gameplay-systems/ugs-classfind"
+						"seriesIndex": 99,
+						"title": "uprop-full-list",
+						"link": "/docs/trailblazer/uprop-snippets/full-list"
 					}
 				]
 			},
 			{
-				"seriesID": 2,
+				"seriesID": 3,
 				"label": "ugs",
 				"children": [
 					{
@@ -80,9 +97,41 @@
 						"link": "/api/daedalus/gameplay-systems/ugs-classfind"
 					},
 					{
-						"seriesIndex": 2,
-						"title": "asset-discovery",
-						"link": "/tutorials/ue4/plugin-development-using-rust/2"
+						"seriesIndex": 99,
+						"title": "ugs-full-list",
+						"link": "/docs/trailblazer/ugs-snippets/full-list"
+					}
+				]
+			},
+			{
+				"seriesID": 4,
+				"label": "udebug",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "overview",
+						"link": "/docs/trailblazer/udebug-snippets"
+					},
+					{
+						"seriesIndex": 99,
+						"title": "udebug-full-list",
+						"link": "/docs/trailblazer/udebug-snippets-full-list"
+					}
+				]
+			},
+			{
+				"seriesID": 5,
+				"label": "uinit",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "overview",
+						"link": "/docs/trailblazer/uinit-snippets"
+					},
+					{
+						"seriesIndex": 99,
+						"title": "uinit-full-list",
+						"link": "/docs/trailblazer/uinit-snippets/full-list"
 					}
 				]
 			}
@@ -194,7 +243,7 @@
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "modtools-location",
+						"title": "locating-modtools",
 						"link": "/docs/trailblazer/extension-files"
 					}
 				]

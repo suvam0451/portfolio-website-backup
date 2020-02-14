@@ -166,6 +166,51 @@
 		]
 	},
 	{
+		"submoduleID": 98,
+		"label": "Modding",
+		"description": "no lollygaggin'",
+		"modules": [
+			{
+				"seriesId": 1,
+				"label": "buildspaces",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "how-it-works",
+						"link": "/docs/trailblazer/extensding-the-buildspace"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "adding-functions",
+						"link": "/docs/trailblazer/adding-function-definitions"
+					}
+				]
+			},
+			{
+				"seriesId": 2,
+				"label": "header-packs",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "adding-headers",
+						"link": "/docs/trailblazer/adding-header-packs"
+					}
+				]
+			},
+			{
+				"seriesId": 3,
+				"label": "the-workspace",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "configuration-list",
+						"link": "/docs/trailblazer/workspace-configurations"
+					}
+				]
+			}
+		]
+	},
+	{
 		"submoduleID": 99,
 		"label": "References",
 		"description": "Extra stuff",

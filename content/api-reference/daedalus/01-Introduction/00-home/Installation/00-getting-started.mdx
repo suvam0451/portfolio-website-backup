@@ -11,8 +11,6 @@ draft: false
 In this section, I will walk you through installing and configuring the extension.
 I will assume that you have a working copy of [VSCode](https://code.visualstudio.com/download) or [VSCode Insiders](https://code.visualstudio.com/insiders/).
 
-
-
 If you had any trouble setting those up, please read through here first.
 
 ### Step 1: Installing the plug-in
@@ -24,23 +22,23 @@ sidebar as shown below
 
 ![sidebar](../../../../../images/DaedalusAPI/introduction-module/001.png)
 
-After selecting the `.vsix` file, you might be asked to restart your editor. 
+After selecting the `.vsix` file, you might be asked to restart your editor.
 Do so and then you can find the extension listed along any other extensions which can be accessed from the sidebar as shown below.
 
 ![sidebar](../../../../../images/DaedalusAPI/introduction-module/003.png)
 
-### Step 2: Basic Configuration (Programming) 
+### Step 2: Basic Configuration (Programming)
 
 ---
 
-You should have a `.code-workspace` file in your project directory. 
-Please always use that to start the project *(Avoid right click --> Open with VSCode)* 
+You should have a `.code-workspace` file in your project directory.
+Please always use that to start the project _(Avoid right click --> Open with VSCode)_
 
 The very first thing to do is to run `UE4 : Inject Workspace definitions in Workspace file` from the command palette.
 
 This will inject a lot of config options into your `.code-workspace` that
 will **boost the intellisense parsing** by ignoring raw asset files and some engine classes.
-This doesn't come with any downsides except that you can't edit the engine files 
+This doesn't come with any downsides except that you can't edit the engine files
 (which are readonly for launcher builds anyways).
 
 The new workspace file should look like the following.
@@ -48,7 +46,7 @@ The new workspace file should look like the following.
 ![Custom config applied](../../../../../images/DaedalusAPI/introduction-module/004.png)
 
 Restart the editor. Everytime you regenerate the project, run the same command again to get the configs.
-You have to restart the editor everytime after running command for all configs be applied. 
+You have to restart the editor everytime after running command for all configs be applied.
 
 Next, you would want to know about (Context binding is the spotlight feature)
 
@@ -62,45 +60,43 @@ Next, you would want to know about (Context binding is the spotlight feature)
 ---
 
 No coding proficiency is required for using the asset management tools. The concept of **asset stream** targets
-any single folder with your raw files {fbx, music, art} and applied a lot of optimization on them 
+any single folder with your raw files {fbx, music, art} and applied a lot of optimization on them
 {image compression, duplicate detection}.
 
-It then **generates JSON data** for each *asset type* and *each folder*. This is especially powerful for
+It then **generates JSON data** for each _asset type_ and _each folder_. This is especially powerful for
 data driven gameplay since your **assets are automatically imported** and instead of plugging assets manually,
 you can use one of the JSON files.
 
-This is meant to extend to procedural level design systems and dialogue systems etc., 
+This is meant to extend to procedural level design systems and dialogue systems etc.,
 where classes in your engine would ask for data tables instead of asset references.
 
 To me the most important feature is cross-engine compatibility(your raw assets are untouched) and the immense
 potential to run those tools in a pipeline.
 
-Following links will guide you through setting up and configuring your first **Asset Stream**. 
+Following links will guide you through setting up and configuring your first **Asset Stream**.
 
-1. [link] Importing textures and music
-2. [link] Importing mesh assets with config
-3. [link] Importing mixamo assets
-4. [link] Applying texture optimization before importing
+1. [Tutorial](/docs/trailblazer/hello-asset-streams)
+2. [link] Importing textures and music
+3. [link] Importing mesh assets with config
+4. [link] Importing mixamo assets
+5. [link] Applying texture optimization before importing
 
+### Step 4: Customizing modules
 
-### Step 4: Extending the API ()
-
-Most modules of this extension are written in a modular fashion. 
+Most modules of this extension are written in a modular fashion.
 They all use JSON files as rules to provide you awesome functionalities.
 
 This means, you can write add own rules on top of what the developer or the sommunity puts up.
 
-1. [link] Extending the context keybind features
+1. [link] Extending the context keybound auto-completitions
 2. [link] Extending the header library
 3. [link] Adding your custom class generator
 4. [link] Contributing your configs to the community
 
 ### Step 5: Technical details
 
-
-
 The following devlogs cover how I am going about making this plug-in.
-I am also sharing a few open-source tools that are made to be usable cross-engine. 
+I am also sharing a few open-source tools that are made to be usable cross-engine.
 All of them are being used as part of this extension.
 
 1. High level npm package for applying smart edits in c based languages
@@ -110,7 +106,7 @@ My motivation for writing this extension was I always found automating tasks exc
 I want to make games with system driven gameplay and true player agency with active consequences.
 However, the sheer amount of learning, motivation and expertise kept it out of reach.
 
-Developing games should be a fun learning process and I will use whatever programming expertise 
+Developing games should be a fun learning process and I will use whatever programming expertise
 I have garnered in the past couple of years to bring you powerful tools that let you focus on making awesome games.
 
 See you later... 🖐

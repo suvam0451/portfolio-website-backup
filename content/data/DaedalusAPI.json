@@ -2,12 +2,12 @@
 	{
 		"submoduleID": 1,
 		"label": "Getting Started",
-		"desc": "Some background and brief overview of features",
+		"description": "Some background and brief overview of features",
 		"modules": [
 			{
 				"seriesID": 1,
 				"label": "Installation",
-				"desc": "A lot of damage",
+				"description": "A lot of damage",
 				"children": [
 					{
 						"seriesIndex": 0,
@@ -17,7 +17,7 @@
 					{
 						"seriesIndex": 3,
 						"title": "Feature List",
-						"link": "/api/trailblazer/features"
+						"link": "/docs/trailblazer/features"
 					}
 				]
 			}
@@ -26,8 +26,24 @@
 	{
 		"submoduleID": 2,
 		"label": "Snippets",
-		"desc": "Generic snippets for intellisense autocompletion.",
+		"description": "Generic snippets for intellisense autocompletion.",
 		"modules": [
+			{
+				"seriesID": 0,
+				"label": "introduction",
+				"children": [
+					{
+						"seriesIndex": 0,
+						"title": "overview",
+						"link": "/docs/trailblazer/uprop-snippets"
+					},
+					{
+						"seriesIndex": 1,
+						"title": "categories",
+						"link": "/docs/trailblazer/uprop-snippets/1"
+					}
+				]
+			},
 			{
 				"seriesID": 1,
 				"label": "uprop",
@@ -51,16 +67,21 @@
 			},
 			{
 				"seriesID": 2,
-				"label": "Gameplay module",
+				"label": "ugs",
 				"children": [
 					{
+						"seriesIndex": 0,
+						"title": "overview",
+						"link": "/api/daedalus/gameplay-systems/ugs-classfind"
+					},
+					{
 						"seriesIndex": 1,
-						"title": "Not defined",
-						"link": "/tutorials/ue4/plugin-development-using-rust/1"
+						"title": "gameplay-systems-list",
+						"link": "/api/daedalus/gameplay-systems/ugs-classfind"
 					},
 					{
 						"seriesIndex": 2,
-						"title": "Cannot Carry",
+						"title": "asset-discovery",
 						"link": "/tutorials/ue4/plugin-development-using-rust/2"
 					}
 				]
@@ -70,10 +91,10 @@
 	{
 		"submoduleID": 3,
 		"label": "Context Key",
-		"desc": "Generic snippets for intellisense autocompletion.",
+		"description": "Generic snippets for intellisense autocompletion.",
 		"modules": [
 			{
-				"seriesId": 1,
+				"seriesID": 1,
 				"label": "overview",
 				"children": [
 					{
@@ -98,7 +119,7 @@
 	{
 		"submoduleID": 4,
 		"label": "Modules",
-		"desc": "Generic snippets for intellisense autocompletion.",
+		"description": "Generic snippets for intellisense autocompletion.",
 		"modules": [
 			{
 				"seriesID": 1,
@@ -106,18 +127,18 @@
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "Overview",
-						"link": "/api/trailblazer/class-generator"
+						"title": "overview",
+						"link": "/docs/trailblazer/class-generator"
 					},
 					{
 						"seriesIndex": 2,
-						"title": "Implementation Details",
-						"link": "/api/daedalus/class-generator/1"
+						"title": "module-internals",
+						"link": "/docs/trailblazer/class-generator/1"
 					},
 					{
 						"seriesIndex": 3,
-						"title": "Extending the module",
-						"link": "/api/daedalus/class-generator/2"
+						"title": "template-list",
+						"link": "/docs/trailblazer/class-generator/2"
 					}
 				]
 			},
@@ -127,20 +148,117 @@
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "Module overview",
-						"link": "/api/daedalus/header-manager"
+						"title": "overview",
+						"link": "/docs/trailblazer//header-manager"
 					},
 					{
 						"seriesIndex": 2,
-						"title": "Default List",
-						"link": "/api/daedalus/header-manager/1"
+						"title": "default-list",
+						"link": "/docs/trailblazer//header-manager/1"
 					},
 					{
 						"seriesIndex": 3,
 						"title": "Extending the module",
-						"link": "/api/daedalus/header-manager/2"
+						"link": "/docs/trailblazer//header-manager/2"
 					}
 				]
+			}
+		]
+	},
+	{
+		"submoduleID": 97,
+		"label": "Asset Streams",
+		"description": "no lollygaggin'",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "getting-started",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "hello-streams",
+						"link": "/docs/daedalus/hello-asset-streams"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 98,
+		"label": "Modding",
+		"description": "no lollygaggin'",
+		"modules": [
+			{
+				"seriesID": 0,
+				"label": "getting-files",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "modtools-location",
+						"link": "/docs/trailblazer/extension-files"
+					}
+				]
+			},
+			{
+				"seriesID": 1,
+				"label": "buildspaces",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "how-it-works",
+						"link": "/docs/trailblazer/extending-the-buildspace"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "adding-functions",
+						"link": "/docs/trailblazer/adding-function-definitions"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "header-packs",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "adding-headers",
+						"link": "/docs/trailblazer/adding-header-packs"
+					}
+				]
+			},
+			{
+				"seriesID": 3,
+				"label": "the-workspace",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "configuration-list",
+						"link": "/docs/trailblazer/workspace-configurations"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 99,
+		"label": "References",
+		"description": "Extra stuff",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "workspace-guide",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "core-workspace",
+						"link": "/docs/trailblazer/code-workspace"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "tools-setup",
+				"children": []
 			}
 		]
 	}

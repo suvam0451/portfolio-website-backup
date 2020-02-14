@@ -8,7 +8,7 @@ import styled from "@emotion/styled";
 import Sidebar from "../components/SideBars/DaedalusSidebar";
 import { Helmet } from "react-helmet";
 import { Button } from "@blueprintjs/core";
-import { StatusCard } from "../components/StatusCard";
+import { StatusCard } from "../components/SideBars/Trailblazer_StatusCard";
 import {
 	Section1,
 	Section2,
@@ -17,7 +17,7 @@ import {
 	DesktopSidebars,
 	MdxProps,
 	ReadArea,
-	Background
+	Background,
 } from "./Common";
 require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`,
@@ -82,9 +82,9 @@ export default function PageTemplate(data: MdxProps) {
 									<h4>Related Contents</h4>
 									<p>
 										User created content used in WW APIs completely
-										free. If you develop something cool using the tools,
-										you can send us to be showcased here.
-								</p>
+										free. If you develop something cool using the
+										tools, you can send us to be showcased here.
+									</p>
 									<Button>Visit Archives</Button>
 								</div>
 								<QuickLinks />

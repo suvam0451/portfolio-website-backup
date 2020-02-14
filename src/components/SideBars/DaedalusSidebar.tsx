@@ -86,7 +86,7 @@ export default function SideBar(Props: SidebarProps) {
 					}
 					submoduleID
 					label
-					desc
+					description
 				}
 			}
 		}

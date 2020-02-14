@@ -1,0 +1,70 @@
+---
+path: "/docs/trailblazer/code-workspace"
+title: "The workspace file"
+date: "2020-01-10"
+submoduleID: 99
+seriesID: 1
+seriesIndex: 1
+draft: false
+---
+
+The .code-workspace file contains information about resource directories
+and settings that **apply to the whole workspace**.
+
+**A Workspace** in itself comprises of a list of folders which can then be browsed/referenced etc.
+
+The actual bulk of the settings for your Unreal engine is actually in
+**c_cpp_properties.json** file in **.vscode folder** _(might be hidden)_
+
+### Fields explained
+
+---
+
+##### folders
+
+The generated workspace file always contains the path to the current dirtectory
+AND the path to your current engine version. Since, this key is required by the extension,
+if you choose to **right click** --> **Open with VSCode** from the project folder, certain features might misbehave.
+
+##### settings
+
+Aside the many many settings vscode exposes,
+we have our own extension settings that you can choose to override.
+
+If you do not prefer setting values through the UI,
+here is the list of settings and what they are used for in our extension.
+
+### Extension settings
+
+---
+
+Here are the settings that ship with trailblazer.
+
+##### **assetFolders**
+
+A string **list of full paths** to all the asset folders you need the extension to track.
+If this is new to you, see
+By dfault, this is empty.
+
+##### **allowUserExtensions**
+
+Your custom written JSON mods won't work without this flag set to true. By default this is set to false.
+
+##### **excludedExtensions**
+
+Since some users might choose to include .uasset files for quick search anyways, this option is left for you to customize binary files you wish to exclude.
+By default, { "dll", "lib" } are excluded. That said, binary files don't affect intellisense. This is purely an option to tidy up your dev environment a bit more.
+
+##### **excludeEditorClassesFromWorkspace**
+
+If you are not working on extending the editor, you might want to exclude these classes to lighten up.
+_Editor classes are not needed when scripting gameplay_. False by default. Recommended kept false.
+
+##### **hideEditorClassesFromWorkspace**
+
+Same as above but only excludes editor classes from search. The workspace benefits from
+
+##### **autoAddFunctionsInSource**
+
+Option to choose whether function definition is automatically aded in header or copied to your clipboard.
+You might want to choose the latter if the former causes trouble for your workflow. Defaults to true.

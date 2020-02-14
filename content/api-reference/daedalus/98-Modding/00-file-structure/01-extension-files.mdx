@@ -1,0 +1,54 @@
+---
+path: "/docs/trailblazer/extension-files"
+title: "Where to find files ?"
+date: "2020-01-10"
+submoduleID: 98
+seriesID: 3
+seriesIndex: 1
+draft: false
+---
+
+In this page, I will tell you a bit about where Visual Studio Code extensions are stored
+and which files you need for extending the extension
+This should help you find the JSON files used to add your mods.
+
+However, **this guide will be for windows only**. I have no idea where they are stored in MacOS/Linux.
+Any pointers towards that would be appreciated.
+
+### Installation Location
+
+---
+
+After adding an extension, the files can be found in
+
+- **C:/Users/{Username}/.vscode** for Visual Studio Code
+- **C:/Users/{Username}/.vscode-insiders** for Visual Studio Code Insiders
+
+You would be interested in the following folders
+
+#### 1. Snippets
+
+---
+
+Browse this to view the snippets.
+If a large number of snippets were added and the documentation was not updates,
+here's where you'll find them.
+
+#### 2. out/data
+
+---
+
+This folder contains the default JSON files that ship with the extension. **You don't want to modify these**,
+unless you have a hang of how the API works.
+
+#### 3. out/data/extensions
+
+---
+
+This folder contains files that are available to you to add your templates.
+For a comprehensive guide on the various modules available for modding and how-tos, follow these links
+
+- [adding header pack](/docs/trailblazer/adding-header-packs)
+- [add/make buildspaces](/docs/trailblazer/extending-the-buildspace)
+
+See you later... 🖐

@@ -1,9 +1,9 @@
 ---
-path: "/docs/trailblazer/uprop-snippets"
-title: "Instanced Static Meshes in UE4 (Part 1/3)"
+path: "/docs/trailblazer/snippets-overview"
+title: "The snippet Library"
 date: "2020-01-10"
 submoduleID: 2
-seriesID: 2
+seriesID: 0
 seriesIndex: 0
 draft: false
 ---
@@ -11,22 +11,51 @@ draft: false
 import {
 	Footer,
 	Alert,
-} from "../../../src/components/Decorations";
+} from "../../../../../src/components/Decorations";
 
-## uprop snippets
+
+Snippets are the bread and butter of any editor extension. The snippets shipped with this extension all start with `u` to avoid conflicts.
+This is except a few macros like loops and switch statements which go along with any extension.
+
+The snippets follow the epic style C++ for the most part except the
+
+- Commenting styles
+- Tab spacing in header properties
+
+I will **try to ship multiple editions** with combinations of the above, but the beta releases will always follow the below-indicated code style
+
+This is because the only linters available in VSCode are `Clang-format` and `C++ tools`. And they will revert the tabs anyways. 
+**In short**, you will have options for your coding styles in the **stable releases only**.
+
+Snippets are listed into the following categories with their own namespaces and can be called by `unamespace_xyz`.
+
+### uprop
 
 ---
 
-Snippets in this namespace are used to reduce macro usage for UPROPERTY() declarations.
-There are three subclasses allowing the designer varying degrees of freedom at the editor.
+Useful for property declaration. Modified syntax for **readonly props**,
+props meant to appear only in **AdvancedDisplay**, **Arrays and maps** props
+Components
 
-### base uprop snippets
+### udebug
 
 ---
+
+Utilities for drawing lines, spheres, arrows etc.
+Multiple versions of same snippet is available with pre-calculated FPS values.
+You would get that to get results like folowing.
 
 The base line of macros are called using `uprop_xyz`.
 They carry the { **VisibleAnywhere**, **BlueprintReaDWrite** } macros.
 Below example shows two such snippets being inserted. Notice the 3-4 seconds delay while intellisense parses the new variable.
+
+![base uprop](../../../../../images/DaedalusAPI/snippet-module/perfecttrace.gif)
+
+
+
+
+
+
 
 I have a throttled i7 8th gen laptop and had 80 mozilla tabs open. You would obviously get faster responses.
 

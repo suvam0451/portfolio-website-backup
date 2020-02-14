@@ -17,7 +17,7 @@ import {
 	DesktopSidebars,
 	MdxProps,
 	ReadArea,
-	Background
+	Background,
 } from "./Common";
 require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`,
@@ -82,9 +82,9 @@ export default function PageTemplate(data: MdxProps) {
 									<h4>Related Contents</h4>
 									<p>
 										User created content used in WW APIs completely
-										free. If you develop something cool using the tools,
-										you can send us to be showcased here.
-								</p>
+										free. If you develop something cool using the
+										tools, you can send us to be showcased here.
+									</p>
 									<Button>Visit Archives</Button>
 								</div>
 								<QuickLinks />

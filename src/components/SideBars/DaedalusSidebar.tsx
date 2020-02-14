@@ -91,6 +91,12 @@ export default function SideBar(Props: SidebarProps) {
 							title
 						}
 					}
+<<<<<<< HEAD
+=======
+					submoduleID
+					label
+					description
+>>>>>>> merge-sidebars
 				}
 			}
 		}

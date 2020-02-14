@@ -1,26 +1,5 @@
-import * as React from "react";
-import Link from "gatsby-link";
-import { graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Footer, Alert, QuickLinks } from "../components/Decorations";
-import { Helmet } from "react-helmet";
-import { StatusCard } from "../components/StatusCard";
-import {
-	Alignment,
-	Button,
-	Intent,
-	Breadcrumbs,
-	IBreadcrumbProps,
-	Icon,
-	Card,
-	NavbarHeading,
-	NavbarDivider,
-	NavbarGroup,
-	Classes,
-} from "@blueprintjs/core";
-import { NavSection } from "../components/NavBar";
+
 import styled from "@emotion/styled";
-import { SideBar } from "../components/SideBars/UE4TutorialSidebar";
 
 //#region Section definitions
 const Section1 = styled.div`

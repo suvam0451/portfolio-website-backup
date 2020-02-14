@@ -18,7 +18,9 @@ interface CollapsibleModule {
 
 /** For the serieses */
 export function CollapsibleModule(Props: CollapsibleModule) {
-	const [Collapsed, setCollapsed] = useState(Props.InitiallyCollapsed);
+	const [Collapsed, setCollapsed] = useState(
+		Props.InitiallyCollapsed,
+	);
 	const CollapsibleDiv = styled("div")`
 		display: ${props => (Collapsed ? `none` : "block")};
 	`;
@@ -91,12 +93,9 @@ export default function SideBar(Props: SidebarProps) {
 							title
 						}
 					}
-<<<<<<< HEAD
-=======
 					submoduleID
 					label
 					description
->>>>>>> merge-sidebars
 				}
 			}
 		}
@@ -136,7 +135,7 @@ export default function SideBar(Props: SidebarProps) {
 			// Checing if submoduleID is a match
 			const CollapseSwitch: boolean =
 				node.submoduleID === Props.FrontMatter.submoduleID
-					? false // false 
+					? false // false
 					: true; // true
 			// This should push one entire section...
 			retval.push(
@@ -154,7 +153,7 @@ export default function SideBar(Props: SidebarProps) {
 	return (
 		<>
 			<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 p-2 bg-white mb-2 w-full">
-				{ PopulateSidebar() }
+				{PopulateSidebar()}
 			</div>
 		</>
 	);

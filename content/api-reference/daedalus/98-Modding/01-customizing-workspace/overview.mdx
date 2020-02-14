@@ -13,6 +13,7 @@ Here is the full list of settings with default values. You can either use the UI
 The configurations are discussed at following locations
 
 - [.code-workspace file](/docs/trailblazer/code-workspace)
+- [intellisense commandlet](/docs/trailblazer/getting-started/)
 
 ### Setting list
 
@@ -28,5 +29,15 @@ Here is the full list of settings
 | **excludeEditorClassesFromWorkspace** | true         | set false if using UI modules        |
 | **hideEditorClassesFromWorkspace**    | false        | -                                    |
 | **autoAddFunctionsInSource**          | true         | set false if auto-edit is irritating |
+
+#### Commandlet defaults
+
+The following changes are made by the excludedExtensions towards improving intellisense parsing.
+
+- **Saved, Intermediate, Build** are excluded from workspace _(project and engine)_
+- **FeaturePacks, Samples, Templates** are removed from workspace _(engine)_
+- Engine/{Binaries, Build, Contents, DDC, Docs, Extras} are removed from workspace _(engine)_
+- .exe, .dll, .so files are excluded _(everywhere)_
+- Entire Engine folder is excluded from watchlist
 
 See you later... 🖐

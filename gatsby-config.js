@@ -13,6 +13,7 @@ module.exports = {
 	},
 	// for avoiding CORS while developing Netlify Functions locally
 	// read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
+	// ignore: [process.env.IGNORE_POST_FOLDER],
 	developMiddleware: app => {
 		app.use(
 			"/.netlify/functions/",
@@ -37,8 +38,7 @@ module.exports = {
 			resolve: "gatsby-source-filesystem",
 			options: {
 				name: "content",
-				path: `${__dirname}/content`,
-				ignore: [process.env.IGNORE_POST_FOLDER],
+				path: `${__dirname}/content`
 			},
 		},
 		{

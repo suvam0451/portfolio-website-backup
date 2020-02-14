@@ -1,8 +1,8 @@
 ---
-path: '/tutorials/ue4/introduction-to-shaders/1'
-date: '2019-10-02'
-title: 'Introducing Shader Development (1/3)'
-tags: ['markdown', 'occuring', 'strange']
+path: "/tutorials/ue4/introduction-to-shaders/1"
+date: "2019-10-02"
+title: "Introducing Shader Development (1/3)"
+tags: ["markdown", "occuring", "strange"]
 moduleID: 1
 submoduleID: 3
 seriesID: 1
@@ -24,34 +24,35 @@ and at what efforts. We will cover each method in one section to each section.
 - Hello there.
 - Sample content.
 
-```javascript{1-2,22}{numberLines: true}
-import React from 'react';
+```javascript
+import React from "react";
 
 const Counter = initialCounter => {
-  const [counter, setCounter] = React.useState(initialCounter);
+	const [counter, setCounter] = React.useState(initialCounter);
 
-  const onIncrement = () => {
-    setCounter(c => c + 1);
-  };
+	const onIncrement = () => {
+		setCounter(c => c + 1);
+	};
 
-  const onIncrement = () => {
-    setCounter(c => c - 1);
-  };
+	const onIncrement = () => {
+		setCounter(c => c - 1);
+	};
 
-  return (
-    <div>
-      {counter}
+	return (
+		<div>
+			{counter}
 
-      <div>
-        <button onClick={onIncrement} type="button">
-          Increment
-        </button>
-        <button onClick={onDecrement} type="button"> // highlight-line
-          Decrement
-        </button>
-      </div>
-    </div>
-  );
+			<div>
+				<button onClick={onIncrement} type="button">
+					Increment
+				</button>
+				<button onClick={onDecrement} type="button">
+					{" "}
+					// highlight-line Decrement
+				</button>
+			</div>
+		</div>
+	);
 };
 
 export default Counter;

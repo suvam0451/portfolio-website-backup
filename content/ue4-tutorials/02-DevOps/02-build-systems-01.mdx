@@ -15,11 +15,12 @@ draft: false
 import { Footer, Alert } from "../../../src/components/Decorations";
 
 ### About
+
 ---
 
-UAT(*Unreal Automation Tool*) is used by the engine to process build requests. This includes building lighting, compiling plug-ins, packaging the game etc. 
+UAT(_Unreal Automation Tool_) is used by the engine to process build requests. This includes building lighting, compiling plug-ins, packaging the game etc.
 
-But sometimes we would need **raw speed over UI flexibility** (*or more importantly, for setting up automated build systems.*).
+But sometimes we would need **raw speed over UI flexibility** (_or more importantly, for setting up automated build systems._).
 In this series, we will breakdown how default build systems are configured for the engine and how things actually work in the background.
 
 Then we will extract all those functionalities and reshape them as automation scripts. If you do not want to go through the technicalities, I will leave the scripts and instructions for download, of course.
@@ -31,23 +32,24 @@ So lookout for that and lets get started.
 />
 
 ---
+
 #### Cooking Shaders (-cook)
 
 It is THE most useful group command, at least as per my opinion. It lets us compile shaders.
 `%uat_path% BuildCookRun -project=%project_fullpath% -platform=%target_platform% -cook`
 
 - **%uat_path%**: found at `.\Epic Games\UE_4.2x\Engine\Build\BatchFiles\RunUAT.bat`
-- **-project**: The FULL path to location where .uproject exists. This is because 
+- **-project**: The FULL path to location where .uproject exists. This is because
 - **-platform**: (e.g. - Win64, NOT x64)
 
-This is very useful when adding heavy content packs with thousands of shaders 
-*(or when first-time-booting/changing engines since it resets the cached shaders)*.
+This is very useful when adding heavy content packs with thousands of shaders
+_(or when first-time-booting/changing engines since it resets the cached shaders)_.
 Additionally, it will also compile the ~5000 shaders that compile on first-time bootup.
 
 #### Basic Release Build
 
-Packages a build of the game. The *-cook* flag compiles any remaining shaders.
-Some flags are self explanatory *{-allmaps -stage -pak -build -archive}*.
+Packages a build of the game. The _-cook_ flag compiles any remaining shaders.
+Some flags are self explanatory _{-allmaps -stage -pak -build -archive}_.
 
 ```batch
 %uat_path% BuildCookRun %source_args% -project=%project_fullpath% -platform=%target_platform% -clientConfig=%mode_config% -cook -allmaps -stage -pak -build -archive -archivedirectory=%outdir%
@@ -62,7 +64,7 @@ Compiling code is not the slowest link in the build chain.
 Also, if we don't compile shaders before a build, errors will be thrown.
 Fortunately compiling classes has nothing to do with cooking maps/compiling shaders.
 In any case, the following command can be used to compile C++ on the fly.
-*(The only viable use-case is to develop code heavy plug-in, as we will see in later sections.)*
+_(The only viable use-case is to develop code heavy plug-in, as we will see in later sections.)_
 
 ```batch
 rem %uat_path% BuildCookRun -project=%project_fullpath% -platform=%target_platform% -cook -allmaps -stage -pak -archive -archivedirectory=%outdir%

@@ -17,7 +17,7 @@
 					{
 						"seriesIndex": 3,
 						"title": "Feature List",
-						"link": "/api/trailblazer/features"
+						"link": "/docs/trailblazer/features"
 					}
 				]
 			}
@@ -94,7 +94,7 @@
 		"description": "Generic snippets for intellisense autocompletion.",
 		"modules": [
 			{
-				"seriesId": 1,
+				"seriesID": 1,
 				"label": "overview",
 				"children": [
 					{
@@ -127,18 +127,18 @@
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "Overview",
-						"link": "/api/trailblazer/class-generator"
+						"title": "overview",
+						"link": "/docs/trailblazer/class-generator"
 					},
 					{
 						"seriesIndex": 2,
-						"title": "Implementation Details",
-						"link": "/api/daedalus/class-generator/1"
+						"title": "module-internals",
+						"link": "/docs/trailblazer/class-generator/1"
 					},
 					{
 						"seriesIndex": 3,
-						"title": "Extending the module",
-						"link": "/api/daedalus/class-generator/2"
+						"title": "template-list",
+						"link": "/docs/trailblazer/class-generator/2"
 					}
 				]
 			},
@@ -148,18 +148,36 @@
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "Module overview",
-						"link": "/api/daedalus/header-manager"
+						"title": "overview",
+						"link": "/docs/trailblazer//header-manager"
 					},
 					{
 						"seriesIndex": 2,
-						"title": "Default List",
-						"link": "/api/daedalus/header-manager/1"
+						"title": "default-list",
+						"link": "/docs/trailblazer//header-manager/1"
 					},
 					{
 						"seriesIndex": 3,
 						"title": "Extending the module",
-						"link": "/api/daedalus/header-manager/2"
+						"link": "/docs/trailblazer//header-manager/2"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 97,
+		"label": "Asset Streams",
+		"description": "no lollygaggin'",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "getting-started",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "hello-streams",
+						"link": "/docs/daedalus/hello-asset-streams"
 					}
 				]
 			}
@@ -171,13 +189,24 @@
 		"description": "no lollygaggin'",
 		"modules": [
 			{
-				"seriesId": 1,
+				"seriesID": 0,
+				"label": "getting-files",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "modtools-location",
+						"link": "/docs/trailblazer/extension-files"
+					}
+				]
+			},
+			{
+				"seriesID": 1,
 				"label": "buildspaces",
 				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "how-it-works",
-						"link": "/docs/trailblazer/extensding-the-buildspace"
+						"link": "/docs/trailblazer/extending-the-buildspace"
 					},
 					{
 						"seriesIndex": 2,
@@ -187,7 +216,7 @@
 				]
 			},
 			{
-				"seriesId": 2,
+				"seriesID": 2,
 				"label": "header-packs",
 				"children": [
 					{
@@ -198,7 +227,7 @@
 				]
 			},
 			{
-				"seriesId": 3,
+				"seriesID": 3,
 				"label": "the-workspace",
 				"children": [
 					{
@@ -216,7 +245,7 @@
 		"description": "Extra stuff",
 		"modules": [
 			{
-				"seriesId": 1,
+				"seriesID": 1,
 				"label": "workspace-guide",
 				"children": [
 					{
@@ -227,7 +256,7 @@
 				]
 			},
 			{
-				"seriesId": 2,
+				"seriesID": 2,
 				"label": "tools-setup",
 				"children": []
 			}

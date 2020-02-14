@@ -1,5 +1,5 @@
 ---
-path: "/api/trailblazer/features"
+path: "/docs/trailblazer/features"
 title: "List of Features for Trailblazer"
 date: "2020-01-10"
 submoduleID: 1
@@ -12,9 +12,14 @@ draft: false
 
 ---
 
-##### **Snippets**
+The following are the showcase features that come with this extension.
 
-There are plenty of snippet files which cover various parts of Programming with with Unreal Engine 4.
+#### Snippets
+
+---
+
+Snippet files which cover most of your basic programming auto-completion needs with Unreal Engine 4.
+The following self-indicative namespaces are available.
 
 1.  **uprop** : Adding properties in header
 2.  **uinit** : initializing components/props
@@ -26,69 +31,70 @@ There are plenty of snippet files which cover various parts of Programming with 
 
 Note: The `context menu A` can be used after generating code by some of these snippets. This allows you to do stuff like following :
 
+#### Context Menu
+
 ---
 
-##### AssetStreams
+Context menu is a powerful module which uses **all other code modules** to
+provide you customized auto-completion on the fly.
+
+You definitely need this to fully utilize this extension to the maximum potential.
+
+Learn more [here...](/docs/trailblazer/context-keys/)
+
+#### AssetStreams
+
+---
 
 A framework to have the same file structure across multiple projects.
-It basically lets you create special folders with an "Assets" folder in them. On demand, the folder is read and data about all the assets in extracted to a json file. It also creates a python import script.
+It lets you create special folders with an "Assets" folder in them.
+The folder can be read on demand and data about all the assets is extracted to a json file.
+It also creates a python import script.
 
-Now, with one line of code in UE4, you get your assets from multiple folders with multiple configs.
+Now, the script is called in UE4 to get your assets from multiple folders with multiple configs.
+The following tutorials and references will get you started.
 
-Note: Original motive was to skip manually setting ue4 to NOT generate materials when I import FBX. More often than not, material instances should be the way to go.
-
-1. Creating sset AssetStreams
+1. Creating asset AssetStreams
 2. Maintaining folder references in VSCode
 3. Requesting updates after new batch of assets are added
 4. Importing assets to UE4
 5. Uses vanilla Python API. Always imports in silent mode.
 6. Implementation details (Extra)
 
-**Use Case** : If you store your assets in cloud drives and start a new projects from scratch every few weeks, this tool will make sure your imports are in order and your source files are safe.
+**Use Case** : If you store your assets in cloud drives and start a new projects from scratch every few weeks,
+this tool will make sure your imports are in order and your source files are safe.
+[Learn More...](/docs/trailblazer/hello-asset-streams)
+
+#### Commandlets
 
 ---
 
-##### Commandlets
-
-This extension has bunch of commands for various tasks. You can access command palette using `Ctrl + Shift + P` in Windows.
+A bunch of commands for various tasks. You can access command palette using `Ctrl + Shift + P` in Windows.
 However, for efficiency, you would want to make exclusive use of the `right click context menu` and bind the commands you use most.
 
 This subsection of commandlets allow you to add functions, manage headers etc. while in VSCode. This means it is all about text editor manipulations.
 
 ---
 
-##### UE4 Commandlets
+##### CMD Utilities
 
-This subsection of commandlets allow you to **_run engine tasks_** via command line. For example :
+---
+
+These commandlets allow you to **_run engine tasks_** via command line. For example :
 
 1. Compiling shaders !!!
 2. Compiling code
 3. Compiling game (No custom config yet) _[Planned]_
 
----
+NOTE : **For now, only windows support** is available. I will appreciate anyone testing this on other client OS.
 
-##### Error Wiki [Planned]
-
-Allows you to search your C++ errors right from the output logs.
-
-This is a feature in consideration. I will get it to it after fulfilling other modules upto release standards.
+#### Improved Intellisense
 
 ---
-
-##### Better Intellisense
 
 `Command Palette` --> `UE4 : Inject Exclude definitions in workspace file`
 
-This commandlets writes to your .code-workspace config file. You have a level of control over what gets changed.
-This is very important for better search results and significantly improved intellisense.
+This commandlets **writes to your .code-workspace** config file. You have a level of control over what gets changed.
+This is very important for better search results and significantly improved intellisense. [Learn more...](/docs/trailblazer/workspace-configurations)
 
-Following changes are made by default :
-
-- **Saved, Intermediate, Build** are excluded from workspace _(project and engine)_
-- **FeaturePacks, Samples, Templates** are removed from workspace _(engine)_
-- Engine/{Binaries, Build, Contents, DDC, Docs, Extras} are removed from workspace _(engine)_
-- .exe, .dll, .so files are excluded _(everywhere)_
-- Entire Engine folder is excluded from watchlist
-
-**Use Case** : Intellisense in VSCode is worse than VS, but it's not useless. If we shut down the 6 competing web-dev extensions and pass proper settings,
-it gets pretty damn fast.
+**Use Case** : Intellisense in VSCode is worse than VS, but it's not useless. Although, I won't guarantee VS level optimization, this improves the developer experience a lot.

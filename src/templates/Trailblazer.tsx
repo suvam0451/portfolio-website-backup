@@ -5,7 +5,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Footer, Alert, QuickLinks } from "../components/Decorations";
 import { NavSection } from "../components/NavBar";
 import styled from "@emotion/styled";
-import Sidebar from "../components/SideBars/DaedalusSidebar";
+import { SideBar } from "../components/SideBars/DaedalusSidebar";
 import { Helmet } from "react-helmet";
 import { Button } from "@blueprintjs/core";
 import { StatusCard } from "../components/SideBars/Trailblazer_StatusCard";
@@ -58,7 +58,7 @@ export default function PageTemplate(data: MdxProps) {
 					</div>
 					<DesktopSidebars>
 						<Section1 className="shadow-2xl">
-							<Sidebar FrontMatter={data.data.mdx.frontmatter} />
+							<SideBar FrontMatter={data.data.mdx.frontmatter} />
 							<StatusCard FrontMatter={data.data.mdx.frontmatter} />
 						</Section1>
 						<Section2 className="">
@@ -106,7 +106,6 @@ export const query = graphql`
 				path
 				title
 				date
-				moduleID
 				submoduleID
 				seriesID
 				seriesIndex

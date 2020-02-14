@@ -2,34 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Icon } from "@blueprintjs/core";
 import styled from "@emotion/styled";
-import { TweenMax, Power3 } from "gsap";
-import TransitionLink from "gatsby-plugin-transition-link";
-import { CollapsibleModule } from "./SidebarCommon";
-
-interface allUe4TutsMapJsonType {
-	readonly edges: Tier0_Props[];
-}
-interface Tier0_Props {
-	readonly node: Tier1_Prop;
-}
-interface Tier1_Prop {
-	readonly submoduleID: number;
-	readonly category: string;
-	readonly description: string;
-	readonly modules: Array<SeriesProps>;
-}
-
-interface SeriesProps {
-	readonly seriesID: number;
-	readonly title: string;
-	readonly Children: Array<LeafNode>;
-}
-
-interface LeafNode {
-	readonly seriesIndex: number;
-	readonly title: string;
-	readonly link: string;
-}
+import {
+	SidebarProps,
+	SidebarDataTree,
+	Tier1,
+	CollapsibleModule,
+} from "./SidebarCommon";
 
 interface BranchComponentProps {
 	readonly label: string;
@@ -39,22 +17,10 @@ interface BranchComponentProps {
 	readonly IsCollapsed: boolean;
 }
 
-interface CollapsibleModule {
-	readonly collapsible: any;
-	readonly label: string;
-}
-
-interface FrontMatterStruct {
-	title: string;
-	moduleID: number;
-	submoduleID: number;
-	seriesID: number;
-	seriesIndex: number;
-}
-
-interface SidebarProps {
-	FrontMatter: FrontMatterStruct;
-}
+// interface CollapsibleModule {
+// 	readonly collapsible: any;
+// 	readonly label: string;
+// }
 
 export function BranchComponent(Props: BranchComponentProps) {
 	const [Collapsed, setCollapsed] = useState(Props.IsCollapsed);
@@ -99,35 +65,32 @@ function SideBar(Props: SidebarProps) {
 	const RootQuery = useStaticQuery(graphql`
 		query MyQuery {
 			allUe4TutsMapJson {
-				edges {
-					node {
-						id
-						submoduleID
+				nodes {
+					id
+					submoduleID
+					label
+					description
+					modules {
+						seriesID
 						label
-						description
-						modules {
-							seriesID
+						children {
+							seriesIndex
 							title
-							Children {
-								seriesIndex
-								title
-								link
-							}
+							link
 						}
 					}
 				}
 			}
 		}
 	`);
-	const allUe4TutsMapJson: allUe4TutsMapJsonType =
+	const allUe4TutsMapJson: SidebarDataTree =
 		RootQuery.allUe4TutsMapJson;
 
-	const PopulateSeries = (Props: SeriesProps[]) => {
+	const PopulateSeries = (Props: Tier1[]) => {
 		const retval: any = [];
 		Props.forEach(seriesList => {
 			const CollapsibleSection: any = [];
-			const Children = seriesList;
-			Children.Children.forEach(leafpost => {
+			seriesList.children.forEach(leafpost => {
 				CollapsibleSection.push(
 					<div>
 						<Link to={leafpost.link} className="ml-3">
@@ -139,8 +102,9 @@ function SideBar(Props: SidebarProps) {
 			});
 			retval.push(
 				<CollapsibleModule
-					collapsible={CollapsibleSection}
-					label={Children.title}
+					CollapsedSection={CollapsibleSection}
+					HeaderSection={seriesList.label}
+					InitiallyCollapsed={true}
 				/>,
 			);
 		});
@@ -148,16 +112,16 @@ function SideBar(Props: SidebarProps) {
 	};
 	const PopulateSubmodule = () => {
 		const retval: any = [];
-		allUe4TutsMapJson.edges.forEach(it => {
-			const ModuleRender: any = PopulateSeries(it.node.modules);
+		allUe4TutsMapJson.nodes.forEach(node => {
+			const ModuleRender: any = PopulateSeries(node.modules);
 			// Checing if submoduleID is a match
 			const CollapseSwitch: boolean =
-				it.node.submoduleID === Props.FrontMatter.submoduleID
+				node.submoduleID === Props.FrontMatter.submoduleID
 					? false
 					: true;
 			retval.push(
 				<BranchComponent
-					label={it.node.category}
+					label={node.label}
 					CollapsedSection={ModuleRender}
 					hasChildren={false}
 					IsCollapsed={CollapseSwitch}

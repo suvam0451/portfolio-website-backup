@@ -6,8 +6,8 @@
 		"modules": [
 			{
 				"seriesID": 1,
-				"title": "plugin-in-rust",
-				"Children": [
+				"label": "plugin-in-rust",
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "Part 1",
@@ -17,8 +17,8 @@
 			},
 			{
 				"seriesID": 2,
-				"title": "plugin-in-cpp",
-				"Children": [
+				"label": "plugin-in-cpp",
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "Part 1",
@@ -38,8 +38,8 @@
 			},
 			{
 				"seriesID": 3,
-				"title": "gameplay-ability-system",
-				"Children": [
+				"label": "gameplay-ability-system",
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "Introduction and basics",
@@ -54,8 +54,8 @@
 			},
 			{
 				"seriesID": 4,
-				"title": "interfaces",
-				"Children": [
+				"label": "interfaces",
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "Native C++ interface",
@@ -70,8 +70,8 @@
 			},
 			{
 				"seriesID": 5,
-				"title": "tools-setup",
-				"Children": [
+				"label": "tools-setup",
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "With Visual Studio 2019",
@@ -96,8 +96,8 @@
 			},
 			{
 				"seriesID": 6,
-				"title": "instanced-static-meshes",
-				"Children": [
+				"label": "instanced-static-meshes",
+				"children": [
 					{
 						"seriesIndex": 0,
 						"title": "Introduction to ISM",
@@ -134,8 +134,8 @@
 		"modules": [
 			{
 				"seriesID": 1,
-				"title": "git-basics",
-				"Children": [
+				"label": "git-basics",
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "introduction",
@@ -145,8 +145,8 @@
 			},
 			{
 				"seriesID": 2,
-				"title": "build-systems",
-				"Children": [
+				"label": "build-systems",
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "Introduction and Basics",
@@ -163,10 +163,10 @@
 		"modules": [
 			{
 				"seriesID": 1,
-				"title": "introduction-to-shaders",
+				"label": "introduction-to-shaders",
 				"hasChildren": true,
 				"Link": "/",
-				"Children": [
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "Non-technical Overview",
@@ -183,8 +183,8 @@
 		"modules": [
 			{
 				"seriesID": 1,
-				"title": "gameplay-ability-system",
-				"Children": [
+				"label": "gameplay-ability-system",
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "Introduction and basics",
@@ -201,8 +201,8 @@
 		"modules": [
 			{
 				"seriesID": 1,
-				"title": "non-engine-errors",
-				"Children": [
+				"label": "non-engine-errors",
+				"children": [
 					{
 						"seriesIndex": 1,
 						"title": "Common git errors",

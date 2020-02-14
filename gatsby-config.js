@@ -38,7 +38,7 @@ module.exports = {
 			resolve: "gatsby-source-filesystem",
 			options: {
 				name: "content",
-				path: `${__dirname}/content`
+				path: `${__dirname}/content`,
 			},
 		},
 		{
@@ -101,11 +101,11 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-nprogress`,
 			options: {
-			  // Setting a color is optional.
-			  color: `tomato`,
-			  // Disable the loading spinner.
-			  showSpinner: true,
+				// Setting a color is optional.
+				color: `tomato`,
+				// Disable the loading spinner.
+				showSpinner: true,
 			},
-		  },
+		},
 	],
 };

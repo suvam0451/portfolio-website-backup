@@ -22,26 +22,26 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	const allDaedalusAPIPAges = await graphql(`
 		query {
 			UE4Tutorial: allMdx(
-				filter: { frontmatter: { draft: { ne: true } } }
+				filter: {
+					frontmatter: { draft: { ne: true } }
+					fileAbsolutePath: { regex: "/ue4-tutorials/" }
+				}
 			) {
-				edges {
-					node {
-						id
-						parent {
-							... on File {
-								name
-								sourceInstanceName
-							}
+				nodes {
+					id
+					parent {
+						... on File {
+							name
+							sourceInstanceName
 						}
-						frontmatter {
-							path
-							title
-							date
-							moduleID
-							submoduleID
-							seriesID
-							seriesIndex
-						}
+					}
+					frontmatter {
+						path
+						title
+						date
+						submoduleID
+						seriesID
+						seriesIndex
 					}
 				}
 			}
@@ -51,24 +51,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 					fileAbsolutePath: { regex: "/daedalus/" }
 				}
 			) {
-				edges {
-					node {
-						id
-						parent {
-							... on File {
-								name
-								sourceInstanceName
-							}
+				nodes {
+					id
+					parent {
+						... on File {
+							name
+							sourceInstanceName
 						}
-						frontmatter {
-							path
-							title
-							date
-							moduleID
-							submoduleID
-							seriesID
-							seriesIndex
-						}
+					}
+					frontmatter {
+						path
+						title
+						date
+						submoduleID
+						seriesID
+						seriesIndex
 					}
 				}
 			}
@@ -82,11 +79,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	const { UE4Tutorial, DaedalusAPI } = allDaedalusAPIPAges.data;
 	// const daedalusAPIPage = allDaedalusAPIPAges.data.allMdx.edges;
 
-	UE4Tutorial.edges.forEach(({ node }, index) => {
+	UE4Tutorial.nodes.forEach(node => {
 		const { frontmatter, parent } = node;
-		const _path =
-			frontmatter.path ||
-			`/${parent.sourceInstanceName}/${parent.name}`;
+		// const _path = frontmatter.path || `/${parent.sourceInstanceName}/${parent.name}`;
 		createPage({
 			path: node.frontmatter.path,
 			component: path.resolve("src/templates/mdxPosts.tsx"),
@@ -96,11 +91,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		});
 	});
 
-	DaedalusAPI.edges.forEach(({ node }, index) => {
+	DaedalusAPI.nodes.forEach(node => {
 		const { frontmatter, parent } = node;
-		const _path =
-			frontmatter.path ||
-			`/${parent.sourceInstanceName}/${parent.name}`;
+		// const _path =frontmatter.path || `/${parent.sourceInstanceName}/${parent.name}`;
 		createPage({
 			path: node.frontmatter.path,
 			component: path.resolve("src/templates/Trailblazer.tsx"),

@@ -7,75 +7,12 @@ import {
 	SidebarDataTree,
 	SidebarProps,
 	Tier1,
+	CollapsibleModule,
 } from "./SidebarCommon";
 import { BranchComponent } from "./UE4TutorialSidebar";
 
-interface CollapsibleModule {
-	readonly CollapsedSection: any;
-	readonly HeaderSection: string;
-	readonly InitiallyCollapsed: boolean;
-}
-
-/** For the serieses */
-export function CollapsibleModule(Props: CollapsibleModule) {
-	const [Collapsed, setCollapsed] = useState(
-		Props.InitiallyCollapsed,
-	);
-	const CollapsibleDiv = styled("div")`
-		display: ${props => (Collapsed ? `none` : "block")};
-	`;
-	const [IconSection, setIconSection] = useState(
-		"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
-	);
-	let logoItem: any = useRef(null);
-
-	// Show in effect
-	useEffect(() => {
-		logoItem.opacity = 0;
-		TweenMax.from(logoItem, 0, { opacity: 0, ease: Power3.easeOut });
-		TweenMax.to(logoItem, 0.8, { opacity: 1, ease: Power3.easeOut });
-	});
-
-	function ToggleCollapse() {
-		if (Collapsed === true) {
-			setIconSection(
-				"bp3-icon-standard bp3-icon-chevron-down bp3-intent-success content-center mt-1",
-			);
-		} else {
-			setIconSection(
-				"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
-			);
-		}
-		setCollapsed(!Collapsed);
-	}
-
-	return (
-		<>
-			<div
-				ref={el => {
-					logoItem = el;
-				}}
-				className="flex hover:bg-teal-200 mt-1 ml-1 rounded-sm select-none"
-				onClick={ToggleCollapse}
-			>
-				{/* <span className={IconSection} /> */}
-				<span className={IconSection} />
-				<div className="ml-2">{Props.HeaderSection}</div>
-			</div>
-			<CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
-		</>
-	);
-}
-
-/** Style definitions for the component page */
-const ContainerStyle = styled("div")`
-	max-width: 1080px;
-	margin: 0 auto;
-	margin-top: 32px;
-`;
-
 /** Main export */
-export default function SideBar(Props: SidebarProps) {
+function SideBar(Props: SidebarProps) {
 	const RootQuery = useStaticQuery(graphql`
 		query DaedalusSidebarQuery {
 			allDaedalusApiJson {
@@ -85,17 +22,14 @@ export default function SideBar(Props: SidebarProps) {
 					label
 					description
 					modules {
-						label
 						seriesID
+						label
 						children {
-							link
 							seriesIndex
+							link
 							title
 						}
 					}
-					submoduleID
-					label
-					description
 				}
 			}
 		}
@@ -158,3 +92,5 @@ export default function SideBar(Props: SidebarProps) {
 		</>
 	);
 }
+
+export { SideBar };

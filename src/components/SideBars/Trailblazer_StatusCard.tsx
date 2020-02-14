@@ -4,34 +4,10 @@ import { Card, Classes } from "@blueprintjs/core";
 import { FrontMatterProps } from "../graphql-types";
 import { SidebarDataTree } from "../SideBars/SidebarCommon";
 
-interface allUe4TutsMapJsonType {
-	readonly edges: Array<Tier0_Props>;
-}
-interface Tier0_Props {
-	readonly node: Tier1_Prop;
-}
-interface Tier1_Prop {
-	readonly submoduleID: number;
-	readonly category: string;
-	readonly description: string;
-	readonly modules: Array<SeriesProps>;
-}
-
-interface SeriesProps {
-	readonly seriesID: number;
-	readonly title: string;
-	readonly Children: Array<LeafNode>;
-}
-
-interface LeafNode {
-	readonly seriesIndex: number;
-	readonly title: string;
-	readonly link: string;
-}
-
+/** Main export. StatusCard displayed on left for Trailblazer API */
 function StatusCard(Props: FrontMatterProps) {
 	const RootQuery = useStaticQuery(graphql`
-		query Trailblazer_StatysCardQuery {
+		query Trailblazer_StatusCardQuery {
 			allDaedalusApiJson {
 				nodes {
 					id
@@ -68,7 +44,6 @@ function StatusCard(Props: FrontMatterProps) {
 						);
 					});
 				}
-				// SidebarRender.push(<h4>{moduleList.}</h4>);
 			});
 		}
 	});

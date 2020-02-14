@@ -16,12 +16,10 @@ import {
 } from "@blueprintjs/core";
 import { FrontMatterProps } from "../graphql-types";
 import { CardTitle } from "react-bootstrap/Card";
+import { SidebarDataTree } from "./SideBars/SidebarCommon";
 
 interface allUe4TutsMapJsonType {
-	readonly edges: Array<Tier0_Props>;
-}
-interface Tier0_Props {
-	readonly node: Tier1_Prop;
+	readonly nodes: Tier1_Prop[];
 }
 interface Tier1_Prop {
 	readonly submoduleID: number;
@@ -46,36 +44,34 @@ function StatusCard(Props: FrontMatterProps) {
 	const RootQuery = useStaticQuery(graphql`
 		query MyStatusCardQuery {
 			allUe4TutsMapJson {
-				edges {
-					node {
-						id
-						submoduleID
+				nodes {
+					id
+					submoduleID
+					label
+					description
+					modules {
+						seriesID
 						label
-						description
-						modules {
-							seriesID
+						children {
+							seriesIndex
 							title
-							Children {
-								seriesIndex
-								title
-								link
-							}
+							link
 						}
 					}
 				}
 			}
 		}
 	`);
-	const allUe4TutsMapJson: allUe4TutsMapJsonType =
+	const allUe4TutsMapJson: SidebarDataTree =
 		RootQuery.allUe4TutsMapJson;
 	const SidebarRender: any = [];
 	let StatusCardTitle: string = "";
-	allUe4TutsMapJson.edges.forEach(edge => {
-		if (edge.node.submoduleID === Props.FrontMatter.submoduleID) {
-			edge.node.modules.forEach(moduleList => {
+	allUe4TutsMapJson.nodes.forEach(node => {
+		if (node.submoduleID === Props.FrontMatter.submoduleID) {
+			node.modules.forEach(moduleList => {
 				if (moduleList.seriesID === Props.FrontMatter.seriesID) {
-					StatusCardTitle = moduleList.title;
-					moduleList.Children.forEach(child => {
+					StatusCardTitle = moduleList.label;
+					moduleList.children.forEach(child => {
 						SidebarRender.push(
 							<li>
 								<Link to={child.link}>{child.title}</Link>

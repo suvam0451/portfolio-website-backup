@@ -112,7 +112,6 @@ export const query = graphql`
 				path
 				title
 				date
-				moduleID
 				submoduleID
 				seriesID
 				seriesIndex

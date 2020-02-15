@@ -250,7 +250,7 @@ function Index(props: IndexPageProps) {
 									ChangeActiveTab(ActivePage.Softwares);
 								}}
 							>
-								Trailblazer
+								Sleeping Forest
 							</NavLink>
 						</NavItem>
 						<NavItem>

@@ -1,5 +1,5 @@
 ---
-path: "/docs/trailblazer/context-keys/2"
+path: "/docs/sleeping-forest/context-keys/2"
 title: "Activation Criteria"
 date: "2020-01-10"
 submoduleID: 3
@@ -28,7 +28,8 @@ Following are short notes for each module specifying compatible locations from w
 
 ---
 
-This runs the `Daedalus : Include Header` command. Activation checks the current line for 
+This runs the `Daedalus : Include Header` command. Activation checks the current line for
+
 - **#include xyz.h** (current position)
 - **#include xyz.generated.h** (for header)
 - **#include filename.h** (for source)
@@ -47,7 +48,7 @@ For more info on why you declaring on .cpp is more efficient, read [forward decl
 # include "RandomStuff.h" // YES, but might get confused about the order
 ```
 
-**When called normally** : Will check the current file line-line and detect locations automatically. Then it will open up the menu. 
+**When called normally** : Will check the current file line-line and detect locations automatically. Then it will open up the menu.
 
 ### 2. Function body generator
 
@@ -78,10 +79,9 @@ This detects commonly used components declarations in header and generates initi
 The code might be opinionated, but I have tried to fill the tables using my limited experience.
 Please let me know if improvements can be made
 
-
 **Note: Currently initialization code is generated for constructor (CreateDefaultSubObject). This will change soon and NewObject will also be supported.**
 
-**When called normally** : Cannot be called normally. 
+**When called normally** : Cannot be called normally.
 
 ### 4. Context keywords
 
@@ -90,7 +90,7 @@ Please let me know if improvements can be made
 Context keywords can be found sprinkled throughout the snippet library. Since **snippets cannot be easily modified at runtime**(unaware of local symbols),
 hint text is provided for you to take action and fill the gaps. This is optional so you don't end up with tons of redundant debug/scaffold code.
 
-The context for this is simple. The current line must be UXYZComponent* MyCompName.
+The context for this is simple. The current line must be UXYZComponent\* MyCompName.
 This means, you should make your derived component follow same patterns to get registered.
 
 ```cpp
@@ -103,13 +103,13 @@ FollowCamera->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRe
 
 class UMyCustomComp *CustomComp; // NO. Should be a Component
 ```
+
 **Note** : This **copies the code to the clipboard**. Since multi-window workspaces are normal in VSCode, you can paste and continue.
 
 Also, complete symbol parsing can be done to automatically detect the components irrespective of names. However, unfortunately,
 that is currently out of my expertise and not a worthwhile time investment for me since this is very efficient.
 
 **When called normally** : Cannot be called normally.
-
 
 ### Design Goals
 
@@ -142,15 +142,13 @@ The line insertion is also auto handled.
 You just need to map the parsed symbols to slots in the strings.
 
 An simple entry for component handling (default copy action)
+
 ```json
 {
 	"id": "init_components",
 	"desc": "Initialization Scene/Sphere/StaticMesh etc",
 	"pattern": ".*?U([a-zA-Z_]*)?Component[\\*| ]{2}([a-zA-Z_]*);",
-	"parsemap": [
-		1,
-		2
-	],
+	"parsemap": [1, 2],
 	"body": [
 		"$2 = CreateDefaultSubobject<U$1Component>(\"My$1\");",
 		"$2->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);"
@@ -182,7 +180,6 @@ An example entry for function generation (uniquely handled to remove some symbol
 ```
 
 If this interests you, you can use the API to add your own contextual code-completion. **Coming Soon**
-
 
 ...Please consider **sending back** some of those definitions you make. It helps everybody.
 

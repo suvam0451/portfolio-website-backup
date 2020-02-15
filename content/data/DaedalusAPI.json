@@ -12,12 +12,12 @@
 					{
 						"seriesIndex": 1,
 						"title": "Installation",
-						"link": "/docs/trailblazer/getting-started/"
+						"link": "/docs/sleeping-forest/getting-started/"
 					},
 					{
 						"seriesIndex": 2,
 						"title": "Feature List",
-						"link": "/docs/trailblazer/features"
+						"link": "/docs/sleeping-forest/features"
 					}
 				]
 			},
@@ -29,12 +29,12 @@
 					{
 						"seriesIndex": 1,
 						"title": "problem-statement",
-						"link": "/docs/trailblazer/background/"
+						"link": "/docs/sleeping-forest/background/"
 					},
 					{
 						"seriesIndex": 2,
 						"title": "faq",
-						"link": "/docs/trailblazer/faq/"
+						"link": "/docs/sleeping-forest/faq/"
 					}
 				]
 			}
@@ -52,12 +52,12 @@
 					{
 						"seriesIndex": 1,
 						"title": "overview",
-						"link": "/docs/trailblazer/snippets-overview"
+						"link": "/docs/sleeping-forest/snippets-overview"
 					},
 					{
 						"seriesIndex": 2,
 						"title": "categories",
-						"link": "/docs/trailblazer/uprop-snippets/1"
+						"link": "/docs/sleeping-forest/uprop-snippets/1"
 					}
 				]
 			},
@@ -68,17 +68,17 @@
 					{
 						"seriesIndex": 1,
 						"title": "overview",
-						"link": "/docs/trailblazer/uprop-snippets"
+						"link": "/docs/sleeping-forest/uprop-snippets"
 					},
 					{
 						"seriesIndex": 2,
 						"title": "uprop-base",
-						"link": "/docs/trailblazer/uprop-snippets/1"
+						"link": "/docs/sleeping-forest/uprop-snippets/1"
 					},
 					{
 						"seriesIndex": 99,
 						"title": "uprop-full-list",
-						"link": "/docs/trailblazer/uprop-snippets/full-list"
+						"link": "/docs/sleeping-forest/uprop-snippets/full-list"
 					}
 				]
 			},
@@ -89,17 +89,17 @@
 					{
 						"seriesIndex": 0,
 						"title": "overview",
-						"link": "/api/daedalus/gameplay-systems/ugs-classfind"
+						"link": "/docs/sleeping-forest/gameplay-systems/ugs-classfind"
 					},
 					{
 						"seriesIndex": 1,
 						"title": "gameplay-systems-list",
-						"link": "/api/daedalus/gameplay-systems/ugs-classfind"
+						"link": "/docs/sleeping-forest/gameplay-systems/ugs-classfind"
 					},
 					{
 						"seriesIndex": 99,
 						"title": "ugs-full-list",
-						"link": "/docs/trailblazer/ugs-snippets/full-list"
+						"link": "/docs/sleeping-forest/ugs-snippets/full-list"
 					}
 				]
 			},
@@ -110,12 +110,12 @@
 					{
 						"seriesIndex": 1,
 						"title": "overview",
-						"link": "/docs/trailblazer/udebug-snippets"
+						"link": "/docs/sleeping-forest/udebug-snippets"
 					},
 					{
 						"seriesIndex": 99,
 						"title": "udebug-full-list",
-						"link": "/docs/trailblazer/udebug-snippets-full-list"
+						"link": "/docs/sleeping-forest/udebug-snippets-full-list"
 					}
 				]
 			},
@@ -126,12 +126,12 @@
 					{
 						"seriesIndex": 1,
 						"title": "overview",
-						"link": "/docs/trailblazer/uinit-snippets"
+						"link": "/docs/sleeping-forest/uinit-snippets"
 					},
 					{
 						"seriesIndex": 99,
 						"title": "uinit-full-list",
-						"link": "/docs/trailblazer/uinit-snippets/full-list"
+						"link": "/docs/sleeping-forest/uinit-snippets/full-list"
 					}
 				]
 			}
@@ -149,17 +149,17 @@
 					{
 						"seriesIndex": 0,
 						"title": "introduction",
-						"link": "/docs/trailblazer/context-keys/"
+						"link": "/docs/sleeping-forest/context-keys/"
 					},
 					{
 						"seriesIndex": 1,
 						"title": "key-bindings",
-						"link": "/docs/trailblazer/context-keys/1"
+						"link": "/docs/sleeping-forest/context-keys/1"
 					},
 					{
 						"seriesIndex": 2,
 						"title": "activation-context",
-						"link": "/docs/trailblazer/context-keys/2"
+						"link": "/docs/sleeping-forest/context-keys/2"
 					}
 				]
 			}
@@ -177,17 +177,17 @@
 					{
 						"seriesIndex": 1,
 						"title": "overview",
-						"link": "/docs/trailblazer/class-generator"
+						"link": "/docs/sleeping-forest/class-generator"
 					},
 					{
 						"seriesIndex": 2,
 						"title": "module-internals",
-						"link": "/docs/trailblazer/class-generator/1"
+						"link": "/docs/sleeping-forest/class-generator/1"
 					},
 					{
 						"seriesIndex": 3,
 						"title": "template-list",
-						"link": "/docs/trailblazer/class-generator/2"
+						"link": "/docs/sleeping-forest/class-generator/2"
 					}
 				]
 			},
@@ -198,17 +198,17 @@
 					{
 						"seriesIndex": 1,
 						"title": "overview",
-						"link": "/docs/trailblazer//header-manager"
+						"link": "/docs/sleeping-forest//header-manager"
 					},
 					{
 						"seriesIndex": 2,
 						"title": "default-list",
-						"link": "/docs/trailblazer//header-manager/1"
+						"link": "/docs/sleeping-forest/header-manager/1"
 					},
 					{
 						"seriesIndex": 3,
 						"title": "Extending the module",
-						"link": "/docs/trailblazer//header-manager/2"
+						"link": "/docs/sleeping-forest/header-manager/2"
 					}
 				]
 			}
@@ -226,7 +226,7 @@
 					{
 						"seriesIndex": 1,
 						"title": "hello-streams",
-						"link": "/docs/daedalus/hello-asset-streams"
+						"link": "/docs/sleeping-forest/hello-asset-streams"
 					}
 				]
 			}
@@ -244,7 +244,7 @@
 					{
 						"seriesIndex": 1,
 						"title": "locating-modtools",
-						"link": "/docs/trailblazer/extension-files"
+						"link": "/docs/sleeping-forest/extension-files"
 					}
 				]
 			},
@@ -255,12 +255,12 @@
 					{
 						"seriesIndex": 1,
 						"title": "how-it-works",
-						"link": "/docs/trailblazer/extending-the-buildspace"
+						"link": "/docs/sleeping-forest/extending-the-buildspace"
 					},
 					{
 						"seriesIndex": 2,
 						"title": "adding-functions",
-						"link": "/docs/trailblazer/adding-function-definitions"
+						"link": "/docs/sleeping-forest/adding-function-definitions"
 					}
 				]
 			},
@@ -271,7 +271,7 @@
 					{
 						"seriesIndex": 1,
 						"title": "adding-headers",
-						"link": "/docs/trailblazer/adding-header-packs"
+						"link": "/docs/sleeping-forest/adding-header-packs"
 					}
 				]
 			},
@@ -282,7 +282,7 @@
 					{
 						"seriesIndex": 1,
 						"title": "configuration-list",
-						"link": "/docs/trailblazer/workspace-configurations"
+						"link": "/docs/sleeping-forest/workspace-configurations"
 					}
 				]
 			}
@@ -300,7 +300,7 @@
 					{
 						"seriesIndex": 1,
 						"title": "core-workspace",
-						"link": "/docs/trailblazer/code-workspace"
+						"link": "/docs/sleeping-forest/code-workspace"
 					}
 				]
 			},

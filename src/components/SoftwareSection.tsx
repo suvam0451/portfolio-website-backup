@@ -65,8 +65,8 @@ export default function SoftwareSection() {
 				<div className="mitems-center">
 					<div className="flex justify-center">
 						<div className="w-1/2">
-							<SoftwareHeader>TRAILBLAZER</SoftwareHeader>
-							<SubHeader>Blaze a new trail with VSCode</SubHeader>
+							<SoftwareHeader>SLEEPING FOREST</SoftwareHeader>
+							<SubHeader>Gamedev multitool for UE4</SubHeader>
 							<MoreInfo>
 								Faciliate and automate your game development pipelines
 								for Unreal Engine 4.
@@ -75,7 +75,7 @@ export default function SoftwareSection() {
 							<DownloadButton
 								icon="git-repo"
 								label="Documentation"
-								link="/docs/trailblazer/getting-started/"
+								link="/docs/sleeping-forest/getting-started/"
 							/>
 						</div>
 						<img

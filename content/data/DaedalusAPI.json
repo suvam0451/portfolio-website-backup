@@ -227,6 +227,16 @@
 						"seriesIndex": 1,
 						"title": "hello-streams",
 						"link": "/docs/sleeping-forest/hello-asset-streams"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "importing-assets",
+						"link": "/docs/sleeping-forest/hello-asset-streams/1"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "texturesets",
+						"link": "/docs/sleeping-forest/hello-asset-streams/2"
 					}
 				]
 			}

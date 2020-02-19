@@ -48,7 +48,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 			DaedalusAPI: allMdx(
 				filter: {
 					frontmatter: { draft: { ne: true } }
-					fileAbsolutePath: { regex: "/daedalus/" }
+					fileAbsolutePath: { regex: "/sleeping-forest/" }
 				}
 			) {
 				nodes {

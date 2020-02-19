@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"name": "Workshop",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**.lock": true,
+			"README.md": true,
+			"LICENSE": true,
+			".gitignore": true,
+			"node_modules": true,
+			".cache": true,
+			"public": true,
+			"tsconfig.json": true,
+			"netlify.toml": true,
+			"postcss.config.js": true,
+			"tailwind.config.js": true,
+			"tslint.json": true,
+			"lambda": true,
+			".env.**": true
+		}
+	}
+}

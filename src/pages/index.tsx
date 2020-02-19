@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import { Alert, Footer } from "../components/Decorations";
-import Header from "../components/Header";
 import styles from "../components/container.module.css";
 import classnames from "classnames";
 import TutorialSection from "../components/TutorialSection";

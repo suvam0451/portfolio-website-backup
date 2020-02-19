@@ -1,0 +1,126 @@
+---
+path: "/docs/sleeping-forest/getting-started/"
+title: "Getting Started"
+date: "2020-01-10"
+submoduleID: 1
+seriesID: 1
+seriesIndex: 1
+draft: false
+---
+
+This module will guide you through installing and configuring the extension.
+It is assumed that you have a working copy of [VSCode](https://code.visualstudio.com/download)
+or [VSCode Insiders](https://code.visualstudio.com/insiders/).
+
+If you had any trouble setting those up, please read through here first.
+
+### Step 1: Installation
+
+---
+
+#### From store
+
+The extension is now updated via the extension store. You can search for `Sleeping Forest` and get it.
+It will be updated regularly, so **read changelogs for updates**. In it, there will be API changes, links to updated documentations and feature showcases.
+
+![auto install](../../../../images/sleeping-forest/01-Introduction/storeinstall.png)
+
+#### From VSIX file
+
+You can install nightly builds from from [CI outputs](https://gitlab.com/suvam0451/sleeping-forest-ue4/pipelines/) as well.
+
+The option to manually install an extension can be found from the extensions tab as shown below
+
+![sidebar](../../../../images/DaedalusAPI/introduction-module/001.png)
+
+After selecting the `.vsix` file, you might be asked to restart your editor.
+Do so and then you can find the extension listed along any other extensions which can be accessed from the sidebar as shown below.
+
+![manual install](../../../../images/sleeping-forest/01-Introduction/manualinstall.png)
+
+### Step 2: Basic Configuration (Programming)
+
+---
+
+Fire up the project using the `.code-workspace` file.
+_(always use that to start the project)_.
+
+Run `UE4 : Inject Workspace definitions in Workspace file` from the command palette. _(Ctrl + Shift + P in windows)_
+
+This will make the following changes:
+
+- Inject configs into your `.code-workspace` to **improve intellisense**.
+- Get you **better search results**
+- **Add modding files** as a workspace folder under UE4.
+
+The new workspace file should look like the following.
+
+![Custom config applied](../../../../images/DaedalusAPI/introduction-module/004.png)
+
+Your new sidebar should look like the following (minus the asset stream folders.)
+
+![new sidebar](../../../../images/sleeping-forest/01-Introduction/newsidebar.png)
+
+Restart the editor.
+
+NOTE : **Everytime you regenerate project files**, run this command to get configs, modfiles and asset streams.
+Then restart editor for all configs be applied _(Shortcut --> (Ctrl +R))_.
+
+Next up, get started with the following key features of the extension
+
+1. [Context keys](/docs/sleeping-forest/context-keys/) Context bindings
+2. [Snippets](/docs/sleeping-forest/snippets-overview) Snippet Library
+3. [CLI tools]() Command line tools
+4. **Commandlets** : Individual callable functions and features. **_Listed in sidebar_**.
+
+### Step 3: Basic Configuration (Asset Management)
+
+---
+
+No coding proficiency is required for using the asset management tools. The concept of **asset stream** targets
+any single folder with your raw files {fbx, music, art} and applies a lot of optimization on them
+{image compression, duplicate detection}.
+
+It then **generates JSON data** for each _asset type_ and _each folder_. This is especially powerful for
+data driven gameplay since your **assets are automatically imported** and instead of plugging assets manually,
+you can use one of the JSON files to do so.
+
+This is meant to extend to procedural level design systems and dialogue systems etc.,
+where classes in your engine would ask for data tables instead of asset references.
+
+Following links will guide you through setting up and configuring your first **Asset Stream**.
+
+1. [Tutorial](/docs/sleeping-forest/hello-asset-streams)
+2. [Importing basic assets](/docs/sleeping-forest/importing-asset-streams)
+3. [Configuring your import](/docs/sleeping-forest/importing-asset-streams)
+4. [Packing textures before importing](/docs/sleeping-forest/asset-stream-texture-sets)
+
+### Step 4: Customizing modules
+
+Most modules of this extension are written in a modular fashion.
+They all use JSON files as rules to provide you awesome functionalities.
+
+This means, you can write add own rules on top of what the developer or the sommunity puts up.
+
+1. [N/A] Extending the context keybound auto-completions
+2. [Extending the headerpacks](/docs/sleeping-forest/extending-header-packs)
+3. [/docs/sleeping-forest/extending-the-buildspace] Adding your custom class generator
+4. Don't forget to share new findings with the community
+
+### Step 5: Technical details
+
+The following devlogs cover how I am going about making this plug-in.
+I am also sharing a few open-source tools that are made to be usable cross-engine.
+All of them are being used as part of this extension.
+
+1. High level npm package for applying smart edits in c based languages
+2. Asset pipeline tool written in go.
+
+My motivation for writing this extension was I always found automating tasks exciting.
+I want to make games with system driven gameplay and true player agency with active consequences.
+However, the sheer amount of learning, motivation and expertise kept it out of reach.
+
+Developing games should be a fun learning process and I will use whatever programming expertise
+I have garnered in the past couple of years to bring you powerful tools that let you focus on making awesome games.
+
+See you later... 🖐

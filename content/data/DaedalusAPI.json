@@ -63,6 +63,27 @@
 			},
 			{
 				"seriesID": 2,
+				"label": "full-lists",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "uprop",
+						"link": "/docs/sleeping-forest/snippet-lists/uprop"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "udebug",
+						"link": "/docs/sleeping-forest/snippet-lists/udebug"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "ugs",
+						"link": "/docs/sleeping-forest/snippet-lists/ugs"
+					}
+				]
+			},
+			{
+				"seriesID": 3,
 				"label": "uprop",
 				"children": [
 					{
@@ -89,7 +110,7 @@
 					{
 						"seriesIndex": 0,
 						"title": "overview",
-						"link": "/docs/sleeping-forest/gameplay-systems/ugs-classfind"
+						"link": "/docs/sleeping-forest/ugs-snippets"
 					},
 					{
 						"seriesIndex": 1,
@@ -231,12 +252,12 @@
 					{
 						"seriesIndex": 2,
 						"title": "importing-assets",
-						"link": "/docs/sleeping-forest/hello-asset-streams/1"
+						"link": "/docs/sleeping-forest/importing-asset-streams"
 					},
 					{
 						"seriesIndex": 3,
 						"title": "texturesets",
-						"link": "/docs/sleeping-forest/hello-asset-streams/2"
+						"link": "/docs/sleeping-forest/asset-stream-texture-sets"
 					}
 				]
 			}
@@ -281,7 +302,7 @@
 					{
 						"seriesIndex": 1,
 						"title": "adding-headers",
-						"link": "/docs/sleeping-forest/adding-header-packs"
+						"link": "/docs/sleeping-forest/extending-header-packs"
 					}
 				]
 			},

@@ -1,0 +1,83 @@
+---
+path: "/docs/sleeping-forest/adding-uproperties/"
+title: "Adding UProperties"
+date: "2020-01-10"
+submoduleID: 1
+seriesID: 1
+seriesIndex: 1
+draft: false
+---
+
+## uprop snippets
+
+In this section, we will be adding various UPROPERTY() through property macros. The sample will be demonstrated using an actor.
+
+If you had any trouble setting those up, please read through here first.
+
+### base uprop snippets
+
+---
+
+The base line of macros are called using `uprop_xyz`.
+They carry the { **VisibleAnywhere**, **BlueprintReaDWrite** } macros.
+Below example shows two such snippets being inserted. Notice the 3-4 seconds delay while intellisense parses the new variable.
+
+I have a throttled i7 8th gen laptop and had 80 mozilla tabs open. You would obviously get faster responses.
+
+![base uprop](../../../images/DaedalusAPI/introduction-module/007.gif)
+
+### uprop_adv snippets
+
+---
+
+The `uprop_adv_xyz` line of macros replace **EditAnywhere** with **VisibleAnywhere**,
+making them hidden from designer view without dropdown.
+
+### uprop_ro snippets
+
+---
+
+The `uprop_ro_xyz` line of snippets have { **VisibleAnywhere**, **AdvancedDisplay**, **BlueprintReadWrite**}
+macros. This makes them accessible through a dropdown in editor. It also prevents edit through left editor panel.
+Hoever, modification in blueprints is still allowed
+
+### uprop array/map snippets
+
+---
+
+In some cases, a map of components is required to dynamically add/remove components
+
+The option to manually install an extension can be found from the extensions tab in the
+sidebar as shown below
+
+![sidebar](../../../../images/DaedalusAPI/introduction-module/001.png)
+
+After selecting the `.vsix` file, you might be asked to restart your editor.
+Do so and then you can find the extension listed along any other extensions which can be accessed from the sidebar as shown below
+
+![sidebar](../../../../images/DaedalusAPI/introduction-module/003.png)
+
+### Step 2.1: Basic Configuration (Programming)
+
+---
+
+I will assume that you already have a `.code-workspace` file in your project directory.
+Keep in mind to start the workspace using that file _(Avoid right click --> Open with VSCode)_
+
+The very first thing to do is to run `UE4 : Inject Workspace definitions in Workspace file` from the command palette.
+
+This will inject a lot of config options into your `.code-workspace` that willimprove your intellisense parsing.
+The new workspace file should look like the following.
+
+![sidebar](../../../../images/DaedalusAPI/introduction-module/004.png)
+
+Restart the editor. Everytime you regenerate the project, run the same command again to get the configs.
+You have to restart the editor once after running command for all configs to be applied properly.
+
+### Step 2.2: Basic Configuration (Asset Management)
+
+---
+
+For using the asset management tools, no C++ is required. Following links will guide you through setting up and configuring your first **Asset Stream**.
+
+See you later... 🖐

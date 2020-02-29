@@ -1,10 +1,10 @@
 ---
 path: "/docs/sleeping-forest/snippets-overview/uprop"
-title: "uprop"
+title: "uprop snippets"
 date: "2020-01-10"
 submoduleID: 2
 seriesID: 1
-seriesIndex: 1
+seriesIndex: 2
 draft: false
 ---
 
@@ -14,13 +14,29 @@ import {
 } from "../../../../src/components/Decorations";
 
 Snippets in this namespace are used to **reduce macro usage in header** for UPROPERTY() declarations.
+Variations are available for maps and arrays as well.
+
+There degree of freedom exposed to designer in editor can be switched like this using the `context key`.
 
 <Alert
 	head="Heads up about scope warnings"
 	body="BlueprintReadWrite may only be assigned to props in public field."
 />
 
-Complete list of codes can be found [here](/docs/sleeping-forest/snippet-lists/uprop).
+Complete list of snippet codes can be found [here](/docs/sleeping-forest/snippet-lists/uprop).
+
+![base uprop](../../../images/DaedalusAPI/snippet-module/005.gif)
+
+**NOTE:** The visible delay has been reduced significantly in v0.6.11.
+
+The context keys will cycle through the following sets of macros in a cycle...
+
+| Classifier   | Macros                                                           | Editor behavior                                 |
+| ------------ | ---------------------------------------------------------------- | ----------------------------------------------- |
+| base         | **VisibleAnywhere**, **BlueprintReadWrite** ,**EditAnywhere**    | Visible and Editable                            |
+| readonly     | **BlueprintReadWrite**, **VisibleAnywhere**                      | Readonly in editor. Blueprints can still access |
+| advanced tab | **VisibleAnywhere**, **AdvancedDisplay**, **BlueprintReadWrite** | Readonly in dropdown                            |
+| blank        | none                                                             |                                                 |
 
 ### Samples
 

@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
-import { TweenMax, Power3 } from "gsap";
 
 //#region Common Interfaces
 export interface SidebarDataTree {
@@ -70,8 +69,8 @@ export function CollapsibleModule(Props: CollapsibleModule) {
 	// Show in effect
 	useEffect(() => {
 		logoItem.opacity = 0;
-		TweenMax.from(logoItem, 0, { opacity: 0, ease: Power3.easeOut });
-		TweenMax.to(logoItem, 0.8, { opacity: 1, ease: Power3.easeOut });
+		// TweenMax.from(logoItem, 0, { opacity: 0, ease: Power3.easeOut });
+		// TweenMax.to(logoItem, 0.8, { opacity: 1, ease: Power3.easeOut });
 	});
 
 	function ToggleCollapse() {

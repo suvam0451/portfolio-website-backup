@@ -1,6 +1,6 @@
 ---
 path: "/docs/sleeping-forest/features"
-title: "List of Features for Trailblazer"
+title: "List of Features for Sleeping Forest"
 date: "2020-01-10"
 submoduleID: 1
 seriesID: 1
@@ -8,11 +8,7 @@ seriesIndex: 2
 draft: false
 ---
 
-## Feature List
-
----
-
-The following are the showcase features that come with this extension.
+The following features are available for this extension.
 
 #### Snippets
 
@@ -29,16 +25,23 @@ The following self-indicative namespaces are available.
 6.  **custom** : NewObject, CreateDefaultSubobject, UE_LOG() anyone ?
 7.  **Add your own** : Give me snippets and I'll add them. That way everybody wins.
 
-Note: The `context menu A` can be used after generating code by some of these snippets. This allows you to do stuff like following :
+Note: The `context key` can be used after generating code by some of these snippets. This allows you to do stuff like following :
 
-#### Context Menu
+![Contextual hit visualization](../../../images/sleeping-forest-ue4/01/contextualhit.gif)
+
+#### Contextual auto-completion
 
 ---
 
-Context menu is a powerful module which uses **all other code modules** to
-provide you customized auto-completion on the fly.
+Contextual completion module is a powerful tool which uses **all other code modules** to
+provide you customized auto-completion, on the fly. To name a few, you can
 
-You definitely need this to fully utilize this extension to the maximum potential.
+- Generate initialization code for components.
+- Generate function bodies from header.
+- Add a set of headers
+- Dynamically generate snippets of tedious-to-write code.
+
+All with a **single key-binding** !!!
 
 Learn more [here...](/docs/sleeping-forest/context-keys/)
 
@@ -48,10 +51,10 @@ Learn more [here...](/docs/sleeping-forest/context-keys/)
 
 A framework to have the same file structure across multiple projects.
 It lets you create special folders with an "Assets" folder in them.
-The folder can be read on demand and data about all the assets is extracted to a json file.
-It also creates a python import script.
+The folder can be **read on demand** and data about all the assets is extracted to a json file.
+It also creates a **python import script**.
 
-Now, the script is called in UE4 to get your assets from multiple folders with multiple configs.
+This script can be called in UE4 to get your assets from multiple folders with multiple configs.
 The following tutorials and references will get you started.
 
 1. Creating asset AssetStreams
@@ -61,8 +64,8 @@ The following tutorials and references will get you started.
 5. Uses vanilla Python API. Always imports in silent mode.
 6. Implementation details (Extra)
 
-**Use Case** : If you store your assets in cloud drives and start a new projects from scratch every few weeks,
-this tool will make sure your imports are in order and your source files are safe.
+**Use Case** : If you store your assets in cloud drives and start a new projects from scratch every few week,
+this tool will make sure your imports are in order and preserve integrity of your source files.
 [Learn More...](/docs/sleeping-forest/hello-asset-streams)
 
 #### Commandlets
@@ -82,11 +85,11 @@ This subsection of commandlets allow you to add functions, manage headers etc. w
 
 These commandlets allow you to **_run engine tasks_** via command line. For example :
 
-1. Compiling shaders !!!
+1. Compiling shaders
 2. Compiling code
 3. Compiling game (No custom config yet) _[Planned]_
 
-NOTE : **For now, only windows support** is available. I will appreciate anyone testing this on other client OS.
+NOTE : **For now, only windows support** is available. I will appreciate anyone testing this on other client OSes.
 
 #### Improved Intellisense
 
@@ -98,3 +101,7 @@ This commandlets **writes to your .code-workspace** config file. You have a leve
 This is very important for better search results and significantly improved intellisense. [Learn more...](/docs/sleeping-forest/workspace-configurations)
 
 **Use Case** : Intellisense in VSCode is worse than VS, but it's not useless. Although, I won't guarantee VS level optimization, this improves the developer experience a lot.
+
+#### Texture packing
+
+---

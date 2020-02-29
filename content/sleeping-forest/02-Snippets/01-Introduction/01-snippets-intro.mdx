@@ -1,6 +1,6 @@
 ---
 path: "/docs/sleeping-forest/snippets-overview"
-title: "The snippet Library"
+title: "The Snippet Library"
 date: "2020-01-10"
 submoduleID: 2
 seriesID: 1
@@ -13,38 +13,31 @@ import {
 	Alert,
 } from "../../../../src/components/Decorations";
 
-Snippets are the bread and butter of any editor extension. The snippets shipped with this extension all start with `u` to avoid conflicts.
+Snippets are the bread and butter of any editor extension. The snippets shipped with this extension all start with `u` _(to avoid conflicts)_.
 This is except a few macros like loops and switch statements which go along with any extension.
 
-The snippets follow the epic style C++ for the most part except the
-
-- Commenting styles
-- Tab spacing in header properties
-
-I will **try to ship multiple editions** with combinations of the above, but the beta releases will always follow the below-indicated code style
-
-This is because the only linters available in VSCode are `Clang-format` and `C++ tools`. And they will revert the tabs anyways.
-**In short**, you will have options for your coding styles in the **stable releases only**.
+**NOTE:** The only linters available in VSCode are `Clang-format` and `C++ tools`. And they will revert the tabs _(Like the tabs under UPROPERTY())_.
+You might want to disable them, or even better, go along it.
 
 Snippets are listed into the following categories with their own namespaces and can be called by `unamespace_xyz`.
 
 ### Snippet namespaces
 
-| Starts With   | Link | Function                                       |
-| ------------- | ---- | ---------------------------------------------- |
-| uprop         |      | Adding UPROPERTY()                             |
-| ugs           |      | Gameplay/Asset calls like AssetFinder          |
-| uinit         |      | Initializing anything                          |
-| utrace        |      | Line/Shape traces                              |
-| udebug        |      | Debug lines/spheres                            |
-| udel          |      | Delegate binding                               |
-| ulog          |      | Logging to console                             |
-| udata         |      | DataTables and such                            |
-| uabbr         |      | Abbreviations for long classes for bad mondays |
-| uabbr         |      | Gameplay Ability Systems **WIP**               |
-| umat          |      | Material handling through code                 |
-| umatnode      |      | Creation of advanced material nodes **WIP**    |
-| ue4_suvam0451 |      | Some unique... uhh for loops ?                 |
+| Starts With   | Links                                                                                                    | Function                                    |
+| ------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| uprop         | [Overview](/docs/sleeping-forest/uprop-snippets), [Full List](/docs/sleeping-forest/snippet-lists/uprop) | Adding UPROPERTY()                          |
+| ugs           |                                                                                                          | Gameplay/Asset calls like AssetFinder       |
+| uinit         |                                                                                                          | Initializing anything                       |
+| utrace        |                                                                                                          | Line/Shape traces                           |
+| udebug        |                                                                                                          | Debug lines/spheres                         |
+| udel          |                                                                                                          | Delegate binding                            |
+| ulog          |                                                                                                          | Logging to console                          |
+| udata         |                                                                                                          | DataTables and such                         |
+| uabbr         |                                                                                                          | Abbreviations for long classes              |
+| ugas          |                                                                                                          | Gameplay Ability Systems **WIP**            |
+| umat          |                                                                                                          | Material handling through code              |
+| umatnode      |                                                                                                          | Creation of advanced material nodes **WIP** |
+| ue4_suvam0451 |                                                                                                          | Extra stuff like loops, switches            |
 
 ### uprop
 

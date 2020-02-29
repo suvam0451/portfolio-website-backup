@@ -56,8 +56,23 @@
 					},
 					{
 						"seriesIndex": 2,
-						"title": "categories",
-						"link": "/docs/sleeping-forest/uprop-snippets/1"
+						"title": "uprop",
+						"link": "/docs/sleeping-forest/snippets-overview/uprop"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "udebug",
+						"link": "/docs/sleeping-forest/snippets-overview/udebug"
+					},
+					{
+						"seriesIndex": 4,
+						"title": "ugs",
+						"link": "/docs/sleeping-forest/snippets-overview/ugs"
+					},
+					{
+						"seriesIndex": 5,
+						"title": "uinit",
+						"link": "/docs/sleeping-forest/snippets-overview/uinit"
 					}
 				]
 			},
@@ -79,80 +94,11 @@
 						"seriesIndex": 3,
 						"title": "ugs",
 						"link": "/docs/sleeping-forest/snippet-lists/ugs"
-					}
-				]
-			},
-			{
-				"seriesID": 3,
-				"label": "uprop",
-				"children": [
-					{
-						"seriesIndex": 1,
-						"title": "overview",
-						"link": "/docs/sleeping-forest/uprop-snippets"
 					},
 					{
-						"seriesIndex": 2,
-						"title": "uprop-base",
-						"link": "/docs/sleeping-forest/uprop-snippets/1"
-					},
-					{
-						"seriesIndex": 99,
-						"title": "uprop-full-list",
-						"link": "/docs/sleeping-forest/uprop-snippets/full-list"
-					}
-				]
-			},
-			{
-				"seriesID": 3,
-				"label": "ugs",
-				"children": [
-					{
-						"seriesIndex": 0,
-						"title": "overview",
-						"link": "/docs/sleeping-forest/ugs-snippets"
-					},
-					{
-						"seriesIndex": 1,
-						"title": "gameplay-systems-list",
-						"link": "/docs/sleeping-forest/gameplay-systems/ugs-classfind"
-					},
-					{
-						"seriesIndex": 99,
-						"title": "ugs-full-list",
-						"link": "/docs/sleeping-forest/ugs-snippets/full-list"
-					}
-				]
-			},
-			{
-				"seriesID": 4,
-				"label": "udebug",
-				"children": [
-					{
-						"seriesIndex": 1,
-						"title": "overview",
-						"link": "/docs/sleeping-forest/udebug-snippets"
-					},
-					{
-						"seriesIndex": 99,
-						"title": "udebug-full-list",
-						"link": "/docs/sleeping-forest/udebug-snippets-full-list"
-					}
-				]
-			},
-			{
-				"seriesID": 5,
-				"label": "uinit",
-				"children": [
-					{
-						"seriesIndex": 1,
-						"title": "overview",
-						"link": "/docs/sleeping-forest/uinit-snippets"
-					},
-					{
-						"seriesIndex": 99,
-						"title": "uinit-full-list",
-						"link": "/docs/sleeping-forest/uinit-snippets/full-list"
+						"seriesIndex": 4,
+						"title": "uinit",
+						"link": "/docs/sleeping-forest/snippet-lists/uinit"
 					}
 				]
 			}

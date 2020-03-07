@@ -11,8 +11,6 @@ draft: false
 This namespace contains snippets and commandlets to let us interact with
 the **_UGameplayStatics_** class, **_DataTables_**, **_AssetRegistry_**, **_Asynchronous asset loading_**.
 
-For example, getting assets from asset/plugin folders in C++.
-
 Complete list of snippet codes can be found [here](/docs/sleeping-forest/snippet-lists/ugs).
 
 ### Associated classes
@@ -22,9 +20,13 @@ Complete list of snippet codes can be found [here](/docs/sleeping-forest/snippet
 - GampleplayStatics has gameplay utility functions. [UE4 Wiki](https://docs.unrealengine.com/en-US/API/Runtime/Engine/Kismet/UGameplayStatics/index.html)
 - Subsystems are used to make game-specific GameInstances. _(Game instances persist across levels and are useful for storing state information while switching levels.)_ [UE4 Wiki](https://docs.unrealengine.com/en-US/Programming/Subsystems/index.html)
 
+They solve very specific problems and you might never use them.
+Just keep the snippet codes in mind. Explore them and fit it to your projects.
+It's aWIP namespace to which I keep adding as I learn.
+
 See you later... 🖐
 
-### Advice/Alternatives
+### Some examples
 
 ---
 
@@ -35,7 +37,7 @@ This part is not important to use the extension. Feel free to skip.
 
 #### ugs_objectfind
 
-Used to load assets by path in C++ code. Try not to load assets directly in C++ like this. Having EditAnywhere (Or even better, fully data-driven) is better.
+Used to load assets by path in C++ code. Try not to load assets directly in C++ like this. Having EditAnywhere (Or even better, fully data-driven using DataTables) is better.
 
 That said, this is useful when loading textures for UI etc.
 
@@ -45,8 +47,6 @@ if(${1:UniqueName} != null) {
     ${4:TargetObject} = ${1:UniqueName}.Object;
 }
 ```
-
-[More...](/docs/sleeping-forest/gameplay-systems/ugs-objectfind)
 
 #### ugs_classfind
 
@@ -58,5 +58,3 @@ if(${1:UniqueName} != null) {
     ${4:TargetSubClassOf} = ${1:UniqueName}.Class;
 }
 ```
-
-[More...](/docs/sleeping-forest/gameplay-systems/ugs-classfind)

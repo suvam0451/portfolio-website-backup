@@ -8,31 +8,32 @@ seriesIndex: 3
 draft: false
 ---
 
-Utilities for drawing lines, spheres, arrows etc. Supports
+Snippets in this namespace are used to draw lines, spheres, arrows etc.
+There is a FPS support feature that lets you get smooth debug shapes based on your target FPS.
 
-- line traces (Single/Multi)
-- sphere traces
+That feature has been integrated into single macros like uprop.
 
-Full list can be [found here](/docs/sleeping-forest/udebug-snippets-full-list)
+Full list can be [found here](/docs/sleeping-forest/snippet-lists/udebug)
+
+### Dropdowns
+
+---
+
+While calling snippets for runtime rendered shapes, you'll be asked for FPS.
+The following values are pre-calculated for **N/A,30,60,120 FPS**
+
+![options](../../../images/sleeping-forest-ue4/02/debugdropdown.png)
+
+Similarily, FPS is pre-considered for most other snippets in this namespace.
 
 ### Context bindings
 
 ---
 
-You get the option to **context fill results** of a linetrace/shapetrace. If a context specific auto-completion is performed, you get
+No contextual bindings exist for this namespace. However, some of these get called from other namespaces like you would see for the utrace namespace.
 
-- Debug points at hit location
-- A output mentioning name of actor and location of hit
-- A line trace from your actor to the hit location.
+This means, you would need to add respective headers when needed. Or you can use pack named `Debug` from the header manager.
 
-![base uprop](../../../images/DaedalusAPI/udebug/componentinit.gif)
+Thats most of it. Keep an eye on updates in changelog.
 
-The above image shows the results.
-
-### FPS management
-
----
-
-Multiple versions of same snippet is available with pre-calculated FPS values. If you are not sure, why you need that,
-You would get that to get results like folowing,
-if you use the snippet from tick with your taregt FPS.
+See you later... 🖐

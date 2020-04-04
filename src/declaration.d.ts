@@ -15,3 +15,13 @@ declare module "*.png" {
 	const value: any;
 	export = value;
 }
+
+declare module "*.sass" {
+	const styles: { [className: string]: string };
+	export = styles;
+}
+
+declare module "*.module.sass" {
+	const styles: { [className: string]: string };
+	export = styles;
+}

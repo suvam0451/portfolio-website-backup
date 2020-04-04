@@ -82,23 +82,63 @@
 				"children": [
 					{
 						"seriesIndex": 1,
-						"title": "uprop",
-						"link": "/docs/sleeping-forest/snippet-lists/uprop"
+						"title": "uai",
+						"link": "/docs/sleeping-forest/snippet-lists/uai"
 					},
 					{
 						"seriesIndex": 2,
+						"title": "uclass",
+						"link": "/docs/sleeping-forest/snippet-lists/uclass"
+					},
+					{
+						"seriesIndex": 3,
 						"title": "udebug",
 						"link": "/docs/sleeping-forest/snippet-lists/udebug"
 					},
 					{
-						"seriesIndex": 3,
+						"seriesIndex": 4,
+						"title": "uget",
+						"link": "/docs/sleeping-forest/snippet-lists/uget"
+					},
+					{
+						"seriesIndex": 5,
 						"title": "ugs",
 						"link": "/docs/sleeping-forest/snippet-lists/ugs"
 					},
 					{
-						"seriesIndex": 4,
+						"seriesIndex": 6,
 						"title": "uinit",
 						"link": "/docs/sleeping-forest/snippet-lists/uinit"
+					},
+					{
+						"seriesIndex": 7,
+						"title": "ulog",
+						"link": "/docs/sleeping-forest/snippet-lists/ulog"
+					},
+					{
+						"seriesIndex": 8,
+						"title": "umat",
+						"link": "/docs/sleeping-forest/snippet-lists/umat"
+					},
+					{
+						"seriesIndex": 9,
+						"title": "uprop",
+						"link": "/docs/sleeping-forest/snippet-lists/uprop"
+					},
+					{
+						"seriesIndex": 10,
+						"title": "utrace",
+						"link": "/docs/sleeping-forest/snippet-lists/utrace"
+					},
+					{
+						"seriesIndex": 11,
+						"title": "uwidget",
+						"link": "/docs/sleeping-forest/snippet-lists/uwidget"
+					},
+					{
+						"seriesIndex": 12,
+						"title": "ue4_suvam0451",
+						"link": "/docs/sleeping-forest/snippet-lists/ue4_suvam0451"
 					}
 				]
 			}

@@ -11,7 +11,7 @@
 			"README.md": true,
 			"LICENSE": true,
 			".gitignore": true,
-			"node_modules": true,
+			"node_modules": false,
 			".cache": true,
 			"public": true,
 			"tsconfig.json": true,

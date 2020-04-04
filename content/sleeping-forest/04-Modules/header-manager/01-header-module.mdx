@@ -1,14 +1,16 @@
 ---
 path: "/docs/sleeping-forest/header-manager/1"
 title: "List of headers"
-date: "2020-01-10"
+date: "20-Mar-2020"
 submoduleID: 2
 seriesID: 2
 seriesIndex: 2
 draft: false
 ---
 
-Following are the headers includes for each option as of **v0.8beta**.
+Following are the headers packages available as of **20-Mar-2020**
+
+**List:** AIPerception, BehaviorTree, ComputeShader, Curves, Data, Kismet, Material, Mesh, Movement, PlayerBase, PrimitiveShapes, Procedural, ShaderDirectory, Spline, Subsystems, Timer, Visualization, Widget
 
 ##### AIPerception
 
@@ -24,17 +26,74 @@ Following are the headers includes for each option as of **v0.8beta**.
 #include "Perception/AISenseConfig_Team.h"
 ```
 
-Following are the headers includes for each option as of **v0.8beta**.
-
----
-
-##### Math
+##### BehaviorTree
 
 ```cpp
+#include "BehaviorTree/BlackboardComponent.h"
+#include "BehaviorTree/BehaviorTree.h"
+#include "BehaviorTree/BehaviorTreeComponent.h"
+```
+
+##### ComputeShader
+
+```cpp
+#include "ShaderParameterUtils.h"
+#include "RHIStaticStates.h"
+#include "Shader.h"
+#include "GlobalShader.h"
+#include "RenderGraphBuilder.h"
+#include "RenderGraphUtils.h"
+#include "ShaderParameterStruct.h"
+#include "UniformBuffer.h"
+#include "RHICommandList.h"
+```
+
+##### Curves
+
+```cpp
+#include "Curves/CurveFloat.h"
+#include "Curves/CurveVector.h"
+#include "Curves/CurveLinearColor.h"
+```
+
+##### Data
+
+```cpp
+#include "Engine/DataTable.h"
+#include "Engine/DataAsset.h"
+```
+
+##### Kismet
+
+```cpp
+#include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 ```
 
----
+##### Material
+
+```cpp
+#include "Materials/MaterialInstanceDynamic.h"
+```
+
+##### Mesh
+
+```cpp
+#include "Components/StaticMeshComponent.h"
+```
+
+##### Movement
+
+```cpp
+#include "GameFramework/CharacterMovementComponent.h"
+```
+
+##### PlayerBase
+
+```cpp
+#include "GameFramework/PlayerController.h"
+#include "GameFramework/Actor.h"
+```
 
 ##### PrimitiveShapes
 
@@ -44,34 +103,40 @@ Following are the headers includes for each option as of **v0.8beta**.
 #include "Components/CapsuleComponent.h"
 ```
 
----
-
 ##### Procedural
 
 ```cpp
 #include "Components/InstancedStaticMeshComponent.h"
 ```
 
----
-
-##### Splines
+##### ShaderDirectory
 
 ```cpp
-#include "Components/SplineMeshComponent.h"
-#include "Components/SplineComponent.h"
+#include "Misc/Paths.h"
+#include "Runtime/Launch/Resources/Version.h"
+#include "ShaderCore.h"
 ```
 
----
+##### Spline
+
+```cpp
+#include "Components/SplineComponent.h"
+#include "Components/SplineMeshComponent.h"
+```
 
 ##### Subsystems
 
 ```cpp
-#include "Subsystems/WorldSubsystem.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "Subsystems/LocalPlayerSubsystem.h"
+#include "Subsystems/WorldSubsystem.h"
 ```
 
----
+##### Timer
+
+```cpp
+#include "TimerManager.h"
+```
 
 ##### Visualization
 
@@ -80,40 +145,15 @@ Following are the headers includes for each option as of **v0.8beta**.
 #include "Components/ArrowComponent.h"
 ```
 
----
-
-##### Gameplay Systems
+##### Widget
 
 ```cpp
-#include "Kismet/GameplayStatics.h"
-#include "Engine/DataTable.h"
+#include "Blueprint/UserWidget.h"
+#include "Components/TextBlock.h"
+#include "Image.h"
+#include "Components/GridPanel.h"
+#include "Blueprint/WidgetLayoutLibrary.h"
 ```
-
----
-
-##### ISMC
-
-```cpp
-#include "Components/InstancedStaticMeshComponent.h"
-```
-
----
-
-##### Data
-
-```cpp
-#include "Engine/DataTable.h"
-```
-
----
-
-##### MaterialNode
-
-```cpp
-
-```
-
-##### Material
 
 You can also extend this module with your own lists. Read more about it in the next page.
 

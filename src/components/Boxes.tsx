@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap-grid.css";
 import ue4_icon from "../../content/images/ue4-icon.png";
 import Image from "gatsby-image";
 

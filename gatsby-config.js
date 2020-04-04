@@ -108,5 +108,6 @@ module.exports = {
 				showSpinner: true,
 			},
 		},
+		`gatsby-plugin-sass`
 	],
 };

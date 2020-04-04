@@ -18,6 +18,8 @@ import {
 	Section2,
 	Section3,
 } from "./Common";
+// import "../styles/internal-use.module.scss"
+import styles from "../styles/internal-use.module.sass"
 
 const GoodbyeSection = styled.div`
 	height: 0;

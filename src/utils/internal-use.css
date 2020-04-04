@@ -13,8 +13,6 @@
 .ww-alert {
 	/* background-color: #fdf6e3; */
 	/* background-color#FFC66D */
-	background-color: #2b2b2b;
-	border-color: blue;
 	border-top: 4px;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -22,24 +20,4 @@
 	padding-right: 4px;
 	padding-top: 4px;
 	padding-bottom: 4px;
-}
-
-.ww-alert > svg {
-	color: #eac66d;
-}
-
-.ww-alert head {
-	color: black;
-}
-
-.ww-alert-head {
-	color: #eac66d;
-}
-
-.ww-alert-body {
-	color: #a9b7c6;
-}
-
-.ww-alert-core + p {
-	color: black;
 }

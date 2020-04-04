@@ -4,6 +4,8 @@ import { Card, Classes } from "@blueprintjs/core";
 import { FrontMatterProps } from "../graphql-types";
 import { SidebarDataTree } from "../SideBars/SidebarCommon";
 
+import styles from "./sidebars.module.sass";
+
 /** Main export. StatusCard displayed on left for Trailblazer API */
 function StatusCard(Props: FrontMatterProps) {
 	const RootQuery = useStaticQuery(graphql`
@@ -38,7 +40,7 @@ function StatusCard(Props: FrontMatterProps) {
 					StatusCardTitle = moduleList.label;
 					moduleList.children.forEach(child => {
 						SidebarRender.push(
-							<li>
+							<li className={styles.list}>
 								<Link to={child.link}>{child.title}</Link>
 							</li>,
 						);
@@ -51,7 +53,7 @@ function StatusCard(Props: FrontMatterProps) {
 		<Card className="border-t-4 border-orange-700 shadow-md">
 			<h5 className="mb-1">{StatusCardTitle}</h5>
 			<div className="border-orange-700 border-b-2 mb-2" />
-			<ul className="ml-8 mb-0">{SidebarRender}</ul>
+			<ol className={styles.listgroup}>{SidebarRender}</ol>
 
 			<div className="flex mt-3">
 				<button className="w-6/12 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center mr-1 -ml-1">

@@ -1,5 +1,5 @@
 [build]
-    functions = "lambda"
+    # functions = "lambda"
     Command = "gatsby build"
     publish = "public"
 

@@ -40,6 +40,12 @@ GatsbyBuild:
         - yarn gatsby build
     dependencies:
         - SleepingForest
+    artifacts:
+        paths:
+            - ./public/*
+    only:
+        variables:
+            - $CI_COMMIT_MESSAGE =~ /-(publish|preview)/
 
 # Default behavior is a dummy deploy
 NetlifyDeploy:
@@ -50,6 +56,9 @@ NetlifyDeploy:
         - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
     dependencies:
         - GatsbyBuild
+    only:
+        variables:
+            - $CI_COMMIT_MESSAGE =~ /-preview/
 
 # Deploy changes to website if -publish is passed in commit
 NetlifyPublish:

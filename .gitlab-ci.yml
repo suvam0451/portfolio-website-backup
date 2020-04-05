@@ -29,6 +29,7 @@ SleepingForest:
     artifacts:
         paths:
             - ./content/*
+        expire_in: '2 hrs'
 
 GatsbyBuild:
     image: node:latest
@@ -43,6 +44,7 @@ GatsbyBuild:
     artifacts:
         paths:
             - ./public/*
+        expire_in: '2 hrs'
     only:
         variables:
             - $CI_COMMIT_MESSAGE =~ /-(publish|preview)/
@@ -66,7 +68,7 @@ NetlifyPublish:
     stage: publish
     script:
         - npm i netlify-cli -g
-        - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
+        - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod
     dependencies:
         - GatsbyBuild
     only:

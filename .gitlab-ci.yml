@@ -26,9 +26,11 @@ SleepingForest:
         - cd sleeping-forest-ue4/devops
         - go run critstrike.go docgen sf
         - cp -v -r ./content/ ../../netlify-ci-test/
+        - cd ../../
+        - ls
     artifacts:
         paths:
-            - ./devops/*
+            - ./content/*
         expire_in: '2 hrs'
 
 GatsbyBuild:

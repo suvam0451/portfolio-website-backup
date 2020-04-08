@@ -62,7 +62,7 @@ NetlifyDeploy:
         variables:
             - $CI_COMMIT_MESSAGE =~ /-preview/
 
-# Deploy changes to website if -publish is passed in commit
+# Deploy changes to website if -publish is passed in commit.
 NetlifyPublish:
     image: node:latest
     stage: publish

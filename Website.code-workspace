@@ -11,7 +11,7 @@
 			"README.md": true,
 			"LICENSE": true,
 			".gitignore": true,
-			"node_modules": false,
+			"node_modules": true,
 			".cache": true,
 			"public": true,
 			"tsconfig.json": true,
@@ -20,7 +20,8 @@
 			"tailwind.config.js": true,
 			"tslint.json": false,
 			"lambda": true,
-			".env.**": true
+			".env.**": true,
+			".prettierrc.yaml": true
 		}
 	}
 }

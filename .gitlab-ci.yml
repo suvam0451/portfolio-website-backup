@@ -25,9 +25,7 @@ SleepingForest:
         - mkdir -p sleeping-forest-ue4/devops/intermediate
         - cd sleeping-forest-ue4/devops
         - go run critstrike.go docgen sf
-        - cp -r ./content ../../netlify-ci-test
-        - cd content/sleeping-forest/02-Snippets/02-Full-list
-        - ls
+        - cp -v -r ./content/ ../../netlify-ci-test/
     artifacts:
         paths:
             - ./devops/*

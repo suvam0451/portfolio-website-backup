@@ -30,7 +30,8 @@ SleepingForest:
         - cp -r sleeping-forest-ue4/devops/content netlify-ci-test
     artifacts:
         paths:
-            - ./content/sleeping-forest/02-Snippets/02-Full-list/*
+            - ./content/*
+            - ../sleeping-forest-ue4/*
         expire_in: '2 hrs'
 
 GatsbyBuild:

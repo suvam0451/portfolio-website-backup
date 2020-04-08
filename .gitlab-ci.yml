@@ -15,6 +15,7 @@ cache: &global_cache
 SleepingForest:
     image: golang:latest
     stage: assembly
+    cache: {} # Skip cache download
     script:
         - cd ..
         - git clone https://suvam0451:$GITLAB_AUTH_TOKEN@gitlab.com/suvam0451/sleeping-forest-ue4.git
@@ -53,6 +54,7 @@ GatsbyBuild:
 NetlifyDeploy:
     image: node:latest
     stage: publish
+    cache: {} # Skip cache download
     script:
         - npm i netlify-cli -g
         - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
@@ -66,6 +68,7 @@ NetlifyDeploy:
 NetlifyPublish:
     image: node:latest
     stage: publish
+    cache: {} # Skip cache download
     script:
         - npm i netlify-cli -g
         - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod

@@ -29,8 +29,10 @@ SleepingForest:
         - cd ../../
         - cp -r sleeping-forest-ue4/devops/content netlify-ci-test
     artifacts:
+        name: Content Folder
         paths:
             - ./content/*
+        name: SF
             - ../sleeping-forest-ue4/*
         expire_in: '2 hrs'
 

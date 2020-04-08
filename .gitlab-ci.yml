@@ -56,8 +56,8 @@ NetlifyDeploy:
     stage: publish
     cache: {} # Skip cache download
     script:
-        - npm i netlify-cli -g
-        - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
+        - yarn add netlify-cli
+        - yarn netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
     dependencies:
         - GatsbyBuild
     only:
@@ -70,8 +70,8 @@ NetlifyPublish:
     stage: publish
     cache: {} # Skip cache download
     script:
-        - npm i netlify-cli -g
-        - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod
+        - yarn add netlify-cli
+        - yarn netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod
     dependencies:
         - GatsbyBuild
     only:

@@ -22,6 +22,7 @@ import {
 require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`,
 });
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 
 const TitleText = styled.div`
 	color: #c05621;
@@ -30,7 +31,34 @@ const TitleText = styled.div`
 export default function PageTemplate(data: MdxProps) {
 	return (
 		<>
-			<Helmet>
+			<GatsbySeo
+				title="Sleeping Forest Documentation"
+				description="Sleeping forest is a VSCode extension for Unreal Engine 4 developers and asset management enthusiasts."
+				canonical="https://suvam0451.netlify.app/docs/sleeping-forest/getting-started/"
+				openGraph={{
+					description:
+						"Sleeping forest is a VSCode extension for Unreal Engine 4 developers and asset management enthusiasts.",
+					images: [
+						{
+							alt: "Sleeping Forest logo",
+							height: 600,
+							width: 800,
+							url:
+								"https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg",
+						},
+					],
+					site_name: "WinterWildfire",
+					title: "Sleeping Forest Documentation",
+					url:
+						"https://suvam0451.netlify.app/docs/sleeping-forest/getting-started/",
+				}}
+				twitter={{
+					handle: "@suvam0451",
+					site: "@suvam0451",
+					cardType: "summary_large_image",
+				}}
+			/>
+			{/* <Helmet>
 				<title>{data.data.mdx.frontmatter.seotitle}</title>
 				<meta
 					name="description"
@@ -50,7 +78,7 @@ export default function PageTemplate(data: MdxProps) {
 					name="viewport"
 					content="width=device-width, initial-scale=1"
 				/>
-			</Helmet>
+			</Helmet> */}
 			<Background>
 				<div className="mt-10 overflow-hidden">
 					<div className="fixed w-full -mt-10 z-40">

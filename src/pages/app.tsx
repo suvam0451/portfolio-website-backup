@@ -3,6 +3,7 @@ import {
 	Router as MyRouter,
 	RouteComponentProps,
 } from "@reach/router";
+import Helmet from "react-helmet";
 // import Layout from "../components/Layout"
 
 const App = () => {
@@ -57,6 +58,18 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 
 	return (
 		<div>
+			<Helmet>
+				<title>Lewding Permitted</title>
+				<meta
+					name="description"
+					content="An experimental anime image API"
+				/>
+				<meta
+					property="og:image"
+					content="https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg"
+				/>
+				<meta property="og:image:alt" content="Faulty URL" />
+			</Helmet>
 			<pre>{JSON.stringify(retval, null, 2)}</pre>
 		</div>
 	);

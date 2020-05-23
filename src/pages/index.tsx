@@ -202,6 +202,15 @@ function Index(props: IndexPageProps) {
 					name="google-site-verification"
 					content="qHPn-iP9IEBZyHkA-06dYHzGCYAtUrsg2QINFSnFuVA"
 				/>
+				<meta
+					property="twitter:image"
+					content="https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg"
+				/>
+				<meta
+					property="og:image"
+					content="https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg"
+				/>
+				<meta property="og:image:alt" content="Faulty URL" />
 			</Helmet>
 
 			{/* <Header title={"WinterWildfire"} /> */}

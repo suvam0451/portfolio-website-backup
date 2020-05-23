@@ -62,13 +62,14 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 		<div>
 			<Helmet>
 				<title>Lewding Permitted</title>
-				<meta name="og:title" content="Polyrealm lewding" />
-				<meta name="og:type" content="website" />
+				<meta property="og:title" content="Polyrealm lewding" />
+				<meta property="og:type" content="website" />
 				<meta
-					name="og:url"
+					property="og:url"
 					content="https://suvam0451.netlify.com/app/random/"
 				/>
-				<meta name="og:site_name" content="suvam0451" />
+				<meta property="og:site_name" content="suvam0451" />
+				<meta property="og:locale" content="en-US" />
 				<meta
 					name="description"
 					content="An experimental anime image API"

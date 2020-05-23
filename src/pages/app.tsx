@@ -62,8 +62,12 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 		<div>
 			<Helmet>
 				<title>Lewding Permitted</title>
+				<meta name="og:title" content="Polyrealm lewding" />
 				<meta name="og:type" content="website" />
-				<meta name="og:url" content="https://suvam0451.netlify.com" />
+				<meta
+					name="og:url"
+					content="https://suvam0451.netlify.com/app/random/"
+				/>
 				<meta name="og:site_name" content="suvam0451" />
 				<meta
 					name="description"
@@ -77,6 +81,9 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 					property="og:image"
 					content="https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg"
 				/>
+				<meta property="og:image:type" content="image/png" />
+				<meta property="og:image:width" content="400" />
+				<meta property="og:image:height" content="400" />
 				<meta property="og:image:alt" content="Faulty URL" />
 			</Helmet>
 			<img src={image}></img>
@@ -95,7 +102,7 @@ export const ListPerson: React.FC<Props> = ({ results }) => {
 	// https://dev.azure.com/suvam0451/13408b0d-5303-4e68-9b6b-048561bd3d0d/_apis/git/repositories/91e53a89-5f88-49a5-b9a7-ea53527b6017/items?path=%2Fimages.json&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true
 	useEffect(() => {
 		fetch(
-			"https://dev.azure.com/suvam0451/13408b0d-5303-4e68-9b6b-048561bd3d0d/_apis/git/repositories/91e53a89-5f88-49a5-b9a7-ea53527b6017/items?path=%2Fimages.json&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true",
+			"https://raw.githubusercontent.com/LearnWebCode/json-example/master/pet-of-the-day.json",
 			{
 				mode: "cors",
 				// headers: {

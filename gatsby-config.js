@@ -14,7 +14,7 @@ module.exports = {
 	// for avoiding CORS while developing Netlify Functions locally
 	// read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
 	// ignore: [process.env.IGNORE_POST_FOLDER],
-	developMiddleware: app => {
+	developMiddleware: (app) => {
 		app.use(
 			"/.netlify/functions/",
 			proxy({
@@ -26,6 +26,15 @@ module.exports = {
 		);
 	},
 	plugins: [
+		{
+			resolve: `gatsby-plugin-next-seo`,
+			options: {
+				openGraph: {
+					type: "website",
+					locale: "en_US",
+				},
+			},
+		},
 		`gatsby-plugin-emotion`,
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-react-helmet`,
@@ -108,6 +117,6 @@ module.exports = {
 				showSpinner: true,
 			},
 		},
-		`gatsby-plugin-sass`
+		`gatsby-plugin-sass`,
 	],
 };

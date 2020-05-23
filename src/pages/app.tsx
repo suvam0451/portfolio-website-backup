@@ -4,6 +4,7 @@ import {
 	RouteComponentProps,
 } from "@reach/router";
 import Helmet from "react-helmet";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 // import Layout from "../components/Layout"
 
 const App = () => {
@@ -60,7 +61,32 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 
 	return (
 		<div>
-			<Helmet>
+			<GatsbySeo
+				title="Polyrealm lewding"
+				description="Lewding for everyone"
+				canonical="https://suvam0451.netlify.com/"
+				openGraph={{
+					url: "https://suvam0451.netlify.com/app/random",
+					title: "Lewding",
+					description: "Lewding lewding",
+					images: [
+						{
+							url:
+								"https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg",
+							width: 800,
+							height: 600,
+							alt: "Lewds",
+						},
+					],
+					site_name: "Plrlm",
+				}}
+				twitter={{
+					handle: "@suvam0451",
+					site: "@suvam0451",
+					cardType: "summary_large_image",
+				}}
+			/>
+			{/* <Helmet>
 				<title>Lewding Permitted</title>
 				<meta property="og:title" content="Polyrealm lewding" />
 				<meta property="og:type" content="website" />
@@ -86,7 +112,7 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 				<meta property="og:image:width" content="400" />
 				<meta property="og:image:height" content="400" />
 				<meta property="og:image:alt" content="Faulty URL" />
-			</Helmet>
+			</Helmet> */}
 			<img src={image}></img>
 			<pre>{JSON.stringify(retval, null, 2)}</pre>
 		</div>

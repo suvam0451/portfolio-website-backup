@@ -33,6 +33,7 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 	const [person, setPerson] = useState();
 	const [repository, setRepo] = useState();
 	const [retval, setRetval] = useState();
+	const [image, setImage] = useState("");
 
 	useEffect(() => {
 		getData();
@@ -44,15 +45,16 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 			"https://dev.azure.com/suvam0451/13408b0d-5303-4e68-9b6b-048561bd3d0d/_apis/git/repositories/91e53a89-5f88-49a5-b9a7-ea53527b6017/items?path=%2Fimages.json&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true",
 			{
 				mode: "cors",
-				// headers: {
-				//     'Content-Type': 'text/plain'
-				// },
 			},
 		)
 			.then((x) => x.json())
 			.then((x) => {
 				setRetval(x);
-				console.log(x);
+				// console.log(x);
+				// setImage(x[1]);
+				setImage(
+					"https://gitlab.com/suvam0451/restful-reimu-cdn-a/-/raw/master/repo/waifu/reimu/imgs/001.png",
+				);
 			});
 	}
 
@@ -60,9 +62,16 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 		<div>
 			<Helmet>
 				<title>Lewding Permitted</title>
+				<meta name="og:type" content="website" />
+				<meta name="og:url" content="https://suvam0451.netlify.com" />
+				<meta name="og:site_name" content="suvam0451" />
 				<meta
 					name="description"
 					content="An experimental anime image API"
+				/>
+				<meta
+					property="twitter:image"
+					content="https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg"
 				/>
 				<meta
 					property="og:image"
@@ -70,6 +79,7 @@ export const RandomImage: React.FC<RandomImageProp> = ({
 				/>
 				<meta property="og:image:alt" content="Faulty URL" />
 			</Helmet>
+			<img src={image}></img>
 			<pre>{JSON.stringify(retval, null, 2)}</pre>
 		</div>
 	);

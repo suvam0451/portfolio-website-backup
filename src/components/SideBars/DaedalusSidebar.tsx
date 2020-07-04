@@ -1,8 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import { Icon } from "@blueprintjs/core";
-import styled from "@emotion/styled";
-import { TweenMax, Power3 } from "gsap";
 import {
 	SidebarDataTree,
 	SidebarProps,
@@ -39,9 +36,9 @@ function SideBar(Props: SidebarProps) {
 	/** Takes in the list of modules in a section. */
 	const PopulateSeries = (data: Tier1[]) => {
 		const retval: any = [];
-		data.forEach(seriesList => {
+		data.forEach((seriesList) => {
 			const CollapsibleSection: any = [];
-			seriesList.children.forEach(leafpost => {
+			seriesList.children.forEach((leafpost) => {
 				CollapsibleSection.push(
 					<div>
 						<Link to={leafpost.link} className="ml-3">
@@ -64,7 +61,7 @@ function SideBar(Props: SidebarProps) {
 	/** Called for every module */
 	const PopulateSidebar = () => {
 		const retval: any = [];
-		queryData.nodes.forEach(node => {
+		queryData.nodes.forEach((node) => {
 			const ModuleRender: any = PopulateSeries(node.modules);
 			// Checing if submoduleID is a match
 			const CollapseSwitch: boolean =

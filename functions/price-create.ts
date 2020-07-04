@@ -3,8 +3,8 @@ const faunadb = require("faunadb");
 
 const q = faunadb.query;
 const client = new faunadb.Client({
-	// secret: process.env.FAUNADB_SERVER_SECRET
-	API_CLIENT_SECRET: "fnADb5ABiOACAtWG18IhHbeZdgekEkYY3euhHLVW",
+	secret: process.env.FAUNADB_SERVER_SECRET,
+	// API_CLIENT_SECRET: "fnADb5ABiOACAtWG18IhHbeZdgekEkYY3euhHLVW",
 });
 
 /* export our lambda function as named "handler" export */
@@ -17,13 +17,13 @@ exports.handler = async (event, context, callback) => {
 	/* construct the fauna query - FaunaDB - response handle/catch error */
 	return client
 		.query(q.Create(q.Ref("classes/prices"), todoItem))
-		.then(response => {
+		.then((response) => {
 			return callback(null, {
 				statusCode: 200,
 				body: JSON.stringify(response),
 			});
 		})
-		.catch(error => {
+		.catch((error) => {
 			return callback(null, {
 				statusCode: 400,
 				body: JSON.stringify(error),

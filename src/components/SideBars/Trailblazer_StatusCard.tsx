@@ -1,13 +1,21 @@
 import { Link, useStaticQuery, graphql } from "gatsby";
 import React, { Component } from "react";
 import { Card, Classes } from "@blueprintjs/core";
-import { FrontMatterProps } from "../graphql-types";
+// import { FrontMatterProps } from "../graphql-types";
 import { SidebarDataTree } from "../SideBars/SidebarCommon";
 
 import styles from "./sidebars.module.sass";
 
+interface IFrontMatterProps {
+	FrontMatter: {
+		submoduleID: number;
+		seriesID: number;
+		description: string;
+	};
+}
+
 /** Main export. StatusCard displayed on left for Trailblazer API */
-function StatusCard(Props: FrontMatterProps) {
+function StatusCard(Props: IFrontMatterProps) {
 	const RootQuery = useStaticQuery(graphql`
 		query Trailblazer_StatusCardQuery {
 			allDaedalusApiJson {
@@ -33,14 +41,14 @@ function StatusCard(Props: FrontMatterProps) {
 		RootQuery.allDaedalusApiJson;
 	const SidebarRender: any = [];
 	let StatusCardTitle: string = "";
-	allUe4TutsMapJson.nodes.forEach(edge => {
+	allUe4TutsMapJson.nodes.forEach((edge) => {
 		if (edge.submoduleID === Props.FrontMatter.submoduleID) {
-			edge.modules.forEach(moduleList => {
+			edge.modules.forEach((moduleList) => {
 				if (moduleList.seriesID === Props.FrontMatter.seriesID) {
 					StatusCardTitle = moduleList.label;
-					moduleList.children.forEach(child => {
+					moduleList.children.forEach((child) => {
 						SidebarRender.push(
-							<li className={styles.list}>
+							<li>
 								<Link to={child.link}>{child.title}</Link>
 							</li>,
 						);
@@ -50,10 +58,11 @@ function StatusCard(Props: FrontMatterProps) {
 		}
 	});
 	return (
-		<Card className="border-t-4 border-orange-700 shadow-md">
-			<h5 className="mb-1">{StatusCardTitle}</h5>
+		// <Card className="border-t-4 border-orange-700 shadow-md">
+		<div className="section_statuscard">
+			<h5 className="title_statuscard">{StatusCardTitle}</h5>
 			<div className="border-orange-700 border-b-2 mb-2" />
-			<ol className={styles.listgroup}>{SidebarRender}</ol>
+			<ol className="statuscard_list">{SidebarRender}</ol>
 
 			<div className="flex mt-3">
 				<button className="w-6/12 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center mr-1 -ml-1">
@@ -71,7 +80,8 @@ function StatusCard(Props: FrontMatterProps) {
 					<span>Reference</span>
 				</button>
 			</div>
-		</Card>
+		</div>
+		// </Card>
 	);
 }
 

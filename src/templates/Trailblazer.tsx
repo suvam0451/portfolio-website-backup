@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -7,16 +7,12 @@ import { NavSection } from "../components/NavBar";
 import styled from "@emotion/styled";
 import { SideBar } from "../components/SideBars/DaedalusSidebar";
 import { Helmet } from "react-helmet";
-import { Button } from "@blueprintjs/core";
+import { Button, Switch } from "@blueprintjs/core";
 import { StatusCard } from "../components/SideBars/Trailblazer_StatusCard";
 import {
-	Section1,
 	Section2,
-	Section3,
-	ReadContainer,
 	DesktopSidebars,
 	MdxProps,
-	ReadArea,
 	Background,
 } from "./Common";
 require("dotenv").config({
@@ -24,11 +20,66 @@ require("dotenv").config({
 });
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 
+import "../styles/gatsby-custom.scss";
+import "../styles/fonts.scss";
+import "../styles/display.scss";
+import "../styles/globaloverride.scss";
+
 const TitleText = styled.div`
 	color: #c05621;
 `;
 
-export default function PageTemplate(data: MdxProps) {
+interface IGatsbyPageProps {
+	data: {
+		mdx: {
+			id: number;
+			body: any;
+			frontmatter: {
+				path: string;
+				title: string;
+				description: string;
+				seotitle: string;
+				moduleID: number;
+				submoduleID: number;
+				seriesID: number;
+				seriesIndex: number;
+			};
+		};
+	};
+	location: {
+		state: {
+			isDarkMode: boolean | undefined;
+		};
+	};
+}
+export default function PageTemplate(data: IGatsbyPageProps) {
+	const [IsDarkMode, setIsDarkMode] = useState(true);
+	const [LightModeCSS, setLightModeCSS] = useState("root--dark");
+	const [MountState, setMountState] = useState(true); //  To run effect only once
+
+	// Rendered once...
+	useEffect(() => {
+		if (data.location.state != null && MountState) {
+			setLightModeCSS("root--dark");
+			setIsDarkMode(true);
+		} else {
+			if (IsDarkMode) {
+				setLightModeCSS("root--dark");
+				setIsDarkMode(true);
+			} else {
+				setLightModeCSS("root--light");
+				setIsDarkMode(false);
+			}
+		}
+		console.log(IsDarkMode);
+		return () => {};
+	}, [IsDarkMode]);
+
+	function switchDarkMode() {
+		console.log("Initially", IsDarkMode);
+		setIsDarkMode(!IsDarkMode);
+		console.log("Finally", IsDarkMode);
+	}
 	return (
 		<>
 			<GatsbySeo
@@ -58,55 +109,40 @@ export default function PageTemplate(data: MdxProps) {
 					cardType: "summary_large_image",
 				}}
 			/>
-			{/* <Helmet>
-				<title>{data.data.mdx.frontmatter.seotitle}</title>
-				<meta
-					name="description"
-					content={data.data.mdx.frontmatter.description}
-				/>
-				<meta
-					name="og:title"
-					property="og:title"
-					content={data.data.mdx.frontmatter.seotitle}
-				/>
-				<meta
-					name="twitter:card"
-					content={data.data.mdx.frontmatter.description}
-				/>
-				<link rel="canonical" href={data.data.mdx.frontmatter.path} />
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1"
-				/>
-			</Helmet> */}
-			<Background>
+			<div className={LightModeCSS}>
 				<div className="mt-10 overflow-hidden">
 					<div className="fixed w-full -mt-10 z-40">
 						<NavSection />
 					</div>
-					<DesktopSidebars>
-						<Section1 className="shadow-2xl">
+					<div className="container_mdtemplate">
+						<div className="sidebar_left">
 							<SideBar FrontMatter={data.data.mdx.frontmatter} />
+							<Link to="/" state={{ isDarkMode: IsDarkMode }}>
+								Tunuk Tunuk
+							</Link>
+							<Switch
+								checked={IsDarkMode}
+								onChange={() => {
+									switchDarkMode();
+								}}
+								label="Toggle darkmode"
+							/>
 							<StatusCard FrontMatter={data.data.mdx.frontmatter} />
-						</Section1>
-						<Section2 className="">
-							<ReadContainer className="shadow-md bg-red-500">
-								<div className="py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain">
-									<ReadArea className="">
-										<h4 className="text-gray-800 mb-4 mt-3">
-											<TitleText>
-												{data.data.mdx.frontmatter.title}
-											</TitleText>
-										</h4>
-										<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
-										<Footer />
-									</ReadArea>
+						</div>
+						<div className="layout_mainpage">
+							<div className="py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain">
+								<div className="reading_area">
+									<p className="markdown_title">
+										{data.data.mdx.frontmatter.title}
+									</p>
+									<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
+									<Footer />
 								</div>
-							</ReadContainer>
-						</Section2>
-						<Section3>
-							<div className="bg-gray-500 rounded-t-lg">
-								<div className="bg-gray-500 p-4">
+							</div>
+						</div>
+						<div className="sidebar_right">
+							<div>
+								<div className="related_contents">
 									<h4>Related Contents</h4>
 									<p>
 										User created content used in WW APIs completely
@@ -117,10 +153,10 @@ export default function PageTemplate(data: MdxProps) {
 								</div>
 								<QuickLinks />
 							</div>
-						</Section3>
-					</DesktopSidebars>
+						</div>
+					</div>
 				</div>
-			</Background>
+			</div>
 		</>
 	);
 }

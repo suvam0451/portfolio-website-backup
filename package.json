@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "gatsby build",
-		"develop": "gatsby develop",
+		"start": "gatsby develop",
 		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
 		"serve:lambda": "netlify-lambda serve functions",
 		"build:tailwind": "tailwind build src/utils/style.css"

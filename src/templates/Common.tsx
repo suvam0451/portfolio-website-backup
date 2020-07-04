@@ -1,4 +1,3 @@
-
 import styled from "@emotion/styled";
 
 //#region Section definitions
@@ -15,70 +14,12 @@ const Section1 = styled.div`
 	}
 `;
 
-const Section2 = styled.div`
-	position: relative;
-	width: 60%;
-	z-index: 0;
-	left: 16%;
-	overflow-x: hidden;
-	@media (max-width: 1080px) {
-		position: relative;
-		width: 100%;
-		display: block;
-		margin-top: 1rem;
-		left: 0%;
-	}
-`;
-
-const Section3 = styled.div`
-	position: fixed;
-	width: 24%;
-	z-index: 30;
-	left: 76%;
-	margin-left: 1rem;
-	padding-right: 1rem;
-	@media (max-width: 1080px) {
-		position: relative;
-		width: 100%;
-		display: block;
-		margin-top: 1rem;
-		margin-left: 0rem;
-		margin-right: 0rem;
-		padding-right: 0rem;
-		left: 0%;
-	}
-`;
-//#endregion
+const Section2 = styled.div``;
 
 /** Style definitions for the component page */
 const PageStyle = styled("div")`
 	max-width: 1920px;
 	margin: 0 auto;
-`;
-
-// Container in which our blog posts lie
-// Chocolate : #ECCFA2
-const ReadContainer = styled("div")`
-	/* height: 92vh; */
-	padding-left: 0rem;
-	padding-right: 0rem;
-	margin-bottom: 0rem;
-	/* width: 58.333333%; */
-	margin-left: 1rem;
-	z-index: 10;
-	background-color: #ffdead;
-	border-width: 1px;
-	border-radius: 0.5rem;
-	/* overflow: auto; */
-	object-fit: contain;
-	@media (max-width: 1200px) {
-		/* height: auto; */
-		padding-left: 0rem;
-		padding-right: 0rem;
-		margin-bottom: 1rem;
-		width: 100%;
-		margin-left: 0rem;
-	}
 `;
 
 const DesktopSidebars = styled.div`
@@ -89,18 +30,9 @@ const DesktopSidebars = styled.div`
 	}
 `;
 
-const ReadArea = styled.div`
-	padding-left: 1rem;
-	padding-right: 1rem;
-	@media (max-width: 1080px) {
-		padding-left: 0.25rem;
-		padding-right: 0.25rem;
-	}
-`;
-
 const Background = styled.div`
-	background-color: #222222
-`
+	background-color: #222222;
+`;
 interface MdxProps {
 	data: {
 		mdx: {
@@ -120,14 +52,4 @@ interface MdxProps {
 	};
 }
 
-export {
-	Section1,
-	Section2,
-	Section3,
-	PageStyle,
-	ReadContainer,
-	DesktopSidebars,
-	MdxProps,
-	ReadArea,
-	Background
-};
+export { Section2, PageStyle, DesktopSidebars, MdxProps, Background };

@@ -88,8 +88,8 @@ function Footer() {
 function QuickLinks() {
 	return (
 		<>
-			<Card>
-				<div className="bg-gray-500 p-4 border-2 border-gray-600 rounded-lg">
+			<div className="communitylink_section">
+				<Card>
 					<h4>Community</h4>
 					<div className="rounded-sm">
 						<img
@@ -113,8 +113,8 @@ function QuickLinks() {
 							className="h-8 w-8 inline ml-2"
 						/>
 					</div>
-				</div>
-			</Card>
+				</Card>
+			</div>
 		</>
 	);
 }

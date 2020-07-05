@@ -11,7 +11,13 @@ div.root--dark {
 	* ul,
 	li,
 	ol {
-		line-height: 0.4rem !important;
+		line-height: 1.35rem !important;
+	}
+	li {
+		margin-bottom: 0.5rem;
+		&:last-child() {
+			margin-bottom: 1rem;
+		}
 	}
 
 	h3,
@@ -35,6 +41,11 @@ div.root--dark {
 	> code.language-text {
 		background: #b5cea8 !important;
 		color: yellow;
+	}
+
+	* blockquote {
+		color: #b18834;
+		line-height: 1.45rem;
 	}
 }
 

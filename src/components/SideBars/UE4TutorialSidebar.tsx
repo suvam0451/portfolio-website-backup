@@ -17,15 +17,10 @@ interface BranchComponentProps {
 	readonly IsCollapsed: boolean;
 }
 
-// interface CollapsibleModule {
-// 	readonly collapsible: any;
-// 	readonly label: string;
-// }
-
 export function BranchComponent(Props: BranchComponentProps) {
 	const [Collapsed, setCollapsed] = useState(Props.IsCollapsed);
 	const CollapsibleDiv = styled("div")`
-		display: ${props => (Collapsed ? `none` : "block")};
+		display: ${(props) => (Collapsed ? `none` : "block")};
 	`;
 
 	function ToggleCollapse() {
@@ -88,9 +83,9 @@ function SideBar(Props: SidebarProps) {
 
 	const PopulateSeries = (Props: Tier1[]) => {
 		const retval: any = [];
-		Props.forEach(seriesList => {
+		Props.forEach((seriesList) => {
 			const CollapsibleSection: any = [];
-			seriesList.children.forEach(leafpost => {
+			seriesList.children.forEach((leafpost) => {
 				CollapsibleSection.push(
 					<div>
 						<Link to={leafpost.link} className="ml-3">
@@ -112,7 +107,7 @@ function SideBar(Props: SidebarProps) {
 	};
 	const PopulateSubmodule = () => {
 		const retval: any = [];
-		allUe4TutsMapJson.nodes.forEach(node => {
+		allUe4TutsMapJson.nodes.forEach((node) => {
 			const ModuleRender: any = PopulateSeries(node.modules);
 			// Checing if submoduleID is a match
 			const CollapseSwitch: boolean =

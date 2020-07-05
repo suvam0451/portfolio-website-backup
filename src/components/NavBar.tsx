@@ -15,6 +15,7 @@ import {
 	NavbarGroup,
 	Classes,
 } from "@blueprintjs/core";
+import { IGatsbyLocationProps } from "../templates/Common";
 import Image from "gatsby-image";
 import Hamburger from "../../content/images/hamburger-menu.png";
 import styled from "@emotion/styled";
@@ -46,7 +47,7 @@ function NavSection() {
 
 	// switched css
 	const CollapsibleDiv = styled("div")`
-		display: ${props => (Collapsed ? `none` : "block")};
+		display: ${(props) => (Collapsed ? `none` : "block")};
 	`;
 
 	function MobileMenuToggle() {

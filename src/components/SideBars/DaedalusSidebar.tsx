@@ -7,9 +7,13 @@ import {
 	CollapsibleModule,
 } from "./SidebarCommon";
 import { BranchComponent } from "./UE4TutorialSidebar";
+import { elementIsOrContains } from "@blueprintjs/core/lib/esm/common/utils";
+import _ from "lodash";
 
 /** Main export */
 function SideBar(Props: SidebarProps) {
+	// Variables
+	let _submoduleID = Props.FrontMatter.submoduleID;
 	const RootQuery = useStaticQuery(graphql`
 		query DaedalusSidebarQuery {
 			allDaedalusApiJson {
@@ -63,11 +67,14 @@ function SideBar(Props: SidebarProps) {
 		const retval: any = [];
 		queryData.nodes.forEach((node) => {
 			const ModuleRender: any = PopulateSeries(node.modules);
-			// Checing if submoduleID is a match
-			const CollapseSwitch: boolean =
-				node.submoduleID === Props.FrontMatter.submoduleID
-					? false // false
-					: true; // true
+			let idx = _.findIndex(
+				Props.GatsbyState?.submoduleList,
+				_submoduleID,
+			);
+			let CollapseSwitch: boolean = true;
+			if (node.submoduleID === _submoduleID || idx != -1) {
+				CollapseSwitch = false;
+			}
 			// This should push one entire section...
 			retval.push(
 				<BranchComponent

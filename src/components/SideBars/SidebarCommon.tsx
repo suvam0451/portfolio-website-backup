@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
+import { IGatsbyLocationProps } from "../../templates/Common";
 
 //#region Common Interfaces
 export interface SidebarDataTree {
@@ -33,6 +34,7 @@ export interface FrontMatterStruct {
 
 export interface SidebarProps {
 	FrontMatter: FrontMatterStruct;
+	GatsbyState?: IGatsbyLocationProps;
 }
 
 export interface FrontMatterStruct {
@@ -59,7 +61,7 @@ export function CollapsibleModule(Props: CollapsibleModule) {
 		Props.InitiallyCollapsed,
 	);
 	const CollapsibleDiv = styled("div")`
-		display: ${props => (Collapsed ? `none` : "block")};
+		display: ${(props) => (Collapsed ? `none` : "block")};
 	`;
 	const [IconSection, setIconSection] = useState(
 		"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
@@ -89,7 +91,7 @@ export function CollapsibleModule(Props: CollapsibleModule) {
 	return (
 		<>
 			<div
-				ref={el => {
+				ref={(el) => {
 					logoItem = el;
 				}}
 				className="flex hover:bg-teal-200 mt-1 ml-1 rounded-sm select-none"

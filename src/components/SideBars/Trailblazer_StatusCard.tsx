@@ -75,7 +75,7 @@ function StatusCard(Props: IFrontMatterProps) {
 					</svg>
 					<span>Download</span>
 				</button>
-				<button className="w-6/12 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center ml-1 -mr-1">
+				<button className="w-6/12 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center">
 					<span className="bp3-icon-large bp3-icon-git-repo content-center mr-2 mt-1" />
 					<span>Reference</span>
 				</button>

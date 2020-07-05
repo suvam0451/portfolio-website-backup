@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -9,17 +9,9 @@ import { Button } from "@blueprintjs/core";
 import { NavSection } from "../components/NavBar";
 import styled from "@emotion/styled";
 import { SideBar } from "../components/SideBars/UE4TutorialSidebar";
-import {
-	DesktopSidebars,
-	MdxProps,
-	PageStyle,
-	ReadContainer,
-	Section1,
-	Section2,
-	Section3,
-} from "./Common";
+import { DesktopSidebars, MdxProps } from "./Common";
 // import "../styles/internal-use.module.scss"
-import styles from "../styles/internal-use.module.sass"
+import styles from "../styles/internal-use.module.sass";
 
 const GoodbyeSection = styled.div`
 	height: 0;
@@ -33,6 +25,10 @@ const TitleText = styled.div`
 `;
 
 export default function PageTemplate(data: MdxProps) {
+	const [IsDarkMode, setIsDarkMode] = useState(true);
+	const [LightModeCSS, setLightModeCSS] = useState("root--dark");
+	const [MountState, setMountState] = useState(true); //  To run effect only once
+
 	return (
 		<>
 			<Helmet>

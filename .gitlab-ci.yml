@@ -6,52 +6,26 @@ stages:
   - test
   - publish
 
+# cache: {} # Skip cache download
 cache: &global_cache
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
   policy: pull-push
 
-# SleepingForest:
-#   image: golang:latest
-#   stage: assembly
-#   cache: {} # Skip cache download
-#   script:
-#     - cd ..
-#     - git clone https://suvam0451:$GITLAB_AUTH_TOKEN@gitlab.com/suvam0451/sleeping-forest-ue4.git
-#     - cp -r sleeping-forest-ue4/snippets sleeping-forest-ue4/devops
-#     # now we are outside  both projects
-#     # - mkdir -p sleeping-forest-ue4/devops/content/sleeping-forest/02-Snippets/02-Full-list
-#     # - mkdir -p sleeping-forest-ue4/devops/intermediate
-#     - cd sleeping-forest-ue4/devops
-#     - go run critstrike.go docgen sf
-#     - cp -r ./content ../../website-ts-main
-#   artifacts:
-#     paths:
-#       - ./content/*
-#     expire_in: "2 hrs"
-
 GatsbyBuild:
-  image: node:latest
   stage: build
   cache:
     <<: *global_cache
   script:
-    - yarn install --silent
-    - yarn gatsby build
-  artifacts:
-    paths:
-      - ./public/*
-    expire_in: "2 hrs"
+    - yarn install --silent && yarn gatsby build
   only:
     variables:
       - $CI_COMMIT_MESSAGE =~ /-(publish|preview)/
 
 # Default behavior is a dummy deploy
 NetlifyDeploy:
-  image: node:latest
   stage: publish
-  cache: {} # Skip cache download
   script:
     - yarn add netlify-cli
     - yarn netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
@@ -60,9 +34,7 @@ NetlifyDeploy:
 
 # Deploy changes to website if -publish is passed in commit
 NetlifyPublish:
-  image: node:latest
   stage: publish
-  cache: {} # Skip cache download
   script:
     - yarn add netlify-cli
     - yarn netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod

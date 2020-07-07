@@ -6,10 +6,11 @@ require("dotenv").config({
 
 module.exports = {
 	siteMetadata: {
-		title: `Gatsby Default Starter`,
+		title: `Debashish Patra's Apps`,
 		description: `Hey, I am Debashish Patra. I develops FOSS packages in Go and Typescript. DevOps | Gamedev | Webdev.`,
-		author: `@suvam0451`,
+		author: `Debashish Patra`,
 		siteUrl: `https://suvam0451.netlify.app/`,
+		twitterusername: "@suvam0451",
 	},
 	// for avoiding CORS while developing Netlify Functions locally
 	// read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying

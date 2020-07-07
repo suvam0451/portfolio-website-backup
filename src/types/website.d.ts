@@ -35,3 +35,11 @@ export interface SidebarProps {
 	};
 	GatsbyState?: IGatsbyLocationProps;
 }
+
+export interface SiteMetadata {
+	title: string;
+	description: string;
+	author: string;
+	siteUrl: string;
+	twitterusername: string;
+}

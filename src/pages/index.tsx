@@ -137,10 +137,7 @@ function Index(props: IndexPageProps) {
 		// .then(response => setTextInput(response.data))
 	}
 
-	function renderCurrentBreadcrumb({
-		text,
-		...restProps
-	}: IBreadcrumbProps) {
+	function renderCurrentBreadcrumb({ text, ...restProps }: IBreadcrumbProps) {
 		// customize rendering of last breadcrumb
 		return (
 			<Breadcrumb {...restProps}>
@@ -171,14 +168,10 @@ function Index(props: IndexPageProps) {
 
 		priceAPI.readAll().then((response: any) => {
 			setPriceData(response);
-			const updatedPrices = PriceData.map(
-				(price: GW2TP, i: number) => {
-					const id = priceAPI.getTodoId(price);
-					alert(
-						"sell " + price.data.id + " at " + price.data.sell_at,
-					);
-				},
-			);
+			const updatedPrices = PriceData.map((price: GW2TP, i: number) => {
+				const id = priceAPI.getTodoId(price);
+				alert("sell " + price.data.id + " at " + price.data.sell_at);
+			});
 		});
 	}
 
@@ -186,21 +179,16 @@ function Index(props: IndexPageProps) {
 		<div>
 			<Helmet>
 				<meta charSet="utf-8" />
-				<title>
-					WinterWildfire - Advanced gamedev tutorials and toolkits
-				</title>
+				<title>WinterWildfire - Advanced gamedev tutorials and toolkits</title>
 				<meta
 					name="description"
 					content="Learn Unreal Engine 4 programming with free tutorials and sample projects."
 				/>
 				<meta name="robots" content="index, follow" />
-				<link
-					rel="canonical"
-					href="https://winterwildfire.netlify.com"
-				/>
+				<link rel="canonical" href="https://winterwildfire.netlify.com" />
 				<meta
 					name="google-site-verification"
-					content="qHPn-iP9IEBZyHkA-06dYHzGCYAtUrsg2QINFSnFuVA"
+					content="oOCPWegkw3aSJ8v66-Y6-zh7EdyF5Ke6z3jIdGd3eik"
 				/>
 				<meta
 					property="twitter:image"
@@ -285,11 +273,7 @@ function Index(props: IndexPageProps) {
 								Suggestion
 							</NavLink>
 						</NavItem>
-						<Dropdown
-							nav
-							isOpen={MenuDropdownState}
-							toggle={ToggleMainMenuDrop}
-						>
+						<Dropdown nav isOpen={MenuDropdownState} toggle={ToggleMainMenuDrop}>
 							<DropdownToggle nav caret>
 								Resources
 							</DropdownToggle>
@@ -307,8 +291,8 @@ function Index(props: IndexPageProps) {
 						<Jumbotron>
 							<h1 className="display-5">Welcome to WinterWildfire</h1>
 							<p>
-								<b>App</b>(C++/VBA) | <b>Game</b>(UE4/CryEngine) |{" "}
-								<b>Web</b>(React) | <b>DevOps</b>
+								<b>App</b>(C++/VBA) | <b>Game</b>(UE4/CryEngine) | <b>Web</b>(React) |{" "}
+								<b>DevOps</b>
 							</p>
 							<hr className="my-2" />
 							<p className="lead">
@@ -316,11 +300,7 @@ function Index(props: IndexPageProps) {
 							</p>
 							{
 								<p className="lead">
-									<Button
-										icon="refresh"
-										color="dark"
-										href="https://gitlab.com/suvam0451"
-									>
+									<Button icon="refresh" color="dark" href="https://gitlab.com/suvam0451">
 										GitLab
 									</Button>
 									<Button
@@ -360,19 +340,11 @@ function Index(props: IndexPageProps) {
 							</label>
 							<label>
 								Buying at
-								<input
-									type="number"
-									name="buy_at"
-									value={currentBuyAt}
-								/>
+								<input type="number" name="buy_at" value={currentBuyAt} />
 							</label>
 							<label>
 								Selling at
-								<input
-									type="number"
-									name="sell_at"
-									value={currentSellAt}
-								/>
+								<input type="number" name="sell_at" value={currentSellAt} />
 							</label>
 							<button type="submit">Submit</button>
 						</form>

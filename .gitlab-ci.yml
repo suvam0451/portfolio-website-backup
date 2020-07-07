@@ -1,10 +1,7 @@
 image: node:latest
 
 stages:
-  - assembly
   - build
-  - test
-  - publish
 
 # cache: {} # Skip cache download
 cache: &global_cache
@@ -25,7 +22,7 @@ GatsbyBuild:
 
 # Deploy changes to website if -publish is passed in commi
 NetlifyPublish:
-  stage: publish
+  stage: build
   cache:
     <<: *global_cache
   script:

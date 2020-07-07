@@ -1,10 +1,6 @@
 import { Link, useStaticQuery, graphql } from "gatsby";
-import React, { Component } from "react";
-import { Card, Classes } from "@blueprintjs/core";
-// import { FrontMatterProps } from "../graphql-types";
-import { SidebarDataTree } from "../SideBars/SidebarCommon";
-
-import styles from "./sidebars.module.sass";
+import React, { useEffect, useState } from "react";
+import { SidebarDataTree } from "../../types/website";
 
 interface IFrontMatterProps {
 	FrontMatter: {
@@ -14,9 +10,15 @@ interface IFrontMatterProps {
 	};
 }
 
+type QStatusCard = {
+	allDaedalusApiJson: SidebarDataTree;
+};
 /** Main export. StatusCard displayed on left for Trailblazer API */
 function StatusCard(Props: IFrontMatterProps) {
-	const RootQuery = useStaticQuery(graphql`
+	const [StatusContent, setStatusContent] = useState<JSX.Element[]>([]);
+	const [CardTitle, setCardTitle] = useState<string>("");
+
+	const RootQuery: QStatusCard = useStaticQuery(graphql`
 		query Trailblazer_StatusCardQuery {
 			allDaedalusApiJson {
 				nodes {
@@ -37,32 +39,37 @@ function StatusCard(Props: IFrontMatterProps) {
 			}
 		}
 	`);
-	const allUe4TutsMapJson: SidebarDataTree =
-		RootQuery.allDaedalusApiJson;
-	const SidebarRender: any = [];
-	let StatusCardTitle: string = "";
-	allUe4TutsMapJson.nodes.forEach((edge) => {
-		if (edge.submoduleID === Props.FrontMatter.submoduleID) {
-			edge.modules.forEach((moduleList) => {
-				if (moduleList.seriesID === Props.FrontMatter.seriesID) {
-					StatusCardTitle = moduleList.label;
-					moduleList.children.forEach((child) => {
-						SidebarRender.push(
-							<li>
-								<Link to={child.link}>{child.title}</Link>
-							</li>,
-						);
-					});
-				}
-			});
-		}
-	});
+
+	useEffect(() => {
+		const { nodes } = RootQuery.allDaedalusApiJson;
+		const SidebarRender: JSX.Element[] = [];
+
+		nodes.forEach((edge) => {
+			if (edge.submoduleID === Props.FrontMatter.submoduleID) {
+				edge.modules.forEach((moduleList) => {
+					if (moduleList.seriesID === Props.FrontMatter.seriesID) {
+						setCardTitle(moduleList.label);
+						moduleList.children.forEach((child) => {
+							SidebarRender.push(
+								<li>
+									<Link to={child.link}>{child.title}</Link>
+								</li>,
+							);
+						});
+					}
+				});
+			}
+		});
+
+		setStatusContent(SidebarRender);
+		return () => {};
+	}, []);
 	return (
 		// <Card className="border-t-4 border-orange-700 shadow-md">
 		<div className="section_statuscard">
-			<h5 className="title_statuscard">{StatusCardTitle}</h5>
+			<h5 className="title_statuscard">{CardTitle}</h5>
 			<div className="border-orange-700 border-b-2 mb-2" />
-			<ol className="statuscard_list">{SidebarRender}</ol>
+			<ol className="statuscard_list">{StatusContent}</ol>
 
 			<div className="flex mt-3">
 				<button className="w-6/12 bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold px-2 py-1 rounded inline-flex items-center mr-1 -ml-1">
@@ -81,7 +88,6 @@ function StatusCard(Props: IFrontMatterProps) {
 				</button>
 			</div>
 		</div>
-		// </Card>
 	);
 }
 

@@ -15,7 +15,7 @@ interface CollapsibleModule {
 export function CollapsibleModule(props: CollapsibleModule) {
 	const [Collapsed, setCollapsed] = useState(props.isCollapsed);
 	const CollapsibleDiv = styled("div")`
-		display: ${(props) => (Collapsed ? `none` : "block")};
+		display: ${Collapsed ? `none` : "block"};
 	`;
 	const [IconSection, setIconSection] = useState(
 		"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
@@ -28,15 +28,8 @@ export function CollapsibleModule(props: CollapsibleModule) {
 	});
 
 	function ToggleCollapse() {
-		if (Collapsed === true) {
-			setIconSection(
-				"bp3-icon-standard bp3-icon-chevron-down bp3-intent-success content-center mt-1",
-			);
-		} else {
-			setIconSection(
-				"bp3-icon-standard bp3-icon-chevron-right bp3-intent-success content-center mt-1",
-			);
-		}
+		let str = Collapsed === true ? "bp3-icon-chevron-down" : "bp3-icon-chevron-right";
+		setIconSection(`bp3-icon-standard ${str} bp3-intent-success content-center mt-1`);
 		setCollapsed(!Collapsed);
 	}
 

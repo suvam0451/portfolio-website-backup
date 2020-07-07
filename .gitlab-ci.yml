@@ -20,31 +20,19 @@ GatsbyBuild:
   script:
     - yarn install --silent
     - yarn gatsby build
-  artifacts:
-    paths:
-      - ./public/*
-      - ./lambda/*
-  only:
-    variables:
-      - $CI_COMMIT_MESSAGE =~ /-(publish|preview)/
-
-# Default behavior is a dummy deploy
-NetlifyDeploy:
-  stage: publish
-  script:
-    - yarn add netlify-cli
+    - yarn global add netlify-cli
     - yarn netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
-  dependencies:
-    - GatsbyBuild
 
 # Deploy changes to website if -publish is passed in commit
 NetlifyPublish:
   stage: publish
+  cache:
+    <<: *global_cache
   script:
-    - yarn add netlify-cli
+    - yarn install --silent
+    - yarn gatsby build
+    - yarn global add netlify-cli
     - yarn netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod
-  dependencies:
-    - GatsbyBuild
   only:
     variables:
       - $CI_COMMIT_MESSAGE =~ /-publish/

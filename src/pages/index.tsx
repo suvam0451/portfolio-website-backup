@@ -182,12 +182,7 @@ function Index(props: IndexPageProps) {
 					site: "@suvam0451",
 					cardType: "summary_large_image",
 				}}
-				metaTags={[
-					{
-						property: "google-site-verification",
-						content: "oOCPWegkw3aSJ8v66-Y6-zh7EdyF5Ke6z3jIdGd3eik",
-					},
-				]}
+				metaTags={[]}
 				canonical="https://suvam0451.netlify.app"
 				title="WinterWildfire - Advanced gamedev tutorials and toolkits"
 				description="Learn Unreal Engine 4 programming with free tutorials and sample projects."

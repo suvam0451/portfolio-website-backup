@@ -15,7 +15,7 @@ import "prismjs/components/prism-c.js";
 import "prismjs/components/prism-cpp.js";
 import "prismjs/components/prism-git.js";
 import "prismjs/components/prism-batch.js";
-import "./src/styles/containers.scss";
+import "./src/styles/_export.scss";
 import "./src/utils/internal-use.css";
 
 import React from "react";

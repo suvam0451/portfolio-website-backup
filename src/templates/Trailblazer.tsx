@@ -5,18 +5,12 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Footer, Alert, QuickLinks } from "../components/Decorations";
 import { NavSection } from "../components/NavBar";
 import { SideBar } from "../components/SideBars/DaedalusSidebar";
-import { Helmet } from "react-helmet";
 import { Button, Switch } from "@blueprintjs/core";
 import { StatusCard } from "../components/SideBars/Trailblazer_StatusCard";
 import { GatsbyLink } from "./Common";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { IGatsbyLocationProps } from "../templates/Common";
 import { SidebarContext } from "./Contexts";
-
-import "../styles/gatsby-custom.scss";
-import "../styles/fonts.scss";
-import "../styles/display.scss";
-import "../styles/globaloverride.scss";
 
 interface IGatsbyPageProps {
 	data: {

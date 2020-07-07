@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-	Router as MyRouter,
-	RouteComponentProps,
-} from "@reach/router";
-import Helmet from "react-helmet";
+import { Router as MyRouter, RouteComponentProps } from "@reach/router";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
-// import Layout from "../components/Layout"
 
 const App = () => {
 	return (
@@ -27,10 +22,7 @@ interface Props
 		results: string;
 	}> {}
 
-export const RandomImage: React.FC<RandomImageProp> = ({
-	name,
-	repo,
-}) => {
+export const RandomImage: React.FC<RandomImageProp> = ({ name, repo }) => {
 	const [person, setPerson] = useState();
 	const [repository, setRepo] = useState();
 	const [retval, setRetval] = useState();

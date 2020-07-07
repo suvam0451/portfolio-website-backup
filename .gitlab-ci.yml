@@ -18,6 +18,7 @@ GatsbyBuild:
     - yarn install --silent
     - yarn gatsby build
     - yarn global add netlify-cli
+    - cp content/google0599b2e4551d150d.html ./public # Google verification
     - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
 
 # Deploy changes to website if -publish is passed in commi
@@ -29,6 +30,7 @@ NetlifyPublish:
     - yarn install --silent
     - yarn gatsby build
     - yarn global add netlify-cli
+    - cp content/google0599b2e4551d150d.html ./public # Google verification
     - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod
   only:
     variables:

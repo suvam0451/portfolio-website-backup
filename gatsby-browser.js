@@ -1,15 +1,9 @@
-// require("./src/utils/tailwindstyles.css");
 import "./src/utils/tailwind-base.css";
 import "./src/utils/tailwind-components.css";
 import "./src/utils/tailwind-utilities.css";
-// import "./src/utils/custom-injected.css"
 
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
-
-// exports.onInitialClientRender = () => {
-// 	// import "typeface-nunito"
-// };
 
 import "prismjs/prism.js";
 
@@ -21,7 +15,7 @@ import "prismjs/components/prism-c.js";
 import "prismjs/components/prism-cpp.js";
 import "prismjs/components/prism-git.js";
 import "prismjs/components/prism-batch.js";
-
+import "./src/styles/containers.scss";
 import "./src/utils/internal-use.css";
 
 import React from "react";

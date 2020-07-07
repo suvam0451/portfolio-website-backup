@@ -1,20 +1,9 @@
 import React, { useState } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
-import ue4_icon from "../../content/images/ue4-icon.png";
-import Image from "gatsby-image";
-import styled from "@emotion/styled";
-import {
-	Button,
-	Intent,
-	Breadcrumbs,
-	Breadcrumb,
-	IBreadcrumbProps,
-	Icon,
-	Card,
-	Elevation,
-} from "@blueprintjs/core";
+import { Elevation } from "@blueprintjs/core";
 import BackgroundImage from "gatsby-background-image";
 import styles from "./decorators.module.sass";
+import { Card } from "@blueprintjs/core";
 
 interface BoxProps {
 	readonly username: string;
@@ -68,13 +57,10 @@ function Footer() {
 	return (
 		<div className="bg-gray-600 px-4 py-2">
 			<h3>Thank you for visiting!</h3>
-			<h6>
-				Hope you got the resources you needed. Come visit again :)
-			</h6>
+			<h6>Hope you got the resources you needed. Come visit again :)</h6>
 			<p>
-				I upload weekly and revamp bi-monthly. You can support my work
-				at <b>Patreon</b> | <b>Paypal</b> | <b>Marketplace</b> |{" "}
-				<b>Gumroad</b>
+				I upload weekly and revamp bi-monthly. You can support my work at <b>Patreon</b> |{" "}
+				<b>Paypal</b> | <b>Marketplace</b> | <b>Gumroad</b>
 			</p>
 			{/* <input
 				className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
@@ -130,15 +116,15 @@ interface GW2_PriceTag {
 	readonly silver: string;
 	readonly copper: string;
 }
-const Copper = styled.div`
-	background-image: url(https://render.guildwars2.com/file/94DCAE59215C0096449906A81F202B0201FBA85B/631486.png);
-	background-repeat: no-repeat;
-	height: 24px;
-	width: 24px;
-	padding-left: 16px;
-	display: inline-block;
-	margin-bottom: -6px;
-`;
+// const Copper = styled.div`
+// 	background-image: url(https://render.guildwars2.com/file/94DCAE59215C0096449906A81F202B0201FBA85B/631486.png);
+// 	background-repeat: no-repeat;
+// 	height: 24px;
+// 	width: 24px;
+// 	padding-left: 16px;
+// 	display: inline-block;
+// 	margin-bottom: -6px;
+// `;
 
 /*CopperCoin: any*/
 interface PriceTagProps {
@@ -170,10 +156,7 @@ function GW2_PriceTag(Val: PriceTagProps) {
 					}
 				}
 			}
-			GoldCoin: file(
-				relativeDirectory: { eq: "images/gw2" }
-				name: { eq: "Gold_coin" }
-			) {
+			GoldCoin: file(relativeDirectory: { eq: "images/gw2" }, name: { eq: "Gold_coin" }) {
 				childImageSharp {
 					fixed(width: 18, height: 18) {
 						...GatsbyImageSharpFixed
@@ -186,20 +169,11 @@ function GW2_PriceTag(Val: PriceTagProps) {
 	return (
 		<div>
 			<div className="inline-block">{Val.GoldValue}</div>
-			<BackgroundImage
-				className="-mb-1 mr-1"
-				fixed={GoldCoin.childImageSharp.fixed}
-			/>
+			<BackgroundImage className="-mb-1 mr-1" fixed={GoldCoin.childImageSharp.fixed} />
 			<div className="inline-block">{Val.SilverValue}</div>
-			<BackgroundImage
-				className="-mb-1 mr-1"
-				fixed={SilverCoin.childImageSharp.fixed}
-			/>
+			<BackgroundImage className="-mb-1 mr-1" fixed={SilverCoin.childImageSharp.fixed} />
 			<div className="inline-block">{Val.CopperValue}</div>
-			<BackgroundImage
-				className="-mb-1 mr-1"
-				fixed={CopperCoin.childImageSharp.fixed}
-			/>
+			<BackgroundImage className="-mb-1 mr-1" fixed={CopperCoin.childImageSharp.fixed} />
 			{/* <Copper></Copper>3  className="w-8 h-8 bg-no-repeat pl-16 inline-block"*/}
 		</div>
 	);
@@ -223,9 +197,7 @@ interface DownloadProps {
 function DownloadButton(Props: DownloadProps) {
 	const NavTo = () => {};
 	let newClassName =
-		"bp3-icon-large bp3-icon-" +
-		Props.icon +
-		" content-center mr-2 mt-1";
+		"bp3-icon-large bp3-icon-" + Props.icon + " content-center mr-2 mt-1";
 	return (
 		<>
 			<Link to={Props.link}>
@@ -237,14 +209,7 @@ function DownloadButton(Props: DownloadProps) {
 		</>
 	);
 }
-export {
-	Alert,
-	Footer,
-	QuickLinks,
-	GW2_PriceTag,
-	CollapsibleDefinition,
-	DownloadButton,
-};
+export { Alert, Footer, QuickLinks, GW2_PriceTag, CollapsibleDefinition, DownloadButton };
 
 // Gets copper, silver and gold coins
 // export const query = graphql`

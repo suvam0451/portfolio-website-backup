@@ -4,21 +4,11 @@ import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Footer, Alert, QuickLinks } from "../components/Decorations";
 import { NavSection } from "../components/NavBar";
-import styled from "@emotion/styled";
 import { SideBar } from "../components/SideBars/DaedalusSidebar";
 import { Helmet } from "react-helmet";
 import { Button, Switch } from "@blueprintjs/core";
 import { StatusCard } from "../components/SideBars/Trailblazer_StatusCard";
-import {
-	Section2,
-	DesktopSidebars,
-	MdxProps,
-	Background,
-	GatsbyLink,
-} from "./Common";
-require("dotenv").config({
-	path: `.env.${process.env.NODE_ENV}`,
-});
+import { GatsbyLink } from "./Common";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { IGatsbyLocationProps } from "../templates/Common";
 import { SidebarContext } from "./Contexts";
@@ -27,10 +17,6 @@ import "../styles/gatsby-custom.scss";
 import "../styles/fonts.scss";
 import "../styles/display.scss";
 import "../styles/globaloverride.scss";
-
-const TitleText = styled.div`
-	color: #c05621;
-`;
 
 interface IGatsbyPageProps {
 	data: {
@@ -57,9 +43,7 @@ export default function PageTemplate(data: IGatsbyPageProps) {
 	const [IsDarkMode, setIsDarkMode] = useState(true);
 	const [LightModeCSS, setLightModeCSS] = useState("root--dark");
 	const [MountState, setMountState] = useState(true); //  To run effect only once
-	const [SidebarState, setSidebarState] = useState<
-		IGatsbyLocationProps
-	>({
+	const [SidebarState, setSidebarState] = useState<IGatsbyLocationProps>({
 		isDarkMode: IsDarkMode,
 		submoduleList: [0, 1, 2],
 		seriesList: [],
@@ -117,8 +101,7 @@ export default function PageTemplate(data: IGatsbyPageProps) {
 						],
 						site_name: "WinterWildfire",
 						title: "Sleeping Forest Documentation",
-						url:
-							"https://suvam0451.netlify.app/docs/sleeping-forest/getting-started/",
+						url: "https://suvam0451.netlify.app/docs/sleeping-forest/getting-started/",
 					}}
 					twitter={{
 						handle: "@suvam0451",
@@ -154,17 +137,14 @@ export default function PageTemplate(data: IGatsbyPageProps) {
 							<div className="layout_mainpage">
 								<div className="py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain">
 									<div className="reading_area">
-										<p className="markdown_title">
-											{data.data.mdx.frontmatter.title}
-										</p>
+										<p className="markdown_title">{data.data.mdx.frontmatter.title}</p>
 										<h3>Announcement</h3>
 										<blockquote>
-											Hey guys ! Just wanted to let you know that I
-											need to run some maintenance on the website
-											because of the recent domain name changes from
-											netlify. So, some pages will appear like this
-											for a few days... but guess what's coming new to
-											the pages ? <b>A Dark theme switch</b> !!!
+											Hey guys ! Just wanted to let you know that I need to run some
+											maintenance on the website because of the recent domain name changes
+											from netlify. So, some pages will appear like this for a few days...
+											but guess what's coming new to the pages ?{" "}
+											<b>A Dark theme switch</b> !!!
 										</blockquote>
 										<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
 										<Footer />
@@ -176,9 +156,9 @@ export default function PageTemplate(data: IGatsbyPageProps) {
 									<div className="related_contents">
 										<h4>Related Contents</h4>
 										<p>
-											User created content used in WW APIs completely
-											free. If you develop something cool using the
-											tools, you can send us to be showcased here.
+											User created content used in WW APIs completely free. If you develop
+											something cool using the tools, you can send us to be showcased
+											here.
 										</p>
 										<Button>Visit Archives</Button>
 									</div>

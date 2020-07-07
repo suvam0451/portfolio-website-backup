@@ -17,8 +17,6 @@ having a copy of a knowledgeable person's buildspace will allow us to write code
 
 ### The definitions
 
----
-
 Every entry in a `buildspace.templates` contains the following information
 
 - **id**: The label that will be visible to the user.
@@ -29,8 +27,6 @@ Every entry in a `buildspace.templates` contains the following information
 
 ### Example entry
 
----
-
 ```json
 {
 	"buildspace": "Debashish",
@@ -40,17 +36,8 @@ Every entry in a `buildspace.templates` contains the following information
 			"classprefix": "A",
 			"parent": "AActor",
 			"interfaces": [],
-			"Headers": [
-				"CoreMinimal.h",
-				"GameFramework/Actor.h",
-				"TimerManager.h"
-			],
-			"Functions": [
-				"BeginPlay",
-				"Tick",
-				"OnConstruction",
-				"StartDesigner"
-			]
+			"Headers": ["CoreMinimal.h", "GameFramework/Actor.h", "TimerManager.h"],
+			"Functions": ["BeginPlay", "Tick", "OnConstruction", "StartDesigner"]
 		}
 	]
 }

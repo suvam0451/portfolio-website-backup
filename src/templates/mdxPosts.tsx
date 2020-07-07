@@ -7,22 +7,8 @@ import { Helmet } from "react-helmet";
 import { StatusCard } from "../components/StatusCard";
 import { Button } from "@blueprintjs/core";
 import { NavSection } from "../components/NavBar";
-import styled from "@emotion/styled";
 import { SideBar } from "../components/SideBars/UE4TutorialSidebar";
-import { DesktopSidebars, MdxProps } from "./Common";
-// import "../styles/internal-use.module.scss"
-import styles from "../styles/internal-use.module.sass";
-
-const GoodbyeSection = styled.div`
-	height: 0;
-	@media (max-width: 1200px) {
-		height: auto;
-	}
-`;
-
-const TitleText = styled.div`
-	color: #c05621;
-`;
+import { MdxProps } from "./Common";
 
 export default function PageTemplate(data: MdxProps) {
 	const [IsDarkMode, setIsDarkMode] = useState(true);
@@ -59,7 +45,7 @@ export default function PageTemplate(data: MdxProps) {
 							<div className="reading_area">
 								<div className="py-2 px-4 list-disc">
 									<h4 className="text-gray-600 mb-4 mt-3">
-										<TitleText>{data.data.mdx.frontmatter.title}</TitleText>
+										<div>{data.data.mdx.frontmatter.title}</div>
 									</h4>
 									<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
 									<div className="ww-hide-in-mobile">
@@ -83,9 +69,7 @@ export default function PageTemplate(data: MdxProps) {
 						</div>
 					</div>
 				</div>
-				<GoodbyeSection>
-					<Footer />
-				</GoodbyeSection>
+				<Footer />
 			</div>
 		</>
 	);

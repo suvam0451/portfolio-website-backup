@@ -8,6 +8,7 @@ import TutorialSection from "../components/TutorialSection";
 import axios from "axios";
 import priceAPI from "../utils/priceAPI";
 import SoftwareSection from "../components/SoftwareSection";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 import {
 	Nav,
 	NavItem,
@@ -128,13 +129,11 @@ function Index(props: IndexPageProps) {
 	const { title, author } = props.data.site.siteMetadata;
 
 	async function prepare() {
-		// console.log("sweet little lies")
 		const response = await axios.get(
 			"https://api.guildwars2.com/v2/commerce/prices/19684",
 		);
 		setTextInput(response.statusText);
 		setTextInput(response.data["id"]);
-		// .then(response => setTextInput(response.data))
 	}
 
 	function renderCurrentBreadcrumb({ text, ...restProps }: IBreadcrumbProps) {
@@ -177,19 +176,25 @@ function Index(props: IndexPageProps) {
 
 	return (
 		<div>
+			<GatsbySeo
+				twitter={{
+					handle: "@suvam0451",
+					site: "@suvam0451",
+					cardType: "summary_large_image",
+				}}
+				metaTags={[
+					{
+						property: "google-site-verification",
+						content: "oOCPWegkw3aSJ8v66-Y6-zh7EdyF5Ke6z3jIdGd3eik",
+					},
+				]}
+				canonical="https://suvam0451.netlify.app"
+				title="WinterWildfire - Advanced gamedev tutorials and toolkits"
+				description="Learn Unreal Engine 4 programming with free tutorials and sample projects."
+			/>
 			<Helmet>
 				<meta charSet="utf-8" />
-				<title>WinterWildfire - Advanced gamedev tutorials and toolkits</title>
-				<meta
-					name="description"
-					content="Learn Unreal Engine 4 programming with free tutorials and sample projects."
-				/>
 				<meta name="robots" content="index, follow" />
-				<link rel="canonical" href="https://winterwildfire.netlify.com" />
-				<meta
-					name="google-site-verification"
-					content="oOCPWegkw3aSJ8v66-Y6-zh7EdyF5Ke6z3jIdGd3eik"
-				/>
 				<meta
 					property="twitter:image"
 					content="https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg"
@@ -201,10 +206,6 @@ function Index(props: IndexPageProps) {
 				<meta property="og:image:alt" content="Faulty URL" />
 			</Helmet>
 
-			{/* <Header title={"WinterWildfire"} /> */}
-			{/* <Card elevation={0} style={{ width: `100%` }}>
-				{/* <Breadcrumbs items={BREADCRUMBS} /> */}
-			{/*</Card> */}
 			<div>
 				<div className="shadow-md">
 					<NavSection />

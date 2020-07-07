@@ -1,32 +1,8 @@
-import React, { Component, useState } from "react";
-import {
-	CardGroup,
-	Pagination,
-	PaginationItem,
-	PaginationLink,
-	CardTitle,
-	CardText,
-	CardBody,
-	CardHeader,
-	FormGroup,
-	Input,
-	Label,
-} from "reactstrap";
+import React, { useState } from "react";
+import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 import { StaticQuery, graphql } from "gatsby";
 import { Row, Col } from "reactstrap";
-import Image from "gatsby-image";
-import styled from "@emotion/styled";
 import { Link, useStaticQuery } from "gatsby";
-import {
-	Button,
-	Intent,
-	Breadcrumbs,
-	Breadcrumb,
-	IBreadcrumbProps,
-	Icon,
-	Card,
-	Elevation,
-} from "@blueprintjs/core";
 import { TutorialCard } from "../components/Boxes";
 import { Alert } from "../components/Decorations";
 
@@ -47,22 +23,7 @@ declare module JsonTS {
 		};
 	}
 }
-const MyLink = styled(props => <Link {...props} />)`
-	box-shadow: 0px;
-	color: #000;
-	text-decoration: none;
 
-	&:hover {
-		text-decoration: none;
-		color: #111;
-	}
-	&:focus,
-	&:visited,
-	&:link,
-	&:active {
-		text-decoration: none;
-	}
-`;
 export default function Index() {
 	const [CardsPerPage, setCardsPerPage] = useState(12); // Number of cards to display per page
 	const { allTutorialCardsJson } = useStaticQuery(graphql`
@@ -93,7 +54,7 @@ export default function Index() {
 		}
 	`);
 
-	const MakeTutorialBoxes = () => {
+	const MakeTutorialBoxes = (): JSX.Element[] => {
 		const arr: any = [];
 		let n = CardsPerPage;
 		for (let i = 0; i < allTutorialCardsJson.totalCount; i++) {
@@ -101,7 +62,7 @@ export default function Index() {
 			if (true) {
 				arr.push(
 					<Col xs="12" sm="12" md="6" lg="6" xl="4">
-						<MyLink to={it.node.RelativeLink} dark>
+						<Link to={it.node.RelativeLink}>
 							<TutorialCard
 								title={it.node.label}
 								desc={it.node.desc}
@@ -109,8 +70,7 @@ export default function Index() {
 								software=""
 								image={it.node.frontimg.img1.childImageSharp.fluid}
 							/>
-						</MyLink>
-						{/* <Link to={it.node.RelativeLink}>Click here</Link> */}
+						</Link>
 					</Col>,
 				);
 				n--;

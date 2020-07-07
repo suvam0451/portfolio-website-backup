@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { CollapsibleModule } from "./SidebarCommon";
 import { SidebarDataTree, Tier1, SidebarProps } from "../../types/website";
-import { BranchComponent } from "./UE4TutorialSidebar";
+import { BranchComponent } from "./SidebarCommon";
 import _ from "lodash";
 
 /** Main export */
@@ -37,14 +37,16 @@ function SideBar(Props: SidebarProps) {
 		return data.map((seriesList) => {
 			const CollapsibleSection = seriesList.children.map((leafpost) => {
 				return (
-					<Link to={leafpost.link} className="ml-3">
-						<span className="bp3-icon-large bp3-icon-small-plus bp3-intent-success content-center mr-1" />
-						{leafpost.title}
-					</Link>
+					<div>
+						<Link to={leafpost.link} className="ml-3">
+							<span className="bp3-icon-large bp3-icon-small-plus bp3-intent-success content-center mr-1" />
+							{leafpost.title}
+						</Link>
+					</div>
 				);
 			});
 			return (
-				<CollapsibleModule HeaderSection={seriesList.label} isCollapsed={true}>
+				<CollapsibleModule label={seriesList.label} isCollapsed={true}>
 					{CollapsibleSection}
 				</CollapsibleModule>
 			);
@@ -55,21 +57,20 @@ function SideBar(Props: SidebarProps) {
 	const PopulateSidebar = (): JSX.Element[] => {
 		return queryData.nodes.map((node) => {
 			let idx = _.findIndex(Props.GatsbyState?.submoduleList, _submoduleID);
-			let CollapseSwitch: boolean = true;
+			let doCollapse = true;
 			if (node.submoduleID === _submoduleID || idx != -1) {
-				CollapseSwitch = false;
+				doCollapse = false;
 			}
 			return (
-				<BranchComponent label={node.label} IsCollapsed={CollapseSwitch}>
+				<BranchComponent label={node.label} isCollapsed={doCollapse}>
 					{PopulateSeries(node.modules)}
 				</BranchComponent>
 			);
 		});
 	};
 	return (
-		<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 p-2 bg-white mb-2 w-full">
-			{PopulateSidebar()}
-		</div>
+		// <div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 p-2 bg-white mb-2 w-full">
+		<div className="container_sidebar">{PopulateSidebar()}</div>
 	);
 }
 

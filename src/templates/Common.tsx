@@ -1,40 +1,6 @@
-import styled from "@emotion/styled";
 import { Link } from "gatsby";
 import React, { useEffect } from "react";
 
-//#region Section definitions
-export const Section1 = styled.div`
-	width: 16%;
-	z-index: 30;
-	position: fixed;
-	height: 100%;
-	@media (max-width: 1080px) {
-		position: relative;
-		width: 100%;
-		display: block;
-		margin-top: 26px;
-	}
-`;
-
-export const Section2 = styled.div``;
-
-/** Style definitions for the component page */
-export const PageStyle = styled("div")`
-	max-width: 1920px;
-	margin: 0 auto;
-`;
-
-export const DesktopSidebars = styled.div`
-	display: flex;
-	margin-top: 1rem;
-	@media (max-width: 1080px) {
-		display: block;
-	}
-`;
-
-export const Background = styled.div`
-	background-color: #222222;
-`;
 export interface MdxProps {
 	data: {
 		mdx: {
@@ -81,10 +47,7 @@ export function GatsbyLink(props: IGatsbyLinkProps) {
 
 	if (typeof props.internal == "undefined") {
 		return (
-			<a
-				href={props.link}
-				className={props.className ? props.className : ""}
-			>
+			<a href={props.link} className={props.className ? props.className : ""}>
 				{props.label}
 			</a>
 		);

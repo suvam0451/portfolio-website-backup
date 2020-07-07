@@ -1,13 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import {
-	SidebarDataTree,
-	SidebarProps,
-	Tier1,
-	CollapsibleModule,
-} from "./SidebarCommon";
+import { CollapsibleModule } from "./SidebarCommon";
+import { SidebarDataTree, Tier1, SidebarProps } from "../../types/website";
 import { BranchComponent } from "./UE4TutorialSidebar";
-import { elementIsOrContains } from "@blueprintjs/core/lib/esm/common/utils";
 import _ from "lodash";
 
 /** Main export */
@@ -38,62 +33,43 @@ function SideBar(Props: SidebarProps) {
 
 	const queryData: SidebarDataTree = RootQuery.allDaedalusApiJson;
 	/** Takes in the list of modules in a section. */
-	const PopulateSeries = (data: Tier1[]) => {
-		const retval: any = [];
-		data.forEach((seriesList) => {
-			const CollapsibleSection: any = [];
-			seriesList.children.forEach((leafpost) => {
-				CollapsibleSection.push(
-					<div>
-						<Link to={leafpost.link} className="ml-3">
-							<span className="bp3-icon-large bp3-icon-small-plus bp3-intent-success content-center mr-1" />
-							{leafpost.title}
-						</Link>
-					</div>,
+	const PopulateSeries = (data: Tier1[]): JSX.Element[] => {
+		return data.map((seriesList) => {
+			const CollapsibleSection = seriesList.children.map((leafpost) => {
+				return (
+					<Link to={leafpost.link} className="ml-3">
+						<span className="bp3-icon-large bp3-icon-small-plus bp3-intent-success content-center mr-1" />
+						{leafpost.title}
+					</Link>
 				);
 			});
-			retval.push(
-				<CollapsibleModule
-					CollapsedSection={CollapsibleSection}
-					HeaderSection={seriesList.label}
-					InitiallyCollapsed={true}
-				/>,
+			return (
+				<CollapsibleModule HeaderSection={seriesList.label} isCollapsed={true}>
+					{CollapsibleSection}
+				</CollapsibleModule>
 			);
 		});
-		return retval;
 	};
+
 	/** Called for every module */
-	const PopulateSidebar = () => {
-		const retval: any = [];
-		queryData.nodes.forEach((node) => {
-			const ModuleRender: any = PopulateSeries(node.modules);
-			let idx = _.findIndex(
-				Props.GatsbyState?.submoduleList,
-				_submoduleID,
-			);
+	const PopulateSidebar = (): JSX.Element[] => {
+		return queryData.nodes.map((node) => {
+			let idx = _.findIndex(Props.GatsbyState?.submoduleList, _submoduleID);
 			let CollapseSwitch: boolean = true;
 			if (node.submoduleID === _submoduleID || idx != -1) {
 				CollapseSwitch = false;
 			}
-			// This should push one entire section...
-			retval.push(
-				<BranchComponent
-					label={node.label}
-					CollapsedSection={ModuleRender}
-					hasChildren={false}
-					IsCollapsed={CollapseSwitch} // CollapseSwitch
-				/>,
+			return (
+				<BranchComponent label={node.label} IsCollapsed={CollapseSwitch}>
+					{PopulateSeries(node.modules)}
+				</BranchComponent>
 			);
 		});
-
-		return retval;
 	};
 	return (
-		<>
-			<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 p-2 bg-white mb-2 w-full">
-				{PopulateSidebar()}
-			</div>
-		</>
+		<div className="overflow-y-auto shadow border-t-4 rounded-t border-red-500 p-2 bg-white mb-2 w-full">
+			{PopulateSidebar()}
+		</div>
 	);
 }
 

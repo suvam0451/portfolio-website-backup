@@ -4,62 +4,16 @@ import React, { useState, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
 import { IGatsbyLocationProps } from "../../templates/Common";
 
-//#region Common Interfaces
-export interface SidebarDataTree {
-	readonly nodes: Tier0[];
-}
-export interface Tier0 {
-	readonly submoduleID: number;
-	readonly category: string;
-	readonly description: string;
-	readonly modules: Tier1[];
-	readonly label: string;
-}
-
-export interface Tier1 {
-	readonly seriesID: number;
-	readonly label: string;
-	readonly children: [
-		{ seriesIndex: number; title: string; link: string },
-	];
-}
-
-export interface FrontMatterStruct {
-	title: string;
-	moduleID: number;
-	submoduleID: number;
-	seriesID: number;
-	seriesIndex: number;
-}
-
-export interface SidebarProps {
-	FrontMatter: FrontMatterStruct;
-	GatsbyState?: IGatsbyLocationProps;
-}
-
-export interface FrontMatterStruct {
-	title: string;
-	submoduleID: number;
-	seriesID: number;
-	seriesIndex: number;
-}
-
-export interface SidebarProps {
-	FrontMatter: FrontMatterStruct;
-}
-
 //#endregion
 interface CollapsibleModule {
-	readonly CollapsedSection: any;
 	readonly HeaderSection: string;
-	readonly InitiallyCollapsed: boolean;
+	readonly isCollapsed: boolean;
+	children: any;
 }
 
 /**  */
-export function CollapsibleModule(Props: CollapsibleModule) {
-	const [Collapsed, setCollapsed] = useState(
-		Props.InitiallyCollapsed,
-	);
+export function CollapsibleModule(props: CollapsibleModule) {
+	const [Collapsed, setCollapsed] = useState(props.isCollapsed);
 	const CollapsibleDiv = styled("div")`
 		display: ${(props) => (Collapsed ? `none` : "block")};
 	`;
@@ -71,8 +25,6 @@ export function CollapsibleModule(Props: CollapsibleModule) {
 	// Show in effect
 	useEffect(() => {
 		logoItem.opacity = 0;
-		// TweenMax.from(logoItem, 0, { opacity: 0, ease: Power3.easeOut });
-		// TweenMax.to(logoItem, 0.8, { opacity: 1, ease: Power3.easeOut });
 	});
 
 	function ToggleCollapse() {
@@ -99,9 +51,9 @@ export function CollapsibleModule(Props: CollapsibleModule) {
 			>
 				{/* <span className={IconSection} /> */}
 				<span className={IconSection} />
-				<div className="ml-2">{Props.HeaderSection}</div>
+				<div className="ml-2">{props.HeaderSection}</div>
 			</div>
-			<CollapsibleDiv>{Props.CollapsedSection}</CollapsibleDiv>
+			<CollapsibleDiv>{props.children}</CollapsibleDiv>
 		</>
 	);
 }

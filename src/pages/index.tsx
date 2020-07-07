@@ -296,22 +296,14 @@ function Index(props: IndexPageProps) {
 							</p>
 							{
 								<p className="lead">
-									<Button icon="refresh" color="dark" href="https://gitlab.com/suvam0451">
-										GitLab
+									<Button icon="refresh" color="dark">
+										<a href="https://gitlab.com/suvam0451">Gitlab</a>
 									</Button>
-									<Button
-										className={styles.ShowCodeButton}
-										color="dark"
-										href="https://gitlab.com/suvam0451"
-									>
-										GitLab
+									<Button className={styles.ShowCodeButton} color="dark">
+										<a href="https://gitlab.com/suvam0451">Gitlab</a>
 									</Button>
-									<Button
-										className={styles.ShowCodeButton}
-										color="dark"
-										href="https://gitlab.com/suvam0451"
-									>
-										Discord
+									<Button className={styles.ShowCodeButton} color="dark">
+										<a href="https://gitlab.com/suvam0451">Discord</a>
 									</Button>
 								</p>
 							}
@@ -344,23 +336,6 @@ function Index(props: IndexPageProps) {
 							</label>
 							<button type="submit">Submit</button>
 						</form>
-						{/* <Segment
-							vertical
-							inverted
-							textAlign="center"
-							className="masthead"
-						>
-							<Container text>Hello there</Container>
-						</Segment>
-						<h1>{hello} TypeScript world!</h1>
-						<p>
-							This site is named <strong>{author}</strong>
-						</p>
-						<h1>Hello world, from {author}!!</h1>
-						<button onClick={() => CounterUpdate()}>Kiss Me</button>
-						<p>
-							Konichiwa desu and {Counter}, to {title}
-						</p> */}
 					</TabPane>
 				</TabContent>
 				<Footer />

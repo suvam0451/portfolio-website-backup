@@ -18,7 +18,8 @@ GatsbyBuild:
   cache:
     <<: *global_cache
   script:
-    - yarn install --silent && yarn gatsby build
+    - yarn install --silent
+    - yarn gatsby build
   artifacts:
     paths:
       - ./public/*

@@ -8,7 +8,11 @@ export interface LayoutProps {
 }
 
 const Layout = (props: LayoutProps) => {
-	return <Provider store={store}>{props.children}</Provider>;
+	return (
+		<Provider store={store}>
+			<div className="mt-10 overflow-hidden">{props.children}</div>
+		</Provider>
+	);
 };
 
 // Wrap. Pass props

@@ -1,27 +1,28 @@
 // require("./src/utils/tailwindstyles.css");
-require("./src/utils/tailwind-base.css");
-require("./src/utils/tailwind-components.css");
-require("./src/utils/tailwind-utilities.css");
-// require("./src/utils/custom-injected.css");
+import "./src/utils/tailwind-base.css";
+import "./src/utils/tailwind-components.css";
+import "./src/utils/tailwind-utilities.css";
+// import "./src/utils/custom-injected.css"
 
-require("@blueprintjs/core/lib/css/blueprint.css");
-require("@blueprintjs/icons/lib/css/blueprint-icons.css");
-exports.onInitialClientRender = () => {
-	// require("typeface-nunito");
-};
+import "@blueprintjs/core/lib/css/blueprint.css";
+import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 
-require(`prismjs/prism.js`);
+// exports.onInitialClientRender = () => {
+// 	// import "typeface-nunito"
+// };
 
-require("prism-themes/themes/prism-darcula.css");
-require("prismjs/plugins/line-numbers/prism-line-numbers.css");
+import "prismjs/prism.js";
 
-require(`prismjs/components/prism-clike.js`);
-require(`prismjs/components/prism-c.js`);
-require(`prismjs/components/prism-cpp.js`);
-require(`prismjs/components/prism-git.js`);
-require(`prismjs/components/prism-batch.js`);
+import "prism-themes/themes/prism-darcula.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 
-require("./src/utils/internal-use.css");
+import "prismjs/components/prism-clike.js";
+import "prismjs/components/prism-c.js";
+import "prismjs/components/prism-cpp.js";
+import "prismjs/components/prism-git.js";
+import "prismjs/components/prism-batch.js";
+
+import "./src/utils/internal-use.css";
 
 import React from "react";
 import { Provider } from "react-redux";

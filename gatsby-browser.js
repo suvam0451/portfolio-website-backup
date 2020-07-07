@@ -22,3 +22,12 @@ require(`prismjs/components/prism-git.js`);
 require(`prismjs/components/prism-batch.js`);
 
 require("./src/utils/internal-use.css");
+
+import React from "react";
+import { Provider } from "react-redux";
+import { store } from "./src/store";
+
+// Wrap states around page
+export const wrapRootElement = ({ element }) => (
+	<Provider store={store}>{element}</Provider>
+);

@@ -21,7 +21,7 @@
 			"tslint.json": false,
 			"lambda": true,
 			".env.**": true,
-			".prettierrc.yaml": true,
+			".prettierrc.yaml": false,
 			"package-lock.json": true
 		}
 	}

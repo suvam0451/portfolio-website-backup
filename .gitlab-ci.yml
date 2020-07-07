@@ -19,6 +19,10 @@ GatsbyBuild:
     <<: *global_cache
   script:
     - yarn install --silent && yarn gatsby build
+  artifacts:
+    paths:
+      - ./public/*
+      - ./lambda/*
   only:
     variables:
       - $CI_COMMIT_MESSAGE =~ /-(publish|preview)/

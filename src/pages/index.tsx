@@ -205,10 +205,6 @@ function Index(props: IndexPageProps) {
 			{/* <Card elevation={0} style={{ width: `100%` }}>
 				{/* <Breadcrumbs items={BREADCRUMBS} /> */}
 			{/*</Card> */}
-
-			{/*<Breadcrumb bsPrefix={styles.DarkCard} listClassName={styles.DarkCard} dark>
-          <BreadcrumbItem active>Home</BreadcrumbItem>
-      </Breadcrumb>*/}
 			<div>
 				<div className="shadow-md">
 					<NavSection />

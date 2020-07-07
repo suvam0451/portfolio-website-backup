@@ -7,9 +7,9 @@ require("dotenv").config({
 module.exports = {
 	siteMetadata: {
 		title: `Gatsby Default Starter`,
-		description: `Hey, I am Debashish Patra. I develops FOSS packages in Go and Typescript.  DevOps | gamedev | webdev.`,
+		description: `Hey, I am Debashish Patra. I develops FOSS packages in Go and Typescript. DevOps | Gamedev | Webdev.`,
 		author: `@suvam0451`,
-		siteUrl: `https://suvam0451.netlify.com/`,
+		siteUrl: `https://suvam0451.netlify.app/`,
 	},
 	// for avoiding CORS while developing Netlify Functions locally
 	// read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
@@ -36,7 +36,6 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-offline`,
-		// `gatsby-plugin-react-helmet`,
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-typescript`,
 		`gatsby-plugin-postcss`,
@@ -117,9 +116,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-nprogress`,
 			options: {
-				// Setting a color is optional.
 				color: `tomato`,
-				// Disable the loading spinner.
 				showSpinner: true,
 			},
 		},

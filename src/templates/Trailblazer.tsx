@@ -43,7 +43,7 @@ export default function PageTemplate(data: IGatsbyPageProps) {
 		seriesList: [],
 	});
 
-	// Sidebar states
+	// Sidebar states...
 	const [SubmoduleList, setSubmoduleList] = useState<number[]>([]); //  To run effect only once
 	const [SeriesList, setSeriesList] = useState<number[]>([]); //  To run effect only once
 

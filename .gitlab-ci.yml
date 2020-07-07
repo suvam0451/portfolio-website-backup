@@ -23,7 +23,7 @@ GatsbyBuild:
     - yarn global add netlify-cli
     - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
 
-# Deploy changes to website if -publish is passed in commit
+# Deploy changes to website if -publish is passed in commi
 NetlifyPublish:
   stage: publish
   cache:
@@ -35,4 +35,4 @@ NetlifyPublish:
     - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod
   only:
     variables:
-      - $CI_COMMIT_MESSAGE =~ /-publish/
+      - $CI_COMMIT_MESSAGE =~ /--publish/

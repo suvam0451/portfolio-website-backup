@@ -33,5 +33,7 @@ NetlifyPublish:
     - cp content/google0599b2e4551d150d.html ./public # Google verification
     - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod
   only:
+    refs:
+      - deploy
     variables:
       - $CI_COMMIT_MESSAGE =~ /--publish/

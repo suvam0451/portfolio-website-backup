@@ -10,7 +10,7 @@
 			"**.lock": true,
 			"README.md": true,
 			"LICENSE": true,
-			".gitignore": true,
+			".gitignore": false,
 			"node_modules": true,
 			".cache": true,
 			"public": true,

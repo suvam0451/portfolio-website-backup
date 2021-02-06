@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { Elevation } from "@blueprintjs/core";
 import BackgroundImage from "gatsby-background-image";
-import styles from "./decorators.module.sass";
 import { Card } from "@blueprintjs/core";
 
 interface BoxProps {
@@ -34,7 +33,7 @@ interface AlertProps {
 // Alert component
 function Alert(props: AlertProps) {
 	return (
-		<div className={styles.alert}>
+		<div className={"AlertCustom"}>
 			<div>
 				<svg
 					className="fill-current text-teal-500"
@@ -45,8 +44,8 @@ function Alert(props: AlertProps) {
 				</svg>
 			</div>
 			<div>
-				<p className={styles.alerthead}>{props.head}</p>
-				<p className={styles.alertbody}>{props.body}</p>
+				<p>{props.head}</p>
+				<p>{props.body}</p>
 			</div>
 		</div>
 	);
@@ -210,39 +209,3 @@ function DownloadButton(Props: DownloadProps) {
 	);
 }
 export { Alert, Footer, QuickLinks, GW2_PriceTag, CollapsibleDefinition, DownloadButton };
-
-// Gets copper, silver and gold coins
-// export const query = graphql`
-// 	{
-// 		Copper: file(
-// 			relativeDirectory: { eq: "images/gw2" }
-// 			name: { eq: "Copper_coin" }
-// 		) {
-// 			childImageSharp {
-// 				fixed(width: 15, height: 15) {
-// 					...GatsbyImageSharpFixed
-// 				}
-// 			}
-// 		}
-// 		Silver: file(
-// 			relativeDirectory: { eq: "images/gw2" }
-// 			name: { eq: "Silver_coin" }
-// 		) {
-// 			childImageSharp {
-// 				fixed(width: 15, height: 15) {
-// 					...GatsbyImageSharpFixed
-// 				}
-// 			}
-// 		}
-// 		Gold: file(
-// 			relativeDirectory: { eq: "images/gw2" }
-// 			name: { eq: "Gold_coin" }
-// 		) {
-// 			childImageSharp {
-// 				fixed(width: 15, height: 15) {
-// 					...GatsbyImageSharpFixed
-// 				}
-// 			}
-// 		}
-// 	}
-// `;

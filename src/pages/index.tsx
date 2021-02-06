@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import { Alert, Footer } from "../components/Decorations";
-import styles from "../components/container.module.css";
 import classnames from "classnames";
 import TutorialSection from "../components/TutorialSection";
 import axios from "axios";
@@ -295,10 +294,10 @@ function Index(props: IndexPageProps) {
 									<Button icon="refresh" color="dark">
 										<a href="https://gitlab.com/suvam0451">Gitlab</a>
 									</Button>
-									<Button className={styles.ShowCodeButton} color="dark">
+									<Button className={"ShowCodeButton"} color="dark">
 										<a href="https://gitlab.com/suvam0451">Gitlab</a>
 									</Button>
-									<Button className={styles.ShowCodeButton} color="dark">
+									<Button className={"ShowCodeButton"} color="dark">
 										<a href="https://gitlab.com/suvam0451">Discord</a>
 									</Button>
 								</p>

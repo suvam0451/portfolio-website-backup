@@ -17,7 +17,7 @@
 			"tsconfig.json": true,
 			"netlify.toml": true,
 			"postcss.config.js": true,
-			"tailwind.config.js": true,
+			"tailwind.config.js": false,
 			"tslint.json": false,
 			"lambda": true,
 			".env.**": true,

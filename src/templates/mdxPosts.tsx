@@ -1,168 +1,92 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Footer } from "../components/Footer";
-import Header from "../components/Header";
-// import styles from "../components/container.module.css"
+import { Footer, Alert, QuickLinks } from "../components/Decorations";
 import { Helmet } from "react-helmet";
-import { QuickLinks } from "../components/QuickLinks";
-import { NavCard } from "../components/NavCard";
 import { StatusCard } from "../components/StatusCard";
-import _Alert from "../components/Alert";
-import {
-	Row,
-	Col,
-	// Card,
-	CardTitle,
-	CardText,
-	CardBody,
-	CardHeader,
-	Breadcrumb,
-	// Button,
-	BreadcrumbItem,
-	Nav,
-	NavbarBrand,
-	NavItem,
-	NavLink,
-	Navbar,
-	UncontrolledCollapse,
-	UncontrolledDropdown,
-	DropdownMenu,
-	DropdownToggle,
-	DropdownItem,
-	Dropdown,
-	Jumbotron,
-	TabPane,
-	TabContent,
-} from "reactstrap";
-import {
-	Alignment,
-	Button,
-	Intent,
-	Breadcrumbs,
-	// Breadcrumb,
-	IBreadcrumbProps,
-	Icon,
-	Card,
-	// Navbar,
-	NavbarHeading,
-	NavbarDivider,
-	NavbarGroup,
-	Classes,
-} from "@blueprintjs/core";
+import { Button } from "@blueprintjs/core";
 import { NavSection } from "../components/NavBar";
-import styled from "@emotion/styled";
-// import "./mdxPosts.css";
+import { SideBar } from "../components/SideBars/UE4TutorialSidebar";
+import { MdxProps } from "./Common";
 
-// const MyH1 = props => <h1 style={{color: "tomato"}} {...props}/>
-// const MyParagraph = props => <p style={{ fontSize: "18px", lineHeight: 1.6 }} />
+export default function PageTemplate(data: MdxProps) {
+	const [IsDarkMode, setIsDarkMode] = useState(true);
+	const [LightModeCSS, setLightModeCSS] = useState("root--dark");
+	const [MountState, setMountState] = useState(true); //  To run effect only once
 
-const Content = styled.div`
-	margin: 0 auto;
-	padding: 0.1rem 0.1rem;
-`;
-
-const comps = {
-	// h1: MyH1,
-	// p: MyParagraph,
-	Alert: _Alert,
-};
-
-// export const wrapRootElement = ({ element }) => (
-//   <MDXProvider components={components}>{element}</MDXProvider>
-// )
-
-export default function PageTemplate(data: mdxProps) {
-	// export default function PageTemplate({data: {mdx}}){
 	return (
-		<div className="p-1">
+		<>
 			<Helmet>
-				{/*<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>*/}
+				<title>{data.data.mdx.frontmatter.seotitle}</title>
+				<meta name="description" content={data.data.mdx.frontmatter.description} />
+				<meta
+					name="og:title"
+					property="og:title"
+					content={data.data.mdx.frontmatter.seotitle}
+				/>
+				<meta name="twitter:card" content={data.data.mdx.frontmatter.description} />
+				<link rel="canonical" href={data.data.mdx.frontmatter.path} />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Helmet>
-			<NavSection />
-			{/* <div className="m-0 p-0">
-				<Breadcrumb dark>
-					<BreadcrumbItem>
-						<Link to="/">Home</Link>
-					</BreadcrumbItem>
-					<BreadcrumbItem>
-						<Link to="/">UE4</Link>
-					</BreadcrumbItem>
-					<BreadcrumbItem active>tutorials</BreadcrumbItem>
-					<BreadcrumbItem active>dllandlibs</BreadcrumbItem>
-					{
-						//<BreadcrumbItem active>{ this.MakeTutorialBoxes(edges, 2) }</BreadcrumbItem>
-					}
-				</Breadcrumb>
-			</div> */}
-			<div className="bg-gray-400 m-0 p-2">
-				<Row>
-					{/** List of all available tutorials + Skip to section(optional) */}
-					<Col xs="12" sm="12" md="12" lg="12" xl="2">
-						<Row>
-							<StatusCard />
-							<NavCard />
-						</Row>
-					</Col>
-					{/** Main body of mdx post */}
-					<Col xs="12" sm="12" md="12" lg="12" xl="7">
-						{/*<h1>{data.data.mdx.frontmatter.title}</h1>*/}
-						<div className="bg-gray-100 px-4 py-4 border rounded-lg shadow-md">
-							<h4 className="text-teal-700 mb-4">
-								{data.data.mdx.frontmatter.title}
-							</h4>
-							<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
-						</div>
-					</Col>
-					<Col xs="12" sm="12" md="12" lg="6" xl="3">
-						<Row>
-							<Col xs="12" sm="6" md="12" lg="6" xl="12">
-								<Card>
-									<h4>Related Contents</h4>
-									<p>
-										User created content used in WW APIs completely
-										free. If you develop something cool using the
-										tools, you can send us to be showcased here.
-									</p>
-									<Button>Visit Archives</Button>
-								</Card>
-							</Col>
-							<Col xs="12" sm="6" md="12" lg="6" xl="12">
-								<Card body xs="12" xl="12">
-									{/* Used persistent quicklinks from components/persistent*/}
-									<QuickLinks />
-								</Card>
-							</Col>
-						</Row>
-					</Col>
-				</Row>
-			</div>
 
-			<Footer />
-		</div>
+			<div className="mt-10 overflow-hidden">
+				{/* Main menu area... */}
+				<div className="fixed w-full -mt-10 z-40">
+					<NavSection />
+				</div>
+				<div className="container_mdtemplate">
+					<div className="sidebar_left">
+						<SideBar FrontMatter={data.data.mdx.frontmatter} />
+						<StatusCard FrontMatter={data.data.mdx.frontmatter} />
+					</div>
+					<div className="layout_mainpage">
+						<div className="py-2 border rounded-lg shadow-md list-disc overflow-auto object-contain">
+							<div className="reading_area">
+								<div className="py-2 px-4 list-disc">
+									<h4 className="text-gray-600 mb-4 mt-3">
+										<div>{data.data.mdx.frontmatter.title}</div>
+									</h4>
+									<MDXRenderer>{data.data.mdx.body}</MDXRenderer>
+									<div className="ww-hide-in-mobile">
+										<Footer />
+									</div>{" "}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="sidebar_right">
+						<div className="bg-gray-500 rounded-t-lg">
+							<div className="bg-gray-500 p-4">
+								<h4>Related Contents</h4>
+								<p>
+									User created content used in WW APIs completely free. If you develop
+									something cool using the tools, you can send us to be showcased here.
+								</p>
+								<Button>Visit Archives</Button>
+							</div>
+							<QuickLinks />
+						</div>
+					</div>
+				</div>
+				<Footer />
+			</div>
+		</>
 	);
 }
 
-interface mdxProps {
-	data: {
-		mdx: {
-			id: number;
-			body: any;
-			frontmatter: {
-				title: string;
-			};
-		};
-	};
-}
-
 export const query = graphql`
-	query BlogPostQuery($id: String) {
+	query UE4TutorialPostQuery($id: String) {
 		mdx(id: { eq: $id }) {
 			id
 			body
 			frontmatter {
+				path
 				title
+				date
+				submoduleID
+				seriesID
+				seriesIndex
 			}
 		}
 	}

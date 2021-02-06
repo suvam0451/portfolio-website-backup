@@ -1,0 +1,71 @@
+---
+path: "/docs/sleeping-forest/adding-function-definitions"
+title: "Adding function definitions"
+date: "2020-01-10"
+submoduleID: 98
+seriesID: 1
+seriesIndex: 2
+draft: false
+---
+
+Function definitions for engine classes are manually defined by the dev team for consistency.
+However, **you can add any functions** _(not just engine functions)_ into the global list.
+
+### The syntax
+
+---
+
+The default function templates can be found at **FunctionTemplates.json**. An example entry goes as follows
+
+```json
+{
+	"id": "GetControlRotation",
+	"comment": "// This goes in header above function",
+	"signature": "virtual FRotator GetControlRotation() const override;",
+	"field": "private",
+	"body": [
+		"if(GetPawn() != nullptr){",
+		"return FRotator(0.0f, GetPawn()->GetActorRotation().Yaw, 0.0f);",
+		"}",
+		"else{",
+		"return FRotator(0.0f);",
+		"}"
+	]
+},
+```
+
+#### Few things to note
+
+- the **id** is used in the buildspace definitions. **The strings must match**.
+- **field** indicates which field _{public, private, protected}_ the function belongs in
+- **body** is what to add in the source file body. **tabs and spaces are auto-managed**. Just focus on the newlines and spaces.
+
+The above template if used produces the following:
+
+```cpp
+// class.h
+private:
+	// This goes in header above function
+	virtual FRotator GetControlRotation() const override;
+
+// source.h
+FRotator AClass::GetControlRotation() const {
+	if(GetPawn() != nullptr) {
+		return FRotator(0.0f, GetPawn()->GetActorRotation().Yaw, 0.0f);
+	}
+	else {
+		return FRotator(0.0f);
+	}
+}
+```
+
+If you make a good buildspace and submit to us, they will be available to the whole community and **you will be fully credited**.
+Since we do not use servers, you will have to use our discord to submit them, where they will undergo a moderation check.
+
+**Any updates to the API will be on us**. If we choose to customize the build API, **we will modify your buildspace for you**.
+However, the credit will be retained permanently.
+We would really appreciate a multiplayer buildspace from the community right now.
+
+Anyways, that is all about extending the buildspace for now.
+
+See you later... 🖐

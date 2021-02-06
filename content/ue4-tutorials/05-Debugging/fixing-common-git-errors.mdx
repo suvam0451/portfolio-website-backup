@@ -1,0 +1,29 @@
+---
+path: "/tutorials/ue4/fixing-common-git-errors"
+title: "Common git CLI errors"
+date: "2019-05-04"
+tags: ["ue4", "version-control", "example"]
+moduleID: 1
+submoduleID: 5
+seriesID: 1
+seriesIndex: 1
+draft: false
+---
+
+import { Footer, Alert } from "../../../src/components/Decorations";
+
+
+
+##### 1. Not a git repository
+---
+`fatal: not a git repository (or any of the parent directories): .git`
+
+Possible causes:
+- The folder from where you started your terminal is not a git repository(*you can check for a hidden .git folder*).
+- You cloned a repo and started started inserting commands into same terminal.
+
+Solution:
+- After cloning, close terminal and `right click->git bash here` from inside the new folder that got created.
+- Your folder is not a git repo. *(Maybe you downloaded the project as zip file instead of cloning?)*
+
+---

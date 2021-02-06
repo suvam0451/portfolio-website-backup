@@ -1,0 +1,186 @@
+---
+path: "/docs/sleeping-forest/context-keys/2"
+title: "Activation Criteria"
+date: "2020-01-10"
+submoduleID: 3
+seriesID: 1
+seriesIndex: 2
+draft: false
+---
+
+In this section, I am going to discuss about the context on which each command is activated when you run your context key.
+Getting the predictable obvious lines of code filled up for you helps with flow and concentration.
+
+Moreover, by getting acquainted to these contexts will make sure you have less errors and better efficiency.
+
+That said, it is very important what a line of code does and what will happen if you omit important lines of code.
+These are discoveries you have to make naturally when covering uncharted territories.
+
+...but for now, lets be the swiftest hands in town and understand our tools.
+
+### Activation criteria
+
+---
+
+Following are short notes for each module specifying compatible locations from which commands get activated.
+
+### 1. Header module
+
+---
+
+This runs the `Daedalus : Include Header` command. Activation checks the current line for
+
+- **#include xyz.h** (current position)
+- **#include xyz.generated.h** (for header)
+- **#include filename.h** (for source)
+
+It then adds headers **before .generated.h** for header and **after filename.h** for source. Duplicated are matched literally.
+
+It also checks for duplicates in the same file. **It does not check for duplicates in both .h/.cpp files.**
+For more info on why you declaring on .cpp is more efficient, read [forward declaration](https://en.wikipedia.org/wiki/Forward_declaration).
+
+```cpp
+#include "GameFramework/Controller.h" // YES
+#include "Kismet/KismetMathLibrary.h" // YES
+#include "GameFramework/SpringArmComponent.h" // YES
+// NO
+
+# include "RandomStuff.h" // YES, but might get confused about the order
+```
+
+**When called normally** : Will check the current file line-line and detect locations automatically. Then it will open up the menu.
+
+### 2. Function body generator
+
+---
+
+This gets called as a part of the pattern matching list that occurs when **UE4 : Initialize by Context** is called.
+This takes into account { const, INLINE, override}
+
+- It first tokenizes 1.return value, 2.function body, 3.extra identifiers
+- It strips { INLINE, override }. Also removes default values
+- Looks just outside the bracket scope and gives you the function
+
+```cpp
+virtual void Tick(float delta) override; // YES
+virtual void BeginPlay() override // NO (No semi-colon)
+TMap<int, FyComplexClas> MyComplexFunc(int mine = 19, TArray<int, FString>) const; // YES
+
+AMyActorConstructor(); // NO (Constructors are excluded... for now)
+```
+
+**When called normally** : Cannot be called normally
+
+### 3. Component Initializer
+
+---
+
+This detects commonly used components declarations in header and generates initializers for them.
+The code might be opinionated, but I have tried to fill the tables using my limited experience.
+Please let me know if improvements can be made
+
+**Note: Currently initialization code is generated for constructor (CreateDefaultSubObject). This will change soon and NewObject will also be supported.**
+
+**When called normally** : Cannot be called normally.
+
+### 4. Context keywords
+
+---
+
+Context keywords can be found sprinkled throughout the snippet library. Since **snippets cannot be easily modified at runtime**(unaware of local symbols),
+hint text is provided for you to take action and fill the gaps. This is optional so you don't end up with tons of redundant debug/scaffold code.
+
+The context for this is simple. The current line must be UXYZComponent\* MyCompName.
+This means, you should make your derived component follow same patterns to get registered.
+
+```cpp
+UPROPERTY() // Not needed
+class UCameraComponent *FollowCamera; // YES
+
+// generates
+FollowCamera = CreateDefaultSubobject<UCameraComponent>("MyCamera");
+FollowCamera->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+
+class UMyCustomComp *CustomComp; // NO. Should be a Component
+```
+
+**Note** : This **copies the code to the clipboard**. Since multi-window workspaces are normal in VSCode, you can paste and continue.
+
+Also, complete symbol parsing can be done to automatically detect the components irrespective of names. However, unfortunately,
+that is currently out of my expertise and not a worthwhile time investment for me since this is very efficient.
+
+**When called normally** : Cannot be called normally.
+
+### Design Goals
+
+---
+
+I took inspiration from concept of [transpilers](https://en.wikipedia.org/wiki/Source-to-source_compiler).
+Especially the ecosystem that typescript built on top of javascript with full backward support.
+
+With this module, I want users to be able to project their ideas directly into code without having to lookup code every now and then.
+
+My current goals are to expand the library to cover more classes first.
+If you have any ideas about awesome features you would like to be added to this module,
+please join my discord and let me know.
+
+See you later... 🖐
+
+### More Technical details
+
+---
+
+When you press the context key, a series of **tricky regex matches** are carried out, which parse symbols if successful.
+Based on the results an action is selected. By default the following self-explanatory actions are provided
+
+- **edit**
+- **copy**
+- **replace**
+
+For anything else, **custom individual commands** get called. **The tab insertion/calculation** is auto handled.
+The line insertion is also auto handled.
+You just need to map the parsed symbols to slots in the strings.
+
+An simple entry for component handling (default copy action)
+
+```json
+{
+	"id": "init_components",
+	"desc": "Initialization Scene/Sphere/StaticMesh etc",
+	"pattern": ".*?U([a-zA-Z_]*)?Component[\\*| ]{2}([a-zA-Z_]*);",
+	"parsemap": [1, 2],
+	"body": [
+		"$2 = CreateDefaultSubobject<U$1Component>(\"My$1\");",
+		"$2->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);"
+	],
+	"action": "copy"
+}
+```
+
+An example entry for function generation (uniquely handled to remove some symbols and remove defaults)
+
+```json
+{
+	"id": "functionbodygen",
+	"desc": "Generates function body for a target line.",
+	"pattern": "(FORCEINLINE )?(virtual )?([a-z_A-Z<>,]*) ?([a-zA-Z_, <>(=0-9\" ]*\\))( const)?( override)?;",
+	"parsemap": [
+		2,
+		3,
+		4,
+		5
+	],
+	"body": [
+		"$1$2 $x::$3$4 {",
+		"\t// Function not implemented",
+		"}"
+	],
+	"action": "fnbodygen"
+},
+```
+
+If this interests you, you can use the API to add your own contextual code-completion. **Coming Soon**
+
+...Please consider **sending back** some of those definitions you make. It helps everybody.
+
+See you later... 🖐

@@ -1,0 +1,90 @@
+---
+path: "/tutorials/ue4/plugin-development-using-rust/1"
+title: "Making a rust plug-in (Part 1/3)"
+date: "2019-19-12"
+tags: ["ue4", "mdx", "example"]
+moduleID: 1
+submoduleID: 1
+seriesID: 1
+seriesIndex: 1
+draft: false
+---
+
+import { Footer, Alert } from "../../../src/components/Decorations";
+
+In this series, we will write a plugin for Unreal Engine 4 in rust programming language from start to finish. Steps would include
+
+- **(Part-1)** C++ FFI, UE4 plug-in structure _(with third party dependencies)_, Short notes, Viability
+- **(Part-2)** Rust-C++ interop (How is data passed between), Market shipping _(lib vs dll)_
+- **(Part-3)** Engine Integration, Testing
+
+Right now we are learning a little bit about **Foreign Function Interface**.
+We will also be discussing the viability of rust as a programming language when developing systems.
+Hopefully this section will give you an insight if learning rust over c++ is worth your time and efforts.
+
+<Alert
+	head="This is a WIP page !!"
+	body="Wait till I complete this series before releasing."
+/>
+
+---
+
+#### Introduction
+
+The main takeaway is that C++ and rust allow static linking. This means we won't have to ship our library(DLL) along-side the game i.e- It will be built into the executable. This is important for procedurally generating world during runtime in shipped game.
+If you only need world building in editor itself, perhaps this would be a better read for you.
+
+Regardless, this series focuses on writing the module in rust, exposed as a third party **.lib**. We will be testing our functionalities outside the editor.
+I have previously covered C++ for this. You can find that series below. If you already read that, you can skip any part you already know.
+
+<Alert
+	head="Where can this be useful ?"
+	body="This is useful to write procedural plug-ins (mostly calculation parts). You can write achieve the same with C++ as well."
+/>
+
+---
+
+#### C++ FFI
+
+Without delving into technicalities, FFI(Foreign function interface) is used to run compiled code written in one language from another.
+For our purpose, C++ uses FFI of C, which effectively means we would have to expose a C header for our functionalities written and compiled in rust.
+We will use **cbindgen** for this purpose.
+
+The first and foremost thing to consider writing a gamedev plug-in is the extensibility.
+We want the ability to add/modify modules quickly while meeting the desired performance standard.
+Rust is a pretty good option for this due to various reasons. Since you are here, you may have heard of few.
+
+<Alert
+	head="More about FFI !"
+	body="Many languages support interop with C. But few allow static linking we need."
+/>
+
+---
+
+#### UE4 plug-in structure
+
+Every plugin has the following structure.
+
+#### Viability
+
+Writing equivalent rust code was a good experience for me.
+Overally, I had to write a bit more code and do more research because rust is pretty new to the market and not many documentation exist.
+As you will see, passing data in between UE4 and rust needs a cumbersome API sitting in between.
+However, once we are done with the API, we will find that adding further features is easier.
+
+As for applying the codebase to other engines, we would need the data structures to be similar.
+This might be unlikely in some cases, however favourable cases as mentioned below do exists.
+
+---
+
+#### Before we progress...
+
+Learning rust in itself and working with interoperatibility might hamper professional production in the long run.
+I am by no means a veteran dev. Throughout this series, we would mostly use static functions. I am hoping to by sharing my experience while developing my procedural plug-in.
+
+Hopefully this will give you a head start in learning rust / plugin development. Good luck.
+
+<Alert
+	head="Remember more productive options !!!"
+	body="For productivity in procedural workflow, consider houdini. Once I get my license, I would focus on making houdini assets as well."
+/>

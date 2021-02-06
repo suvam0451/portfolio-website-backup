@@ -1,0 +1,27 @@
+graph LR
+W{Part 1} -->|Introduction| X(Grid setup)
+X -->|Fixing some common mistake.| Y(Procedural objects)
+Y --> |Useful code cleanup advice| Z(Check-In)
+
+A{Part 2} -->|HISMC might be better option.| B[ISMC Map]
+B -->|Making it designer friendly| C[Abstraction of complex logic]
+C --> |Pointing out new bugs| D[Check-In]
+
+E{Part 3} -->|PR-number provider.| F[Randomly picking from map]
+F -->|Impementing fixed mesh lengths| G[Procedural Wall]
+G --> |Migrating code to library| H[Check-In]
+
+style W stroke:#0C0,stroke-width:1px
+style X stroke:#0C0,stroke-width:1px
+style Y stroke:#0C0,stroke-width:1px
+style Z stroke:#0C0,stroke-width:1px
+
+style A stroke:#CC0,stroke-width:1px
+style B stroke:#CC0,stroke-width:1px
+style C stroke:#CC0,stroke-width:1px
+style D stroke:#CC0,stroke-width:1px
+
+style E stroke:#CC0,stroke-width:1px
+style F stroke:#CC0,stroke-width:1px
+style G stroke:#CC0,stroke-width:1px
+style H stroke:#CC0,stroke-width:1px

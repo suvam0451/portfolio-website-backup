@@ -1,30 +1,18 @@
-// require('dotenv').config()
 import React, { useState } from "react";
-import { graphql } from "gatsby";
-import { Layout } from "../components/Layout";
-import { Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
-import { Footer } from "../components/Footer";
-import Header from "../components/Header";
+import { Alert, Footer } from "../components/Decorations";
 import styles from "../components/container.module.css";
 import classnames from "classnames";
 import TutorialSection from "../components/TutorialSection";
 import axios from "axios";
-import priceAPI from "../utils/priceAPI.js";
-import { TypographyStyle, GoogleFont } from "react-typography";
-import typography from "../utils/typography";
+import priceAPI from "../utils/priceAPI";
+import SoftwareSection from "../components/SoftwareSection";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 import {
-	Alert,
-	// Breadcrumb,
-	// Button,
-	// BreadcrumbItem,
 	Nav,
-	NavbarBrand,
 	NavItem,
 	NavLink,
-	// Navbar,
-	UncontrolledCollapse,
-	UncontrolledDropdown,
 	DropdownMenu,
 	DropdownToggle,
 	DropdownItem,
@@ -49,8 +37,6 @@ import {
 	NavbarGroup,
 	Classes,
 } from "@blueprintjs/core";
-import { Segment, Container } from "semantic-ui-react";
-import { alignmentClass } from "@blueprintjs/core/lib/esm/common/classes";
 import { NavSection } from "../components/NavBar";
 
 const BREADCRUMBS: IBreadcrumbProps[] = [
@@ -112,42 +98,6 @@ enum ActivePage {
 	"Suggestions",
 }
 
-class IndexPages extends React.Component<IndexPageProps> {
-	public state: IButtonsExampleState = {
-		active: false,
-		disabled: false,
-		iconOnly: false,
-		intent: Intent.NONE,
-		large: false,
-		loading: false,
-		minimal: false,
-		wiggling: false,
-	};
-	readonly hello = `doomo`;
-	public render() {
-		const { title, author } = this.props.data.site.siteMetadata;
-		return (
-			<Layout>
-				<h1>{this.hello} TypeScript world!</h1>
-				<p>
-					This site is named <strong>{author}</strong>
-				</p>
-				<h1>Hello world, from {author}!!</h1>
-				<p>
-					Konichiwa desu and {this.hello}, to {title}
-				</p>
-			</Layout>
-		);
-	}
-}
-
-async function prepare() {
-	console.log("sweet little lies");
-	axios
-		.get("https://api.github.com/users/maecapozzi")
-		.then(response => console.log(response));
-}
-
 function Index(props: IndexPageProps) {
 	// Bindings
 	const hello = `doomo`;
@@ -179,19 +129,14 @@ function Index(props: IndexPageProps) {
 	const { title, author } = props.data.site.siteMetadata;
 
 	async function prepare() {
-		// console.log("sweet little lies")
 		const response = await axios.get(
 			"https://api.guildwars2.com/v2/commerce/prices/19684",
 		);
 		setTextInput(response.statusText);
 		setTextInput(response.data["id"]);
-		// .then(response => setTextInput(response.data))
 	}
 
-	function renderCurrentBreadcrumb({
-		text,
-		...restProps
-	}: IBreadcrumbProps) {
+	function renderCurrentBreadcrumb({ text, ...restProps }: IBreadcrumbProps) {
 		// customize rendering of last breadcrumb
 		return (
 			<Breadcrumb {...restProps}>
@@ -222,49 +167,40 @@ function Index(props: IndexPageProps) {
 
 		priceAPI.readAll().then((response: any) => {
 			setPriceData(response);
-			const updatedPrices = PriceData.map(
-				(price: GW2TP, i: number) => {
-					const id = priceAPI.getTodoId(price);
-					alert(
-						"sell " + price.data.id + " at " + price.data.sell_at,
-					);
-				},
-			);
+			const updatedPrices = PriceData.map((price: GW2TP, i: number) => {
+				const id = priceAPI.getTodoId(price);
+				alert("sell " + price.data.id + " at " + price.data.sell_at);
+			});
 		});
 	}
 
 	return (
 		<div>
+			<GatsbySeo
+				twitter={{
+					handle: "@suvam0451",
+					site: "@suvam0451",
+					cardType: "summary_large_image",
+				}}
+				metaTags={[]}
+				canonical="https://suvam0451.netlify.app"
+				title="WinterWildfire - Advanced gamedev tutorials and toolkits"
+				description="Learn Unreal Engine 4 programming with free tutorials and sample projects."
+			/>
 			<Helmet>
 				<meta charSet="utf-8" />
-				<title>
-					WinterWildfire - Advanced gamedev tutorials and toolkits
-				</title>
-				<meta
-					name="description"
-					content="Learn Unreal Engine 4 programming with free tutorials and sample projects. Explore productive extension and scripting solutions brought to you by @suvam0451."
-				/>
 				<meta name="robots" content="index, follow" />
-				<link
-					rel="canonical"
-					href="https://winterwildfire.gitlab.io"
+				<meta
+					property="twitter:image"
+					content="https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg"
 				/>
 				<meta
-					name="google-site-verification"
-					content="UpQOVR-GDQR8BBe7XafsQYt2TeI7G_xP-3SrFoAy7L0"
+					property="og:image"
+					content="https://i.pinimg.com/originals/b0/d6/92/b0d692662cb25c1d245d8c94671fe93d.jpg"
 				/>
-				<TypographyStyle typography={typography} />
-				<GoogleFont typography={typography} />
+				<meta property="og:image:alt" content="Faulty URL" />
 			</Helmet>
 
-			{/* <Header title={"WinterWildfire"} /> */}
-			{/* <Card elevation={0} style={{ width: `100%` }}>
-				{/* <Breadcrumbs items={BREADCRUMBS} /> */}
-			{/*</Card> */}
-
-			{/*<Breadcrumb bsPrefix={styles.DarkCard} listClassName={styles.DarkCard} dark>
-          <BreadcrumbItem active>Home</BreadcrumbItem>
-      </Breadcrumb>*/}
 			<div>
 				<div className="shadow-md">
 					<NavSection />
@@ -302,7 +238,7 @@ function Index(props: IndexPageProps) {
 									ChangeActiveTab(ActivePage.Softwares);
 								}}
 							>
-								Softwares/APIs
+								Sleeping Forest
 							</NavLink>
 						</NavItem>
 						<NavItem>
@@ -314,7 +250,7 @@ function Index(props: IndexPageProps) {
 									ChangeActiveTab(ActivePage.About);
 								}}
 							>
-								About Me
+								About
 							</NavLink>
 						</NavItem>
 						<NavItem>
@@ -329,60 +265,41 @@ function Index(props: IndexPageProps) {
 								Suggestion
 							</NavLink>
 						</NavItem>
-						<Dropdown
-							nav
-							isOpen={MenuDropdownState}
-							toggle={ToggleMainMenuDrop}
-						>
+						<Dropdown nav isOpen={MenuDropdownState} toggle={ToggleMainMenuDrop}>
 							<DropdownToggle nav caret>
 								Resources
 							</DropdownToggle>
 							<DropdownMenu>
 								<DropdownItem disabled>Advanced sitemap</DropdownItem>
 								<DropdownItem divider />
-								<DropdownItem disabled>Free Content</DropdownItem>
-								<DropdownItem disabled>Paid Content</DropdownItem>
+								<DropdownItem disabled>UE4 Projects</DropdownItem>
+								<DropdownItem disabled>Blender Scripts</DropdownItem>
 							</DropdownMenu>
 						</Dropdown>
 					</Nav>
 				</div>
 				<TabContent activeTab={ActiveTab}>
 					<TabPane tabId={ActivePage.Featured}>
-						<Jumbotron className={styles.DarkCardBody}>
-							<h1 className="display-5">
-								Hey, I am Debashish Patra!
-							</h1>
+						<Jumbotron>
+							<h1 className="display-5">Welcome to WinterWildfire</h1>
 							<p>
-								<b>App</b>(C++/VBA) | <b>Game</b>(UE4/CryEngine) |{" "}
-								<b>Web</b>(React) | <b>DevOps</b>
+								<b>App</b>(C++/VBA) | <b>Game</b>(UE4/CryEngine) | <b>Web</b>(React) |{" "}
+								<b>DevOps</b>
 							</p>
 							<hr className="my-2" />
 							<p className="lead">
-								This is where I share my{" "}
-								<b>tutorials, APIs and plugins.</b>
+								Home to gamedev <b>tutorials, APIs and plugins.</b>
 							</p>
 							{
 								<p className="lead">
-									<Button
-										icon="refresh"
-										color="dark"
-										href="https://gitlab.com/suvam0451"
-									>
-										GitLab
+									<Button icon="refresh" color="dark">
+										<a href="https://gitlab.com/suvam0451">Gitlab</a>
 									</Button>
-									<Button
-										className={styles.ShowCodeButton}
-										color="dark"
-										href="https://gitlab.com/suvam0451"
-									>
-										GitLab
+									<Button className={styles.ShowCodeButton} color="dark">
+										<a href="https://gitlab.com/suvam0451">Gitlab</a>
 									</Button>
-									<Button
-										className={styles.ShowCodeButton}
-										color="dark"
-										href="https://gitlab.com/suvam0451"
-									>
-										Discord
+									<Button className={styles.ShowCodeButton} color="dark">
+										<a href="https://gitlab.com/suvam0451">Discord</a>
 									</Button>
 								</p>
 							}
@@ -390,6 +307,9 @@ function Index(props: IndexPageProps) {
 					</TabPane>
 					<TabPane tabId={ActivePage.Tutorials}>
 						<TutorialSection />
+					</TabPane>
+					<TabPane tabId={ActivePage.Softwares}>
+						<SoftwareSection />
 					</TabPane>
 					<TabPane tabId={ActivePage.About}>
 						<form onSubmit={handlePriceSubmit}>
@@ -404,39 +324,14 @@ function Index(props: IndexPageProps) {
 							</label>
 							<label>
 								Buying at
-								<input
-									type="number"
-									name="buy_at"
-									value={currentBuyAt}
-								/>
+								<input type="number" name="buy_at" value={currentBuyAt} />
 							</label>
 							<label>
 								Selling at
-								<input
-									type="number"
-									name="sell_at"
-									value={currentSellAt}
-								/>
+								<input type="number" name="sell_at" value={currentSellAt} />
 							</label>
 							<button type="submit">Submit</button>
 						</form>
-						<Segment
-							vertical
-							inverted
-							textAlign="center"
-							className="masthead"
-						>
-							<Container text>Hello there</Container>
-						</Segment>
-						<h1>{hello} TypeScript world!</h1>
-						<p>
-							This site is named <strong>{author}</strong>
-						</p>
-						<h1>Hello world, from {author}!!</h1>
-						<button onClick={() => CounterUpdate()}>Kiss Me</button>
-						<p>
-							Konichiwa desu and {Counter}, to {title}
-						</p>
 					</TabPane>
 				</TabContent>
 				<Footer />

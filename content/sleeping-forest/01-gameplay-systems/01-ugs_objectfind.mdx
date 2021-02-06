@@ -1,0 +1,63 @@
+---
+path: "/docs/sleeping-forest/gameplay-systems/ugs_objectfind"
+title: "Instanced Static Meshes in UE4 (Part 1/3)"
+date: "2020-01-10"
+submoduleID: 1
+seriesID: 2
+seriesIndex: 1
+draft: false
+---
+
+### ugs_objectfind
+
+Used to load assets by path in C++ code. Try not to load assets directly in C++ like this(except data assets). There are better options available.
+
+- **\$1**: Pick a decent(disposable) name for object.
+- **\$2**: Location of asset (See extra info).
+- **\$3**: Object type
+- **\$4**: Where to cast after null-check (If you skip null-check and don't get reference, a warning will be thrown).
+
+```cpp
+static ConstructorHelpers::FObjectFinder<${3:UStaticMesh}> ${1:UniqueName}(TEXT("/Game/$2"));
+if(${1:UniqueName} != null) {
+    ${4:TargetObject} = ${1:UniqueName}.Object;
+}
+```
+
+- We also need **_"ConstructorHelpers.h"_**. Done automatically if using commandlet.
+- If you don't have any plug-ins, assets can be listed at **_"/Game/YourFolder/YourItem"_**.
+- For plug-in content, Path = **_"/PluginName/YourFolder/YourItem"_**
+- Don't add "\_C"(This is only for BP classes) or "StaticMesh.YourMesh_C"(This is outdated syntax))
+
+Many times, it is a better idea to load the assets asynchronously.
+
+You can read my tutorial about asynchronous loading here(coming soon).
+
+#### Example use case
+
+Here we are getting a mesh in C++ directly.
+
+```cpp{3, 21}
+// header
+
+// Note how the reference doesn't have to be public.
+private:
+    UPROPERTY()
+        UStaticMesh *AutoReference;
+
+
+// source
+
+static ConstructorHelpers::FObjectFinder<UStaticMesh> tmp(TEXT("/Game/Meshes/MyCube"));
+if(tmp != null) {
+    AutoReference = tmp.Object;
+}
+
+// source(inline)
+
+AutoReference = ConstructorHelpers::FObjectFinder<UStaticMesh> tmp(TEXT("/Game/$2")).Object;
+
+// Don't use the above. Without null checks, it is hard to debug other features
+// because the code will reach breakpoints.
+// Always deal with null references as they come.
+```

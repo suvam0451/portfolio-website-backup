@@ -1,67 +1,85 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
-import {
-	Alignment,
-	Button,
-	Intent,
-	Breadcrumbs,
-	Breadcrumb,
-	IBreadcrumbProps,
-	Icon,
-	Card,
-	Navbar,
-	NavbarHeading,
-	NavbarDivider,
-	NavbarGroup,
-	Classes,
-} from "@blueprintjs/core";
-import Image from "gatsby-image";
+import { graphql, Link } from "gatsby";
+import { Navbar, NavbarHeading } from "@blueprintjs/core";
 import Hamburger from "../../content/images/hamburger-menu.png";
+
+// const MobileNavbar = styled("div")`
+// 	display: block;
+// 	@media (min-width: 540px) {
+// 		display: none;
+// 	}
+// `;
+
+// const DesktopNavbarSection = styled("div")`
+// 	display: none;
+// 	@media (min-width: 540px) {
+// 		display: block;
+// 	}
+// `;
+
+// const ComponentStyle = styled("div")`
+// 	max-width: 1920px;
+// 	margin: 0 auto;
+// 	z-index: 40;
+// `;
 
 // Navigation section always visible on top.
 function NavSection() {
+	// State variables
+	const [Collapsed, setCollapsed] = useState(true);
+
+	function MobileMenuToggle() {
+		setCollapsed(!Collapsed);
+	}
 	return (
+		/* // FIXME: ComponentStyle */
 		<div>
 			<Navbar>
 				<div className="bp3-navbar-group bp3-align-left">
 					<NavbarHeading>WinterWildfire</NavbarHeading>
-					<span className="bp3-navbar-divider" />
-					<button className="bp3-button bp3-minimal bp3-icon-home">
-						Home
-					</button>
-					<div className="sm:invisible md:visible lg:visible xl:visible">
+					{/* // FIXME: DesktopNavbarSection */}
+					<div>
+						<span className="bp3-navbar-divider" />
+						<Link to="/">
+							<button className="bp3-button bp3-minimal bp3-icon-home">Home</button>
+						</Link>
 						<button className="bp3-button bp3-minimal bp3-icon-document">
 							Tutorials
 						</button>
-						<button className="bp3-button bp3-minimal bp3-icon-build">
-							Tools
-						</button>
-						<button className="bp3-button bp3-minimal bp3-icon-git-branch">
-							Repositories
-						</button>
+
+						<button className="bp3-button bp3-minimal bp3-icon-build">Tools</button>
+						<a href="https://gitlab.com/winterwildfire">
+							{/* git-repo */}
+							<button className="bp3-button bp3-minimal bp3-icon-git-branch">
+								Repositories
+							</button>
+						</a>
 					</div>
 				</div>
-				<div className="sm:visible md:invisible lg:invisible xl:invisible">
-					<button className="p-2 bp3-navbar-group bp3-align-right bp3-button bp3-minimal">
-						<img className="h-6 content-center" src={Hamburger}></img>
+				{/* // FIXME: */}
+				<div>
+					<button
+						className="p-2 bp3-navbar-group bp3-align-right bp3-button bp3-minimal"
+						onClick={MobileMenuToggle}
+					>
+						<img className="h-6 content-center" src={Hamburger} />
 					</button>
 				</div>
 			</Navbar>
-			<div className="sm:visible md:invisible lg:invisible xl:invisible md:h-0 lg:h-0 xl:h-0">
-				<div>
-					<button className="bp3-fill bp3-button bp3-icon-home">
-						Home
-					</button>
-				</div>
-				<div>
-					<button className="bp3-button bp3-icon-document bp3-fill">
-						Tutorials
-					</button>
-				</div>
-				<div>
-					<button className="bp3-button bp3-icon-build bp3-fill">
-						Tools
-					</button>
+			{/* FIXME: MobileNavbar */}
+			<div>
+				<div className={Collapsed ? `hidden` : "viisble"}>
+					<div>
+						<Link to="/">
+							<button className="bp3-fill bp3-button bp3-icon-home">Home</button>
+						</Link>
+					</div>
+					<div>
+						<button className="bp3-button bp3-icon-document bp3-fill">Tutorials</button>
+					</div>
+					<div>
+						<button className="bp3-button bp3-icon-build bp3-fill">Tools</button>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,331 @@
+[
+	{
+		"submoduleID": 1,
+		"label": "Getting Started",
+		"description": "Some background and brief overview of features",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "Installation",
+				"description": "A lot of damage",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Installation",
+						"link": "/docs/sleeping-forest/getting-started/"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Feature List",
+						"link": "/docs/sleeping-forest/features"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "Background",
+				"description": "A lot of damage",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "problem-statement",
+						"link": "/docs/sleeping-forest/background/"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "faq",
+						"link": "/docs/sleeping-forest/faq/"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 2,
+		"label": "Snippets",
+		"description": "Generic snippets for intellisense autocompletion.",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "introduction",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "overview",
+						"link": "/docs/sleeping-forest/snippets-overview"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "uprop",
+						"link": "/docs/sleeping-forest/snippets-overview/uprop"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "udebug",
+						"link": "/docs/sleeping-forest/snippets-overview/udebug"
+					},
+					{
+						"seriesIndex": 4,
+						"title": "ugs",
+						"link": "/docs/sleeping-forest/snippets-overview/ugs"
+					},
+					{
+						"seriesIndex": 5,
+						"title": "uinit",
+						"link": "/docs/sleeping-forest/snippets-overview/uinit"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "full-lists",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "uai",
+						"link": "/docs/sleeping-forest/snippet-lists/uai"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "uclass",
+						"link": "/docs/sleeping-forest/snippet-lists/uclass"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "udebug",
+						"link": "/docs/sleeping-forest/snippet-lists/udebug"
+					},
+					{
+						"seriesIndex": 4,
+						"title": "uget",
+						"link": "/docs/sleeping-forest/snippet-lists/uget"
+					},
+					{
+						"seriesIndex": 5,
+						"title": "ugs",
+						"link": "/docs/sleeping-forest/snippet-lists/ugs"
+					},
+					{
+						"seriesIndex": 6,
+						"title": "uinit",
+						"link": "/docs/sleeping-forest/snippet-lists/uinit"
+					},
+					{
+						"seriesIndex": 7,
+						"title": "ulog",
+						"link": "/docs/sleeping-forest/snippet-lists/ulog"
+					},
+					{
+						"seriesIndex": 8,
+						"title": "umat",
+						"link": "/docs/sleeping-forest/snippet-lists/umat"
+					},
+					{
+						"seriesIndex": 9,
+						"title": "uprop",
+						"link": "/docs/sleeping-forest/snippet-lists/uprop"
+					},
+					{
+						"seriesIndex": 10,
+						"title": "utrace",
+						"link": "/docs/sleeping-forest/snippet-lists/utrace"
+					},
+					{
+						"seriesIndex": 11,
+						"title": "uwidget",
+						"link": "/docs/sleeping-forest/snippet-lists/uwidget"
+					},
+					{
+						"seriesIndex": 12,
+						"title": "ue4_suvam0451",
+						"link": "/docs/sleeping-forest/snippet-lists/ue4_suvam0451"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 3,
+		"label": "Context Key",
+		"description": "Generic snippets for intellisense autocompletion.",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "overview",
+				"children": [
+					{
+						"seriesIndex": 0,
+						"title": "introduction",
+						"link": "/docs/sleeping-forest/context-keys/"
+					},
+					{
+						"seriesIndex": 1,
+						"title": "key-bindings",
+						"link": "/docs/sleeping-forest/context-keys/1"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "activation-context",
+						"link": "/docs/sleeping-forest/context-keys/2"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 4,
+		"label": "Modules",
+		"description": "Generic snippets for intellisense autocompletion.",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "class-generator",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "overview",
+						"link": "/docs/sleeping-forest/class-generator"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "module-internals",
+						"link": "/docs/sleeping-forest/class-generator/1"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "template-list",
+						"link": "/docs/sleeping-forest/class-generator/2"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "header-manager",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "overview",
+						"link": "/docs/sleeping-forest//header-manager"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "default-list",
+						"link": "/docs/sleeping-forest/header-manager/1"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "Extending the module",
+						"link": "/docs/sleeping-forest/header-manager/2"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 97,
+		"label": "Asset Streams",
+		"description": "no lollygaggin'",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "getting-started",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "hello-streams",
+						"link": "/docs/sleeping-forest/hello-asset-streams"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "importing-assets",
+						"link": "/docs/sleeping-forest/importing-asset-streams"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "texturesets",
+						"link": "/docs/sleeping-forest/asset-stream-texture-sets"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 98,
+		"label": "Modding",
+		"description": "no lollygaggin'",
+		"modules": [
+			{
+				"seriesID": 0,
+				"label": "getting-files",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "locating-modtools",
+						"link": "/docs/sleeping-forest/extension-files"
+					}
+				]
+			},
+			{
+				"seriesID": 1,
+				"label": "buildspaces",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "how-it-works",
+						"link": "/docs/sleeping-forest/extending-the-buildspace"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "adding-functions",
+						"link": "/docs/sleeping-forest/adding-function-definitions"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "header-packs",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "adding-headers",
+						"link": "/docs/sleeping-forest/extending-header-packs"
+					}
+				]
+			},
+			{
+				"seriesID": 3,
+				"label": "the-workspace",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "configuration-list",
+						"link": "/docs/sleeping-forest/workspace-configurations"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 99,
+		"label": "References",
+		"description": "Extra stuff",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "workspace-guide",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "core-workspace",
+						"link": "/docs/sleeping-forest/code-workspace"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "tools-setup",
+				"children": []
+			}
+		]
+	}
+]

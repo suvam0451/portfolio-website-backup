@@ -1,0 +1,67 @@
+---
+path: "/tutorials/ue4/setting-up-development-environment/1"
+title: "Setting up development environment (Part 1/3)"
+date: "2020-01-10"
+tags: ["ue4", "mdx", "example"]
+moduleID: 1
+submoduleID: 1
+seriesID: 5
+seriesIndex: 1
+draft: false
+---
+
+### Vanilla Engine Installation
+
+After downloading tand installing the Epic games launcher, the menu navigation to installing the latest engine is pretty straight forward.
+
+I would just have a few suggestions regarding the components to install.
+The basic idea is to avoid installing packages that you are never planning to ship to.
+
+Also, the **_Editor Symbols for debugging_** can also be skipped. This component is required to debug the source code.
+We would need it only while working with heavy optimizations.
+For normal use, this is required only when the engine crashes and you have to figure out which variable is causing the crash.
+
+For my personal use, I prefer multiple lightweight versions of engines installed.
+
+It also helps that after dealing with a lot of errors, you can pretty much tell what went wrong from the error log without stepping through the code.
+In fact, my API `kurisu` indexed a huge list of errors you might encounter and suggestions to fix them.
+
+In this module, we will be setting up the development environment for Unreal Engine 4. That means everything except the engine and editor itself.
+If you have a fast running PC with lightning fast compile times, then that is great.
+But a large segment of users use slower PCs/laptops and thus the engine gets a bad name for heavily resource demaning.
+
+---
+
+#### SSD/HDD/NVMe
+
+When working with a project, we would have to read from the following three locations
+
+- Visual Studio Installations
+- Engine Folder
+- Project folder
+
+The bottleneck while various loading phases is going to be
+
+- Coding/Compiling --> Visual studio folder
+- Packaging --> Project folder
+- Loading project --> Engine Folder
+
+Loading project is the fastest step(except for when you are compiling the 5000+ shaders while changing settings/first-time use)
+
+#### Install locations
+
+TL;DR :
+
+- Engine Installation --> SATA SSD/HDD
+- VS Installation --> NVMe (Not needed if using VSCode)
+- Project Workspace --> NVMe
+
+If you have ample space on your NVMe, feel free to install everything there for maximum speed.
+
+I install my engines in a hard disk(HDD) and compile the shaders through command line on-demand while I am away.
+I house my project folder in my NVMe for faster asset loading/cooking.
+
+Back when I used VS primarily, I would definitely install it in an SSD for faster code iterations.
+Now with my switch to VSCode, I have moved my VS installation to a slower SATA SSD and have both my Engine and Project workspace in NVMe for fast raw asset loading.
+
+I will show you how to compile shaders from command-line in VSCode set-up section.

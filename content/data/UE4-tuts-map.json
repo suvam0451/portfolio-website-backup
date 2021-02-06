@@ -1,0 +1,215 @@
+[
+	{
+		"submoduleID": 1,
+		"label": "Programming",
+		"description": "Using DLLs + LIBs in UE4. Both static and dynamic linking",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "plugin-in-rust",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Part 1",
+						"link": "/tutorials/ue4/plugin-development-using-rust/1"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "plugin-in-cpp",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Part 1",
+						"link": "ue4-tuts/plugin-development-using-rust-1/"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Part 2",
+						"link": "ue4-tuts/plugin-development-using-rust-2/"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "Part 3",
+						"link": "ue4-tuts/plugin-development-using-rust-3/"
+					}
+				]
+			},
+			{
+				"seriesID": 3,
+				"label": "gameplay-ability-system",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Introduction and basics",
+						"link": "/tutorials/ue4/gameplay-ability-system-01/"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Our first abilities",
+						"link": "/tutorials/ue4/gameplay-ability-system-02/"
+					}
+				]
+			},
+			{
+				"seriesID": 4,
+				"label": "interfaces",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Native C++ interface",
+						"link": "/tutorials/ue4/interfaces-in-cpp-and-blueprints/1"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "Health system interface",
+						"link": "/tutorials/ue4/interfaces-in-cpp-and-blueprints/3"
+					}
+				]
+			},
+			{
+				"seriesID": 5,
+				"label": "tools-setup",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "With Visual Studio 2019",
+						"link": "/tutorials/ue4/setting-up-development-environment/1"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "With Visual Studio Code",
+						"link": "/tutorials/ue4/setting-up-development-environment/2"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "Introducing IncrediBuild",
+						"link": "/tutorials/ue4/setting-up-development-environment/3"
+					},
+					{
+						"seriesIndex": 4,
+						"title": "Using MSBuild on microsoft servers to build",
+						"link": "/tutorials/ue4/setting-up-development-environment/4"
+					}
+				]
+			},
+			{
+				"seriesID": 6,
+				"label": "instanced-static-meshes",
+				"children": [
+					{
+						"seriesIndex": 0,
+						"title": "Introduction to ISM",
+						"link": "/tutorials/ue4/instanced-static-meshes"
+					},
+					{
+						"seriesIndex": 1,
+						"title": "Introduction to ISM",
+						"link": "/tutorials/ue4/instanced-static-meshes/1"
+					},
+					{
+						"seriesIndex": 2,
+						"title": "Mapping multiple ISMC",
+						"link": "/tutorials/ue4/instanced-static-meshes/2"
+					},
+					{
+						"seriesIndex": 3,
+						"title": "Code Refactoring",
+						"link": "/tutorials/ue4/instanced-static-meshes/3"
+					},
+					{
+						"seriesIndex": 4,
+						"title": "FRandomStream",
+						"link": "/tutorials/ue4/instanced-static-meshes/4"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 2,
+		"label": "DevOps",
+		"description": "Optimized development",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "git-basics",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "introduction",
+						"link": "/ue4-tuts/git-for-unreal-engine-projects-01/"
+					}
+				]
+			},
+			{
+				"seriesID": 2,
+				"label": "build-systems",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Introduction and Basics",
+						"link": "/ue4-tuts/unreal-engine-build-systems-01"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 3,
+		"label": "Shaders",
+		"description": "Writing advanced shaders",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "introduction-to-shaders",
+				"hasChildren": true,
+				"Link": "/",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Non-technical Overview",
+						"link": "/tutorials/ue4/introduction-to-shaders/1"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submoduleID": 4,
+		"label": "Miscellaneous",
+		"description": "Okay",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "gameplay-ability-system",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Introduction and basics",
+						"link": "/tutorials/ue4/gameplay-ability-system-01/"
+					}
+				]
+			}
+		]
+	},
+	{
+		"submodule": 5,
+		"label": "Debugging",
+		"description": "Fixing most commonly encountered error messages.",
+		"modules": [
+			{
+				"seriesID": 1,
+				"label": "non-engine-errors",
+				"children": [
+					{
+						"seriesIndex": 1,
+						"title": "Common git errors",
+						"link": "/tutorials/ue4/fixing-common-git-errors"
+					}
+				]
+			}
+		]
+	}
+]

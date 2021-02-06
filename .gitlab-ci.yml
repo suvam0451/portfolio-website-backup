@@ -1,0 +1,37 @@
+image: node:latest
+
+stages:
+  - build
+
+# cache: {} # Skip cache download
+cache: &global_cache
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+  policy: pull-push
+
+GatsbyBuild:
+  stage: build
+  cache:
+    <<: *global_cache
+  script:
+    - yarn install --silent
+    - yarn gatsby build
+    - yarn global add netlify-cli
+    - cp content/google0599b2e4551d150d.html ./public # Google verification
+    - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
+
+# Deploy changes to website if -publish is passed in commi
+NetlifyPublish:
+  stage: build
+  cache:
+    <<: *global_cache
+  script:
+    - yarn install --silent
+    - yarn gatsby build
+    - yarn global add netlify-cli
+    - cp content/google0599b2e4551d150d.html ./public # Google verification
+    - netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod
+  only:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /--publish/

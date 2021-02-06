@@ -1,0 +1,86 @@
+---
+path: "/docs/sleeping-forest/extension-files"
+title: "Where to find the files ?"
+date: "2020-01-10"
+submoduleID: 98
+seriesID: 3
+seriesIndex: 1
+draft: false
+---
+
+This guide is about **location** of Visual Studio Code extensions files.
+This guide will also tell you about which files you need for adding your templates.
+This should help you find the JSON files used to add your mods.
+
+However, **this guide will be for windows only**. I have no idea where they are stored in MacOS/Linux.
+Any pointers towards that would be appreciated.
+
+### Installation Location
+
+---
+
+After adding an extension, the files can be found in
+
+- **C:/Users/{Username}/.vscode** for Visual Studio Code
+- **C:/Users/{Username}/.vscode-insiders** for Visual Studio Code Insiders
+
+You would be interested in the following folders
+
+#### 1. Snippets
+
+---
+
+Browse this to view the snippets.
+If a large number of snippets were added and the documentation was not updates,
+here's where you'll find them.
+
+#### 2. out/data
+
+---
+
+This folder contains the default JSON files that ship with the extension. **You don't want to modify these**,
+unless you have a hang of how the API works.
+
+#### 3. out/data/extensions
+
+---
+
+This folder contains files that are available to you to add your templates.
+For a comprehensive guide on the various modules available for modding and how-tos, follow these links
+
+- [adding header pack](/docs/sleeping-forest/adding-header-packs)
+- [add/make buildspaces](/docs/sleeping-forest/extending-the-buildspace)
+
+### List of files
+
+---
+
+These files in first column are shipped by default with extension.
+**Try not to mess these up**.
+The corresponding mod files are listed in second column
+(all inside the extension folder)
+
+| Shipped Defaults               | Extension File                           |
+| ------------------------------ | ---------------------------------------- |
+| out/data/BuildTemplates.json   | out/data/extensions/Buildspace.json      |
+| out/data/ContextAutofill.json  | out/data/extensions/ContextFill_Ext.json |
+| out/data/headerFunctions.json  | out/data/extensions/Functions_Ext.json   |
+| out/data/includeTemplates.json | out/data/extensions/Include_Ext.json     |
+
+Tour is over and you are ready to start modding. Jump into any of the following guides to get started
+
+- [Extending header packs](/docs/sleeping-forestadding-header-packs)
+- [Extending buildspaces](/docs/sleeping-forest/extending-the-buildspace)
+- [Customizing exclusions](/docs/sleeping-forest/workspace-configurations)
+
+#### Other files
+
+---
+
+A little but about what the other files are doing, if you curious
+
+- The files in **templates folder** are used to generate the folder structure for AssetStreams.
+- **search-engine** folder has files thast I will use later to provide error wiki features (hopefully).
+- **generators** has class generation data* (Used by Class generator module)*
+
+See you later... 🖐

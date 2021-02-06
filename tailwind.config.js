@@ -1,5 +1,12 @@
 module.exports = {
-	theme: {
+	theme: {    
+		fontFamily: {
+			display: ['Gilroy', 'sans-serif'],
+			body: ['Graphik', 'sans-serif'],
+	  	},
+		listStyleType: {
+			disc: 'disc',
+		},
 		extend: {
 			spacing: {
 				"1/2": "50%",
@@ -21,6 +28,22 @@ module.exports = {
 			"1": "1 1 0%",
 		},
 	},
-	variants: {},
+	variants: {
+		textColor: ["responsive", "hover", "focus", "group-hover"],
+		backgroundColor: [
+			"active",
+			"responsive",
+			"hover",
+			"focus",
+			"group-hover",
+		],
+		// invisible: ["focus", "group-hover"],
+		visibility: ["focus", "group-hover"],
+	},
 	plugins: [],
+	corePlugins: {
+		// ...
+		lists: false,
+		listStyleType: true,
+	}
 };

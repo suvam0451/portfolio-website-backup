@@ -1,47 +1,53 @@
 const proxy = require("http-proxy-middleware");
 const path = require(`path`);
+require("dotenv").config({
+	path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
 	siteMetadata: {
-		title: `Gatsby Default Starter`,
-		description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-		author: `@suvam0451`,
+		title: `Debashish Patra's Apps`,
+		description: `Hey, I am Debashish Patra. I develops FOSS packages in Go and Typescript. DevOps | Gamedev | Webdev.`,
+		author: `Debashish Patra`,
+		siteUrl: `https://suvam0451.netlify.app/`,
+		twitterusername: "@suvam0451",
 	},
 	// for avoiding CORS while developing Netlify Functions locally
 	// read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
-	developMiddleware: app => {
-		app.use(
-			"/.netlify/functions/",
-			proxy({
-				target: "http://localhost:9000",
-				pathRewrite: {
-					"/.netlify/functions/": "",
-				},
-			}),
-		);
-	},
+	// ignore: [process.env.IGNORE_POST_FOLDER],
+	// developMiddleware: (app) => {
+	// 	app.use(
+	// 		"/.netlify/functions/",
+	// 		proxy({
+	// 			target: "http://localhost:9000",
+	// 			pathRewrite: {
+	// 				"/.netlify/functions/": "",
+	// 			},
+	// 		}),
+	// 	);
+	// },
 	plugins: [
-		`gatsby-plugin-emotion`,
+		{
+			resolve: `gatsby-plugin-next-seo`,
+			options: {
+				openGraph: {
+					type: "website",
+					locale: "en_US",
+				},
+			},
+		},
 		`gatsby-plugin-offline`,
-		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-typescript`,
 		`gatsby-plugin-postcss`,
-		{
-			resolve: `gatsby-plugin-typography`,
-			options: {
-				pathToConfigModule: `src/utils/typography`,
-				omitGoogleFont: false,
-			},
-		},
 		`gatsby-transformer-json`,
 		`gatsby-transformer-sharp`,
-		"prismjs",
 		{
 			resolve: "gatsby-source-filesystem",
 			options: {
 				name: "content",
 				path: `${__dirname}/content`,
+				ignore: [process.env.IGNORE_POST_FOLDER],
 			},
 		},
 		{
@@ -52,56 +58,69 @@ module.exports = {
 					{
 						resolve: "gatsby-remark-images",
 						options: {
-							maxWidth: 1035,
-							sizeByPixelDensity: true,
-							showCaptions: true,
+							maxWidth: 840,
 							linkImagesToOriginal: false,
+						},
+					},
+					{
+						resolve: "gatsby-remark-autolink-headers",
+						options: {
+							offsetY: `0`,
+							icon: `<svg aria-hidden="true" height="18" version="1.1" viewBox="0 0 16 16" width="18"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg>`,
+							className: `inline-block ml-2 after`,
+							maintainCase: true,
+							removeAccents: true,
+							isIconAfterHeader: true,
+							elements: [`h1`, `h2`, `h3`],
 						},
 					},
 					{
 						resolve: `gatsby-remark-prismjs`,
 						options: {
-							classPrefix: "language-",
+							// classPrefix: "language-",
 							inlineCodeMarker: null,
 							showLineNumbers: true,
+							noInlineHighlight: false,
 							aliases: {},
+							prompt: {
+								user: "root",
+								host: "localhost",
+								global: false,
+							},
+							escapeEntites: {},
+						},
+					},
+					{
+						resolve: "gatsby-remark-copy-linked-files",
+						options: {
+							ignoreFileExtension: [`png`, `jpg`, `jpeg`],
 						},
 					},
 				],
 			},
 		},
+		`gatsby-plugin-sitemap`,
 		{
-			resolve: "gatsby-plugin-lunr",
+			resolve: `gatsby-remark-rehype-images`,
+			options: "rehype-images",
+			sharpFunction: `fixed`,
+			width: 480,
+			height: 360,
+		},
+		`gatsby-plugin-transition-link`,
+		{
+			resolve: `gatsby-plugin-typography`,
 			options: {
-				languages: [
-					{
-						name: "en",
-						filterNodes: node =>
-							!node.frontmatter || node.frontmatter.draft !== true,
-						customEntries: [
-							{
-								title: "Another Page",
-								content: "Welcome to page 2",
-								path: "/another-page/",
-							},
-						],
-					},
-				],
-				fields: [
-					{ name: "title", store: true, attributes: { boost: 20 } },
-					{ name: "path", store: true },
-					{ name: "content" },
-					{ name: "tags" },
-				],
-				resolver: {
-					Mdx: {
-						title: node => node.frontmatter.title,
-						path: node => node.frontmatter.path,
-						content: node => node.rawBody,
-						tags: node => node.frontmatter.tags,
-					},
-				},
+				pathToConfigModule: `src/utils/typography`,
 			},
 		},
+		{
+			resolve: `gatsby-plugin-nprogress`,
+			options: {
+				color: `tomato`,
+				showSpinner: true,
+			},
+		},
+		`gatsby-plugin-sass`,
 	],
 };

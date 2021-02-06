@@ -1,0 +1,33 @@
+$font-stack: Helvatica, sans-serif
+
+// colors
+$bg_black: #2b2b2b
+$font_yellow: #eac66d
+$font_darkgrey: #a9b7c6
+
+.alert
+    background-color: $bg_black
+    padding: 0em 0em
+    border-radius: 10px
+    transition: height 1s
+    padding-left: 1.0rem
+    padding-top: 0.25rem
+    padding-bottom: 0rem
+    display: flex
+    flex-direction: column
+    margin-bottom: 1rem
+    // padding: 4px
+
+    & .alerthead
+        color: $font_yellow
+        font-weight: 700
+        line-height: 0.5rem
+        padding-top: 0.75rem
+    & .alertbody
+        color: $font_darkgrey
+        padding: 0
+    & svg // the image logo
+        height: 2rem
+        width: 2rem
+        margin-top: 1.25rem
+        margin-right: 1rem

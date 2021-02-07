@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { graphql } from "gatsby";
+import React from "react";
 import { Navbar, NavbarHeading } from "@blueprintjs/core";
-import Image from "gatsby-image";
 import Hamburger from "../../content/images/hamburger-menu.png";
 
 // Navigation section always visible on top.
